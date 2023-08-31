@@ -1,0 +1,4 @@
+framework module ExelBidSDK {
+  header "ExelBidSDK-Swift.h"
+  requires objc
+}

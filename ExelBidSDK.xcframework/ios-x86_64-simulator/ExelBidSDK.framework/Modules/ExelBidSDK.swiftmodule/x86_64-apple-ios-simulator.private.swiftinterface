@@ -1,0 +1,467 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ExelBidSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AdSupport
+import AppTrackingTransparency
+import CoreGraphics
+import CoreLocation
+import CoreTelephony
+import Foundation
+import StoreKit
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+@objc public protocol EBNativeAdRendering {
+  @objc optional func nativeMainTextLabel() -> UIKit.UILabel?
+  @objc optional func nativeTitleTextLabel() -> UIKit.UILabel?
+  @objc optional func nativeIconImageView() -> UIKit.UIImageView?
+  @objc optional func nativeMainImageView() -> UIKit.UIImageView?
+  @objc optional func nativeVideoView() -> UIKit.UIView?
+  @objc optional func nativeCallToActionTextLabel() -> UIKit.UILabel?
+  @objc optional func nativePrivacyInformationIconImageView() -> UIKit.UIImageView?
+}
+@_hasMissingDesignatedInitializers public class EBStaticNativeAdRenderer {
+  public static func rendererConfigurationWithRendererSettings(_ rendererSettings: any ExelBidSDK.EBNativeAdRendererSettings) -> ExelBidSDK.EBNativeAdRendererConfiguration
+  @objc deinit
+}
+public var kUniversalStarRatingScale: CoreFoundation.CGFloat
+public var kStarRatingMaxValue: CoreFoundation.CGFloat
+public var kStarRatingMinValue: CoreFoundation.CGFloat
+public var kDefaultRequiredSecondsForImpression: Swift.Double
+public var kAdTitleKey: Swift.String
+public var kAdTextKey: Swift.String
+public var kAdIconImageKey: Swift.String
+public var kAdMainImageKey: Swift.String
+public var kAdLogoeKey: Swift.String
+public var kAdSponsoredKey: Swift.String
+public var kAdStarRatingKey: Swift.String
+public var kAdLikesKey: Swift.String
+public var kAdDownloadsKey: Swift.String
+public var kAdPriceKey: Swift.String
+public var kAdSalepriceKey: Swift.String
+public var kAdPhoneKey: Swift.String
+public var kAdAddressKey: Swift.String
+public var kAdDesc2Key: Swift.String
+public var kAdDisplayurlKey: Swift.String
+public var kAdCTATextKey: Swift.String
+public var kAdVideo: Swift.String
+public class EBNativeAdRequestTargeting {
+  public static var targeting: ExelBidSDK.EBNativeAdRequestTargeting
+  public var keywords: Swift.String?
+  public var location: CoreLocation.CLLocation?
+  public var desiredAssets: Foundation.NSSet?
+  public var yob: Swift.String?
+  public var gender: Swift.String?
+  public var testing: Swift.Bool
+  public var coppa: Swift.String?
+  public init()
+  public func setDesiredAssets(_ desiredAssets: Foundation.NSSet?)
+  @objc deinit
+}
+extension WebKit.WKWebView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
+    @objc get
+  }
+}
+public enum EBNativeAdError : Foundation.LocalizedError {
+  case Unkown
+  case HttpError
+  case NoInventory
+  case ImageDownloadFailed
+  case AdUnitWarmingUp
+  case VASTParsingFailed
+  case VideoConfigInvalid
+  case ContentDisplayError
+  case RenderError
+  case InvalidServerResponse(reason: Swift.String?)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum HTTPMethod : Swift.String {
+  case options
+  case get
+  case head
+  case post
+  case put
+  case patch
+  case delete
+  case trace
+  case connect
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EBNativeAdOrientation {
+  case any, portrait, landscape
+  public static func == (a: ExelBidSDK.EBNativeAdOrientation, b: ExelBidSDK.EBNativeAdOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol EBAdViewDelegate {
+  @objc optional func adViewDidLoadAd(_ view: ExelBidSDK.EBAdView?)
+  @objc optional func adViewDidFailToLoadAd(_ view: ExelBidSDK.EBAdView?)
+  @objc optional func willLoadViewForAd(_ view: ExelBidSDK.EBAdView?)
+  @objc optional func didLoadViewForAd(_ view: ExelBidSDK.EBAdView?)
+  @objc optional func willLeaveApplicationFromAd(_ view: ExelBidSDK.EBAdView?)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class EBAdView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var delegate: (any ExelBidSDK.EBAdViewDelegate)?
+  @_Concurrency.MainActor(unsafe) public var adUnitId: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var yob: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var gender: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var keywords: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var location: CoreLocation.CLLocation?
+  @_Concurrency.MainActor(unsafe) public var testing: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var coppa: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var fullWebView: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public init(adUnitId: Swift.String?, size: CoreFoundation.CGSize?)
+  @_Concurrency.MainActor(unsafe) public func loadAd()
+  @_Concurrency.MainActor(unsafe) public func stopAd()
+  @_Concurrency.MainActor(unsafe) public func forceRefreshAd()
+  @_Concurrency.MainActor(unsafe) public func rotateToOrientation(_ newOrientation: UIKit.UIInterfaceOrientation)
+  @_Concurrency.MainActor(unsafe) public func lockNativeAdsToOrientation(_ orientation: ExelBidSDK.EBNativeAdOrientation)
+  @_Concurrency.MainActor(unsafe) public func unlockNativeAdsOrientation()
+  @_Concurrency.MainActor(unsafe) public func allowedNativeAdsOrientation() -> ExelBidSDK.EBNativeAdOrientation
+  @_Concurrency.MainActor(unsafe) public func adContentViewSize() -> CoreFoundation.CGSize?
+  @_Concurrency.MainActor(unsafe) public func stopAutomaticallyRefreshingContents()
+  @_Concurrency.MainActor(unsafe) public func startAutomaticallyRefreshingContents()
+  @_Concurrency.MainActor(unsafe) public var adContentView: UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) public var allowedNativeAdOrientation: ExelBidSDK.EBNativeAdOrientation
+  @objc deinit
+}
+public protocol EBCollectionViewAdPlacerDelegate {
+  func nativeAdWillLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+  func nativeAdDidLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+  func nativeAdWillLeaveApplicationFromCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+}
+@objc @_hasMissingDesignatedInitializers public class EBCollectionViewAdPlacer : ObjectiveC.NSObject {
+  public var delegate: (any ExelBidSDK.EBCollectionViewAdPlacerDelegate)?
+  public static func placerWithCollectionView(_ collectionView: UIKit.UICollectionView, viewController controller: UIKit.UIViewController, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBCollectionViewAdPlacer
+  public static func placerWithCollectionView(_ collectionView: UIKit.UICollectionView, viewController controller: UIKit.UIViewController, adPositioning positioning: ExelBidSDK.EBAdPositioning, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBCollectionViewAdPlacer
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?)
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?, targeting: ExelBidSDK.EBNativeAdRequestTargeting?)
+  @objc deinit
+}
+extension ExelBidSDK.EBCollectionViewAdPlacer : ExelBidSDK.EBStreamAdPlacerDelegate {
+  public func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didLoadAdAtIndexPath indexPath: Foundation.IndexPath?)
+  public func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didRemoveAdsAtIndexPaths indexPaths: [Foundation.IndexPath]?)
+  public func nativeAdWillLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer?)
+  public func nativeAdDidLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+  public func nativeAdWillLeaveApplicationFromStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+}
+extension ExelBidSDK.EBCollectionViewAdPlacer : UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+extension ExelBidSDK.EBCollectionViewAdPlacer : UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, canPerformAction action: ObjectiveC.Selector, forItemAt indexPath: Foundation.IndexPath, withSender sender: Any?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, performAction action: ObjectiveC.Selector, forItemAt indexPath: Foundation.IndexPath, withSender sender: Any?)
+}
+extension ExelBidSDK.EBCollectionViewAdPlacer : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+}
+extension UIKit.UICollectionView {
+  @_Concurrency.MainActor(unsafe) public static var kAdPlacerKey: Swift.String
+  @_Concurrency.MainActor(unsafe) public func EB_setAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+  @_Concurrency.MainActor(unsafe) public var EB_adPlacer: ExelBidSDK.EBCollectionViewAdPlacer? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_setDelegate(_ delegate: any UIKit.UICollectionViewDelegate)
+  @_Concurrency.MainActor(unsafe) public var EB_delegate: (any UIKit.UICollectionViewDelegate)? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_setDataSource(_ dataSource: any UIKit.UICollectionViewDataSource)
+  @_Concurrency.MainActor(unsafe) public var EB_dataSource: (any UIKit.UICollectionViewDataSource)? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_dequeueReusableCellWithIdentifier(_ identifier: Swift.String, forIndexPath indexPath: Foundation.IndexPath?) -> UIKit.UICollectionViewCell?
+  @_Concurrency.MainActor(unsafe) public var EB_indexPathsForSelectedItems: [Foundation.IndexPath]? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_selectItemAtIndexPath(_ indexPath: Foundation.IndexPath?, animated: Swift.Bool, scrollPosition: UIKit.UICollectionView.ScrollPosition)
+  @_Concurrency.MainActor(unsafe) public func EB_deselectItemAtIndexPath(_ indexPath: Foundation.IndexPath?, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func EB_reloadData()
+  @_Concurrency.MainActor(unsafe) public func EB_layoutAttributesForItemAtIndexPath(_ indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @_Concurrency.MainActor(unsafe) public func EB_indexPathForItemAtPoint(_ point: CoreFoundation.CGPoint) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) public func EB_indexPathForCell(_ cell: UIKit.UICollectionViewCell) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) public func EB_cellForItemAtIndexPath(_ indexPath: Foundation.IndexPath?) -> UIKit.UICollectionViewCell?
+  @_Concurrency.MainActor(unsafe) public var EB_visibleCells: [UIKit.UICollectionViewCell] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var EB_indexPathsForVisibleItems: [Foundation.IndexPath]? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_scrollToItemAtIndexPath(_ indexPath: Foundation.IndexPath?, atScrollPosition scrollPosition: UIKit.UICollectionView.ScrollPosition, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func EB_insertSections(_ sections: Foundation.IndexSet)
+  @_Concurrency.MainActor(unsafe) public func EB_deleteSections(_ sections: Foundation.IndexSet)
+  @_Concurrency.MainActor(unsafe) public func EB_reloadSections(_ sections: Foundation.IndexSet)
+  @_Concurrency.MainActor(unsafe) public func EB_moveSection(_ section: Swift.Int, toSection newSection: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func EB_insertItemsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?)
+  @_Concurrency.MainActor(unsafe) public func EB_deleteItemsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?)
+  @_Concurrency.MainActor(unsafe) public func EB_reloadItemsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?)
+  @_Concurrency.MainActor(unsafe) public func EB_moveItemAtIndexPath(_ indexPath: Foundation.IndexPath, toIndexPath newIndexPath: Foundation.IndexPath)
+}
+public typealias ResponseHandler = (_ data: Foundation.Data?, _ response: Foundation.HTTPURLResponse?) -> Swift.Void
+public typealias ErrorHandler = (_ error: (any Swift.Error)?) -> Swift.Void
+public typealias ShouldRedirectWithNewRequest = (_ task: Foundation.URLSessionTask?, _ newRequest: Foundation.URLRequest?) -> Swift.Void
+public protocol EBStreamAdPlacerDelegate {
+  func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didLoadAdAtIndexPath indexPath: Foundation.IndexPath?)
+  func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didRemoveAdsAtIndexPaths indexPaths: [Foundation.IndexPath]?)
+  func nativeAdWillLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer?)
+  func nativeAdDidLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+  func nativeAdWillLeaveApplicationFromStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+}
+@_hasMissingDesignatedInitializers public class EBStreamAdPlacer {
+  public var delegate: (any ExelBidSDK.EBStreamAdPlacerDelegate)?
+  public func setItemCount(_ count: Swift.Int, forSection section: Swift.Int)
+  public func renderAdAtIndexPath(_ indexPath: Foundation.IndexPath, inView view: UIKit.UIView)
+  public func sizeForAdAtIndexPath(_ indexPath: Foundation.IndexPath, withMaximumWidth maxWidth: CoreFoundation.CGFloat) -> CoreFoundation.CGSize?
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?)
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?, targeting: ExelBidSDK.EBNativeAdRequestTargeting?)
+  public func isAdAtIndexPath(_ indexPath: Foundation.IndexPath) -> Swift.Bool
+  public func adjustedNumberOfItems(_ numberOfItems: Swift.Int, inSection section: Swift.Int) -> Swift.Int
+  public func adjustedIndexPathForOriginalIndexPath(_ indexPath: Foundation.IndexPath?) -> Foundation.IndexPath?
+  public func originalIndexPathForAdjustedIndexPath(_ indexPath: Foundation.IndexPath?) -> Foundation.IndexPath?
+  public func adjustedIndexPathsForOriginalIndexPaths(_ indexPaths: [Foundation.IndexPath]?) -> [Foundation.IndexPath]?
+  public func originalIndexPathsForAdjustedIndexPaths(_ indexPaths: [Foundation.IndexPath]?) -> [Foundation.IndexPath]?
+  public func insertItemsAtIndexPaths(_ originalIndexPaths: [Foundation.IndexPath]?)
+  public func deleteItemsAtIndexPaths(_ originalIndexPaths: [Foundation.IndexPath]?)
+  public func moveItemAtIndexPath(_ fromIndexPath: Foundation.IndexPath, toIndexPath: Foundation.IndexPath)
+  public func insertSections(_ sections: Foundation.IndexSet)
+  public func deleteSections(_ sections: Foundation.IndexSet)
+  public func moveSection(_ section: Swift.Int, toSection newSection: Swift.Int)
+  @objc deinit
+}
+extension ExelBidSDK.EBStreamAdPlacer : ExelBidSDK.EBNativeAdDelegate {
+  public func willLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  public func didLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  public func willLeaveApplicationFromNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  public func viewControllerForPresentingModalView() -> UIKit.UIViewController?
+}
+public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdRequest?, _ response: ExelBidSDK.EBNativeAd?, _ error: (any Swift.Error)?) -> Swift.Void
+@_hasMissingDesignatedInitializers final public class ExelBidNativeManager {
+  public static func keywords(_ keywords: Swift.String)
+  public static func location(_ location: CoreLocation.CLLocation)
+  public static func yob(_ yob: Swift.String)
+  public static func gender(_ gender: Swift.String)
+  public static func testing(_ testing: Swift.Bool)
+  public static func coppa(_ coppa: Swift.String)
+  public static func desiredAssets(_ desiredAssets: Foundation.NSSet)
+  public static func initNativeAdWithAdUnitIdentifier(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?)
+  public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EBNativeAdRequest {
+  public var targeting: ExelBidSDK.EBNativeAdRequestTargeting?
+  public static func requestWithAdUnitIdentifier(_ identifier: Swift.String?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBNativeAdRequest
+  public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
+  @objc deinit
+}
+public var ExelBidKit: ExelBidSDK.ExelBid
+@_hasMissingDesignatedInitializers public class ExelBid {
+  public var locationUpdatesEnabled: Swift.Bool? {
+    get
+    set
+  }
+  public var frequencyCappingIdUsageEnabled: Swift.Bool? {
+    get
+    set
+  }
+  public var version: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EBNativeAdRendererConfiguration {
+  public var rendererSettings: (any ExelBidSDK.EBNativeAdRendererSettings)?
+  public var rendererClass: Any?
+  public var supportedCustomEvents: [Swift.String]?
+  @objc deinit
+}
+public protocol EBTableViewAdPlacerDelegate {
+  func nativeAdWillLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
+  func nativeAdDidLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
+  func nativeAdWillLeaveApplicationFromTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
+}
+@objc @_hasMissingDesignatedInitializers public class EBTableViewAdPlacer : ObjectiveC.NSObject {
+  public var delegate: (any ExelBidSDK.EBTableViewAdPlacerDelegate)?
+  public static func placerWithTableView(_ tableView: UIKit.UITableView?, viewController controller: UIKit.UIViewController?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBTableViewAdPlacer
+  public static func placerWithTableView(_ tableView: UIKit.UITableView?, viewController controller: UIKit.UIViewController?, adPositioning: ExelBidSDK.EBAdPositioning?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBTableViewAdPlacer
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?)
+  public func loadAdsForAdUnitID(_ adUnitID: Swift.String?, targeting: ExelBidSDK.EBNativeAdRequestTargeting?)
+  @objc deinit
+}
+extension ExelBidSDK.EBTableViewAdPlacer : ExelBidSDK.EBStreamAdPlacerDelegate {
+  public func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didLoadAdAtIndexPath indexPath: Foundation.IndexPath?)
+  public func adPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer, didRemoveAdsAtIndexPaths indexPaths: [Foundation.IndexPath]?)
+  public func nativeAdWillLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer?)
+  public func nativeAdDidLoadForStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+  public func nativeAdWillLeaveApplicationFromStreamAdPlacer(_ adPlacer: ExelBidSDK.EBStreamAdPlacer)
+}
+extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, canEditRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, moveRowAt sourceIndexPath: Foundation.IndexPath, to destinationIndexPath: Foundation.IndexPath)
+}
+extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, willDeselectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, editingStyleForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell.EditingStyle
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public static var kAdPlacerKey: Swift.String
+  @_Concurrency.MainActor(unsafe) public func EB_setAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer)
+  @_Concurrency.MainActor(unsafe) public var EB_adPlacer: ExelBidSDK.EBTableViewAdPlacer? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_setDataSource(_ dataSource: any UIKit.UITableViewDataSource)
+  @_Concurrency.MainActor(unsafe) public var EB_dataSource: (any UIKit.UITableViewDataSource)? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_setDelegate(_ delegate: any UIKit.UITableViewDelegate)
+  @_Concurrency.MainActor(unsafe) public var EB_delegate: (any UIKit.UITableViewDelegate)? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_beginUpdates()
+  @_Concurrency.MainActor(unsafe) public func EB_endUpdates()
+  @_Concurrency.MainActor(unsafe) public func EB_reloadData()
+  @_Concurrency.MainActor(unsafe) public func EB_insertRowsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_deleteRowsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_reloadRowsAtIndexPaths(_ indexPaths: [Foundation.IndexPath]?, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_moveRowAtIndexPath(_ indexPath: Foundation.IndexPath, toIndexPath newIndexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) public func EB_insertSections(_ sections: Foundation.IndexSet, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_deleteSections(_ sections: Foundation.IndexSet, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_reloadSections(_ sections: Foundation.IndexSet, withRowAnimation animation: UIKit.UITableView.RowAnimation)
+  @_Concurrency.MainActor(unsafe) public func EB_moveSection(_ section: Swift.Int, toSection newSection: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func EB_cellForRowAtIndexPath(_ indexPath: Foundation.IndexPath?) -> UIKit.UITableViewCell?
+  @_Concurrency.MainActor(unsafe) public func EB_dequeueReusableCellWithIdentifier(_ identifier: Swift.String, forIndexPath indexPath: Foundation.IndexPath?) -> UIKit.UITableViewCell?
+  @_Concurrency.MainActor(unsafe) public func EB_deselectRowAtIndexPath(_ indexPath: Foundation.IndexPath?, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func EB_indexPathForCell(_ cell: UIKit.UITableViewCell) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) public func EB_indexPathForRowAtPoint(_ point: CoreFoundation.CGPoint) -> Foundation.IndexPath?
+  @_Concurrency.MainActor(unsafe) public var EB_indexPathForSelectedRow: Foundation.IndexPath? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_indexPathsForRowsInRect(_ rect: CoreFoundation.CGRect) -> [Foundation.IndexPath]?
+  @_Concurrency.MainActor(unsafe) public var EB_indexPathsForSelectedRows: [Foundation.IndexPath]? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var EB_indexPathsForVisibleRows: [Foundation.IndexPath]? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func EB_rectForRowAtIndexPath(_ indexPath: Foundation.IndexPath?) -> CoreFoundation.CGRect?
+  @_Concurrency.MainActor(unsafe) public func EB_scrollToRowAtIndexPath(_ indexPath: Foundation.IndexPath?, atScrollPosition scrollPosition: UIKit.UITableView.ScrollPosition, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func EB_selectRowAtIndexPath(_ indexPath: Foundation.IndexPath?, animated: Swift.Bool, scrollPosition: UIKit.UITableView.ScrollPosition)
+  @_Concurrency.MainActor(unsafe) public var EB_visibleCells: [UIKit.UITableViewCell] {
+    get
+  }
+}
+@objc public protocol EBInterstitialAdControllerDelegate {
+  @objc optional func interstitialDidLoadAd(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialDidFailToLoadAd(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialWillAppear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialDidAppear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialWillDisappear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialDidDisappear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialDidExpire(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+  @objc optional func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class EBInterstitialAdController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public static func interstitialAdControllerForAdUnitId(_ adUnitId: Swift.String) -> ExelBidSDK.EBInterstitialAdController
+  @_Concurrency.MainActor(unsafe) public var delegate: (any ExelBidSDK.EBInterstitialAdControllerDelegate)?
+  @_Concurrency.MainActor(unsafe) public var adUnitId: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var yob: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var gender: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var keywords: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var location: CoreLocation.CLLocation?
+  @_Concurrency.MainActor(unsafe) public var testing: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var coppa: Swift.String?
+  @_Concurrency.MainActor(unsafe) public func loadAd()
+  @_Concurrency.MainActor(unsafe) public var ready: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func showFromViewController(_ controller: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) public func removeSharedInterstitialAdController(_ controller: ExelBidSDK.EBInterstitialAdController)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EBVideoAdRequest {
+  public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
+  @objc deinit
+}
+public protocol EBNativeAdDelegate {
+  func willLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  func didLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  func willLeaveApplicationFromNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+  func viewControllerForPresentingModalView() -> UIKit.UIViewController?
+}
+@_hasMissingDesignatedInitializers public class EBNativeAd {
+  public var delegate: (any ExelBidSDK.EBNativeAdDelegate)?
+  public func retrieveAdViewWithError(_ error: (any Swift.Error)?) -> UIKit.UIView?
+  public func stopNativeVideo()
+  @objc deinit
+}
+extension ExelBidSDK.EBNativeAd : ExelBidSDK.EBVideoDelegate {
+  @objc dynamic public func videoAdDidReceiveTapEvent(adUnitID: Swift.String)
+}
+public protocol EBNativeAdRendererSettings {
+  var viewSizeHandler: ((CoreFoundation.CGFloat) -> CoreFoundation.CGSize)? { get set }
+}
+public class EBStaticNativeAdRendererSettings : ExelBidSDK.EBNativeAdRendererSettings {
+  public var renderingViewClass: Swift.AnyClass?
+  public var viewSizeHandler: ((CoreFoundation.CGFloat) -> CoreFoundation.CGSize)?
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class EBAdPositioning : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct EBVastModel : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension ExelBidSDK.EBVastModel : Swift.Equatable {
+  public static func == (a: ExelBidSDK.EBVastModel, b: ExelBidSDK.EBVastModel) -> Swift.Bool
+}
+@objc public protocol EBVideoDelegate {
+  @objc optional func videoAdDidLoad(adUnitID: Swift.String)
+  @objc optional func videoAdDidFailToLoad(adUnitID: Swift.String, error: any Swift.Error)
+  @objc optional func videoAdDidFailToPlay(adUnitID: Swift.String, error: (any Swift.Error)?)
+  @objc optional func videoAdWillAppear(adUnitID: Swift.String)
+  @objc optional func videoAdDidAppear(adUnitID: Swift.String)
+  @objc optional func videoAdWillDisappear(adUnitID: Swift.String)
+  @objc optional func videoAdDidDisappear(adUnitID: Swift.String)
+  @objc optional func videoAdDidReceiveTapEvent(adUnitID: Swift.String)
+}
+public typealias EBVideoAdRequestHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
+@_hasMissingDesignatedInitializers final public class EBVideoManager {
+  public static func keywords(_ keywords: Swift.String)
+  public static func location(_ location: CoreLocation.CLLocation)
+  public static func yob(_ yob: Swift.String)
+  public static func gender(_ gender: Swift.String)
+  public static func testing(_ testing: Swift.Bool)
+  public static func coppa(_ coppa: Swift.String)
+  public static func initFullVideo(identifier unitId: Swift.String)
+  public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
+  public static func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
+  @objc deinit
+}
+extension ExelBidSDK.HTTPMethod : Swift.Equatable {}
+extension ExelBidSDK.HTTPMethod : Swift.Hashable {}
+extension ExelBidSDK.HTTPMethod : Swift.RawRepresentable {}
+extension ExelBidSDK.EBNativeAdOrientation : Swift.Equatable {}
+extension ExelBidSDK.EBNativeAdOrientation : Swift.Hashable {}
