@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ExelBidSDK
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ExelBidSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import AdSupport
@@ -430,6 +430,36 @@ public class EBStaticNativeAdRendererSettings : ExelBidSDK.EBNativeAdRendererSet
   @objc override dynamic public init()
   @objc deinit
 }
+public enum EBMediationTypes : Swift.String, Swift.Codable {
+  case exelbid
+  case adfit
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EBMediation : Swift.Codable {
+  public var type: ExelBidSDK.EBMediationTypes
+  public var index: Swift.Int
+  public var priority_rate: Swift.Int
+  public var unit_id: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MediationModel : Swift.Decodable {
+  public var id: Swift.String?
+  public var mediations: [ExelBidSDK.EBMediation]?
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class EBMediationManager {
+  public init(adUnitId: Swift.String, mediationTypes: [ExelBidSDK.EBMediationTypes])
+  final public func requestMediation(handler: @escaping (_ manager: ExelBidSDK.EBMediationManager, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func next() -> ExelBidSDK.EBMediation?
+  final public func reset() -> Swift.Bool
+  final public func count() -> Swift.Int
+  @objc deinit
+}
 public struct EBVastModel : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -465,3 +495,6 @@ extension ExelBidSDK.HTTPMethod : Swift.Hashable {}
 extension ExelBidSDK.HTTPMethod : Swift.RawRepresentable {}
 extension ExelBidSDK.EBNativeAdOrientation : Swift.Equatable {}
 extension ExelBidSDK.EBNativeAdOrientation : Swift.Hashable {}
+extension ExelBidSDK.EBMediationTypes : Swift.Equatable {}
+extension ExelBidSDK.EBMediationTypes : Swift.Hashable {}
+extension ExelBidSDK.EBMediationTypes : Swift.RawRepresentable {}
