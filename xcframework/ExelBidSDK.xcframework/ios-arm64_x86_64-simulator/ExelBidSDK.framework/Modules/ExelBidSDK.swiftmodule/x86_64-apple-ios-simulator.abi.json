@@ -12618,14 +12618,22 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@ExelBidSDK@objc(cs)EBInterstitialAdController(cm)interstitialAdControllerForAdUnitId:",
-            "mangledName": "$s10ExelBidSDK26EBInterstitialAdControllerC012interstitialef3ForE6UnitIdyACSSFZ",
+            "mangledName": "$s10ExelBidSDK26EBInterstitialAdControllerC012interstitialef3ForE6UnitIdyACSSSgFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
@@ -22903,7 +22911,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Placer\/EBStreamAdPlacer.swift",
       "kind": "IntegerLiteral",
-      "offset": 5565,
+      "offset": 5566,
       "length": 1,
       "value": "3"
     },
@@ -23232,14 +23240,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Web\/Interstitials\/EBInterstitialAdController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7296,
+      "offset": 7297,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Web\/Interstitials\/EBInterstitialAdController.swift",
       "kind": "BooleanLiteral",
-      "offset": 8556,
+      "offset": 8557,
       "length": 5,
       "value": "false"
     },
@@ -24205,56 +24213,56 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 202,
+      "offset": 203,
       "length": 9,
       "value": "\"exelbid\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 242,
+      "offset": 243,
       "length": 7,
       "value": "\"admob\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 283,
+      "offset": 284,
       "length": 5,
       "value": "\"fan\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 319,
+      "offset": 320,
       "length": 7,
       "value": "\"adfit\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 366,
+      "offset": 367,
       "length": 4,
       "value": "\"dt\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 402,
+      "offset": 403,
       "length": 8,
       "value": "\"pangle\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 933,
+      "offset": 934,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 729,
+      "offset": 730,
       "length": 18,
       "value": "\"ExelBidSDK.EBMediationManager\""
     },

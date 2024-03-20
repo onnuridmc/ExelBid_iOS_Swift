@@ -409,7 +409,7 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc optional func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class EBInterstitialAdController : UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) public static func interstitialAdControllerForAdUnitId(_ adUnitId: Swift.String) -> ExelBidSDK.EBInterstitialAdController
+  @objc @_Concurrency.MainActor(unsafe) public static func interstitialAdControllerForAdUnitId(_ adUnitId: Swift.String?) -> ExelBidSDK.EBInterstitialAdController
   @objc @_Concurrency.MainActor(unsafe) public var delegate: (any ExelBidSDK.EBInterstitialAdControllerDelegate)?
   @objc @_Concurrency.MainActor(unsafe) public var adUnitId: Swift.String?
   @objc @_Concurrency.MainActor(unsafe) public var yob: Swift.String?

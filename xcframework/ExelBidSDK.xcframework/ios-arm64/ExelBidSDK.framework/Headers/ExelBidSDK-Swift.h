@@ -515,7 +515,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 /// 동일한 광고 단위 ID에 대한 후속 호출은<code>removeSharedInterstitialAdController :</code>를 사용하여 개체를 삭제하지 않는 한 해당 개체를 반환합니다.
 /// 주어진 시간에 광고 ID에 대해 하나의 전면 광고 개체 만있을 수 있습니다.
 /// @param adUnitId Exelbid 광고 ID를 나타내는 문자열입니다.
-+ (EBInterstitialAdController * _Nonnull)interstitialAdControllerForAdUnitId:(NSString * _Nonnull)adUnitId SWIFT_WARN_UNUSED_RESULT;
++ (EBInterstitialAdController * _Nonnull)interstitialAdControllerForAdUnitId:(NSString * _Nullable)adUnitId SWIFT_WARN_UNUSED_RESULT;
 /// The delegate (<code>EBInterstitialAdControllerDelegate</code>) of the interstitial ad object.
 @property (nonatomic, strong) id <EBInterstitialAdControllerDelegate> _Nullable delegate;
 /// 이 전면 광고의 Exelbid 광고 ID입니다.

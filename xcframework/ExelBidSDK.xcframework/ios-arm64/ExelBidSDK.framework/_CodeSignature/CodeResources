@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/ExelBidSDK-Swift.h</key>
 		<data>
-		mg97JRvdec8nM4Ic+OSlBI0mOX8=
+		uHhJhdEtMExXsApDAQ+QdSDncWU=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		n36GrZ4yatU/h0dNxNl/jHvs3tA=
+		kervld1yHdZn2gAcARVo4pM31y4=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		ncNI9KX3hLBEfApLEoIp4RMTJrE=
+		AkPRadT9nkoDPnc8GPJfpAcJN/4=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		ncNI9KX3hLBEfApLEoIp4RMTJrE=
+		AkPRadT9nkoDPnc8GPJfpAcJN/4=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		lEQVmAq2hdRu7thXPQSbIsfctIE=
+		csHxjrbmcEczxhtn72Mvzw9ex6w=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -109,21 +109,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			T30pGUOXzn9KSHjfUZjk/+lUgrpCaWAxBYoRssrdd1s=
+			NdDO4mSMrlRbMZTLGlnl/qlWfBj3UPMQgnZLeG7FY3w=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			V9wnY1NkA5faLCoB/OpcchO31k0/iTK4MeiVld7dDdE=
+			O5Vgj1U228kbWmmGv59Jqd0yf19XtNabFY8O5WevdWI=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3Qf94DbbQwv8pinFTIDef2e3OqdvtyaUZpIqVagYNOA=
+			N0vl653hbtk6hftirrT2OFczDWv1tr35CPGb6h3AVCo=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -137,14 +137,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3Qf94DbbQwv8pinFTIDef2e3OqdvtyaUZpIqVagYNOA=
+			N0vl653hbtk6hftirrT2OFczDWv1tr35CPGb6h3AVCo=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kK3VmBEkiWhJs2UdO5taPaFAgSM7eIhAtBGG0Gh/zqU=
+			sjcSWmj5WNmozNb8drbIjBc+tK3/BseKd+I1vaIBPMY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
