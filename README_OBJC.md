@@ -1,7 +1,7 @@
-# Exelbid SDK for Swift
+# Exelbid SDK for ObjectiveC
 
-Swift 가이드입니다.  
-ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
+ObjectiveC 가이드입니다.  
+Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 목차
 =================
@@ -111,21 +111,22 @@ pod install
 
 ### AppDelegate
 ```
-import AppTrackingTransparency
-import ExelBidSDK
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <ExelBidSDK/ExelBidSDK-Swift.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
     
     // SDK 테스트 설정
     // 앱 배포시 설정을 제거해주세요
-    ExelBid.testing = true
+    [ExelBid setTesting:YES];
 
     // 사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.
     // 앱 설치 후 첫실행 시 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.
     // 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
-    if #available(iOS 14.0, *) {
-        ATTrackingManager.requestTrackingAuthorization { _ in }
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+        }];
     }
     ...
 }
@@ -154,10 +155,10 @@ import ExelBidSDK
 
 ```
 // 광고 인스턴스  
-var adView: EBAdView?
+@property (nonatomic, strong) EBAdView *adView;
 
 // 광고가 표시될 뷰
-@IBOutlet var adViewContainer: UIView!
+@property (weak, nonatomic) IBOutlet UIView *adViewContainer;
 ```
 
 **2. 광고 인스턴스 생성**
@@ -166,59 +167,57 @@ var adView: EBAdView?
  * @param adUnitId - 광고 유닛 ID
  * @param size - 원하는 광고 크기입니다.
  */
-EBAdView.init(adUnitId: String?, size: CGSize)
+- (nonnull instancetype)initWithAdUnitId:(NSString *)adUnitId size:(CGSize)size
 ```
 
 예시)
 ```
 // 광고 인스턴스 생성
-self.adView = EBAdView(adUnitId: "adUnitId", size: self.adViewContainer.bounds.size)
-if let adView = self.adView {
-    adView.delegate = self
-    
-    // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-    adView.yob = "1976"
-    adView.gender = "M"
-    
-    // AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.  
-    // 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
-    adView.fullWebView = true
-    
-    // 광고 테스트 여부 (통계에 집계되지 않음)
-    adView.testing = true
-}
+self.adView = [[EBAdView alloc] initWithAdUnitId:@"adUnitId" size:self.adViewContainer.bounds.size];
+self.adView.delegate = self;
+
+// 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
+[self.adView setYob:@"1976"];
+[self.adView setGender:@"M"];
+
+// AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.  
+// 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
+[self.adView setFullWebView:YES];
+
+// 광고 테스트 여부 (통계에 집계되지 않음)
+[self.adView setTesting:YES];
 ```
 
 **3. 광고 위치에 광고 뷰 추가**
 ```
-self.adViewContainer.addSubview(adView)
+[self.adViewContainer addSubview:self.adView];
 
 // 광고 뷰에 AutoLayout constraint 적용
-setAutoLayout(view: self.adViewContainer, adView: adView)
+[self setAdViewAutolayoutConstraint:self.adViewContainer mine:self.adView];
 ```
 
 **4. 광고 요청**
 ```
-adView.loadAd()
+[self.adView loadAd];
 ```
 
 
 ### 배너광고 Protocol (EBAdViewDelegate Protocol Reference)
 ```
 // 광고를 성공적으로로드하면 전송됩니다.
-func adViewDidLoadAd(_ view: ExelBidSDK.EBAdView?)
+- (void)adViewDidLoadAd:(EBAdView *)view;
 
 // 광고로드에 실패 할 때 전송됩니다.
-func adViewDidFailToLoadAd(_ view: ExelBidSDK.EBAdView?)
+- (void)adViewDidFailToLoadAd:(EBAdView *)view;
 
 // 콘텐츠를로드하려고 할 때 전송됩니다.
-func willLoadViewForAd(_ view: ExelBidSDK.EBAdView?)
+- (void)willLoadViewForAd:(EBAdView *)view;
 
 // 모달 콘텐츠를 닫았을 때 전송되어 애플리케이션에 제어권을 반환합니다.
-func didLoadViewForAd(_ view: ExelBidSDK.EBAdView?)
+- (void)didLoadViewForAd:(EBAdView *)view;
 
 // 사용자가 광고를 탭하여 애플리케이션에서 나가려고 할 때 전송됩니다.
-func willLeaveApplicationFromAd(_ view: ExelBidSDK.EBAdView?)
+- (void)willLeaveApplicationFromAd:(EBAdView *)view;
 ```
 
 
@@ -227,7 +226,7 @@ func willLeaveApplicationFromAd(_ view: ExelBidSDK.EBAdView?)
 **1. 전면 광고 요청을 위한 변수 선언**
 ```
 // 전면 광고 인스턴스  
-var interstitial: EBInterstitialAdController?
+@property (nonatomic, strong) EBInterstitialAdController *interstitial;
 
 ```
 
@@ -236,28 +235,19 @@ var interstitial: EBInterstitialAdController?
 /**
  * @param adUnitId - 광고 유닛 ID
  */
-EBInterstitialAdController.interstitialAdControllerForAdUnitId(_ adUnitId: String?) -> ExelBidSDK.EBInterstitialAdController
+ + (EBInterstitialAdController *)interstitialAdControllerForAdUnitId:(NSString *)adUnitId;
 ```
 
 예시)
 ```
 // 전면 광고 인스턴스 생성
-self.interstitial = EBInterstitialAdController.interstitialAdControllerForAdUnitId("adUnitId");
-if let interstitial = self.interstitial {
-    interstitial.delegate = self
-    
-    // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-    interstitial.yob = "1990"
-    interstitial.gender = "M"
-    
-    // 광고 테스트 여부 (통계에 집계되지 않음)
-    interstitial.testing = true
-}
+self.interstitial = [EBInterstitialAdController interstitialAdControllerForAdUnitId:@"adUnitId"];
+self.interstitial.delegate = self;
 ```
 
 **3. 전면 광고 요청**
 ```
-interstitial.loadAd()
+[self.interstitial loadAd];
 ```
 
 **4. 전면 광고 표시**
@@ -265,42 +255,42 @@ interstitial.loadAd()
 /**
  * @param controller 전면 광고를 표시하는 데 사용해야하는 UIViewController입니다.
  */
-EBInterstitialAdController.showFromViewController(_ controller: UIViewController? = nil)
+- (void)showFromViewController:(UIViewController *)controller;
 ```
 
 예시)
 ```
-self.interstitial?.showFromViewController(self)
+[self.interstitial showFromViewController:self];
 ```
 
 ### 전면 광고 Protocol (EBInterstitialAdViewDelegate Protocol Reference)
 ```
 // 전면 광고를 성공적으로로드하면 전송됩니다.
-func interstitialDidLoadAd(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidLoadAd:(EBInterstitialAdController *)interstitial;
 
 // 광고를로드하지 못할 때 전송됩니다..
-func interstitialDidFailToLoadAd(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidFailToLoadAd:(EBInterstitialAdController *)interstitial;
 
 // 전면 광고가 화면에 표시되기 직전에 전송됩니다.
-func interstitialWillAppear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialWillAppear:(EBInterstitialAdController *)interstitial;
 
 // 전면 광고가 화면에 표시된 후에 전송됩니다.
-func interstitialDidAppear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidAppear:(EBInterstitialAdController *)interstitial;
 
 // 전면 광고가 화면에 표시되지 못할때
-func interstitialDidFailToShow(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidFailToShow:(EBInterstitialAdController *)interstitial;
 
 // 전면 광고가  화면에서 닫히기 직전에 전송됩니다.
-func interstitialWillDisappear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialWillDisappear:(EBInterstitialAdController *)interstitial;
 
 // 전면 광고가 화면에서 해제 된 후 전송되어 애플리케이션에 제어권이 반환됩니다.
-func interstitialDidDisappear(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidDisappear:(EBInterstitialAdController *)interstitial;
 
 // 로드 된 전면 광고를 더 이상 표시 할 수 없을 때 전송됩니다.
-func interstitialDidExpire(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidExpire:(EBInterstitialAdController *)interstitial;
 
 // 사용자가 전면 광고를 탭하고 광고가 타겟 작업을 수행하려고 할 때 전송됩니다.
-func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
+- (void)interstitialDidReceiveTapEvent:(EBInterstitialAdController *)interstitial;
 ```
 
 
@@ -311,41 +301,43 @@ func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdC
 네이티브 프로토콜을 참고하여 필요한 항목들로 UIView 클래스를 구성한다.  
 자세한 사항은 샘플 코드를 참고해주세요.
 
-- [EBNativeAdView.swift](./sample/ExelbidSample/Views/EBNativeAdView.swift)
+- [EBNativeAdView.h](./sample_objc/EBNativeAdView.h)
+- [EBNativeAdView.m](./sample_objc/EBNativeAdView.m)
 
 **네이티브 광고 뷰 인스턴스 변수 선언**
 ```
-var titleLabel: UILabel!
-var mainTextLabel: UILabel!
-var iconImageView: UIImageView!
-var mainImageView: UIImageView!
-var mainVideoView: UIView!
-var privacyInformationIconImageView: UIImageView!
-var ctaLabel: UILabel!
+@property (strong, nonatomic) UILabel *mainTextLabel;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIImageView *iconImageView;
+@property (strong, nonatomic) UIImageView *mainImageView;
+@property (strong, nonatomic) UIView *mainVideoView;
+@property (strong, nonatomic) UIImageView *privacyInformationIconImageView;
+@property (strong, nonatomic) UILabel *ctaLabel;
 ```
 
 **네이티브 광고 뷰 Protocol (EBNativeAdRenderingDelegate Protocol Reference)**
 ```
 // 메인 텍스트에 사용하고있는 UILabel을 반환합니다.
-func nativeMainTextLabel() -> UILabel?
+- (UILabel *)nativeMainTextLabel;
 
 // 제목 텍스트에 사용중인 UILabel을 반환합니다.
-func nativeTitleTextLabel() -> UILabel?
+- (UILabel *)nativeTitleTextLabel;
 
 // 아이콘 이미지에 사용중인 UIImageView를 반환합니다.
-func nativeIconImageView() -> UIImageView?
+- (UIImageView *)nativeIconImageView;
 
 // 메인 이미지에 사용중인 UIImageView를 반환합니다.
-func nativeMainImageView() -> UIImageView?
+- (UIImageView *)nativeMainImageView;
 
-// 비디오에 사용하는 UIView를 반환합니다. 동영상 광고를 게재 할 때만이를 구현하면됩니다.
-func nativeVideoView() -> UIView?
+// 비디오에 사용하는 UIView를 반환합니다.
+// 동영상 광고를 게재 할 때만이를 구현하면됩니다.
+- (UIView *)nativeVideoView;
 
 // 클릭 유도 문안 (cta) 텍스트에 사용중인 UILabel을 반환합니다.
-func nativeCallToActionTextLabel() -> UILabel?
+- (UILabel *)nativeCallToActionTextLabel;
 
 // 개인 정보 아이콘에 대해 뷰가 사용중인 UIImageView를 반환합니다.
-func nativePrivacyInformationIconImageView() -> UIImageView?
+- (UIImageView *)nativePrivacyInformationIconImageView;
 ```
 
 > 2017/07 방송통신위원회에서 시행되는 '온라인 맞춤형 광고 개인정보보호 가이드라인' 에 따라서 필수 적용 되어야 합니다.   
@@ -363,79 +355,71 @@ func nativePrivacyInformationIconImageView() -> UIImageView?
 
 **3. 네이티브 광고 요청 전처리**
 ```
-ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(_ identifier: String, _ adViewClass: AnyClass?)
++ (void)initNativeAdWithAdUnitIdentifier:(NSString *)identifier :(Class)adViewClass;
 ```
 
 예시)
 ```
-ExelBidNativeManager.initNativeAdWithAdUnitIdentifier("adUnitId", EBNativeAdView.self)
-
-// 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-ExelBidNativeManager.yob("1976")
-ExelBidNativeManager.gender("M")
-
-// 광고 테스트 여부 (통계에 집계되지 않음)
-ExelBidNativeManager.testing(false)
+[ExelBidNativeManager initNativeAdWithAdUnitIdentifier:@"adUnitId" :[EBNativeAdView class]];
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
-ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                                 EBNativeAsset.kAdMainImageKey,
-                                                 EBNativeAsset.kAdCTATextKey,
-                                                 EBNativeAsset.kAdTextKey,
-                                                 EBNativeAsset.kAdTitleKey));
+[ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
+                                         EBNativeAsset.kAdIconImageKey,
+                                         EBNativeAsset.kAdMainImageKey,
+                                         EBNativeAsset.kAdCTATextKey,
+                                         EBNativeAsset.kAdTextKey,
+                                         EBNativeAsset.kAdTitleKey,
+                                         nil]];
+
 ```
 
 **4. 네이티브 광고 요청 및 표시**
 ```
 
-ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
-    if error != nil {
-        // 에러 처리
-    }else{
-        self.nativeAd = response
-        self.nativeAd?.delegate = self
-        
-        // 네이티브 광고 표시
-        self.displayAd()
-    }
-}
+[ExelBidNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+        if (error) {
+            // 에러 처리
+        } else {
+            self.nativeAd = response;
+            self.nativeAd.delegate = self;
+            
+            // 네이티브 광고 표시
+            [self displayAd];
+        }
+}];
 ```
 ```
-
-func displayAd() {
+- (void)displayAd
+{
     // 기존에 표시되던 View들을 제거
-    adViewContainer.subviews.forEach { subview in
-        subview.removeFromSuperview()
-    }
+    [[self.adViewContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    if let adView = nativeAd?.retrieveAdViewWithError(nil) {
-        adViewContainer.addSubview(adView)
-        setAutoLayout2(view: adViewContainer, adView: adView)
-    }
+    UIView *adView = [self.nativeAd retrieveAdViewWithError:nil];
+    [self.adViewContainer addSubview:adView];
+    adView.frame = self.adViewContainer.bounds;
 }
 ```
 
 ### 네이티브 광고 Protocol (EBNativeAdDelegate Protocol Reference)
 ```
+/// 네이티브 광고가 모달 콘텐츠를 표시 할 때 전송됩니다.
+- (void)willLoadForNativeAd:(EBNativeAd *)nativeAd;
 
-// 네이티브 광고가 모달 콘텐츠를 표시 할 때 전송됩니다.
-func willLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+/// 네이티브 광고가 모달 콘텐츠를 닫았을 때 전송되어 애플리케이션에 제어권을 반환합니다.
+- (void)didLoadForNativeAd:(EBNativeAd *)nativeAd;
 
-// 네이티브 광고가 모달 콘텐츠를 닫았을 때 전송되어 애플리케이션에 제어권을 반환합니다.
-func didLoadForNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
+/// 사용자가이 기본 광고를 탭한 결과로 애플리케이션에서 나 가려고 할 때 전송됩니다.
+- (void)willLeaveApplicationFromNativeAd:(EBNativeAd *)nativeAd;
 
-// 사용자가이 기본 광고를 탭한 결과로 애플리케이션에서 나 가려고 할 때 전송됩니다.
-func willLeaveApplicationFromNativeAd(_ nativeAd: ExelBidSDK.EBNativeAd?)
-
-// 광고를 탭할 때 나타날 수있는 인앱 브라우저와 같은 모달 콘텐츠를 표시하는 데 사용할 뷰 컨트롤러를 대리인에게 요청합니다.
-func viewControllerForPresentingModalView() -> UIViewController?
+/// 광고를 탭할 때 나타날 수있는 인앱 브라우저와 같은 모달 콘텐츠를 표시하는 데 사용할 뷰 컨트롤러를 대리인에게 요청합니다.
+- (UIViewController *)viewControllerForPresentingModalView;
 ```
 
 ## 네이티브 TableView Adapter
 
 **1. 네이티브 TableView Adapter 인스턴스 선언**
 ```
-var placer: EBTableViewAdPlacer?
+@property (nonatomic, strong) EBTableViewAdPlacer *placer;
 ```
 
 **네이티브 EBTableViewAdPlacer Protocol (EBTableViewAdPlacer Protocol Reference)**
@@ -446,50 +430,54 @@ var placer: EBTableViewAdPlacer?
 **2. 네이티브 TableView Adapter 설정 및 광고 요청**
 ```
 // 광고 타겟팅 설정
-let targeting = EBNativeAdRequestTargeting.targeting
+EBNativeAdRequestTargeting *targeting = [EBNativeAdRequestTargeting targeting];
 
 // 광고의 효율을 높이기 위해 위치정보 설정
-targeting.location = CLLocation(latitude: 37.7793, longitude: -122.4175)
+targeting.location = [[CLLocation alloc] initWithLatitude:37.7793 longitude:-122.4175];
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
-targeting.desiredAssets = NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                        EBNativeAsset.kAdMainImageKey,
-                                        EBNativeAsset.kAdCTATextKey,
-                                        EBNativeAsset.kAdTextKey,
-                                        EBNativeAsset.kAdTitleKey)
+targeting.desiredAssets = [NSSet setWithObjects:EBNativeAsset.kAdIconImageKey,
+                            EBNativeAsset.kAdMainImageKey,
+                            EBNativeAsset.kAdCTATextKey,
+                            EBNativeAsset.kAdTextKey,
+                            EBNativeAsset.kAdTitleKey,
+                            nil];
 
 // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-targeting.yob = "1976"
-targeting.gender = "M"
+[targeting setYob:@"1976"];
+[targeting setGender:@"M"];
 
 // 광고 테스트 여부 (통계에 집계되지 않음)
-targeting.testing = false
+[targeting setTesting:YES];
 
 // 네이티브 렌더링 설정
-let nativeAdSettings = EBStaticNativeAdRendererSettings()
+EBStaticNativeAdRendererSettings *nativeAdSettings = [[EBStaticNativeAdRendererSettings alloc] init];
 
 // 네이티브 광고 영역 뷰 클래스
-nativeAdSettings.renderingViewClass = EBTableViewAdPlacerView.self
-nativeAdSettings.viewSizeHandler = { maximumWidth -> CGSize in
-    return CGSize(width: maximumWidth, height: 330)
-}
+nativeAdSettings.renderingViewClass = [EBTableViewAdPlacerView class];	
+nativeAdSettings.viewSizeHandler = ^(CGFloat maximumWidth) {
+    return CGSizeMake(maximumWidth, 330.0f);
+};
 
 // 네이티브 Placer 설정
-let nativeAdConfig = EBStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(nativeAdSettings)
-self.placer = EBTableViewAdPlacer.placerWithTableView(self.tableView, viewController: self, rendererConfigurations: [nativeAdConfig])
-self.placer?.delegate = self
+EBNativeAdRendererConfiguration *nativeAdConfig = [EBStaticNativeAdRenderer rendererConfigurationWithRendererSettings:nativeAdSettings];
+self.placer = [EBTableViewAdPlacer placerWithTableView:self.tableView viewController:self rendererConfigurations:@[nativeAdConfig]];
+self.placer.delegate = self;
 
 // 광고 요청
-self.placer?.loadAdsForAdUnitID("adUnitId", targeting: targeting)
+[self.placer loadAdsForAdUnitID:@"adUnitId" targeting:targeting];
 ```
 
 ```
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.EB_dequeueReusableCellWithIdentifier(kDefaultCellIdentifier, forIndexPath: indexPath) {
-        // 셀 재사용 설정
-        return cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView EB_dequeueReusableCellWithIdentifier:kDefaultCellIdentifier forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
     }
-    return UITableViewCell(style: .default, reuseIdentifier: "CellIdentifier")
+    
+    // 셀 재사용 설정 
+    return cell;
 }
 ```
 
@@ -504,7 +492,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 **1. 네이티브 CollectionView Adapter 인스턴스 선언**
 ```
-var placer: EBCollectionViewAdPlacer?
+@property (nonatomic) EBCollectionViewAdPlacer *placer;
 ```
 
 **네이티브 EBCollectionViewAdPlacer Protocol (EBCollectionViewAdPlacer Protocol Reference)**
@@ -515,52 +503,51 @@ var placer: EBCollectionViewAdPlacer?
 **2. 네이티브 CollectionView Adapter 설정 및 광고 요청**
 ```
 // 광고 타겟팅 설정
-let targeting = EBNativeAdRequestTargeting.targeting
+EBNativeAdRequestTargeting *targeting = [EBNativeAdRequestTargeting targeting];
 
 // 광고의 효율을 높이기 위해 위치정보 설정
-targeting.location = CLLocation(latitude: 37.7793, longitude: -122.4175)
+targeting.location = [[CLLocation alloc] initWithLatitude:37.7793 longitude:-122.4175];
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
-targeting.desiredAssets = NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                        EBNativeAsset.kAdCTATextKey,
-                                        EBNativeAsset.kAdTitleKey)
+targeting.desiredAssets = [NSSet setWithObjects:EBNativeAsset.kAdTitleKey,
+                            EBNativeAsset.kAdIconImageKey,
+                            EBNativeAsset.kAdCTATextKey,
+                            nil];
 
 // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-targeting.yob = "1976"
-targeting.gender = "M"
+[targeting setYob:@"1976"];
+[targeting setGender:@"M"];
 
 // 광고 테스트 여부 (통계에 집계되지 않음)
-targeting.testing = false
+[targeting setTesting:YES];
 
 // 네이티브 렌더링 설정
-let nativeAdSettings = EBStaticNativeAdRendererSettings()
+EBStaticNativeAdRendererSettings *nativeAdSettings = [[EBStaticNativeAdRendererSettings alloc] init];
 
 // 네이티브 광고 영역 뷰 클래스
-nativeAdSettings.renderingViewClass = EBCollectionViewAdPlacerView.self
-nativeAdSettings.viewSizeHandler = { maximumWidth -> CGSize in
-    return CGSize(width: 70, height: 113)
-}
+nativeAdSettings.renderingViewClass = [EBCollectionViewAdPlacerView class];	
+nativeAdSettings.viewSizeHandler = ^(CGFloat maximumWidth) {
+    return CGSizeMake(70.0f, 113.0f);
+};
 
 // 네이티브 Placer 설정
-let nativeAdConfig = EBStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(nativeAdSettings)
-
-self.placer = EBCollectionViewAdPlacer.placerWithCollectionView(self.collectionView, viewController: self, rendererConfigurations: [nativeAdConfig])
-self.placer?.delegate = self
+EBNativeAdRendererConfiguration *nativeAdConfig = [EBStaticNativeAdRenderer rendererConfigurationWithRendererSettings:nativeAdSettings];
+self.placer = [EBCollectionViewAdPlacer placerWithCollectionView:self.collectionView viewController:self rendererConfigurations:@[config]];
+self.placer.delegate = self;
 
 // 광고 요청
-self.placer?.loadAdsForAdUnitID("adUnitId", targeting: targeting)
+[self.placer loadAdsForAdUnitID:@"adUnitId" targeting:targeting];
 ```
 
 **3. collectionView Delegate**
 ```
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    if let cell = collectionView.EB_dequeueReusableCellWithIdentifier(kReuseIdentifier, forIndexPath: indexPath) {
-        // 셀 재사용 설정
-        return cell
-    }
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kReuseIdentifier, for: indexPath)
-    return cell
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView EB_dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    // 셀 재사용 설정
+    return cell;
 }
+
 ```
 
 ### 네이티브 CollectionView Protocol (EBCollectionViewAdPlacerDelegate Protocol Reference)
@@ -576,7 +563,7 @@ Exelbid iOS SDK를 이용한 광고 연동시 Mediation 연동의 경우, 각 �
 ## 미디에이션 설정 및 요청
 ```
 // 미디에이션 초기화
-self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:;
+self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId" mediationTypes:;
 
 // ExelBid 미디에이션 타입 설정
 [ExelBidMediationManager mediationTypes: [NSSet setWithObjects:EBMediationTypeExelbid, EBMediationTypeAdfit, nil]];
@@ -664,11 +651,11 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywor
 > NSString *unit_id     // 광고 유닛 아이디
 > ```
 
-## 샘플 안내
+## 미디에이션 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  
-배너 광고 - [EBMediationBannerViewController.swift](./sample/ExelbidSample/Controller/EBMediationBannerViewController.swift)  
-전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)  
-네이티브 - [EBMediationNativeAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeAdViewController.swift)  
+배너 광고 - [EBMediationBannerAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationBannerAdViewController.m)  
+전면 광고 - [EBMediationInterstitialAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationInterstitialAdViewController.m)  
+네이티브 - [EBMediationNativeAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationNativeAdViewController.m)  
 
 ## 외에 Exelbid 및 타사 광고 SDK 연동은 각각의 해당 가이드를 참조해 설정한다.
 * AdMob - [https://developers.google.com/admob/ios/quick-start?hl=ko](https://developers.google.com/admob/ios/quick-start?hl=ko)

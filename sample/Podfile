@@ -1,0 +1,27 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ExelbidSample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ExelbidSample
+  
+  pod 'ExelBid_iOS_Swift'
+  
+  # AdMob
+  pod 'Google-Mobile-Ads-SDK'
+  
+  # Facebook
+  pod 'FBAudienceNetwork'
+
+  # Adfit
+  pod 'AdFitSDK', '~> 3.12.18'
+  
+  # Digital Turbine
+  pod 'Fyber_Marketplace_SDK'
+  
+  # Pangle
+  pod 'Ads-Global'
+
+end

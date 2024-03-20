@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <style>
+
+        </style>
+
+        <script type='text/javascript'>
+            !function (w,d,s,u,t,ss,fs) {
+                if(w.exelbidtag)return;t=w.exelbidtag={};if(!window.t) window.t = t;
+                t.push = function() {t.callFunc?t.callFunc.apply(t,arguments) : t.cmd.push(arguments);};
+                t.cmd=[];ss = document.createElement(s);ss.async=!0;ss.src=u;
+                fs=d.getElementsByTagName(s)[0];fs.parentNode.insertBefore(ss,fs);
+            }(window,document,'script','https://st2.exelbid.com/js/ads.js');
+        </script>
+    </head>
+
+    <body>
+        <script type='text/javascript'>
+            
+            function MyResponse(result) {
+                if (result.status == 'OK') {
+                    //TODO 광고 처리 됨
+                } else if (result.status == 'NOBID') {
+                    //TODO 광고없음
+                } else if (result.status == 'PASSBACK') {
+                    //TODO PASSBACK
+                } else if (result.status == 'ERROR') {
+                    //TODO 기타 에러
+                }
+            };
+
+            exelbidtag.push(function () {
+                const adunit = exelbidtag.initAdBanner("abcdefg", "100%", 200, "div-exelbid-abcdefg")
+                    .setResponseCallback(MyResponse)
+                    .setIsInApp(true); // 이것은 특별히 inapp 인 경우 반드시 해줘야 합니다.
+
+                const adTargetInfo = window.adTargetInfo ?? null;
+                if (adTargetInfo instanceof Object) {
+                    const {
+                        idfa,
+                        coppa,
+                        yob,
+                        gender,
+                        segments,
+                        app_version,
+                        iso_country_code,
+                        mobile_country_code,
+                        mobile_network_code,
+                        country_code,
+                        os_version,
+                        device_model,
+                        device_make,
+                        geo_lat,
+                        geo_lon
+                    } = adTargetInfo;
+
+                    adunit.setIfa(idfa); // ifa(gaid or idfa) 가 없는 경우는 입찰이 거의 들어오지 않습니다.
+
+                    if (coppa) {
+                        adunit.setCoppa(coppa);
+                    }
+                    if (yob) {
+                        adunit.setYob(yob);
+                    }
+                    if (gender) {
+                        adunit.setGender(gender);
+                    }
+                    if (segments && segments instanceof Object) {
+                        for (key in segments) {
+                            adunit.addKeyword(key, segments[key]);
+                        }
+                    }
+                    if (mobile_country_code) {
+                        adunit.setMobileCountryCode(mobile_country_code);
+                    }
+                    if (mobile_network_code) {
+                        adunit.setMobileNetworkCode(mobile_network_code);
+                    }
+                    if (iso_country_code) {
+                        adunit.setCountryIso(iso_country_code);
+                    }
+                    if (device_model) {
+                        adunit.setDeviceModel(device_model);
+                    }
+                    if (device_make) {
+                        adunit.setDeviceMake(device_make);
+                    }
+                    if (os_version) {
+                        adunit.setOsVersion(os_version);
+                    }
+                    if (app_version) {
+                        adunit.setAppVersion(app_version);
+                    }
+                    if (geo_lat && geo_lon) {
+                        adunit.setGeo(geo_lat, geo_lon);
+                    }
+                }
+            });
+
+        </script>
+
+        <div id="root">
+            <div id="div-exelbid-abcdefg" style="width: 320px; height: 50px; background-color: #555;">
+                <script type='text/javascript'>
+                    exelbidtag.push(function () {
+                        exelbidtag.loadAd("abcdefg");
+                    });
+                </script>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            (function () {
+                window.addEventListener("DOMContentLoaded", function () {
+                });
+            })();
+        </script>
+    </body>
+</html>
