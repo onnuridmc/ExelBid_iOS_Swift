@@ -24397,7 +24397,7 @@
       "kind": "StringLiteral",
       "offset": 220,
       "length": 7,
-      "value": "\"2.0.1\""
+      "value": "\"2.0.2\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
