@@ -23,6 +23,13 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
+**Version 2.0.3**
+- 광고 레이아웃 이슈 수정
+- 기타 버그 수정
+
+**Version 2.0.2**
+- xcframework 재배포
+
 **Version 2.0.1**
 - ObjectiveC 호환성 설정
 
