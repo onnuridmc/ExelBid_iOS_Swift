@@ -38,8 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SKAdNetwork.registerAppForAdNetworkAttribution()
         }
         
-        // Exelbid
-        ExelBid.testing = true
+        // exelbid 테스팅 모드 설정
+        #if DEBUG
+            ExelBid.sharedInstance.testing = true
+        #endif
         
         // AdMob
         GADMobileAds.sharedInstance().start(completionHandler: nil)

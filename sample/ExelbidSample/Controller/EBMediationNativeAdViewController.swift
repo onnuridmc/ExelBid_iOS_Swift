@@ -61,7 +61,17 @@ class EBMediationNativeAdViewController : UIViewController {
             return
         }
 
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: [EBMediationTypes.exelbid, EBMediationTypes.admob, EBMediationTypes.pangle])
+        let mediationTypes = [
+            EBMediationTypes.exelbid,
+            EBMediationTypes.admob,
+            EBMediationTypes.facebook,
+            EBMediationTypes.adfit,
+            EBMediationTypes.digitalturbine,
+            EBMediationTypes.pangle,
+            EBMediationTypes.tnk,
+            EBMediationTypes.applovin
+        ];
+        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
             self.showAdButton.isHidden = false
@@ -129,7 +139,7 @@ extension EBMediationNativeAdViewController {
      */
     func loadExelBid(mediation: EBMediationWrapper) {
         ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(mediation.unit_id, EBNativeAdView.self)
-        ExelBidNativeManager.testing(false)
+        ExelBidNativeManager.testing(true)
         ExelBidNativeManager.yob("1976")
         ExelBidNativeManager.gender("M")
 
@@ -205,6 +215,8 @@ extension EBMediationNativeAdViewController : EBNativeAdDelegate {
         return self
     }
 }
+
+// MARK: - GADNativeAdLoaderDelegate
 
 extension EBMediationNativeAdViewController : GADNativeAdLoaderDelegate {
     func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {

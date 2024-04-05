@@ -105,8 +105,6 @@ class EBAdTagSupport : NSObject {
         super.init()
         
         // 광고식별자 (필수)
-        // 권한 설정에 따라 값이 없을 수도 있음
-        // requestTrackingAuthorization 함수를 통하여 권한 요청 필요
         self.adTargetInfo.idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         
         // 위치 사용

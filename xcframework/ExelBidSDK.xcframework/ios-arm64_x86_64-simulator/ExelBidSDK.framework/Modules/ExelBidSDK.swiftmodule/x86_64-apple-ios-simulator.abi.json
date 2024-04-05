@@ -9883,6 +9883,7 @@
           "HasStorage",
           "AccessControl"
         ],
+        "isLet": true,
         "hasStorage": true,
         "accessors": [
           {
@@ -9903,48 +9904,6 @@
             "moduleName": "ExelBidSDK",
             "implicit": true,
             "accessorKind": "get"
-          },
-          {
-            "kind": "Accessor",
-            "name": "Set",
-            "printedName": "Set()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ExelBid",
-                "printedName": "ExelBidSDK.ExelBid",
-                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid"
-              }
-            ],
-            "declKind": "Accessor",
-            "usr": "s:10ExelBidSDK0aB3KitAA0aB0Cvs",
-            "mangledName": "$s10ExelBidSDK0aB3KitAA0aB0Cvs",
-            "moduleName": "ExelBidSDK",
-            "implicit": true,
-            "accessorKind": "set"
-          },
-          {
-            "kind": "Accessor",
-            "name": "Modify",
-            "printedName": "Modify()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Accessor",
-            "usr": "s:10ExelBidSDK0aB3KitAA0aB0CvM",
-            "mangledName": "$s10ExelBidSDK0aB3KitAA0aB0CvM",
-            "moduleName": "ExelBidSDK",
-            "implicit": true,
-            "accessorKind": "_modify"
           }
         ]
       },
@@ -9953,6 +9912,109 @@
         "name": "ExelBid",
         "printedName": "ExelBid",
         "children": [
+          {
+            "kind": "Var",
+            "name": "sharedInstance",
+            "printedName": "sharedInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ExelBid",
+                "printedName": "ExelBidSDK.ExelBid",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cpy)sharedInstance",
+            "mangledName": "$s10ExelBidSDK0aB0C14sharedInstanceACvpZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExelBid",
+                    "printedName": "ExelBidSDK.ExelBid",
+                    "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)sharedInstance",
+                "mangledName": "$s10ExelBidSDK0aB0C14sharedInstanceACvgZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExelBid",
+                    "printedName": "ExelBidSDK.ExelBid",
+                    "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)setSharedInstance:",
+                "mangledName": "$s10ExelBidSDK0aB0C14sharedInstanceACvsZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10ExelBidSDK0aB0C14sharedInstanceACvMZ",
+                "mangledName": "$s10ExelBidSDK0aB0C14sharedInstanceACvMZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
           {
             "kind": "Var",
             "name": "appId",
@@ -9966,12 +10028,10 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cpy)appId",
-            "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvpZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(py)appId",
+            "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvp",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
-              "Final",
               "AccessControl",
               "ObjC"
             ],
@@ -9989,12 +10049,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)appId",
-                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvgZ",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(im)appId",
+                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvg",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "declAttributes": [
-                  "Final",
                   "ObjC"
                 ],
                 "accessorKind": "get"
@@ -10017,12 +10075,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)setAppId:",
-                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvsZ",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(im)setAppId:",
+                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvs",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "declAttributes": [
-                  "Final",
                   "ObjC"
                 ],
                 "accessorKind": "set"
@@ -10039,14 +10095,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:10ExelBidSDK0aB0C5appIdSSvMZ",
-                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvMZ",
+                "usr": "s:10ExelBidSDK0aB0C5appIdSSvM",
+                "mangledName": "$s10ExelBidSDK0aB0C5appIdSSvM",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -10064,12 +10116,10 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cpy)testing",
-            "mangledName": "$s10ExelBidSDK0aB0C7testingSbvpZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(py)testing",
+            "mangledName": "$s10ExelBidSDK0aB0C7testingSbvp",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
-              "Final",
               "AccessControl",
               "RawDocComment",
               "ObjC"
@@ -10088,12 +10138,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)testing",
-                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvgZ",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(im)testing",
+                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvg",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "declAttributes": [
-                  "Final",
                   "ObjC"
                 ],
                 "accessorKind": "get"
@@ -10116,12 +10164,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(cm)setTesting:",
-                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvsZ",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBid(im)setTesting:",
+                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvs",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "declAttributes": [
-                  "Final",
                   "ObjC"
                 ],
                 "accessorKind": "set"
@@ -10138,14 +10184,10 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:10ExelBidSDK0aB0C7testingSbvMZ",
-                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvMZ",
+                "usr": "s:10ExelBidSDK0aB0C7testingSbvM",
+                "mangledName": "$s10ExelBidSDK0aB0C7testingSbvM",
                 "moduleName": "ExelBidSDK",
-                "static": true,
                 "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -15760,6 +15802,112 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "applovin",
+            "printedName": "applovin",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cpy)applovin",
+            "mangledName": "$s10ExelBidSDK16EBMediationTypesC8applovinSSvpZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cm)applovin",
+                "mangledName": "$s10ExelBidSDK16EBMediationTypesC8applovinSSvgZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "tnk",
+            "printedName": "tnk",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cpy)tnk",
+            "mangledName": "$s10ExelBidSDK16EBMediationTypesC3tnkSSvpZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cm)tnk",
+                "mangledName": "$s10ExelBidSDK16EBMediationTypesC3tnkSSvgZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -16038,6 +16186,28 @@
           },
           {
             "kind": "Function",
+            "name": "clear",
+            "printedName": "clear()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationManager(im)clear",
+            "mangledName": "$s10ExelBidSDK18EBMediationManagerC5clearyyF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "next",
             "printedName": "next()",
             "children": [
@@ -16059,6 +16229,29 @@
             "declKind": "Func",
             "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationManager(im)next",
             "mangledName": "$s10ExelBidSDK18EBMediationManagerC4nextAA0D7WrapperCSgyF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isNext",
+            "printedName": "isNext()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationManager(im)isNext",
+            "mangledName": "$s10ExelBidSDK18EBMediationManagerC6isNextSbyF",
             "moduleName": "ExelBidSDK",
             "declAttributes": [
               "Final",
@@ -21385,7 +21578,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAdRequestTargeting.swift",
       "kind": "BooleanLiteral",
-      "offset": 4361,
+      "offset": 3736,
       "length": 5,
       "value": "false"
     },
@@ -23009,14 +23202,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Web\/Banner\/EBBannerAdManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 307,
+      "offset": 310,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Web\/Banner\/EBBannerAdManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 460,
+      "offset": 463,
       "length": 4,
       "value": "true"
     },
@@ -24213,56 +24406,84 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 203,
+      "offset": 306,
       "length": 9,
       "value": "\"exelbid\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 243,
+      "offset": 346,
       "length": 7,
       "value": "\"admob\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 284,
+      "offset": 387,
       "length": 5,
       "value": "\"fan\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 320,
+      "offset": 423,
       "length": 7,
       "value": "\"adfit\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 367,
+      "offset": 470,
       "length": 4,
       "value": "\"dt\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 403,
+      "offset": 506,
       "length": 8,
       "value": "\"pangle\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 548,
+      "length": 10,
+      "value": "\"applovin\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 587,
+      "length": 5,
+      "value": "\"tnk\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
+      "kind": "Array",
+      "offset": 1003,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
+      "kind": "Array",
+      "offset": 1080,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 934,
+      "offset": 1119,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 730,
+      "offset": 907,
       "length": 18,
       "value": "\"ExelBidSDK.EBMediationManager\""
     },
@@ -24394,43 +24615,36 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
-      "kind": "StringLiteral",
-      "offset": 220,
-      "length": 7,
-      "value": "\"2.0.2\""
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
       "kind": "FloatLiteral",
-      "offset": 275,
+      "offset": 377,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
       "kind": "IntegerLiteral",
-      "offset": 318,
+      "offset": 420,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
       "kind": "IntegerLiteral",
-      "offset": 351,
+      "offset": 453,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
       "kind": "IntegerLiteral",
-      "offset": 390,
+      "offset": 492,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",
       "kind": "IntegerLiteral",
-      "offset": 431,
+      "offset": 533,
       "length": 2,
       "value": "30"
     }

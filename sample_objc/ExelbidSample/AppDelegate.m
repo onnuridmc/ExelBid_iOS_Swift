@@ -31,14 +31,11 @@
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
         }];
     }
-    
-//    [ExelBid setAppId:@"cc027ce5"];
 
-//    [ExelBid setAppId:@"80e62f94"];
-    
-    // Exelbid
-    // 테스트 모드
-    [ExelBid setTesting:YES];
+    // exelbid 테스팅 모드 설정
+    #if DEBUG
+    [ExelBid.sharedInstance setTesting:true];
+    #endif
     
     // AdMob
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];

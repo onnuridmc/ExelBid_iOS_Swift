@@ -66,14 +66,22 @@ class EBMediationBannerViewController : UIViewController {
             return
         }
         
-        GADAdLoaderAdType.native
-        
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: [EBMediationTypes.exelbid, EBMediationTypes.admob, EBMediationTypes.pangle])
+        let mediationTypes = [
+            EBMediationTypes.exelbid,
+            EBMediationTypes.admob,
+            EBMediationTypes.facebook,
+            EBMediationTypes.adfit,
+            EBMediationTypes.digitalturbine,
+            EBMediationTypes.pangle,
+            EBMediationTypes.tnk,
+            EBMediationTypes.applovin
+        ];
+        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
             self.showAdButton.isHidden = false
             
-            mediationManager.requestMediation() { (manager, error) in
+            mediationManager.requestMediation { (manager, error) in
                 if error != nil {
                     // 미디에이션 에러 처리
                 }

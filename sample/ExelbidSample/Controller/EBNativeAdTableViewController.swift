@@ -42,7 +42,7 @@ class EBNativeAdTableViewController: UIViewController {
                                         EBNativeAsset.kAdCTATextKey,
                                         EBNativeAsset.kAdTextKey,
                                         EBNativeAsset.kAdTitleKey)
-        targeting.testing = false
+        targeting.testing = true
         targeting.yob = "1976"
         targeting.gender = "M"
         

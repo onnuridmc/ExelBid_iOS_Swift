@@ -286,13 +286,14 @@ public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdReq
   @objc public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
   @objc deinit
 }
-public var ExelBidKit: ExelBidSDK.ExelBid
+public let ExelBidKit: ExelBidSDK.ExelBid
 @objc @_inheritsConvenienceInitializers @objcMembers public class ExelBid : ObjectiveC.NSObject {
-  @objc public static var appId: Swift.String {
+  @objc public static var sharedInstance: ExelBidSDK.ExelBid
+  @objc public var appId: Swift.String {
     @objc get
     @objc set
   }
-  @objc public static var testing: Swift.Bool {
+  @objc public var testing: Swift.Bool {
     @objc get
     @objc set
   }
@@ -459,6 +460,7 @@ extension ExelBidSDK.EBNativeAd : ExelBidSDK.EBVideoDelegate {
   @objc override dynamic public init()
   @objc deinit
 }
+public typealias EBMediationRequestHandler = (_ manager: ExelBidSDK.EBMediationManager, _ error: (any Swift.Error)?) -> Swift.Void
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class EBMediationTypes : ObjectiveC.NSObject {
   @objc public static let exelbid: Swift.String
   @objc public static let admob: Swift.String
@@ -466,13 +468,17 @@ extension ExelBidSDK.EBNativeAd : ExelBidSDK.EBVideoDelegate {
   @objc public static let adfit: Swift.String
   @objc public static let digitalturbine: Swift.String
   @objc public static let pangle: Swift.String
+  @objc public static let applovin: Swift.String
+  @objc public static let tnk: Swift.String
   @objc deinit
 }
 @objc @objcMembers final public class EBMediationManager : ObjectiveC.NSObject {
   @objc final public var testing: Swift.Bool
   @objc public init(adUnitId: Swift.String, mediationTypes: [Swift.String])
-  @objc final public func requestMediation(handler: @escaping (_ manager: ExelBidSDK.EBMediationManager, _ error: (any Swift.Error)?) -> Swift.Void)
+  @objc final public func requestMediation(handler: @escaping ExelBidSDK.EBMediationRequestHandler)
+  @objc final public func clear()
   @objc final public func next() -> ExelBidSDK.EBMediationWrapper?
+  @objc final public func isNext() -> Swift.Bool
   @objc final public func reset()
   @objc final public func count() -> Swift.Int
   @objc deinit

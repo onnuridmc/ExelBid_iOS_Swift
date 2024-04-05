@@ -59,7 +59,18 @@ class EBMediationInterstitialViewController : UIViewController {
             return
         }
         
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: [EBMediationTypes.exelbid, EBMediationTypes.admob, EBMediationTypes.pangle])
+        let mediationTypes = [
+            EBMediationTypes.exelbid,
+            EBMediationTypes.admob,
+            EBMediationTypes.facebook,
+            EBMediationTypes.adfit,
+            EBMediationTypes.digitalturbine,
+            EBMediationTypes.pangle,
+            EBMediationTypes.tnk,
+            EBMediationTypes.applovin
+        ];
+        
+        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
             self.showAdButton.isHidden = false

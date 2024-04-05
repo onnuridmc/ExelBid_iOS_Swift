@@ -37,7 +37,7 @@ extension EBVideoAdViewController {
         
         if let unitId = self.keywordsTextField.text {
             EBVideoManager.initFullVideo(identifier: unitId)
-            EBVideoManager.testing(false)
+            EBVideoManager.testing(true)
             EBVideoManager.yob("1976")
             EBVideoManager.gender("M")
 

@@ -157,7 +157,7 @@ extension EBDialogAdViewController {
         let config = EBStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(settings)
         let adRequest = EBNativeAdRequest.requestWithAdUnitIdentifier(keywordsTextField2.text, rendererConfigurations: [config])
         let targeting = EBNativeAdRequestTargeting()
-        targeting.testing = false
+        targeting.testing = true
         targeting.yob = "1976"
         targeting.gender = "M"
         adRequest.targeting = targeting

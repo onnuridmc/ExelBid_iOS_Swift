@@ -42,7 +42,7 @@ extension EBNativeVideoAdViewController {
         
         // Create and configure a renderer configuration for native ads.
         ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(identifier, EBNativeAdView.self)
-        ExelBidNativeManager.testing(false)
+        ExelBidNativeManager.testing(true)
         ExelBidNativeManager.yob("1976")
         ExelBidNativeManager.gender("M")
         
@@ -80,7 +80,6 @@ extension EBNativeVideoAdViewController {
         if let adView = nativeAd?.retrieveAdViewWithError(nil) {
             adViewContainer.addSubview(adView)
             setAutoLayout2(view: adViewContainer, adView: adView)
-       
         }
     }
     

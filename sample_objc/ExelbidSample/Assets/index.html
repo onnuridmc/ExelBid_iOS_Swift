@@ -21,8 +21,12 @@
 
     <body>
         <script type='text/javascript'>
-
+            
             function MyResponse(result) {
+                var log = document.createElement("div");
+                log.textContent = JSON.stringify(result);
+                document.querySelector("body").appendChild(log);
+
                 if (result.status == 'OK') {
                     //TODO 광고 처리 됨
                 } else if (result.status == 'NOBID') {
@@ -35,7 +39,7 @@
             };
 
             exelbidtag.push(function () {
-                const adunit = exelbidtag.initAdBanner("abcdefg", "100%", 200, "div-exelbid-abcdefg")
+                const adunit = exelbidtag.initAdBanner("08377f76c8b3e46c4ed36c82e434da2b394a4dfa", "100%", 200, "div-exelbid-08377f76c8b3e46c4ed36c82e434da2b394a4dfa")
                     .setResponseCallback(MyResponse)
                     .setIsInApp(true); // 이것은 특별히 inapp 인 경우 반드시 해줘야 합니다.
 
@@ -60,6 +64,7 @@
                     } = adTargetInfo;
 
                     adunit.setIfa(idfa); // ifa(gaid or idfa) 가 없는 경우는 입찰이 거의 들어오지 않습니다.
+                    adunit.setTestMode(true);
 
                     if (coppa) {
                         adunit.setCoppa(coppa);
@@ -105,10 +110,10 @@
         </script>
 
         <div id="root">
-            <div id="div-exelbid-abcdefg" style="width: 320px; height: 50px; background-color: #555;">
+            <div id="div-exelbid-08377f76c8b3e46c4ed36c82e434da2b394a4dfa" style="background-color: #555;">
                 <script type='text/javascript'>
                     exelbidtag.push(function () {
-                        exelbidtag.loadAd("abcdefgh");
+                        exelbidtag.loadAd("08377f76c8b3e46c4ed36c82e434da2b394a4dfa");
                     });
                 </script>
             </div>

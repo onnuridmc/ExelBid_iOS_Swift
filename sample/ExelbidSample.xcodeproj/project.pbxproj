@@ -11,7 +11,6 @@
 		1D264D8A2A81C7A500E85842 /* EBMediationNativeAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */; };
 		1D30CE372A89AB6F00B8C222 /* EBAdFitNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE362A89AB6F00B8C222 /* EBAdFitNativeAdView.swift */; };
 		1D30CE392A89B86700B8C222 /* EBMediationBizBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */; };
-		1D4A00222BA913760046443B /* ExelBidSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4A00212BA913760046443B /* ExelBidSDK.xcframework */; };
 		1D4A00262BA959AB0046443B /* EBAdMobNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */; };
 		1D4A00282BA959DD0046443B /* EBFanNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */; };
 		1D4A002A2BA95A010046443B /* EBFanNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */; };
@@ -57,7 +56,6 @@
 		1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationNativeAdViewController.swift; sourceTree = "<group>"; };
 		1D30CE362A89AB6F00B8C222 /* EBAdFitNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdFitNativeAdView.swift; sourceTree = "<group>"; };
 		1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationBizBoardViewController.swift; sourceTree = "<group>"; };
-		1D4A00212BA913760046443B /* ExelBidSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ExelBidSDK.xcframework; path = "../../exelbid-ios-sdk-v2/ExelBidSDK.xcframework"; sourceTree = "<group>"; };
 		1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBAdMobNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBAdMobNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBFanNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBFanNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBFanNativeAdView.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D4A00222BA913760046443B /* ExelBidSDK.xcframework in Frameworks */,
 				8D9FBE27791D760D34934C55 /* Pods_ExelbidSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,7 +161,6 @@
 		645B144125AD271D00AE0569 = {
 			isa = PBXGroup;
 			children = (
-				1D4A00212BA913760046443B /* ExelBidSDK.xcframework */,
 				645B144C25AD271D00AE0569 /* ExelbidSample */,
 				645B144B25AD271D00AE0569 /* Products */,
 				3A151D766408AF37FA893FB8 /* Pods */,

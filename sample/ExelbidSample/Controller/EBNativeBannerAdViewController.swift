@@ -50,7 +50,7 @@ extension EBNativeBannerAdViewController {
         
         // Create and configure a renderer configuration for native ads.
         ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(identifier, EBNativeBannerAdView.self)
-        ExelBidNativeManager.testing(false)
+        ExelBidNativeManager.testing(true)
         ExelBidNativeManager.yob("1976")
         ExelBidNativeManager.gender("M")
 

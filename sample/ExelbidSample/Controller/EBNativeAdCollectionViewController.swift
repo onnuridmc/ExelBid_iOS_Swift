@@ -47,7 +47,7 @@ class EBNativeAdCollectionViewController: UIViewController {
         targeting.desiredAssets = NSSet(objects: EBNativeAsset.kAdIconImageKey,
                                         EBNativeAsset.kAdCTATextKey,
                                         EBNativeAsset.kAdTitleKey)
-        targeting.testing = false
+        targeting.testing = true
         targeting.yob = "1976"
         targeting.gender = "M"
         

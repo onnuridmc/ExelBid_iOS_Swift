@@ -1,0 +1,73 @@
+PODS:
+  - AdFitSDK (3.12.22)
+  - Ads-Global (5.8.0.8):
+    - Ads-Global/BUAdSDK (= 5.8.0.8)
+  - Ads-Global/BUAdSDK (5.8.0.8):
+    - Ads-Global/BURelyAdSDK
+    - Ads-Global/Dep_Accurate
+  - Ads-Global/BURelyAdSDK (5.8.0.8)
+  - Ads-Global/Dep_Accurate (5.8.0.8):
+    - BURelyFoundation_Global/Pangle (= 0.2.1.4)
+  - BURelyFoundation_Global/AFNetworking (0.2.1.4)
+  - BURelyFoundation_Global/APM (0.2.1.4)
+  - BURelyFoundation_Global/Foundation (0.2.1.4):
+    - BURelyFoundation_Global/NETWork
+  - BURelyFoundation_Global/Gecko (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/Header (0.2.1.4)
+  - BURelyFoundation_Global/NETWork (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+  - BURelyFoundation_Global/Pangle (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+    - BURelyFoundation_Global/APM
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Gecko
+    - BURelyFoundation_Global/Header
+    - BURelyFoundation_Global/NETWork
+    - BURelyFoundation_Global/SDWebImage
+    - BURelyFoundation_Global/YYModel
+    - BURelyFoundation_Global/ZFPlayer
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/SDWebImage (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/YYModel (0.2.1.4)
+  - BURelyFoundation_Global/ZFPlayer (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/Zip (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - FBAudienceNetwork (6.15.0)
+  - Fyber_Marketplace_SDK (8.2.7)
+  - Google-Mobile-Ads-SDK (11.2.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.3.0)
+
+DEPENDENCIES:
+  - AdFitSDK (~> 3.12.18)
+  - Ads-Global
+  - FBAudienceNetwork
+  - Fyber_Marketplace_SDK
+  - Google-Mobile-Ads-SDK
+
+SPEC REPOS:
+  trunk:
+    - AdFitSDK
+    - Ads-Global
+    - BURelyFoundation_Global
+    - FBAudienceNetwork
+    - Fyber_Marketplace_SDK
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
+
+SPEC CHECKSUMS:
+  AdFitSDK: c766f1471897cfac5a6f333e090ed5dd86016286
+  Ads-Global: b2f2943acdeedeae08aa9dce19706e1edbbd5442
+  BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
+  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
+  Fyber_Marketplace_SDK: 90d17e7cb04f505b00c2410679f115aefc9fd4e5
+  Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
+  GoogleUserMessagingPlatform: b1ad7bb1ee3ce64749d4fec24f667b36e45c396c
+
+PODFILE CHECKSUM: 0571a1ba336bc4339292afe95fd47dc6663c5f5e
+
+COCOAPODS: 1.15.2

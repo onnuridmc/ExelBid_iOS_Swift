@@ -16,15 +16,7 @@ class EBAdTagViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 광고식별자와 위치 승인 요청은 광고 요청 전에 완료되야합니다.
 
-        // 광고식별자 - 사용자 승인 요청 및 가져오기
-        EBAdTagSupport.shared.requestTrackingAuthorization() { _ in
-            // 위치 - 사용자 승인 요청
-            EBAdTagSupport.shared.requestLocation()
-        }
-        
         EBAdTagSupport.shared.coppa = true
         EBAdTagSupport.shared.yob = "1987"
         EBAdTagSupport.shared.gender = "M"
@@ -43,7 +35,7 @@ class EBAdTagViewController: UIViewController {
         userController.add(self, name: "mysdk")
 
         // 문서 로드 전에 스크립트 동작
-        userController.addUserScript(WKUserScript(source: String(format: "adTargetInfo=%@", adTargetInfo), injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: true))
+        userController.addUserScript(WKUserScript(source: String(format: "adTargetInfo=%@", adTargetInfo), injectionTime: .atDocumentStart, forMainFrameOnly: true))
 
         webViewConfig.userContentController = userController
 

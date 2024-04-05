@@ -607,7 +607,9 @@ SWIFT_CLASS("_TtC10ExelBidSDK18EBMediationManager")
 @property (nonatomic) BOOL testing;
 - (nonnull instancetype)initWithAdUnitId:(NSString * _Nonnull)adUnitId mediationTypes:(NSArray<NSString *> * _Nonnull)mediationTypes OBJC_DESIGNATED_INITIALIZER;
 - (void)requestMediationWithHandler:(void (^ _Nonnull)(EBMediationManager * _Nonnull, NSError * _Nullable))handler;
+- (void)clear;
 - (EBMediationWrapper * _Nullable)next SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isNext SWIFT_WARN_UNUSED_RESULT;
 - (void)reset;
 - (NSInteger)count SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -629,6 +631,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)digitalturbine SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull pangle;)
 + (NSString * _Nonnull)pangle SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull applovin;)
++ (NSString * _Nonnull)applovin SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull tnk;)
++ (NSString * _Nonnull)tnk SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1095,15 +1101,14 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK27EBTableViewAdPlacerDelegate_")
 
 SWIFT_CLASS("_TtC10ExelBidSDK7ExelBid")
 @interface ExelBid : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull appId;)
-+ (NSString * _Nonnull)appId SWIFT_WARN_UNUSED_RESULT;
-+ (void)setAppId:(NSString * _Nonnull)newValue;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) ExelBid * _Nonnull sharedInstance;)
++ (ExelBid * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
++ (void)setSharedInstance:(ExelBid * _Nonnull)value;
+@property (nonatomic, copy) NSString * _Nonnull appId;
 /// Exelbid SDK가 광고 서버를 결정하는 값입니다. 기본값은 false입니다.
 /// true로 설정시 개발환경 테스트가 가능합니다.
 /// 개발환경에서 테스트가 완료되면 값을 false로 설정하거나 기본값이 설정되로록 해주세요.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL testing;)
-+ (BOOL)testing SWIFT_WARN_UNUSED_RESULT;
-+ (void)setTesting:(BOOL)newValue;
+@property (nonatomic) BOOL testing;
 @property (nonatomic, readonly, copy) NSString * _Nonnull version;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
