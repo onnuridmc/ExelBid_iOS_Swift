@@ -23,5 +23,8 @@ target 'ExelbidSample' do
   
   # Pangle
   pod 'Ads-Global'
+  
+  # Applovin
+  pod 'AppLovinSDK'
 
 end

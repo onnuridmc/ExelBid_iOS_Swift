@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		1D29554E299B4E1E00D39514 /* EBAdFitNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D29554D299B4E1E00D39514 /* EBAdFitNativeAdView.m */; };
 		1D295552299B4FCD00D39514 /* EBMediationBizBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */; };
 		1D3D01C02A6908B900CE6831 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1D3D01BF2A6908B900CE6831 /* index.html */; };
+		1D642D962BC8F1830029D8ED /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */; };
+		1D642D972BC8F1830029D8ED /* TnkPubSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D8287442994DFD200F22178 /* EBMediationBannerAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8287432994DFD200F22178 /* EBMediationBannerAdViewController.m */; };
 		1D89ED2C2B959803007DE0F2 /* EBFanNAtiveAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89ED2B2B959803007DE0F2 /* EBFanNAtiveAdView.xib */; };
 		1D89ED2E2B959811007DE0F2 /* EBAdMobNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89ED2D2B959811007DE0F2 /* EBAdMobNativeAdView.xib */; };
@@ -54,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1D642D972BC8F1830029D8ED /* TnkPubSdk.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +73,7 @@
 		1D295550299B4FCD00D39514 /* EBMediationBizBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationBizBoardViewController.h; sourceTree = "<group>"; };
 		1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationBizBoardViewController.m; sourceTree = "<group>"; };
 		1D3D01BF2A6908B900CE6831 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TnkPubSdk.xcframework; path = ../../sample/ExelbidSample/TnkPubSdk.xcframework; sourceTree = "<group>"; };
 		1D8287432994DFD200F22178 /* EBMediationBannerAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationBannerAdViewController.m; sourceTree = "<group>"; };
 		1D8287452994DFE200F22178 /* EBMediationBannerAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationBannerAdViewController.h; sourceTree = "<group>"; };
 		1D89ED2B2B959803007DE0F2 /* EBFanNAtiveAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBFanNAtiveAdView.xib; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			files = (
 				1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */,
 				BBB55C1629E5B7F8CC01AE31 /* Pods_ExelbidSample.framework in Frameworks */,
+				1D642D962BC8F1830029D8ED /* TnkPubSdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +205,7 @@
 		641269371DBDA31500A7F514 /* ExelbidSample */ = {
 			isa = PBXGroup;
 			children = (
+				1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */,
 				1D3D01BE2A6908AC00CE6831 /* Assets */,
 				641269501DBDA39E00A7F514 /* Domain */,
 				6412694F1DBDA39E00A7F514 /* Contollers */,
@@ -410,10 +416,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AdFitSDK/AdFitSDK.framework/AdFitSDK",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AppLovinSDK/AppLovinSDK.framework/AppLovinSDK",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExelBid_iOS_Swift/ExelBidSDK.framework/ExelBidSDK",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdFitSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppLovinSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExelBidSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -601,7 +611,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ExelbidSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
@@ -626,7 +639,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ExelbidSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",

@@ -8,6 +8,7 @@ PODS:
   - Ads-Global/BURelyAdSDK (5.8.0.8)
   - Ads-Global/Dep_Accurate (5.8.0.8):
     - BURelyFoundation_Global/Pangle (= 0.2.1.4)
+  - AppLovinSDK (12.4.1)
   - BURelyFoundation_Global/AFNetworking (0.2.1.4)
   - BURelyFoundation_Global/APM (0.2.1.4)
   - BURelyFoundation_Global/Foundation (0.2.1.4):
@@ -36,6 +37,7 @@ PODS:
     - BURelyFoundation_Global/Zip
   - BURelyFoundation_Global/Zip (0.2.1.4):
     - BURelyFoundation_Global/Foundation
+  - ExelBid_iOS_Swift (2.0.3)
   - FBAudienceNetwork (6.15.0)
   - Fyber_Marketplace_SDK (8.2.7)
   - Google-Mobile-Ads-SDK (11.2.0):
@@ -45,6 +47,8 @@ PODS:
 DEPENDENCIES:
   - AdFitSDK (~> 3.12.18)
   - Ads-Global
+  - AppLovinSDK
+  - ExelBid_iOS_Swift
   - FBAudienceNetwork
   - Fyber_Marketplace_SDK
   - Google-Mobile-Ads-SDK
@@ -53,7 +57,9 @@ SPEC REPOS:
   trunk:
     - AdFitSDK
     - Ads-Global
+    - AppLovinSDK
     - BURelyFoundation_Global
+    - ExelBid_iOS_Swift
     - FBAudienceNetwork
     - Fyber_Marketplace_SDK
     - Google-Mobile-Ads-SDK
@@ -62,12 +68,14 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AdFitSDK: c766f1471897cfac5a6f333e090ed5dd86016286
   Ads-Global: b2f2943acdeedeae08aa9dce19706e1edbbd5442
+  AppLovinSDK: c57ad0d34625c971d2db127f8ef60570b28ff51a
   BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
+  ExelBid_iOS_Swift: 1ff844e0da283e925b0f5065512bdff87e5d2f96
   FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
   Fyber_Marketplace_SDK: 90d17e7cb04f505b00c2410679f115aefc9fd4e5
   Google-Mobile-Ads-SDK: 5a6d005a6cb5b5e8f4c7b69ca05cdea79c181139
   GoogleUserMessagingPlatform: b1ad7bb1ee3ce64749d4fec24f667b36e45c396c
 
-PODFILE CHECKSUM: 0571a1ba336bc4339292afe95fd47dc6663c5f5e
+PODFILE CHECKSUM: 88d175f8b6de373fbef36fca053a57ab5fe178ce
 
 COCOAPODS: 1.15.2

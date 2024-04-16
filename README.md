@@ -14,7 +14,7 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 - [광고 적용하기](#광고-적용하기)
   - [배너 광고](#배너-광고)
   - [전면 광고](#전면-광고)
-  - [네이티브 광고](#네이티브-광고)
+  - [네이티브 광고, 네이티브 비디오 광고](#네이티브-광고-네이티브-비디오-광고)
   - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
   - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
@@ -312,7 +312,7 @@ func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdC
 ```
 
 
-## 네이티브 광고
+## 네이티브 광고, 네이티브 비디오 광고
 
 **1. 네이티브 광고 뷰 선언**
 
@@ -363,10 +363,10 @@ func nativePrivacyInformationIconImageView() -> UIImageView?
 **2. 네이트브 광고 인스턴스 변수 선언**
 ```
 // 네이티브 광고 인스턴스 선언  
-@property (nonatomic, strong) EBNativeAd *nativeAd;
+var nativeAd: EBNativeAd?
 
 // 네이티브 광고가 표시될 뷰 선언
-@property (weak, nonatomic) IBOutlet UIView *adViewContainer;
+@IBOutlet var adViewContainer: UIView!
 ```
 
 **3. 네이티브 광고 요청 전처리**
@@ -387,10 +387,19 @@ ExelBidNativeManager.testing(false)
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
 ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                                 EBNativeAsset.kAdMainImageKey,
-                                                 EBNativeAsset.kAdCTATextKey,
-                                                 EBNativeAsset.kAdTextKey,
-                                                 EBNativeAsset.kAdTitleKey));
+                                                EBNativeAsset.kAdMainImageKey,
+                                                EBNativeAsset.kAdTextKey,
+                                                EBNativeAsset.kAdTitleKey,
+                                                EBNativeAsset.kAdCTATextKey,));
+```
+
+**3-1. 네이티브 비디오 광고 요청 전처리**
+```
+ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
+                                                EBNativeAsset.kAdVideo,
+                                                EBNativeAsset.kAdTextKey,
+                                                EBNativeAsset.kAdTitleKey,
+                                                EBNativeAsset.kAdCTATextKey,))
 ```
 
 **4. 네이티브 광고 요청 및 표시**
@@ -448,7 +457,7 @@ var placer: EBTableViewAdPlacer?
 
 **네이티브 EBTableViewAdPlacer Protocol (EBTableViewAdPlacer Protocol Reference)**
 ```
-+ (instancetype)placerWithTableView:(UITableView *)tableView viewController:(UIViewController *)controller rendererConfigurations:(NSArray *)rendererConfigurations;
+func placerWithTableView(_ tableView: UITableView?, viewController controller: UIViewController?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBTableViewAdPlacer
 ```
 
 **2. 네이티브 TableView Adapter 설정 및 광고 요청**
@@ -503,9 +512,9 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 ### 네이티브 TableView Protocol (EBTableViewAdPlacerDelegate Protocol Reference) 
 ```
-- (void)nativeAdWillLoadForTableViewAdPlacer:(EBTableViewAdPlacer *)placer;
-- (void)nativeAdDidLoadForTableViewAdPlacer:(EBTableViewAdPlacer *)placer;
-- (void)nativeAdWillLeaveApplicationFromTableViewAdPlacer:(EBTableViewAdPlacer *)placer;
+func nativeAdWillLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
+func nativeAdDidLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
+func nativeAdWillLeaveApplicationFromTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
 ```
 
 ## 네이티브 CollectionView Adapter
@@ -517,7 +526,7 @@ var placer: EBCollectionViewAdPlacer?
 
 **네이티브 EBCollectionViewAdPlacer Protocol (EBCollectionViewAdPlacer Protocol Reference)**
 ```
-+ (instancetype)placerWithCollectionView:(UICollectionView *)collectionView viewController:(UIViewController *)controller rendererConfigurations:(NSArray *)rendererConfigurations;
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
 ```
 
 **2. 네이티브 CollectionView Adapter 설정 및 광고 요청**
@@ -573,104 +582,140 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 
 ### 네이티브 CollectionView Protocol (EBCollectionViewAdPlacerDelegate Protocol Reference)
 ```
-- (void)nativeAdWillLoadForCollectionViewAdPlacer:(EBCollectionViewAdPlacer *)placer;
-- (void)nativeAdDidLoadForCollectionViewAdPlacer:(EBCollectionViewAdPlacer *)placer;
-- (void)nativeAdWillLeaveApplicationFromCollectionViewAdPlacer:(EBCollectionViewAdPlacer *)placer;
+func nativeAdWillLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+func nativeAdDidLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
+func nativeAdWillLeaveApplicationFromCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
 ```
 
 # 미디에이션
 Exelbid iOS SDK를 이용한 광고 연동시 Mediation 연동의 경우, 각 앱에서 연동하고 있는 광고 SDK들의 최적화 된 호출 순서를 응답한다.(Exelbid 포함)
 
 ## 미디에이션 설정 및 요청
-```
-// 미디에이션 초기화
-self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:;
 
+**네이티브 광고 뷰 인스턴스 변수 선언**
+```
+var mediationManager: EBMediationManager?
+```
+
+```
 // ExelBid 미디에이션 타입 설정
-[ExelBidMediationManager mediationTypes: [NSSet setWithObjects:EBMediationTypeExelbid, EBMediationTypeAdfit, nil]];
+let mediationTypes = [
+    EBMediationTypes.exelbid,
+    EBMediationTypes.admob,
+    EBMediationTypes.facebook,
+    EBMediationTypes.adfit,
+    EBMediationTypes.digitalturbine,
+    EBMediationTypes.pangle,
+    EBMediationTypes.tnk,
+    EBMediationTypes.applovin
+];
+
+// 미디에이션 초기화
+self.mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
 
 // ExelBid 미디에이션 요청 및 콜백
-    [self.mediationManager requestMediationWithHandler:^(EBMediationManager *manager, NSError *error) {
-    if (error) {
-        NSLog(@"================> %@", error);
-    } else {
-        [self loadMediation];
+if let mediationManager = mediationManager {
+    mediationManager.requestMediation { (manager, error) in
+        if error != nil {
+            // 미디에이션 에러 처리
+        } else {
+            // 성공 처리
+        }
     }
-}];
+}
 ```
 
 ## 미디에이션 순서 호출
 ```
-- (void)loadMediation
-{
+func loadMediation() {
     // ExelBid 미디에이션 객체 체크
+    guard let mediationManager = mediationManager else {
+        self.emptyMediation()
+        return
+    }
+    
     if (self.mediationManager != nil) {
         // adViewContainer 내 추가된 서브뷰 제거
         [[self.adViewContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
         
         // ExelBid 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
-        EBMediationWrapper *mediation = [self.mediationManager next];
-        
-        if (mediation == nil) {
-            [self emptyMediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.exelbid]) {
-            [self loadExelBid:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.admob]) {
-            [self loadAdMob:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.facebook]) {
-            [self loadFan:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.adfit]) {
-            [self loadAdFit:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.digitalturbine]) {
-            [self loadDT:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
-            [self loadPangle:mediation];
+        if let mediation = mediationManager.next() {
+            switch mediation.id {
+            case EBMediationTypes.exelbid:
+                self.loadExelBid(mediation: mediation)
+            case EBMediationTypes.admob:
+                self.loadAdMob(mediation: mediation)
+            case EBMediationTypes.facebook:
+                self.loadFan(mediation: mediation)
+            case EBMediationTypes.adfit:
+                self.loadAdFit(mediation: mediation)
+            case EBMediationTypes.digitalturbine:
+                self.loadDT(mediation: mediation)
+            case EBMediationTypes.pangle:
+                self.loadPangle(mediation: mediation)
+            case EBMediationTypes.tnk:
+                self.loadTnk(mediation: mediation)
+            case EBMediationTypes.applovin:
+                self.loadApplovin(mediation: mediation)
+            default:
+                self.loadMediation()
+            }
         } else {
-            [self loadMediation];
+            self.emptyMediation()
         }
     }
 }
 
 - (void)emptyMediation
 {
-    NSLog(@"Mediation Empty");
     // 미디에이션 리셋 또는 광고 없음 처리
-//     [self.mediationManager reset];
-//     [self loadMediation];
+//    self.mediationManager?.reset()
+//    self.loadMediation()
 }
 
-- (void)loadExelBid:(EBMediationWrapper *)mediation
-{
-    self.ebAdView = [[EBAdView alloc] initWithAdUnitId:mediation.unit_id size:self.adViewContainer.bounds.size];
-    self.ebAdView.delegate = self;
-    [self.ebAdView setFullWebView:YES];
-    [self.ebAdView setTesting:YES];
+func loadExelBid(mediation: EBMediationWrapper) {
+    self.clearAd();
+
+    self.ebAdView = EBAdView(adUnitId: mediation.unit_id, size: self.adViewContainer.bounds.size)
     
-    // 광고 뷰 추가
-    [_adViewContainer addSubview:self.ebAdView];
+    if let adView = self.ebAdView {
+        adView.delegate = self
+        adView.yob = "1976"
+        adView.gender = "M"
+        adView.fullWebView = true
+        adView.testing = true
+        
+        // 광고 위치에 광고뷰 추가
+        self.adViewContainer.addSubview(adView)
+        
+        // 광고 뷰에 AutoLayout constraint 적용
+        setAutoLayout(view: adViewContainer, adView: adView)
+        
+        // 광고 호출
+        adView.loadAd()
+    }
     
-    // 광고 뷰에 AutoLayout constraint 적용
-    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:self.ebAdView];
     
-    // 광고 호출
-    [self.ebAdView loadAd];
 }
 ```
 
 > EBMediationManager Interface References  // 응답받은 미디에이션 순서를 가져오거나 재설정 합니다.
-> ```
-> - (NSInteger)count;
-> - (EBMediationWrapper *)next;
-> - (void)reset;
-> ```
+```
+func requestMediation(handler: EBMediationRequestHandler)
+func clear()
+func next() -> ExelBidSDK.EBMediationWrapper?
+func isNext() -> Bool
+func reset()
+func count() -> Int
+```
 
 > EBMediationWrapper Interface References  // 미디에이션 정보입니다.
-> ```
-> NSString *id          // 미디에이션 타입
-> int index             // 미디에이션 순번
-> int priority_rate     // 비중
-> NSString *unit_id     // 광고 유닛 아이디
-> ```
+```
+var id: String { get }          // 미디에이션 타입
+var index: Int { get }          // 미디에이션 순번
+var priority_rate: Int { get }  // 비중
+var unit_id: String { get }     // 광고 유닛 아이디     
+```
 
 ## 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  
@@ -684,7 +729,8 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywor
 * Kakao-Adfit - [https://github.com/adfit/adfit-ios-sdk/wiki](https://github.com/adfit/adfit-ios-sdk/wiki)
 * Digital Turbine - [https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK](https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK)
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
-
+* TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
+* AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
 
 # 광고 요청 인스턴스 공통 메소드
 

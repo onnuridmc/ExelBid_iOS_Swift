@@ -22,7 +22,13 @@
 // Pangle
 #import <PAGAdSDK/PAGAdSDK.h>
 
-@interface EBMediationBannerAdViewController ()<UITextFieldDelegate, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate>
+// Tnk
+#import <TnkPubSdk/TnkPubSdk-Swift.h>
+
+// Applovin
+#import <AppLovinSDK/AppLovinSDK.h>
+
+@interface EBMediationBannerAdViewController ()<UITextFieldDelegate, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener>
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
 @property (nonatomic, strong) EBAdView *ebAdView;
@@ -43,6 +49,8 @@
 // Pangle
 @property (nonatomic, strong) PAGBannerAd *pagBannerAd;
 
+// applovin
+@property (nonatomic, strong) MAAdView *alBannerAd;
 
 @end
 
@@ -70,10 +78,14 @@
     
     // ExelBid 미디에이션 목록 설정
     NSArray * mediationTypes = [[NSArray alloc] initWithObjects:
-                       EBMediationTypes.exelbid,
-                       EBMediationTypes.admob,
-                       EBMediationTypes.pangle,
-                       nil];
+                                EBMediationTypes.exelbid,
+                                EBMediationTypes.admob,
+                                EBMediationTypes.facebook,
+                                EBMediationTypes.adfit,
+                                EBMediationTypes.pangle,
+                                EBMediationTypes.tnk,
+                                EBMediationTypes.applovin,
+                                nil];
 
     // ExelBid 미디에이션 초기화
     self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:mediationTypes];
@@ -125,6 +137,10 @@
             [self loadDT:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.tnk]) {
+            [self loadTnk:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
+            [self loadApplovin:mediation];
         } else {
             [self loadMediation];
         }
@@ -337,6 +353,26 @@
         
         [self.adViewContainer addSubview:bannerView];
     }];
+}
+
+- (void)loadTnk:(EBMediationWrapper *)mediation
+{
+    [self clearAd];
+    
+    TnkBannerAdView *adView = [[TnkBannerAdView alloc] initWithPlacementId:mediation.unit_id adListener:self];
+    adView.frame = CGRectMake(0, 0, 320, 50);
+    
+    [adView load];
+    
+}
+
+- (void)loadApplovin:(EBMediationWrapper *)mediation
+{
+    self.alBannerAd = [[MAAdView alloc] initWithAdUnitIdentifier:mediation.unit_id];
+    self.alBannerAd.delegate = self;
+    
+    self.alBannerAd.frame = self.adViewContainer.frame;
+    [self.adViewContainer addSubview:self.alBannerAd];
 }
 
 #pragma mark - EBAdViewDelegate

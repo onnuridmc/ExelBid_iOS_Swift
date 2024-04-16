@@ -13,6 +13,7 @@ import GoogleMobileAds
 import FBAudienceNetwork
 import IASDKCore
 import PAGAdSDK
+import AppLovinSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,9 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // exelbid 테스팅 모드 설정
-        #if DEBUG
-            ExelBid.sharedInstance.testing = true
-        #endif
+        ExelBid.sharedInstance.testing = true
         
         // AdMob
         GADMobileAds.sharedInstance().start(completionHandler: nil)
@@ -63,6 +62,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         PAGSdk.start(with: pagConfig, completionHandler: nil)
+        
+        // Applovin
+
+        // Create the initialization configuration
+//        let initConfig = ALSdkInitializationConfiguration(sdkKey: "«SDK-KEY»") { builder in
+//
+//            builder.mediationProvider = ALMediationProviderMAX
+//
+//            builder.userSegment = ALUserSegment(name: "«USER-SEGMENT»")
+//
+//            builder.settings.userIdentifier = "«USER-ID»"
+//            builder.settings.setExtraParameterForKey("uid2_token", value: "«TOKEN-VALUE»")
+//
+//            // Note: you may also set these values in your Info.plist
+//            builder.settings.termsAndPrivacyPolicyFlowSettings.isEnabled = true
+//            builder.settings.termsAndPrivacyPolicyFlowSettings.termsOfServiceURL = URL(string: "https://www.motiv-i.com/terms")
+//            builder.settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string:"https://www.motiv-i.com/privacy")
+//        }
+//
+//        ALSdk.shared().initialize(with: initConfig) { sdkConfig in
+//            // Start loading ads
+//        }
     
         return true
     }

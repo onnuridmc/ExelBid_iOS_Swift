@@ -22,7 +22,13 @@ import IASDKCore
 // Pangle
 import PAGAdSDK
 
-class EBMediationInterstitialViewController : UIViewController {
+// Tnk
+import TnkPubSdk
+
+// Applovin
+import AppLovinSDK
+
+class EBMediationInterstitialViewController : UIViewController, EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
     
     @IBOutlet var keywordsTextField: UITextField!
     @IBOutlet var loadAdButton: UIButton!
@@ -44,6 +50,9 @@ class EBMediationInterstitialViewController : UIViewController {
     
     // Pangle
     var pagIntersitial: PAGLInterstitialAd?
+    
+    // Applovin
+    var alInterstitialAd: MAInterstitialAd!
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +107,7 @@ extension EBMediationInterstitialViewController {
         // 미디에이션 목록을 순차적으로 가져옴
         if let mediation = mediationManager.next() {
             
-            print(">>>>> Mediation ID : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -111,6 +120,10 @@ extension EBMediationInterstitialViewController {
                 self.loadDT(mediation: mediation)
             case EBMediationTypes.pangle:
                 self.loadPangle(mediation: mediation)
+            case EBMediationTypes.tnk:
+                self.loadTnk(mediation: mediation)
+            case EBMediationTypes.applovin:
+                self.loadApplovin(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -155,7 +168,7 @@ extension EBMediationInterstitialViewController {
     func loadFan(mediation: EBMediationWrapper) {
         self.fanInterstitialAd = FBInterstitialAd(placementID: mediation.unit_id)
         self.fanInterstitialAd?.delegate = self
-        
+
         self.fanInterstitialAd?.load()
     }
     
@@ -211,9 +224,24 @@ extension EBMediationInterstitialViewController {
             }
         }
     }
-}
+    
+    func loadTnk(mediation: EBMediationWrapper) {
+        let adItem = TnkInterstitialAdItem(viewController: self, placementId: mediation.unit_id)
+        adItem.setListener(self)
+        adItem.load()
+    }
+    
+    func loadApplovin(mediation: EBMediationWrapper) {
+        self.alInterstitialAd = MAInterstitialAd(adUnitIdentifier: "YOUR_AD_UNIT_ID")
+        self.alInterstitialAd.delegate = self
 
-extension EBMediationInterstitialViewController: EBInterstitialAdControllerDelegate {
+        // Load the first ad
+        self.alInterstitialAd.load()
+    }
+    
+    
+    // MARK: EBInterstitialAdControllerDelegate
+    
     func interstitialDidLoadAd(_ interstitial: EBInterstitialAdController?) {
         self.ebInterstitialAd?.showFromViewController(self)
     }
@@ -229,9 +257,10 @@ extension EBMediationInterstitialViewController: EBInterstitialAdControllerDeleg
     func interstitialWillDisappear(_ interstitial: EBInterstitialAdController?) {
         
     }
-}
-
-extension EBMediationInterstitialViewController: GADFullScreenContentDelegate {
+    
+    
+    // MARK: GADFullScreenContentDelegate
+    
     func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
         self.loadMediation()
     }
@@ -243,9 +272,10 @@ extension EBMediationInterstitialViewController: GADFullScreenContentDelegate {
     func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
         
     }
-}
-
-extension EBMediationInterstitialViewController: FBInterstitialAdDelegate {
+    
+    
+    // MARK: FBInterstitialAdDelegate
+    
     func interstitialAdDidLoad(_ interstitialAd: FBInterstitialAd) {
         if interstitialAd.isAdValid {
             interstitialAd.show(fromRootViewController: self)
@@ -255,15 +285,17 @@ extension EBMediationInterstitialViewController: FBInterstitialAdDelegate {
     func interstitialAd(_ interstitialAd: FBInterstitialAd, didFailWithError error: any Error) {
         self.loadMediation()
     }
-}
-
-extension EBMediationInterstitialViewController: IAUnitDelegate {
+    
+    
+    // MARK: IAUnitDelegate
+    
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return self
     }
-}
-
-extension EBMediationInterstitialViewController: PAGLInterstitialAdDelegate {
+    
+    
+    // MARK: PAGLInterstitialAdDelegate
+    
     func adDidShow(_ ad: any PAGAdProtocol) {
         
     }
@@ -275,4 +307,45 @@ extension EBMediationInterstitialViewController: PAGLInterstitialAdDelegate {
     func adDidShowFail(_ ad: any PAGAdProtocol, error: any Error) {
         self.loadMediation()
     }
+    
+    
+    // MARK: TnkAdListener
+    func onLoad(_ adItem: any TnkAdItem) {
+        if adItem.isLoaded() {
+            adItem.show()
+        }
+    }
+    
+    func onError(_ adItem: any TnkAdItem, error: AdError) {
+        self.loadMediation()
+    }
+
+    
+    // MARK: MAAdDelegate
+    func didLoad(_ ad: MAAd) {
+        if self.alInterstitialAd.isReady {
+            self.alInterstitialAd.show()
+        }
+    }
+    
+    func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
+        self.loadMediation()
+    }
+    
+    func didDisplay(_ ad: MAAd) {
+        
+    }
+    
+    func didHide(_ ad: MAAd) {
+        
+    }
+    
+    func didClick(_ ad: MAAd) {
+        
+    }
+    
+    func didFail(toDisplay ad: MAAd, withError error: MAError) {
+        self.loadMediation()
+    }
+    
 }

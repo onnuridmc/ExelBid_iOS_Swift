@@ -226,6 +226,7 @@
                         <segue destination="kWs-pS-o4g" kind="show" identifier="MediationBizboardView" id="TTy-C1-HPS"/>
                         <segue destination="b4a-9N-vf4" kind="show" identifier="MediationNative" id="xdh-d8-uLD"/>
                         <segue destination="rif-y0-IK0" kind="show" identifier="MediationInterstitial" id="VO7-aJ-zCc"/>
+                        <segue destination="E1O-ar-lsf" kind="show" identifier="MediationNativeVideo" id="xvv-JK-sMD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zn-ip-6N8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1082,10 +1083,10 @@
             </objects>
             <point key="canvasLocation" x="1613" y="2113"/>
         </scene>
-        <!--Mediation Native-->
+        <!--Mediation BizBoard-->
         <scene sceneID="lp4-Va-T0e">
             <objects>
-                <viewController title="Mediation Native" id="kWs-pS-o4g" customClass="EBMediationBizBoardViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mediation BizBoard" id="kWs-pS-o4g" customClass="EBMediationBizBoardViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Edm-6f-Hem"/>
                         <viewControllerLayoutGuide type="bottom" id="heS-ka-Esv"/>
@@ -1152,25 +1153,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMd-9g-TF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="2111"/>
+            <point key="canvasLocation" x="3091" y="2112"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="XbE-1y-hSC">
+        <!--Mediation Native-->
+        <scene sceneID="4ez-SR-pRM">
             <objects>
-                <viewController id="Jwp-s7-6ew" sceneMemberID="viewController">
+                <viewController title="Mediation Native" id="E1O-ar-lsf" customClass="EBMediationNativeVideoAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kRf-wT-Q3O"/>
-                        <viewControllerLayoutGuide type="bottom" id="0at-cz-RGE"/>
+                        <viewControllerLayoutGuide type="top" id="Jab-Lg-HUD"/>
+                        <viewControllerLayoutGuide type="bottom" id="v6o-v4-R6v"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r4U-zf-FQ8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <view key="view" contentMode="scaleToFill" id="Zlc-oe-mdd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-xf-awk">
+                                <rect key="frame" x="8" y="12" width="377" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uwc-Ul-yXR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMC-Qa-oTV" userLabel="Ad View Container">
+                                <rect key="frame" x="0.0" y="102" width="393" height="330"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="eJT-B3-YB0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Y3-DGA">
+                                <rect key="frame" x="206" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="psZ-kK-okU"/>
+                                </constraints>
+                                <state key="normal" title="Load Mediation">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowButton:" destination="E1O-ar-lsf" eventType="touchUpInside" id="3ET-h6-3gw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCI-st-RXa">
+                                <rect key="frame" x="8" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uzQ-uW-bJh"/>
+                                </constraints>
+                                <state key="normal" title="Request Mediaion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoadButton:" destination="E1O-ar-lsf" eventType="touchUpInside" id="ucF-2t-ogx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pQK-xf-awk" firstAttribute="top" secondItem="Jab-Lg-HUD" secondAttribute="bottom" constant="12" id="21D-UV-8yl"/>
+                            <constraint firstItem="h0r-Y3-DGA" firstAttribute="top" secondItem="pQK-xf-awk" secondAttribute="bottom" constant="12" id="48E-vM-HYE"/>
+                            <constraint firstItem="zCI-st-RXa" firstAttribute="top" secondItem="pQK-xf-awk" secondAttribute="bottom" constant="12" id="H1k-KX-Xwt"/>
+                            <constraint firstAttribute="trailing" secondItem="h0r-Y3-DGA" secondAttribute="trailing" constant="8" id="HZG-M1-qSF"/>
+                            <constraint firstItem="h0r-Y3-DGA" firstAttribute="leading" secondItem="zCI-st-RXa" secondAttribute="trailing" constant="19" id="WDG-Sq-H1P"/>
+                            <constraint firstItem="BMC-Qa-oTV" firstAttribute="leading" secondItem="Zlc-oe-mdd" secondAttribute="leading" id="YHS-VK-NpZ"/>
+                            <constraint firstItem="pQK-xf-awk" firstAttribute="leading" secondItem="Zlc-oe-mdd" secondAttribute="leading" constant="8" id="cIb-6U-hZi"/>
+                            <constraint firstItem="h0r-Y3-DGA" firstAttribute="width" secondItem="zCI-st-RXa" secondAttribute="width" id="erz-We-Isx"/>
+                            <constraint firstItem="BMC-Qa-oTV" firstAttribute="top" secondItem="zCI-st-RXa" secondAttribute="bottom" constant="8" id="iJA-vi-csY"/>
+                            <constraint firstItem="zCI-st-RXa" firstAttribute="leading" secondItem="Zlc-oe-mdd" secondAttribute="leading" constant="8" id="lgQ-Ta-Tpd"/>
+                            <constraint firstAttribute="trailing" secondItem="BMC-Qa-oTV" secondAttribute="trailing" id="mNg-u1-dpy"/>
+                            <constraint firstAttribute="trailing" secondItem="pQK-xf-awk" secondAttribute="trailing" constant="8" id="tMR-uS-pHQ"/>
+                            <constraint firstItem="BMC-Qa-oTV" firstAttribute="top" secondItem="h0r-Y3-DGA" secondAttribute="bottom" constant="8" id="zcW-EK-c41"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Mediation Native Video" id="d5m-m1-KMc"/>
+                    <connections>
+                        <outlet property="adViewContainer" destination="BMC-Qa-oTV" id="pPu-R8-pP5"/>
+                        <outlet property="keywordsTextField" destination="pQK-xf-awk" id="Lvb-RG-LYG"/>
+                        <outlet property="loadAdButton" destination="zCI-st-RXa" id="ktX-l0-PeK"/>
+                        <outlet property="showAdButton" destination="h0r-Y3-DGA" id="DFg-4M-baS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mr5-sf-cVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zii-7a-msy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3936.6412213740455" y="2039.4366197183099"/>
+            <point key="canvasLocation" x="2309" y="2113"/>
         </scene>
     </scenes>
     <resources>

@@ -85,6 +85,10 @@ class EBAdTableViewController: UITableViewController {
             if let controller = segue.destination as? EBMediationNativeAdViewController {
                 controller.info = info
             }
+        }else if segue.identifier == "MediationNativeVideo" {
+            if let controller = segue.destination as? EBMediationNativeVideoAdViewController {
+                controller.info = info
+            }
         }else if segue.identifier == "MediationBizboardView" {
             if let controller = segue.destination as? EBMediationBizBoardViewController {
                 controller.info = info
@@ -148,6 +152,8 @@ class EBAdTableViewController: UITableViewController {
                 performSegue(withIdentifier: "MediationInterstitial", sender: indexPath)
             case .MediationNative:
                 performSegue(withIdentifier: "MediationNative", sender: indexPath)
+            case .MediationNativeVideo:
+                performSegue(withIdentifier: "MediationNativeVideo", sender: indexPath)
             case .MediationBizboard:
                 performSegue(withIdentifier: "MediationBizboardView", sender: indexPath)
             case .AdTag:

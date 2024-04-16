@@ -25,7 +25,13 @@ import IASDKCore
 // Pangle
 import PAGAdSDK
 
-class EBMediationBannerViewController : UIViewController {
+// Tnk
+import TnkPubSdk
+
+// Applovin
+import AppLovinSDK
+
+class EBMediationBannerViewController : UIViewController, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener, MAAdViewAdDelegate {
     
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -51,6 +57,9 @@ class EBMediationBannerViewController : UIViewController {
     
     // Pangle
     var pagBannerAd: PAGBannerAd?
+    
+    // Applovin
+    var alBannerAd: MAAdView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +93,8 @@ class EBMediationBannerViewController : UIViewController {
             mediationManager.requestMediation { (manager, error) in
                 if error != nil {
                     // 미디에이션 에러 처리
+                } else {
+                    // 성공 처리
                 }
             }
         }
@@ -109,10 +120,10 @@ extension EBMediationBannerViewController {
             return
         }
         
-        // 미디에이션 목록을 순차적으로 가져옴
+        // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
-            print(">>>>> Mediation ID : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -127,6 +138,10 @@ extension EBMediationBannerViewController {
                 self.loadDT(mediation: mediation)
             case EBMediationTypes.pangle:
                 self.loadPangle(mediation: mediation)
+            case EBMediationTypes.tnk:
+                self.loadTnk(mediation: mediation)
+            case EBMediationTypes.applovin:
+                self.loadApplovin(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -260,9 +275,38 @@ extension EBMediationBannerViewController {
             }
         }
     }
-}
-
-extension EBMediationBannerViewController : EBAdViewDelegate {
+    
+    func loadTnk(mediation: EBMediationWrapper) {
+        self.clearAd();
+        
+        let adView = TnkBannerAdView(placementId: mediation.unit_id, adListener: self)
+        adView.frame = CGRect(x: 0, y: 0, width: 320, height: 50)
+        adView.setContainerView(self.adViewContainer)
+        adView.load()
+    }
+    
+    func loadApplovin(mediation: EBMediationWrapper) {
+        self.alBannerAd = MAAdView(adUnitIdentifier: mediation.unit_id)
+        self.alBannerAd.delegate = self
+    
+        // Banner height on iPhone and iPad is 50 and 90, respectively
+//        let height: CGFloat = (UIDevice.current.userInterfaceIdiom == .pad) ? 90 : 50
+    
+        // Stretch to the width of the screen for banners to be fully functional
+//        let width: CGFloat = UIScreen.main.bounds.width
+//        alBannerAd.frame = CGRect(x: 0, y: 0, width: width, height: height)
+            
+        self.alBannerAd.frame = self.adViewContainer.frame
+    
+        self.adViewContainer.addSubview(self.alBannerAd)
+    
+        // Load the first ad
+        self.alBannerAd.loadAd()
+    }
+    
+    
+    // MARK: EBAdViewDelegate
+    
     func adViewDidLoadAd(_ view: EBAdView?) {
         
     }
@@ -270,9 +314,10 @@ extension EBMediationBannerViewController : EBAdViewDelegate {
     func adViewDidFailToLoadAd(_ view: EBAdView?) {
         self.loadMediation()
     }
-}
-
-extension EBMediationBannerViewController : GADBannerViewDelegate {
+    
+    
+    // MARK: GADBannerViewDelegate
+    
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.adViewContainer.addSubview(bannerView)
         self.adViewContainer.addConstraints([
@@ -297,14 +342,13 @@ extension EBMediationBannerViewController : GADBannerViewDelegate {
         ])
     }
     
-                
-    
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: any Error) {
         self.loadMediation()
     }
-}
-
-extension EBMediationBannerViewController : FBAdViewDelegate {
+    
+    
+    // MARK: FBAdViewDelegate
+    
     func adViewDidLoad(_ adView: FBAdView) {
         
         if let adView = self.fanAdview, adView.isAdValid {
@@ -319,20 +363,64 @@ extension EBMediationBannerViewController : FBAdViewDelegate {
     func adView(_ adView: FBAdView, didFailWithError error: any Error) {
         self.loadMediation()
     }
-}
-
-extension EBMediationBannerViewController : AdFitBannerAdViewDelegate {
+    
+    
+    // MARK: AdFitBannerAdViewDelegate
+    
     func adViewDidFailToReceiveAd(_ bannerAdView: AdFitBannerAdView, error: Error) {
         self.loadMediation()
     }
-}
-
-extension EBMediationBannerViewController : IAUnitDelegate {
+    
+    
+    // MARK: IAUnitDelegate
+    
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return self
     }
+    
+    
+    // MARK: TnkAdListener
+    
+    func onLoad(_ adItem: any TnkAdItem) {
+        adItem.show()
+    }
+    
+    func onError(_ adItem: any TnkAdItem, error: AdError) {
+        self.loadMediation()
+    }
+    
+    
+    // MARK: MAAdViewAdDelegate
+    
+    func didLoad(_ ad: MAAd) {
+        
+    }
+    
+    func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
+        
+    }
+    
+    func didFail(toDisplay ad: MAAd, withError error: MAError) {
+        
+    }
+    
+    func didExpand(_ ad: MAAd) {
+        
+    }
+    
+    func didCollapse(_ ad: MAAd) {
+        
+    }
+    
+    func didDisplay(_ ad: MAAd) {
+        
+    }
+    
+    func didHide(_ ad: MAAd) {
+        
+    }
+    
+    func didClick(_ ad: MAAd) {
+        
+    }
 }
-
-extension EBMediationBannerViewController : PAGBannerAdDelegate {
-}
-

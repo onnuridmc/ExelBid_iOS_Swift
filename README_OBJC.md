@@ -14,7 +14,7 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 - [광고 적용하기](#광고-적용하기)
   - [배너 광고](#배너-광고)
   - [전면 광고](#전면-광고)
-  - [네이티브 광고](#네이티브-광고)
+  - [네이티브 광고, 네이티브 비디오 광고](#네이티브-광고-네이티브-비디오-광고)
   - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
   - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
@@ -302,7 +302,7 @@ self.interstitial.delegate = self;
 ```
 
 
-## 네이티브 광고
+## 네이티브 광고, 네이티브 비디오 광고
 
 **1. 네이티브 광고 뷰 선언**
 
@@ -372,13 +372,23 @@ self.interstitial.delegate = self;
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
 [ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
-                                         EBNativeAsset.kAdIconImageKey,
-                                         EBNativeAsset.kAdMainImageKey,
-                                         EBNativeAsset.kAdCTATextKey,
-                                         EBNativeAsset.kAdTextKey,
-                                         EBNativeAsset.kAdTitleKey,
-                                         nil]];
+                                        EBNativeAsset.kAdIconImageKey,
+                                        EBNativeAsset.kAdMainImageKey,
+                                        EBNativeAsset.kAdTitleKey,
+                                        EBNativeAsset.kAdTextKey,
+                                        EBNativeAsset.kAdCTATextKey,
+                                        nil]];
+```
 
+**3-1. 네이티브 비디오 광고 요청 전처리**
+```
+[ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
+                                        EBNativeAsset.kAdIconImageKey,
+                                        EBNativeAsset.kAdVideo,
+                                        EBNativeAsset.kAdTitleKey,
+                                        EBNativeAsset.kAdTextKey,
+                                        EBNativeAsset.kAdCTATextKey,
+                                        nil]];
 ```
 
 **4. 네이티브 광고 요청 및 표시**
@@ -612,6 +622,10 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
             [self loadDT:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.tnk]) {
+            [self loadPangle:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
+            [self loadPangle:mediation];
         } else {
             [self loadMediation];
         }
@@ -671,7 +685,8 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 * Kakao-Adfit - [https://github.com/adfit/adfit-ios-sdk/wiki](https://github.com/adfit/adfit-ios-sdk/wiki)
 * Digital Turbine - [https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK](https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK)
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
-
+* TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
+* AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
 
 # 광고 요청 인스턴스 공통 메소드
 

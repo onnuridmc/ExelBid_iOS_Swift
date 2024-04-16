@@ -1,6 +1,5 @@
 //
-//  EBMediationNativeadViewController.swift
-//  com.zionbi.ExelbidSample-Swift
+//  EBMediationNativeVideoAdViewController.swift
 //
 //  Created by Jaeuk Jeong on 2023/08/08.
 //
@@ -14,22 +13,10 @@ import ExelBidSDK
 // AdMob
 import GoogleMobileAds
 
-// Facebook
-import FBAudienceNetwork
-
-// Adfit
-import AdFitSDK
-
 // Pangle
 import PAGAdSDK
 
-// TNK
-import TnkPubSdk
-
-// Applovin
-import AppLovinSDK
-
-class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, FBNativeAdDelegate, AdFitNativeAdLoaderDelegate, AdFitNativeAdDelegate, TnkAdListener, MANativeAdDelegate {
+class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -44,19 +31,8 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     var gaAdLoad: GADAdLoader?
     var gaNativeAdView: GADNativeAdView?
     
-    // Facebook
-    var fanNativeAd: FBNativeAd?
-    
-    // AdFit
-    var afLoader: AdFitNativeAdLoader?
-    
     // Pangle
     var pagNativeAd: PAGLNativeAd?
-    
-    // Applovin
-    var alNativeAdLoader: MANativeAdLoader?
-    var alNativeAd: MAAd?
-    var alNativeAdView: MANativeAdView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +43,6 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        // TNK - 명시적으로 detach 해야함
-        TnkNativeAdItem.detach(self.adViewContainer)
     }
     
     @IBAction func didTapLoadButton(_ sender: UIButton) {
@@ -82,12 +55,7 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
         let mediationTypes = [
             EBMediationTypes.exelbid,
             EBMediationTypes.admob,
-            EBMediationTypes.facebook,
-            EBMediationTypes.adfit,
-            EBMediationTypes.digitalturbine,
-            EBMediationTypes.pangle,
-            EBMediationTypes.tnk,
-            EBMediationTypes.applovin
+            EBMediationTypes.pangle
         ];
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -114,7 +82,7 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     }
 }
 
-extension EBMediationNativeAdViewController {
+extension EBMediationNativeVideoAdViewController {
     func loadMediation() {
         guard let mediationManager = mediationManager else {
             return
@@ -130,16 +98,8 @@ extension EBMediationNativeAdViewController {
                 self.loadExelBid(mediation: mediation)
             case EBMediationTypes.admob:
                 self.loadAdMob(mediation: mediation)
-            case EBMediationTypes.facebook:
-                self.loadFan(mediation: mediation)
-            case EBMediationTypes.adfit:
-                self.loadAdFit(mediation: mediation)
             case EBMediationTypes.pangle:
                 self.loadPangle(mediation: mediation)
-            case EBMediationTypes.tnk:
-                self.loadTnk(mediation: mediation)
-            case EBMediationTypes.applovin:
-                self.loadApplovin(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -164,7 +124,14 @@ extension EBMediationNativeAdViewController {
         ExelBidNativeManager.testing(true)
         ExelBidNativeManager.yob("1976")
         ExelBidNativeManager.gender("M")
+        
+        let allowedAdAssets = NSMutableSet(objects: EBNativeAsset.kAdTitleKey,
+                                           EBNativeAsset.kAdTextKey,
+                                           EBNativeAsset.kAdIconImageKey,
+                                           EBNativeAsset.kAdVideo,
+                                           EBNativeAsset.kAdCTATextKey)
 
+        ExelBidNativeManager.desiredAssets(allowedAdAssets)
         ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
             if error != nil {
                 // 광고가 없거나 요청 실패시 다음 미디에이션 처리를 위해 호출
@@ -186,27 +153,14 @@ extension EBMediationNativeAdViewController {
     func loadAdMob(mediation: EBMediationWrapper) {
         self.clearAd()
         
-        self.gaAdLoad = GADAdLoader.init(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: nil)
+        let videoOptions = GADVideoOptions()
+        videoOptions.customControlsRequested = true
+
+        self.gaAdLoad = GADAdLoader.init(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: [videoOptions])
         self.gaAdLoad?.delegate = self
         self.gaAdLoad?.load(GADRequest.init())
     }
-    
-    func loadFan(mediation: EBMediationWrapper) {
-        self.clearAd()
-        
-        self.fanNativeAd = FBNativeAd.init(placementID: mediation.unit_id)
-        self.fanNativeAd?.delegate = self
-        self.fanNativeAd?.loadAd()
-    }
-    
-    func loadAdFit(mediation: EBMediationWrapper) {
-        self.clearAd()
 
-        self.afLoader = AdFitNativeAdLoader(clientId: mediation.unit_id, count: 1)
-        self.afLoader?.delegate = self
-        self.afLoader?.loadAd()
-    }
-    
     func loadPangle(mediation: EBMediationWrapper) {
         self.clearAd()
         
@@ -216,51 +170,10 @@ extension EBMediationNativeAdViewController {
                 nativeAdView.refreshWithNativeAd(nativeAd)
             }
             nativeAdView.layoutSubviews()
+            
+            self.adViewContainer.addSubview(nativeAdView)
         }
     }
-    
-    func loadTnk(mediation: EBMediationWrapper) {
-        self.clearAd()
-        
-        let adItem = TnkNativeAdItem(placementId:mediation.unit_id, adListener: self)
-        adItem.load()
-    }
-    
-    func loadApplovin(mediation: EBMediationWrapper) {
-        self.clearAd()
-        
-        self.alNativeAdLoader = MANativeAdLoader(adUnitIdentifier: "YOUR_AD_UNIT_ID")
-        self.alNativeAdLoader?.nativeAdDelegate = self
-        
-        // call to template native ad
-//        self.alNativeAdLoader.loadAd()
-        
-        // create custom native ad view
-        createApplovinNativeAdview()
-        
-        // call to custom native ad
-        self.alNativeAdLoader?.loadAd(into: self.alNativeAdView)
-
-    }
-    
-    func createApplovinNativeAdview() {
-        let nativeAdViewNib = UINib(nibName: "EBApplovinNativeAdView", bundle: Bundle.main)
-        let nativeAdView = nativeAdViewNib.instantiate(withOwner: nil, options: nil).first! as! MANativeAdView?
-
-        let adViewBinder = MANativeAdViewBinder.init(builderBlock: { (builder) in
-            builder.titleLabelTag = 1001;
-            builder.bodyLabelTag = 1003;
-            builder.callToActionButtonTag = 1007;
-            builder.iconImageViewTag = 1004;
-            builder.mediaContentViewTag = 1006;
-            builder.starRatingContentViewTag = 1008;
-            builder.advertiserLabelTag = 1002;
-            builder.optionsContentViewTag = 1005;
-        })
-        nativeAdView?.bindViews(with: adViewBinder)
-        self.alNativeAdView = nativeAdView
-    }
-    
     
     // MARK: EBNativeAdDelegate
     
@@ -309,6 +222,7 @@ extension EBMediationNativeAdViewController {
         )
         
         nativeAd.delegate = self
+        nativeAd.mediaContent.videoController.delegate = self
         
         (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
         nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
@@ -373,117 +287,7 @@ extension EBMediationNativeAdViewController {
             return nil
         }
     }
-    
-    
-    // MARK: FBNativeAdDelegate
-    
-    func nativeAdDidLoad(_ nativeAd: FBNativeAd) {
-        if nativeAd.isAdValid {
-            nativeAd.unregisterView()
-        }
-        
-        self.fanNativeAd = nativeAd
-        var nativeAdView = EBFanNativeAdView.init(frame: CGRectMake(0, 0, 300, 200))
-        
-        self.adViewContainer.addSubview(nativeAdView)
-        
-        nativeAd.registerView(
-            forInteraction: nativeAdView.adView,
-            mediaView: nativeAdView.adCoverMediaView,
-            iconView: nativeAdView.adIconImageView,
-            viewController: self,
-            clickableViews: [nativeAdView.adCallToActionButton, nativeAdView.adCoverMediaView]
-        )
-    }
-    
-    func nativeAd(_ nativeAd: FBNativeAd, didFailWithError error: any Error) {
-        self.loadMediation()
-    }
-    
-    
-    // MARK: AdFitNativeAdLoaderDelegate
-    
-    func nativeAdLoaderDidReceiveAds(_ nativeAds: [AdFitNativeAd]) {
-        print("Adfit - nativeAdLoaderDidReceiveAds")
-    }
 
-    func nativeAdLoaderDidReceiveAd(_ nativeAd: AdFitNativeAd) {
-        let nativeAdView = EBAdFitNativeAdView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-        nativeAd.bind(nativeAdView)
-        self.adViewContainer.addSubview(nativeAdView)
-    }
-
-    func nativeAdLoaderDidFailToReceiveAd(_ nativeAdLoader: AdFitNativeAdLoader, error: Error) {
-        print("Adfit - nativeAdLoaderDidFailToReceiveAd - error : \(error.localizedDescription)")
-    }
-    
-    
-    // MARK: AdFitNativeAdDelegate
-    
-    func nativeAdDidClickAd(_ nativeAd: AdFitNativeAd) {
-        print("Adfit - nativeAdDidClickAd")
-    }
-    
-    
-    // MARK: TnkAdListener
-    func onLoad(_ adItem: any TnkAdItem) {
-        if let nativeAdItem = adItem as? TnkNativeAdItem {
-            
-            let adView = EBTnkNativeAdView()
-            adView.nativeImageView.image = nativeAdItem.getMainImage()
-            adView.nativeIconView.image = nativeAdItem.getIconImage()
-            adView.nativeTitleLabel.text = nativeAdItem.getTitle()
-            adView.nativeDescLabel.text = nativeAdItem.getDescription()
-            
-            self.adViewContainer.addSubview(adView)
-            
-            nativeAdItem.attach(self.adViewContainer, clickView:adView.nativeImageView)
-        }
-    }
-    
-    func onError(_ adItem: any TnkAdItem, error: AdError) {
-        self.loadMediation()
-    }
-    
-    
-    // MARK: MANativeAdDelegate
-    
-    func didLoadNativeAd(_ nativeAdView: MANativeAdView?, for ad: MAAd) {
-        // 기존 네이티브 광고 제거
-        if let oldNativeAd = self.alNativeAd {
-            alNativeAdLoader?.destroy(oldNativeAd)
-        }
-        
-        self.alNativeAd = ad
-        
-        if let oldNAtiveAdView = self.alNativeAdView {
-            oldNAtiveAdView.removeFromSuperview()
-        }
-        
-        self.alNativeAdView = nativeAdView
-        if let nativeAdView = nativeAdView {
-            self.adViewContainer.addSubview(nativeAdView)
-            
-            // 네이티브 광고 뷰 레이아웃 설정
-            nativeAdView.translatesAutoresizingMaskIntoConstraints = false
-            
-            // 네이티브 광고 사이즈와 센터 정렬
-            NSLayoutConstraint.activate([
-                nativeAdView.widthAnchor.constraint(equalTo: self.adViewContainer.widthAnchor),
-                nativeAdView.heightAnchor.constraint(equalTo: self.adViewContainer.heightAnchor),
-                nativeAdView.centerXAnchor.constraint(equalTo: self.adViewContainer.centerXAnchor),
-                nativeAdView.centerYAnchor.constraint(equalTo: self.adViewContainer.centerYAnchor)
-            ])
-        }
-    }
-    
-    func didFailToLoadNativeAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
-        
-    }
-    
-    func didClickNativeAd(_ ad: MAAd) {
-        
-    }
 }
 
 

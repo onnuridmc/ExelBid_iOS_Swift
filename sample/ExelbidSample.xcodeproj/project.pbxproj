@@ -3,19 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1D0CC1A42BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */; };
 		1D264D8A2A81C7A500E85842 /* EBMediationNativeAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */; };
+		1D2D29502BC79E3000D347DF /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */; };
+		1D2D29542BC7AC9D00D347DF /* EBTnkNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D29532BC7AC9D00D347DF /* EBTnkNativeAdView.swift */; };
+		1D2D29562BC7ACB200D347DF /* EBTnkNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2D29552BC7ACB200D347DF /* EBTnkNativeAdView.xib */; };
 		1D30CE372A89AB6F00B8C222 /* EBAdFitNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE362A89AB6F00B8C222 /* EBAdFitNativeAdView.swift */; };
 		1D30CE392A89B86700B8C222 /* EBMediationBizBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */; };
+		1D3B6FD42BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */; };
 		1D4A00262BA959AB0046443B /* EBAdMobNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */; };
 		1D4A00282BA959DD0046443B /* EBFanNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */; };
 		1D4A002A2BA95A010046443B /* EBFanNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */; };
 		1D4A002C2BA9693A0046443B /* EBPangleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A002B2BA9693A0046443B /* EBPangleNativeAdView.swift */; };
 		1D5FDCF22AA7084A002A5C0E /* EBMediationBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */; };
+		1D642D932BC8BE950029D8ED /* EBApplovinNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */; };
 		1DB616952A6E5A63005F99B2 /* EBAdTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB616932A6E5709005F99B2 /* EBAdTagViewController.swift */; };
 		1DC4E0962A71062900D41499 /* EBAdTagSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4E0952A71062900D41499 /* EBAdTagSupport.swift */; };
 		1DE32D482A738A57000BCA9B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DE32D472A738A57000BCA9B /* index.html */; };
@@ -54,13 +59,18 @@
 		16D95CAD8098F9B0256AD334 /* Pods-ExelbidSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExelbidSample.debug.xcconfig"; path = "Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample.debug.xcconfig"; sourceTree = "<group>"; };
 		1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationInterstitialViewController.swift; sourceTree = "<group>"; };
 		1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationNativeAdViewController.swift; sourceTree = "<group>"; };
+		1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:GVMWG8Q7H5:TnK Factory"; lastKnownFileType = wrapper.xcframework; path = TnkPubSdk.xcframework; sourceTree = "<group>"; };
+		1D2D29532BC7AC9D00D347DF /* EBTnkNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBTnkNativeAdView.swift; sourceTree = "<group>"; };
+		1D2D29552BC7ACB200D347DF /* EBTnkNativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBTnkNativeAdView.xib; sourceTree = "<group>"; };
 		1D30CE362A89AB6F00B8C222 /* EBAdFitNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdFitNativeAdView.swift; sourceTree = "<group>"; };
 		1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationBizBoardViewController.swift; sourceTree = "<group>"; };
+		1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationNativeVideoAdViewController.swift; sourceTree = "<group>"; };
 		1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBAdMobNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBAdMobNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBFanNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBFanNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBFanNativeAdView.swift; sourceTree = "<group>"; };
 		1D4A002B2BA9693A0046443B /* EBPangleNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBPangleNativeAdView.swift; sourceTree = "<group>"; };
 		1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationBannerViewController.swift; sourceTree = "<group>"; };
+		1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBApplovinNativeAdView.xib; sourceTree = "<group>"; };
 		1DB616932A6E5709005F99B2 /* EBAdTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdTagViewController.swift; sourceTree = "<group>"; };
 		1DC4E0952A71062900D41499 /* EBAdTagSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdTagSupport.swift; sourceTree = "<group>"; };
 		1DE32D472A738A57000BCA9B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2D29502BC79E3000D347DF /* TnkPubSdk.xcframework in Frameworks */,
 				8D9FBE27791D760D34934C55 /* Pods_ExelbidSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +137,7 @@
 				1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */,
 				1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */,
 				1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */,
+				1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */,
 				1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */,
 				1DB616932A6E5709005F99B2 /* EBAdTagViewController.swift */,
 			);
@@ -179,6 +191,7 @@
 		645B144C25AD271D00AE0569 /* ExelbidSample */ = {
 			isa = PBXGroup;
 			children = (
+				1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */,
 				1DE32D432A738819000BCA9B /* Assets */,
 				64802F0925B80E0100FA686D /* Domain */,
 				6417778B25D2732A007CA0CF /* Extension */,
@@ -210,6 +223,9 @@
 				1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */,
 				1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */,
 				1D4A002B2BA9693A0046443B /* EBPangleNativeAdView.swift */,
+				1D2D29532BC7AC9D00D347DF /* EBTnkNativeAdView.swift */,
+				1D2D29552BC7ACB200D347DF /* EBTnkNativeAdView.xib */,
+				1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,10 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				645B145A25AD271F00AE0569 /* LaunchScreen.storyboard in Resources */,
+				1D2D29562BC7ACB200D347DF /* EBTnkNativeAdView.xib in Resources */,
 				1DE32D482A738A57000BCA9B /* index.html in Resources */,
 				645B145725AD271F00AE0569 /* Assets.xcassets in Resources */,
 				1D4A00282BA959DD0046443B /* EBFanNativeAdView.xib in Resources */,
 				1D4A00262BA959AB0046443B /* EBAdMobNativeAdView.xib in Resources */,
+				1D642D932BC8BE950029D8ED /* EBApplovinNativeAdView.xib in Resources */,
 				647857B32667A48D00E8A8E6 /* SetInstallAttributionPingbackDelay.mobileconfig in Resources */,
 				645B145525AD271D00AE0569 /* Main.storyboard in Resources */,
 			);
@@ -390,6 +408,7 @@
 				6417777A25D25894007CA0CF /* EBNativeBannerAdViewController.swift in Sources */,
 				6417777D25D2592F007CA0CF /* EBNativeBannerAdView.swift in Sources */,
 				6475F42B2665DC750007C200 /* UIViewExt.swift in Sources */,
+				1D2D29542BC7AC9D00D347DF /* EBTnkNativeAdView.swift in Sources */,
 				646FD90625C3C0CB005FF439 /* EBFrontBannerAdViewController.swift in Sources */,
 				1D4A002A2BA95A010046443B /* EBFanNativeAdView.swift in Sources */,
 				6417778025D26821007CA0CF /* EBDialogAdViewController.swift in Sources */,
@@ -399,6 +418,7 @@
 				1D264D8A2A81C7A500E85842 /* EBMediationNativeAdViewController.swift in Sources */,
 				1D30CE392A89B86700B8C222 /* EBMediationBizBoardViewController.swift in Sources */,
 				64802F0F25B810FC00FA686D /* Models.swift in Sources */,
+				1D3B6FD42BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift in Sources */,
 				64677A9025CBDA7600B1B12C /* EBNativeAdView.swift in Sources */,
 				645B144E25AD271D00AE0569 /* AppDelegate.swift in Sources */,
 				647A57A8260D84CA0042E0AA /* EBNativeVideoAdViewController.swift in Sources */,
@@ -561,8 +581,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -584,8 +608,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
