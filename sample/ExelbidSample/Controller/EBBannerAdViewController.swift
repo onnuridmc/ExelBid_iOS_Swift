@@ -7,6 +7,7 @@
 
 import UIKit
 import ExelBidSDK
+import AppTrackingTransparency
 
 class EBBannerAdViewController: UIViewController {
     @IBOutlet var adViewContainer: UIView!

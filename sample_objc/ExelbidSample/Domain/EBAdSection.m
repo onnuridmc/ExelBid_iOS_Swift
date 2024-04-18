@@ -23,6 +23,7 @@
     return @[
              [EBAdSection sectionWithTitle:@"Banner Ads" ads:[EBAdInfo bannerAds]],
              [EBAdSection sectionWithTitle:@"Native Ads" ads:[EBAdInfo nativeAds]],
+             [EBAdSection sectionWithTitle:@"Video Ads" ads:[EBAdInfo videoAds]],
              [EBAdSection sectionWithTitle:@"ETC Ads" ads:[EBAdInfo etcAds]],
              ];
 }

@@ -29,7 +29,7 @@ import TnkPubSdk
 // Applovin
 import AppLovinSDK
 
-class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, FBNativeAdDelegate, AdFitNativeAdLoaderDelegate, AdFitNativeAdDelegate, TnkAdListener, MANativeAdDelegate {
+class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, FBNativeAdDelegate, AdFitNativeAdLoaderDelegate, AdFitNativeAdDelegate, PAGLNativeAdDelegate, TnkAdListener, MANativeAdDelegate {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -211,8 +211,10 @@ extension EBMediationNativeAdViewController {
         self.clearAd()
         
         PAGLNativeAd.load(withSlotID: mediation.unit_id, request: PAGNativeRequest.init()) { (nativeAd, error) in
-            var nativeAdView = EBPangleNAtiveAdView(frame: self.adViewContainer.frame)
+            let nativeAdView = EBPangleNativeAdView(frame: self.adViewContainer.frame)
+            self.adViewContainer.addSubview(nativeAdView)
             if let nativeAd = nativeAd {
+                nativeAd.delegate = self
                 nativeAdView.refreshWithNativeAd(nativeAd)
             }
             nativeAdView.layoutSubviews()
@@ -422,6 +424,21 @@ extension EBMediationNativeAdViewController {
     
     func nativeAdDidClickAd(_ nativeAd: AdFitNativeAd) {
         print("Adfit - nativeAdDidClickAd")
+    }
+    
+    
+    // MARK: PAGLNativeAdDelegate
+    
+    func adDidShow(_ ad: any PAGAdProtocol) {
+        
+    }
+    
+    func adDidClick(_ ad: any PAGAdProtocol) {
+        
+    }
+    
+    func adDidDismiss(_ ad: any PAGAdProtocol) {
+        
     }
     
     

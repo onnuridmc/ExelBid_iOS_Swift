@@ -16,7 +16,7 @@ import GoogleMobileAds
 // Pangle
 import PAGAdSDK
 
-class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate {
+class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate, PAGLNativeAdDelegate {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -165,13 +165,13 @@ extension EBMediationNativeVideoAdViewController {
         self.clearAd()
         
         PAGLNativeAd.load(withSlotID: mediation.unit_id, request: PAGNativeRequest.init()) { (nativeAd, error) in
-            var nativeAdView = EBPangleNAtiveAdView(frame: self.adViewContainer.frame)
+            let nativeAdView = EBPangleNativeAdView(frame: self.adViewContainer.frame)
+            self.adViewContainer.addSubview(nativeAdView)
             if let nativeAd = nativeAd {
+                nativeAd.delegate = self
                 nativeAdView.refreshWithNativeAd(nativeAd)
             }
             nativeAdView.layoutSubviews()
-            
-            self.adViewContainer.addSubview(nativeAdView)
         }
     }
     
@@ -286,6 +286,21 @@ extension EBMediationNativeVideoAdViewController {
         } else {
             return nil
         }
+    }
+    
+    
+    // MARK: PAGLNativeAdDelegate
+    
+    func adDidShow(_ ad: any PAGAdProtocol) {
+        
+    }
+    
+    func adDidClick(_ ad: any PAGAdProtocol) {
+        
+    }
+    
+    func adDidDismiss(_ ad: any PAGAdProtocol) {
+        
     }
 
 }

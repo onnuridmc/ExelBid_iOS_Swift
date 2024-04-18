@@ -428,8 +428,8 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class EBVideoAdRequest {
-  public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
+@objc @_hasMissingDesignatedInitializers @objcMembers public class EBVideoAdRequest : ObjectiveC.NSObject {
+  @objc public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
   @objc deinit
 }
 @objc public protocol EBNativeAdDelegate {
@@ -501,16 +501,17 @@ extension ExelBidSDK.EBVastModel : Swift.Equatable {
   @objc optional func videoAdDidReceiveTapEvent(adUnitID: Swift.String)
 }
 public typealias EBVideoAdRequestHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
-@_hasMissingDesignatedInitializers final public class EBVideoManager {
-  public static func keywords(_ keywords: Swift.String)
-  public static func location(_ location: CoreLocation.CLLocation)
-  public static func yob(_ yob: Swift.String)
-  public static func gender(_ gender: Swift.String)
-  public static func testing(_ testing: Swift.Bool)
-  public static func coppa(_ coppa: Swift.String)
-  public static func initFullVideo(identifier unitId: Swift.String)
-  public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
-  public static func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
+@objc @_inheritsConvenienceInitializers @objcMembers final public class EBVideoManager : ObjectiveC.NSObject {
+  @objc public static func keywords(_ keywords: Swift.String)
+  @objc public static func location(_ location: CoreLocation.CLLocation)
+  @objc public static func yob(_ yob: Swift.String)
+  @objc public static func gender(_ gender: Swift.String)
+  @objc public static func testing(_ testing: Swift.Bool)
+  @objc public static func coppa(_ coppa: Swift.String)
+  @objc public static func initFullVideo(identifier unitId: Swift.String)
+  @objc public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
+  @objc public static func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
+  @objc override dynamic public init()
   @objc deinit
 }
 extension ExelBidSDK.HTTPMethod : Swift.Equatable {}

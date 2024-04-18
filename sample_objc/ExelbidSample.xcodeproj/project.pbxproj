@@ -3,17 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1D06F6102A5FCFEE003CB1E2 /* PostMesageInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D06F60F2A5FCFEE003CB1E2 /* PostMesageInterface.m */; };
 		1D06F6132A5FD003003CB1E2 /* EBAdTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D06F6112A5FD003003CB1E2 /* EBAdTagViewController.m */; };
+		1D0F64A92BD0EB3500984E9F /* EBDialogAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F64A82BD0EB3500984E9F /* EBDialogAdViewController.m */; };
+		1D0F64AA2BD0EE7600984E9F /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */; };
+		1D0F64AB2BD0EE7600984E9F /* TnkPubSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D29554E299B4E1E00D39514 /* EBAdFitNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D29554D299B4E1E00D39514 /* EBAdFitNativeAdView.m */; };
 		1D295552299B4FCD00D39514 /* EBMediationBizBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */; };
 		1D3D01C02A6908B900CE6831 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1D3D01BF2A6908B900CE6831 /* index.html */; };
-		1D642D962BC8F1830029D8ED /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */; };
-		1D642D972BC8F1830029D8ED /* TnkPubSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D5DA5622BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DA5602BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m */; };
+		1D5DA5652BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DA5642BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.m */; };
+		1D5DA56A2BD0B24E00D05BA6 /* EBNativeVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DA5692BD0B24D00D05BA6 /* EBNativeVideoAdViewController.m */; };
+		1D5DA56D2BD0B2C500D05BA6 /* EBVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DA56C2BD0B2C400D05BA6 /* EBVideoAdViewController.m */; };
 		1D8287442994DFD200F22178 /* EBMediationBannerAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8287432994DFD200F22178 /* EBMediationBannerAdViewController.m */; };
 		1D89ED2C2B959803007DE0F2 /* EBFanNAtiveAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89ED2B2B959803007DE0F2 /* EBFanNAtiveAdView.xib */; };
 		1D89ED2E2B959811007DE0F2 /* EBAdMobNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89ED2D2B959811007DE0F2 /* EBAdMobNativeAdView.xib */; };
@@ -56,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1D642D972BC8F1830029D8ED /* TnkPubSdk.xcframework in Embed Frameworks */,
+				1D0F64AB2BD0EE7600984E9F /* TnkPubSdk.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,12 +73,22 @@
 		1D06F60F2A5FCFEE003CB1E2 /* PostMesageInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMesageInterface.m; sourceTree = "<group>"; };
 		1D06F6112A5FD003003CB1E2 /* EBAdTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBAdTagViewController.m; sourceTree = "<group>"; };
 		1D06F6122A5FD003003CB1E2 /* EBAdTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBAdTagViewController.h; sourceTree = "<group>"; };
+		1D0F64A72BD0EB3500984E9F /* EBDialogAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDialogAdViewController.h; sourceTree = "<group>"; };
+		1D0F64A82BD0EB3500984E9F /* EBDialogAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDialogAdViewController.m; sourceTree = "<group>"; };
 		1D29554D299B4E1E00D39514 /* EBAdFitNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBAdFitNativeAdView.m; sourceTree = "<group>"; };
 		1D29554F299B4E2400D39514 /* EBAdFitNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBAdFitNativeAdView.h; sourceTree = "<group>"; };
 		1D295550299B4FCD00D39514 /* EBMediationBizBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationBizBoardViewController.h; sourceTree = "<group>"; };
 		1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationBizBoardViewController.m; sourceTree = "<group>"; };
 		1D3D01BF2A6908B900CE6831 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TnkPubSdk.xcframework; path = ../../sample/ExelbidSample/TnkPubSdk.xcframework; sourceTree = "<group>"; };
+		1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TnkPubSdk.xcframework; sourceTree = "<group>"; };
+		1D5DA5602BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationNativeVideoAdViewController.m; sourceTree = "<group>"; };
+		1D5DA5612BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationNativeVideoAdViewController.h; sourceTree = "<group>"; };
+		1D5DA5632BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationInterstitialVideoAdViewController.h; sourceTree = "<group>"; };
+		1D5DA5642BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationInterstitialVideoAdViewController.m; sourceTree = "<group>"; };
+		1D5DA5682BD0B24D00D05BA6 /* EBNativeVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBNativeVideoAdViewController.h; sourceTree = "<group>"; };
+		1D5DA5692BD0B24D00D05BA6 /* EBNativeVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBNativeVideoAdViewController.m; sourceTree = "<group>"; };
+		1D5DA56B2BD0B2C400D05BA6 /* EBVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBVideoAdViewController.h; sourceTree = "<group>"; };
+		1D5DA56C2BD0B2C400D05BA6 /* EBVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBVideoAdViewController.m; sourceTree = "<group>"; };
 		1D8287432994DFD200F22178 /* EBMediationBannerAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationBannerAdViewController.m; sourceTree = "<group>"; };
 		1D8287452994DFE200F22178 /* EBMediationBannerAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationBannerAdViewController.h; sourceTree = "<group>"; };
 		1D89ED2B2B959803007DE0F2 /* EBFanNAtiveAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBFanNAtiveAdView.xib; sourceTree = "<group>"; };
@@ -145,7 +160,7 @@
 			files = (
 				1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */,
 				BBB55C1629E5B7F8CC01AE31 /* Pods_ExelbidSample.framework in Frameworks */,
-				1D642D962BC8F1830029D8ED /* TnkPubSdk.xcframework in Frameworks */,
+				1D0F64AA2BD0EE7600984E9F /* TnkPubSdk.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +191,12 @@
 				1D8287432994DFD200F22178 /* EBMediationBannerAdViewController.m */,
 				1D8D83472B903B7B001EB80A /* EBMediationInterstitialAdViewController.h */,
 				1D8D83482B903B7B001EB80A /* EBMediationInterstitialAdViewController.m */,
+				1D5DA5632BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.h */,
+				1D5DA5642BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.m */,
 				1DBADE64299B29120054FD2A /* EBMediationNativeAdViewController.h */,
 				1DBADE65299B29120054FD2A /* EBMediationNativeAdViewController.m */,
+				1D5DA5612BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.h */,
+				1D5DA5602BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m */,
 				1D295550299B4FCD00D39514 /* EBMediationBizBoardViewController.h */,
 				1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */,
 			);
@@ -187,6 +206,7 @@
 		6412692C1DBDA31500A7F514 = {
 			isa = PBXGroup;
 			children = (
+				1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */,
 				641269371DBDA31500A7F514 /* ExelbidSample */,
 				641269361DBDA31500A7F514 /* Products */,
 				1D93FC31299A004800E4F103 /* Frameworks */,
@@ -205,7 +225,6 @@
 		641269371DBDA31500A7F514 /* ExelbidSample */ = {
 			isa = PBXGroup;
 			children = (
-				1D642D942BC8EF890029D8ED /* TnkPubSdk.xcframework */,
 				1D3D01BE2A6908AC00CE6831 /* Assets */,
 				641269501DBDA39E00A7F514 /* Domain */,
 				6412694F1DBDA39E00A7F514 /* Contollers */,
@@ -239,6 +258,8 @@
 				6412695C1DBDAD2B00A7F514 /* EBBannerAdViewController.m */,
 				64DF9BAC1DCC4C0000836561 /* EBFrontBannerAdViewController.h */,
 				64DF9BAD1DCC4C0000836561 /* EBFrontBannerAdViewController.m */,
+				1D0F64A72BD0EB3500984E9F /* EBDialogAdViewController.h */,
+				1D0F64A82BD0EB3500984E9F /* EBDialogAdViewController.m */,
 				648966471DD1690A003CBA29 /* EBNativeAdViewController.h */,
 				648966481DD1690A003CBA29 /* EBNativeAdViewController.m */,
 				6492D9E51DD427A0004E751D /* EBNativeBannerAdViewController.h */,
@@ -247,6 +268,10 @@
 				6497E8631DD5738500A2BBFF /* EBNativeAdTableViewController.m */,
 				644762DC1DD9956600C08F2B /* EBNativeAdCollectionViewController.h */,
 				644762DD1DD9956600C08F2B /* EBNativeAdCollectionViewController.m */,
+				1D5DA56B2BD0B2C400D05BA6 /* EBVideoAdViewController.h */,
+				1D5DA56C2BD0B2C400D05BA6 /* EBVideoAdViewController.m */,
+				1D5DA5682BD0B24D00D05BA6 /* EBNativeVideoAdViewController.h */,
+				1D5DA5692BD0B24D00D05BA6 /* EBNativeVideoAdViewController.m */,
 				64BFE6971DDB12C10030BCA0 /* EBDialogAdViewController.h */,
 				64BFE6981DDB12C10030BCA0 /* EBDialogAdViewController.m */,
 				1D06F6122A5FD003003CB1E2 /* EBAdTagViewController.h */,
@@ -464,11 +489,14 @@
 				648966991DD18FB1003CBA29 /* EBNativeAdView.m in Sources */,
 				1D8287442994DFD200F22178 /* EBMediationBannerAdViewController.m in Sources */,
 				648966491DD1690A003CBA29 /* EBNativeAdViewController.m in Sources */,
+				1D5DA5652BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.m in Sources */,
 				641269571DBDA59C00A7F514 /* EBAdInfo.m in Sources */,
 				6497E8641DD5738500A2BBFF /* EBNativeAdTableViewController.m in Sources */,
 				1D295552299B4FCD00D39514 /* EBMediationBizBoardViewController.m in Sources */,
 				6492D9E71DD427A0004E751D /* EBNativeBannerAdViewController.m in Sources */,
 				6497E8671DD5763B00A2BBFF /* EBTableViewAdPlacerView.m in Sources */,
+				1D0F64A92BD0EB3500984E9F /* EBDialogAdViewController.m in Sources */,
+				1D5DA56A2BD0B24E00D05BA6 /* EBNativeVideoAdViewController.m in Sources */,
 				1D29554E299B4E1E00D39514 /* EBAdFitNativeAdView.m in Sources */,
 				6486DD261DDC0DF40060B23B /* EBNativeAd2View.m in Sources */,
 				64BFE6961DDB0F000030BCA0 /* EBHTMLDialogView.m in Sources */,
@@ -477,6 +505,8 @@
 				644762E11DD995F300C08F2B /* EBCollectionViewAdPlacerView.m in Sources */,
 				1D8D83492B903B7B001EB80A /* EBMediationInterstitialAdViewController.m in Sources */,
 				6412695A1DBDA6DE00A7F514 /* EBAdSection.m in Sources */,
+				1D5DA56D2BD0B2C500D05BA6 /* EBVideoAdViewController.m in Sources */,
+				1D5DA5622BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m in Sources */,
 				1D06F6132A5FD003003CB1E2 /* EBAdTagViewController.m in Sources */,
 				64DF9BAE1DCC4C0000836561 /* EBFrontBannerAdViewController.m in Sources */,
 				6412695D1DBDAD2B00A7F514 /* EBBannerAdViewController.m in Sources */,

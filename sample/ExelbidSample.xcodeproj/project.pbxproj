@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D0CC1A42BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */; };
+		1D0F64AE2BD0EEC000984E9F /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0F64AC2BD0EE9500984E9F /* AppTrackingTransparency.framework */; };
 		1D264D8A2A81C7A500E85842 /* EBMediationNativeAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */; };
-		1D2D29502BC79E3000D347DF /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */; };
 		1D2D29542BC7AC9D00D347DF /* EBTnkNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D29532BC7AC9D00D347DF /* EBTnkNativeAdView.swift */; };
 		1D2D29562BC7ACB200D347DF /* EBTnkNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2D29552BC7ACB200D347DF /* EBTnkNativeAdView.xib */; };
 		1D30CE372A89AB6F00B8C222 /* EBAdFitNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE362A89AB6F00B8C222 /* EBAdFitNativeAdView.swift */; };
@@ -22,6 +22,10 @@
 		1D5FDCF22AA7084A002A5C0E /* EBMediationBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */; };
 		1D642D932BC8BE950029D8ED /* EBApplovinNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */; };
 		1DB616952A6E5A63005F99B2 /* EBAdTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB616932A6E5709005F99B2 /* EBAdTagViewController.swift */; };
+		1DBD30BB2BCF50B800858B6E /* Pods_ExelbidSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F253BE8B2F27D4CE0A59515F /* Pods_ExelbidSample.framework */; };
+		1DBD30C02BCF5E4A00858B6E /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */; };
+		1DBD30C12BCF5E4A00858B6E /* TnkPubSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1DBD30C42BCF9F8000858B6E /* EBMediationInterstitialVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBD30C32BCF9F8000858B6E /* EBMediationInterstitialVideoViewController.swift */; };
 		1DC4E0962A71062900D41499 /* EBAdTagSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4E0952A71062900D41499 /* EBAdTagSupport.swift */; };
 		1DE32D482A738A57000BCA9B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DE32D472A738A57000BCA9B /* index.html */; };
 		6417777A25D25894007CA0CF /* EBNativeBannerAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6417777925D25894007CA0CF /* EBNativeBannerAdViewController.swift */; };
@@ -52,12 +56,26 @@
 		648618D425E5026E00D453E7 /* EBVideoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648618D325E5026E00D453E7 /* EBVideoAdViewController.swift */; };
 		6497AE5625DA159300256A31 /* EBNativeAdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497AE5525DA159300256A31 /* EBNativeAdTableViewController.swift */; };
 		6497AE5925DA19BE00256A31 /* EBTableViewAdPlacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6497AE5825DA19BE00256A31 /* EBTableViewAdPlacerView.swift */; };
-		8D9FBE27791D760D34934C55 /* Pods_ExelbidSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F253BE8B2F27D4CE0A59515F /* Pods_ExelbidSample.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1DBD30C22BCF5E4B00858B6E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1DBD30C12BCF5E4A00858B6E /* TnkPubSdk.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		16D95CAD8098F9B0256AD334 /* Pods-ExelbidSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExelbidSample.debug.xcconfig"; path = "Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample.debug.xcconfig"; sourceTree = "<group>"; };
 		1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationInterstitialViewController.swift; sourceTree = "<group>"; };
+		1D0F64AC2BD0EE9500984E9F /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationNativeAdViewController.swift; sourceTree = "<group>"; };
 		1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:GVMWG8Q7H5:TnK Factory"; lastKnownFileType = wrapper.xcframework; path = TnkPubSdk.xcframework; sourceTree = "<group>"; };
 		1D2D29532BC7AC9D00D347DF /* EBTnkNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBTnkNativeAdView.swift; sourceTree = "<group>"; };
@@ -72,6 +90,7 @@
 		1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationBannerViewController.swift; sourceTree = "<group>"; };
 		1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBApplovinNativeAdView.xib; sourceTree = "<group>"; };
 		1DB616932A6E5709005F99B2 /* EBAdTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdTagViewController.swift; sourceTree = "<group>"; };
+		1DBD30C32BCF9F8000858B6E /* EBMediationInterstitialVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationInterstitialVideoViewController.swift; sourceTree = "<group>"; };
 		1DC4E0952A71062900D41499 /* EBAdTagSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBAdTagSupport.swift; sourceTree = "<group>"; };
 		1DE32D472A738A57000BCA9B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		4E77CEECC33883EF515EA7DD /* Pods-ExelbidSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExelbidSample.release.xcconfig"; path = "Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,8 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2D29502BC79E3000D347DF /* TnkPubSdk.xcframework in Frameworks */,
-				8D9FBE27791D760D34934C55 /* Pods_ExelbidSample.framework in Frameworks */,
+				1D0F64AE2BD0EEC000984E9F /* AppTrackingTransparency.framework in Frameworks */,
+				1DBD30C02BCF5E4A00858B6E /* TnkPubSdk.xcframework in Frameworks */,
+				1DBD30BB2BCF50B800858B6E /* Pods_ExelbidSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +156,7 @@
 				647A57A7260D84CA0042E0AA /* EBNativeVideoAdViewController.swift */,
 				1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */,
 				1D0CC1A32BA3E04900B4FE5B /* EBMediationInterstitialViewController.swift */,
+				1DBD30C32BCF9F8000858B6E /* EBMediationInterstitialVideoViewController.swift */,
 				1D264D892A81C7A500E85842 /* EBMediationNativeAdViewController.swift */,
 				1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */,
 				1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */,
@@ -173,6 +194,7 @@
 		645B144125AD271D00AE0569 = {
 			isa = PBXGroup;
 			children = (
+				1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */,
 				645B144C25AD271D00AE0569 /* ExelbidSample */,
 				645B144B25AD271D00AE0569 /* Products */,
 				3A151D766408AF37FA893FB8 /* Pods */,
@@ -191,7 +213,6 @@
 		645B144C25AD271D00AE0569 /* ExelbidSample */ = {
 			isa = PBXGroup;
 			children = (
-				1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */,
 				1DE32D432A738819000BCA9B /* Assets */,
 				64802F0925B80E0100FA686D /* Domain */,
 				6417778B25D2732A007CA0CF /* Extension */,
@@ -244,6 +265,7 @@
 		A67C45F9441533639C59FF48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D0F64AC2BD0EE9500984E9F /* AppTrackingTransparency.framework */,
 				F253BE8B2F27D4CE0A59515F /* Pods_ExelbidSample.framework */,
 			);
 			name = Frameworks;
@@ -262,6 +284,7 @@
 				645B144825AD271D00AE0569 /* Resources */,
 				C1BF078128CF0F329B8870A5 /* [CP] Embed Pods Frameworks */,
 				79263B49F7DE1E129106DD32 /* [CP] Copy Pods Resources */,
+				1DBD30C22BCF5E4B00858B6E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -413,6 +436,7 @@
 				1D4A002A2BA95A010046443B /* EBFanNativeAdView.swift in Sources */,
 				6417778025D26821007CA0CF /* EBDialogAdViewController.swift in Sources */,
 				1D5FDCF22AA7084A002A5C0E /* EBMediationBannerViewController.swift in Sources */,
+				1DBD30C42BCF9F8000858B6E /* EBMediationInterstitialVideoViewController.swift in Sources */,
 				6417778D25D27340007CA0CF /* UIViewControllerExt.swift in Sources */,
 				1DC4E0962A71062900D41499 /* EBAdTagSupport.swift in Sources */,
 				1D264D8A2A81C7A500E85842 /* EBMediationNativeAdViewController.swift in Sources */,

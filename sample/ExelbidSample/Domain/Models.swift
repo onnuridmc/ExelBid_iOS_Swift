@@ -15,7 +15,7 @@ struct EBAdInfoModel {
     var keyWord: String?
     
     enum EBAdInfoType {
-        case Banner, AllBanner, DailBanner, Native, NativeBanner, NativeTableViewPlacer, NativeInCollectionView, Video, NativeVideo, MediationBanner, MediationInterstitial, MediationNative, MediationNativeVideo, MediationBizboard, AdTag
+        case Banner, AllBanner, DailBanner, Native, NativeBanner, NativeTableViewPlacer, NativeInCollectionView, Video, NativeVideo, MediationBanner, MediationInterstitial, MediationInterstitialVideo, MediationNative, MediationNativeVideo, MediationBizboard, AdTag
     }
 }
 

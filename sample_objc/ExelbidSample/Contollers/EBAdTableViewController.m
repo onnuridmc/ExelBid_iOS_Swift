@@ -11,11 +11,13 @@
 #import "EBAdSection.h"
 #import "EBBannerAdViewController.h"
 #import "EBFrontBannerAdViewController.h"
+#import "EBDialogAdViewController.h"
 #import "EBNativeAdViewController.h"
 #import "EBNativeBannerAdViewController.h"
 #import "EBNativeAdTableViewController.h"
 #import "EBNativeAdCollectionViewController.h"
-#import "EBDialogAdViewController.h"
+#import "EBVideoAdViewController.h"
+#import "EBNativeVideoAdViewController.h"
 #import "EBMediationBannerAdViewController.h"
 #import "EBMediationInterstitialAdViewController.h"
 #import "EBMediationNativeAdViewController.h"
@@ -23,6 +25,7 @@
 #import "EBAdTagViewController.h"
 
 #import <Foundation/Foundation.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 @interface EBAdTableViewController ()
 
@@ -54,6 +57,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.sections = [EBAdSection adSections];
+    
+    // 사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.
+    // 앱 설치 후 첫실행 시 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.
+    // 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,8 +98,17 @@
     }else if ([[segue identifier] isEqualToString:@"CollectionView"]){
         EBNativeAdCollectionViewController *contoller = (EBNativeAdCollectionViewController *)[segue destinationViewController];
         contoller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"TableView"]){
+        EBNativeAdTableViewController *contoller = (EBNativeAdTableViewController *)[segue destinationViewController];
+        contoller.info = info;
     }else if ([[segue identifier] isEqualToString:@"Dialog"]){
         EBDialogAdViewController *contoller = (EBDialogAdViewController *)[segue destinationViewController];
+        contoller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"Video"]){
+        EBVideoAdViewController *contoller = (EBVideoAdViewController *)[segue destinationViewController];
+        contoller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"Native Video"]){
+        EBNativeVideoAdViewController *contoller = (EBNativeVideoAdViewController *)[segue destinationViewController];
         contoller.info = info;
     }else if ([[segue identifier] isEqualToString:@"MediationBanner"]){
         EBMediationBannerAdViewController *contoller = (EBMediationBannerAdViewController *)[segue destinationViewController];
@@ -172,6 +192,12 @@
             break;
         case EBAdInfoNativeTableViewPlacer:
             [self performSegueWithIdentifier:@"TableView" sender:indexPath];
+            break;
+        case EBAdInfoVideo:
+            [self performSegueWithIdentifier:@"Video" sender:indexPath];
+            break;
+        case EBAdInfoNativeVideo:
+            [self performSegueWithIdentifier:@"Native Video" sender:indexPath];
             break;
         case EBAdInfoMediationBanner:
             [self performSegueWithIdentifier:@"MediationBanner" sender:indexPath];

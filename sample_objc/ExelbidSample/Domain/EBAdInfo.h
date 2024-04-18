@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, EBAdInfoType) {
     EBAdInfoNativeBanner,
     EBAdInfoNativeTableViewPlacer,
     EBAdInfoNativeInCollectionView,
+    EBAdInfoVideo,
+    EBAdInfoNativeVideo,
     EBAdInfoRewardedVideo,
     EBAdInfoMediationBanner,
     EBAdInfoMediationInterstitial,
@@ -33,6 +35,7 @@ typedef NS_ENUM(NSInteger, EBAdInfoType) {
 
 + (NSArray *)bannerAds;
 + (NSArray *)nativeAds;
++ (NSArray *)videoAds;
 + (NSArray *)etcAds;
 + (EBAdInfo *)infoWithTitle:(NSString *)title ID:(NSString *)ID type:(EBAdInfoType)type;
 + (NSDictionary *)supportedAddedAdTypes;

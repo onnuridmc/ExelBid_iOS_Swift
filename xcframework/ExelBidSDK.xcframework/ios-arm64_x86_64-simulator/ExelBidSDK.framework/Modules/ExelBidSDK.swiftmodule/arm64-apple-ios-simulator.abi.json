@@ -14003,7 +14003,7 @@
                                 "kind": "TypeNominal",
                                 "name": "EBVideoAdRequest",
                                 "printedName": "ExelBidSDK.EBVideoAdRequest",
-                                "usr": "s:10ExelBidSDK16EBVideoAdRequestC"
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest"
                               }
                             ],
                             "usr": "s:Sq"
@@ -14031,25 +14031,109 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK16EBVideoAdRequestC26startWithCompletionHandleryyyACSg_s5Error_pSgtcSgF",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest(im)startWithCompletionHandler:",
             "mangledName": "$s10ExelBidSDK16EBVideoAdRequestC26startWithCompletionHandleryyyACSg_s5Error_pSgtcSgF",
             "moduleName": "ExelBidSDK",
             "declAttributes": [
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EBVideoAdRequest",
+                "printedName": "ExelBidSDK.EBVideoAdRequest",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest(im)init",
+            "mangledName": "$s10ExelBidSDK16EBVideoAdRequestCACycfc",
+            "moduleName": "ExelBidSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
-        "usr": "s:10ExelBidSDK16EBVideoAdRequestC",
+        "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest",
         "mangledName": "$s10ExelBidSDK16EBVideoAdRequestC",
         "moduleName": "ExelBidSDK",
         "declAttributes": [
           "AccessControl",
-          "RawDocComment"
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
         ],
-        "hasMissingDesignatedInitializers": true
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -16944,14 +17028,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC8keywordsyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)keywords:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC8keywordsyySSFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -16973,14 +17058,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC8locationyySo10CLLocationCFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)location:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC8locationyySo10CLLocationCFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17002,14 +17088,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC3yobyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)yob:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC3yobyySSFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17031,14 +17118,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC6genderyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)gender:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC6genderyySSFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17060,14 +17148,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC7testingyySbFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)testing:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC7testingyySbFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17089,14 +17178,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC5coppayySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)coppa:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC5coppayySSFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17118,14 +17208,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC13initFullVideo10identifierySS_tFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)initFullVideoWithIdentifier:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC13initFullVideo10identifierySS_tFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17168,7 +17259,7 @@
                                 "kind": "TypeNominal",
                                 "name": "EBVideoAdRequest",
                                 "printedName": "ExelBidSDK.EBVideoAdRequest",
-                                "usr": "s:10ExelBidSDK16EBVideoAdRequestC"
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest"
                               }
                             ],
                             "usr": "s:Sq"
@@ -17196,14 +17287,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC26startWithCompletionHandleryyyAA0D9AdRequestCSg_s5Error_pSgtcSgFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)startWithCompletionHandler:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC26startWithCompletionHandleryyyAA0D9AdRequestCSg_s5Error_pSgtcSgFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
+              "RawDocComment",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17231,26 +17323,110 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10ExelBidSDK14EBVideoManagerC9presentAd10controller8delegateySo16UIViewControllerC_AA0D8Delegate_ptFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)presentAdWithController:delegate:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC9presentAd10controller8delegateySo16UIViewControllerC_AA0D8Delegate_ptFZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EBVideoManager",
+                "printedName": "ExelBidSDK.EBVideoManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(im)init",
+            "mangledName": "$s10ExelBidSDK14EBVideoManagerCACycfc",
+            "moduleName": "ExelBidSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
-        "usr": "s:10ExelBidSDK14EBVideoManagerC",
+        "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager",
         "mangledName": "$s10ExelBidSDK14EBVideoManagerC",
         "moduleName": "ExelBidSDK",
         "declAttributes": [
           "AccessControl",
-          "Final"
+          "Final",
+          "ObjCMembers",
+          "ObjC"
         ],
-        "hasMissingDesignatedInitializers": true
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -23510,16 +23686,23 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 508,
+      "offset": 531,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 805,
+      "offset": 828,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
+      "kind": "StringLiteral",
+      "offset": 476,
+      "length": 16,
+      "value": "\"ExelBidSDK.EBVideoAdRequest\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/ThirdParty\/EBReachability.swift",
@@ -24602,7 +24785,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5011,
+      "offset": 5034,
       "length": 5,
       "value": "false"
     },

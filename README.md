@@ -14,7 +14,7 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 - [광고 적용하기](#광고-적용하기)
   - [배너 광고](#배너-광고)
   - [전면 광고](#전면-광고)
-  - [네이티브 광고, 네이티브 비디오 광고](#네이티브-광고-네이티브-비디오-광고)
+  - [네이티브 광고, 네이티브 동영상 광고](#네이티브-광고-네이티브-동영상-광고)
   - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
   - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
@@ -116,26 +116,20 @@ pod install
 
 ## 어플리케이션 설정
 
-### AppDelegate
+### 광고식별자 권한 요청
+
+사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.  
+앱 설치 후 첫실행 시 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.  
+광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
+
+**※ 광고를 호출하기 전에 완료되어야 합니다.**
 ```
 import AppTrackingTransparency
-import ExelBidSDK
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ...
-    
-    // SDK 테스팅 모드 설정
-    #if DEBUG
-        ExelBidKit.testing = true
-    #endif
+...
 
-    // 사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.
-    // 앱 설치 후 첫실행 시 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.
-    // 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
-    if #available(iOS 14.0, *) {
-        ATTrackingManager.requestTrackingAuthorization { _ in }
-    }
-    ...
+if #available(iOS 14.0, *) {
+    ATTrackingManager.requestTrackingAuthorization { _ in }
 }
 ```
 
@@ -311,8 +305,65 @@ func interstitialDidExpire(_ interstitial: ExelBidSDK.EBInterstitialAdController
 func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
 ```
 
+## 전면 동영상 광고
 
-## 네이티브 광고, 네이티브 비디오 광고
+**1. 전면 동영상 광고 호출**  
+
+예시)
+```
+// 전면 동영상 광고 유닛 설정
+EBVideoManager.initFullVideo(identifier: @"adUnitId")
+
+// 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
+EBVideoManager.yob("1976")
+EBVideoManager.gender("M")
+
+// 광고 테스트 여부 (통계에 집계되지 않음)
+EBVideoManager.testing(true)
+```
+
+**2. 전면 동영상 광고 표시**
+```
+/**
+ * @param controller 전면 동영상 광고를 표시하는 데 사용해야하는 UIViewController입니다.
+ * @param delegate EBVideoDelegate 프로토콜
+ */
+func presentAd(controller: UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
+```
+
+예시)
+```
+EBVideoManager.presentAd(controller: self, delegate: self)
+```
+
+### 전면 동영상 광고 Protocol (EBVideoDelegate Protocol Reference)
+```
+// 광고가 성공적으로로드 된 후에 호출됩니다.
+func videoAdDidLoad(adUnitID: String)
+
+// 광고로드에 실패한 후에 호출됩니다.
+func videoAdDidFailToLoad(adUnitID: String, error: any Error)
+
+// 동영상 재생 시도가 실패 할 때 호출됩니다.
+func videoAdDidFailToPlay(adUnitID: String, error: (any Error)?)
+
+// 광고가 표시 되려고 할 때 호출됩니다.
+func videoAdWillAppear(adUnitID: String)
+
+// 동영상 광고가 표시 될 때 호출됩니다.
+func videoAdDidAppear(adUnitID: String)
+
+// 동영상 광고가 닫힐 때 호출됩니다.
+func videoAdWillDisappear(adUnitID: String)
+
+// 동영상 광고가 닫 혔을 때 호출됩니다.
+func videoAdDidDisappear(adUnitID: String)
+
+// 사용자가 광고를 탭할 때 호출됩니다.
+func videoAdDidReceiveTapEvent(adUnitID: String)
+```
+
+## 네이티브 광고, 네이티브 동영상 광고
 
 **1. 네이티브 광고 뷰 선언**
 
@@ -346,7 +397,7 @@ func nativeIconImageView() -> UIImageView?
 // 메인 이미지에 사용중인 UIImageView를 반환합니다.
 func nativeMainImageView() -> UIImageView?
 
-// 비디오에 사용하는 UIView를 반환합니다. 동영상 광고를 게재 할 때만이를 구현하면됩니다.
+// 동영상에 사용하는 UIView를 반환합니다. 동영상 광고를 게재 할 때만이를 구현하면됩니다.
 func nativeVideoView() -> UIView?
 
 // 클릭 유도 문안 (cta) 텍스트에 사용중인 UILabel을 반환합니다.
@@ -393,7 +444,7 @@ ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
                                                 EBNativeAsset.kAdCTATextKey,));
 ```
 
-**3-1. 네이티브 비디오 광고 요청 전처리**
+**3-1. 네이티브 동영상 광고 요청 전처리**
 ```
 ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
                                                 EBNativeAsset.kAdVideo,
@@ -722,6 +773,7 @@ var unit_id: String { get }     // 광고 유닛 아이디
 배너 광고 - [EBMediationBannerViewController.swift](./sample/ExelbidSample/Controller/EBMediationBannerViewController.swift)  
 전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)  
 네이티브 - [EBMediationNativeAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeAdViewController.swift)  
+네이티브 동영상 - [EBMediationNativeVideoAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeVideoAdViewController.swift)  
 
 ## 외에 Exelbid 및 타사 광고 SDK 연동은 각각의 해당 가이드를 참조해 설정한다.
 * AdMob - [https://developers.google.com/admob/ios/quick-start?hl=ko](https://developers.google.com/admob/ios/quick-start?hl=ko)

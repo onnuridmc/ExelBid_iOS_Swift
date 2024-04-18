@@ -227,6 +227,7 @@
                         <segue destination="b4a-9N-vf4" kind="show" identifier="MediationNative" id="xdh-d8-uLD"/>
                         <segue destination="rif-y0-IK0" kind="show" identifier="MediationInterstitial" id="VO7-aJ-zCc"/>
                         <segue destination="E1O-ar-lsf" kind="show" identifier="MediationNativeVideo" id="xvv-JK-sMD"/>
+                        <segue destination="4WU-cb-BOc" kind="show" identifier="MediationInterstitialVideo" id="cJl-JX-Hwh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zn-ip-6N8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,6 +447,7 @@
         <!--Banner View-->
         <scene sceneID="iZM-hH-56k">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ka-CG-osN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Banner View" id="hI4-Mn-dTE" customClass="EBDialogAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lbh-2I-L9u"/>
@@ -648,7 +650,6 @@
                         <outlet property="showNativeAdButton2" destination="dpm-TB-cwf" id="4yE-wS-Xrq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ka-CG-osN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3024.8000000000002" y="662.51874062968523"/>
         </scene>
@@ -1081,7 +1082,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R41-os-Bq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="2113"/>
+            <point key="canvasLocation" x="2309" y="2113"/>
         </scene>
         <!--Mediation BizBoard-->
         <scene sceneID="lp4-Va-T0e">
@@ -1153,7 +1154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMd-9g-TF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091" y="2112"/>
+            <point key="canvasLocation" x="3787" y="2112"/>
         </scene>
         <!--Mediation Native-->
         <scene sceneID="4ez-SR-pRM">
@@ -1236,7 +1237,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zii-7a-msy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2309" y="2113"/>
+            <point key="canvasLocation" x="3004" y="2113"/>
+        </scene>
+        <!--Mediation Interstitial Video-->
+        <scene sceneID="mpu-en-UPX">
+            <objects>
+                <viewController id="4WU-cb-BOc" customClass="EBMediationInterstitialVideoViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jOW-cL-86x"/>
+                        <viewControllerLayoutGuide type="bottom" id="DQd-9L-ENw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VaU-jV-Czm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfz-Fs-r3P">
+                                <rect key="frame" x="8" y="12" width="377" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3wo-FM-Tvi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rVi-Aq-6vD" id="v47-ql-aJw"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-T0-Kny">
+                                <rect key="frame" x="8" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cgJ-Ub-5kN"/>
+                                </constraints>
+                                <state key="normal" title="Request Mediaion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoadButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="Wc4-WH-V18"/>
+                                    <action selector="didTapLoadButton:" destination="4WU-cb-BOc" eventType="touchUpInside" id="gij-rf-C2s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7do-y2-qQH">
+                                <rect key="frame" x="206" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Aqv-Pt-Kkq"/>
+                                </constraints>
+                                <state key="normal" title="Load Mediation">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="9Fh-Y0-bwQ"/>
+                                    <action selector="didTapShowButton:" destination="4WU-cb-BOc" eventType="touchUpInside" id="c93-Bx-GXf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gfz-Fs-r3P" firstAttribute="leading" secondItem="VaU-jV-Czm" secondAttribute="leading" constant="8" id="FVU-0U-Rh3"/>
+                            <constraint firstItem="7do-y2-qQH" firstAttribute="top" secondItem="Gfz-Fs-r3P" secondAttribute="bottom" constant="12" id="JIj-uA-7n7"/>
+                            <constraint firstAttribute="trailing" secondItem="7do-y2-qQH" secondAttribute="trailing" constant="8" id="Nwh-oO-KIa"/>
+                            <constraint firstItem="7do-y2-qQH" firstAttribute="width" secondItem="WEO-T0-Kny" secondAttribute="width" id="SEm-rs-2lL"/>
+                            <constraint firstItem="WEO-T0-Kny" firstAttribute="leading" secondItem="VaU-jV-Czm" secondAttribute="leading" constant="8" id="Shl-Ee-cSo"/>
+                            <constraint firstItem="Gfz-Fs-r3P" firstAttribute="top" secondItem="VaU-jV-Czm" secondAttribute="top" constant="12" id="boC-v5-JGQ"/>
+                            <constraint firstItem="WEO-T0-Kny" firstAttribute="top" secondItem="Gfz-Fs-r3P" secondAttribute="bottom" constant="12" id="dNj-Ox-zRH"/>
+                            <constraint firstAttribute="trailing" secondItem="Gfz-Fs-r3P" secondAttribute="trailing" constant="8" id="hoJ-e7-MM5"/>
+                            <constraint firstItem="7do-y2-qQH" firstAttribute="leading" secondItem="WEO-T0-Kny" secondAttribute="trailing" constant="19" id="vav-Da-7Yu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mediation Interstitial Video" id="obO-Gk-Gkr"/>
+                    <connections>
+                        <outlet property="keywordsTextField" destination="Gfz-Fs-r3P" id="Xoe-Zw-Lvz"/>
+                        <outlet property="loadAdButton" destination="WEO-T0-Kny" id="I51-IG-f4W"/>
+                        <outlet property="showAdButton" destination="7do-y2-qQH" id="Y2N-Qn-o4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0N-vc-LRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="2113"/>
         </scene>
     </scenes>
     <resources>

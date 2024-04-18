@@ -8,7 +8,7 @@
 import UIKit
 import ExelBidSDK
 
-class EBVideoAdViewController: UIViewController {
+class EBVideoAdViewController: UIViewController, EBVideoDelegate {
     @IBOutlet var keywordsTextField: UITextField!
     @IBOutlet var loadAdButton: UIButton!
     @IBOutlet var showAdButton: UIButton!
@@ -60,8 +60,4 @@ extension EBVideoAdViewController {
     func configureAdLoadFail() {
         loadAdButton.isEnabled = true
     }
-}
-
-extension EBVideoAdViewController: EBVideoDelegate {
-    
 }

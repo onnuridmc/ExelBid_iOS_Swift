@@ -54,9 +54,9 @@
     [self.showNativeAdButton2.layer setCornerRadius:3.0f];
     [self buttonReset];
     
-    self.htmlDialogView = [[EBHTMLDialogView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height)];
-    self.nativeDialogView = [[EBNativeDialogView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height)];
-    self.nativeRoundView = [[EBNativeRoundView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height)];
+    self.htmlDialogView = [[EBHTMLDialogView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.nativeDialogView = [[EBNativeDialogView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.nativeRoundView = [[EBNativeRoundView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
 - (void)didReceiveMemoryWarning {
