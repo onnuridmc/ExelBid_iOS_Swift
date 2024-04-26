@@ -7,152 +7,91 @@
 
 import Foundation
 import UIKit
+import WebKit
 import AdSupport
-import AppTrackingTransparency
 import CoreLocation
 import CoreTelephony
 
-class EBAdTagSupport : NSObject {
-    struct AdTargetInfo : Codable {
-        var idfa: String?
-        
-        var coppa: Bool = true
-        
-        var yob: String?
-        var gender: String?
-        var segment: [String : String]?
-        
-        var app_version: String?
-        
-        // Carrier
-        var iso_country_code: String?
-        var mobile_country_code: String?
-        var mobile_network_code: String?
-        var carrier_name: String?
-        
-        // Device
-        var country_code: String?
-        var os_version: String?
-        var device_model: String?
-        var device_make: String? = "APPLE"
-        
-        // Location
-        var geo_lat: Double?
-        var geo_lon: Double?
-        
-        // 데이터 전달을 위해 JSON String 형태로 변환
-        func jsonString() -> String {
-            guard let josnData = try? JSONEncoder().encode(self) else {
-                return ""
-            }
-            
-            return String(data: josnData, encoding: .utf8)!
-        }
-    }
+struct EBAdTagModel : Encodable {
+
+    var idfa: String?
+
+    var coppa: Bool?
+    var yob: String?
+    var gender: String?
+    var segment: [String : String]?
+    
+    // 앱 버전
+    var app_version: String?
+    
+    // Carrier
+    var iso_country_code: String?
+    var mobile_country_code: String?
+    var mobile_network_code: String?
+    var carrier_name: String?
+    
+    // Device
+    var country_code: String?
+    var os_version: String?
+    var device_model: String?
+    var device_make: String = "APPLE"
+    
+    // Location
+    var geo_lat: Double?
+    var geo_lon: Double?
+}
+
+class EBAdTagSupport : NSObject, CLLocationManagerDelegate{
     
     private var locationManager = CLLocationManager()
     private var lastLocation: CLLocation?
 
     static var shared = EBAdTagSupport()
     
-    var adTargetInfo = AdTargetInfo()
+    var coppa: Bool?
+    var yob: String?
+    var gender: String?
+    var segment: [String : String]?
     
-    /** Children’s Online Privacy Protection Act (COPPA) */
-    var coppa: Bool {
-        get {
-            return adTargetInfo.coppa
+    var params: String {
+        var adTagModel = EBAdTagModel()
+        
+        adTagModel.idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        adTagModel.coppa = self.coppa ?? true
+        adTagModel.yob = self.yob
+        adTagModel.gender = self.gender
+        adTagModel.segment = self.segment
+        
+        adTagModel.app_version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+        
+        adTagModel.os_version = UIDevice.current.systemVersion
+        adTagModel.device_model = getDeviceModel()
+        adTagModel.device_make = "APPLE"
+        
+        if let lastLocation = self.lastLocation {
+            adTagModel.geo_lat = lastLocation.coordinate.latitude
+            adTagModel.geo_lon = lastLocation.coordinate.longitude
         }
         
-        set {
-            adTargetInfo.coppa = newValue
-        }
-    }
-
-    // AdTarget.yob get/set
-    var yob: String? {
-        get {
-            return adTargetInfo.yob
+        if let carrier = self.getCarrierInfo() {
+            adTagModel.iso_country_code = carrier.isoCountryCode ?? ""
+            adTagModel.mobile_country_code = carrier.mobileCountryCode
+            adTagModel.mobile_network_code = carrier.mobileNetworkCode
+            adTagModel.carrier_name = carrier.carrierName?.replacingOccurrences(of: " ", with: "")
         }
         
-        set {
-            adTargetInfo.yob = newValue
+        guard let jsonData = try? JSONEncoder().encode(adTagModel) else {
+            return "{}"
         }
+        
+        return String(data: jsonData, encoding: .utf8)!
     }
     
-    // AdTarget.gender get/set
-    var gender: String? {
-        get {
-            return adTargetInfo.gender
-        }
-        
-        set {
-            adTargetInfo.gender = newValue
-        }
-    }
-    
-    // AdTarget.segment get/set
-    var segment: [String : String]? {
-        get {
-            return adTargetInfo.segment
-        }
-        
-        set {
-            adTargetInfo.segment = newValue
-        }
-    }
-
-    private override init() {
+    override init() {
         super.init()
-        
-        // 광고식별자 (필수)
-        self.adTargetInfo.idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         
         // 위치 사용
         self.locationStart()
-        
-        // 통신사 정보
-        self.getCarrierInfo()
-
-        // 앱 버전
-        self.adTargetInfo.app_version = self.getAppVersion()
-
-        // OS Version
-        self.adTargetInfo.os_version = UIDevice.current.systemVersion
-
-        // Device Model
-        self.adTargetInfo.device_model = self.getDeviceModel()
-    }
-}
-
-private extension EBAdTagSupport {
-    func getCarrierInfo() {
-        var carrier: CTCarrier?
-        if #available(iOS 12.0, *) {
-            if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
-                for (_, value) in carriers {
-                    if value.isoCountryCode != nil {
-                        carrier = value
-                    }
-                }
-            }
-        } else{
-            carrier = CTTelephonyNetworkInfo().subscriberCellularProvider
-        }
-        
-        if let carrier = carrier {
-            self.adTargetInfo.iso_country_code = carrier.isoCountryCode ?? ""
-            self.adTargetInfo.mobile_country_code = carrier.mobileCountryCode
-            self.adTargetInfo.mobile_network_code = carrier.mobileNetworkCode
-            self.adTargetInfo.carrier_name = carrier.carrierName?.replacingOccurrences(of: " ", with: "")
-        }
-    }
-    
-    func getAppVersion() -> String {
-        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
-            return "1.0.0"
-        }
-        
-        return version
     }
     
     func getDeviceModel() -> String {
@@ -167,56 +106,33 @@ private extension EBAdTagSupport {
         return model
     }
     
+    func getCarrierInfo() -> CTCarrier? {
+        var carrier: CTCarrier?
+        if #available(iOS 12.0, *) {
+            if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
+                for (_, value) in carriers {
+                    if value.isoCountryCode != nil {
+                        carrier = value
+                    }
+                }
+            }
+        } else{
+            carrier = CTTelephonyNetworkInfo().subscriberCellularProvider
+        }
+    
+        return carrier
+    }
+    
     func locationStart() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.pausesLocationUpdatesAutomatically = true
-
-        // 백그라운드 모드 설정이 필요
-//        locationManager.allowsBackgroundLocationUpdates = true
         
         locationManager.startUpdatingLocation()
     }
-}
 
-extension EBAdTagSupport {
-    func requestTrackingAuthorization(handler:@escaping (_ uuid:String?) -> Void){
-        if #available(iOS 14.0, *) {
-            ATTrackingManager.requestTrackingAuthorization { status in
-                switch status {
-                    case .authorized:
-                        // 허용
-                        let uuid: String = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-                        handler(uuid)
-                        self.adTargetInfo.idfa = uuid
-                    case .denied, .restricted:
-                        // 거절, 활성 제한됨
-                        handler(nil)
-                    case .notDetermined:
-                        // 결정 안됨
-                        handler(nil)
-                    default:
-                        handler(nil)
-                }
-            }
-        } else {
-            let uuid: String = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-            handler(uuid)
-            self.adTargetInfo.idfa = uuid
-        }
-    }
-    
-    func requestLocation () {
-        if #available(iOS 14.0, *) {
-            changeAuthorization(status: locationManager.authorizationStatus)
-        } else {
-            changeAuthorization(status: CLLocationManager.authorizationStatus())
-        }
-    }
-}
-
-extension EBAdTagSupport: CLLocationManagerDelegate {
+    // MARK: - CLLocationManagerDelegate
     
     // 위치 사용 권한에 따라 값 조회
     func changeAuthorization(status: CLAuthorizationStatus) {
@@ -257,8 +173,6 @@ extension EBAdTagSupport: CLLocationManagerDelegate {
             }
 
             self.lastLocation = location
-            self.adTargetInfo.geo_lat = location.coordinate.latitude
-            self.adTargetInfo.geo_lon = location.coordinate.longitude
         }
     }
 
@@ -266,4 +180,3 @@ extension EBAdTagSupport: CLLocationManagerDelegate {
         print("locationManager didFailWithError - \(error.localizedDescription)")
     }
 }
-

@@ -43,7 +43,7 @@ struct EBAdInfo {
             EBAdInfoModel(title: "미디에이션 Native", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .MediationNative),
             EBAdInfoModel(title: "미디에이션 Native Video", ID: "a43a885cdb49fb515b18d2db5e14c58a735fe7ee", type: .MediationNativeVideo),
 //            EBAdInfoModel(title: "미디에이션 BizboardView", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .MediationBizboard),
-//            EBAdInfoModel(title: "애드태그", ID: "", type: .AdTag)
+            EBAdInfoModel(title: "애드태그", ID: "", type: .AdTag)
         ]
     }
 

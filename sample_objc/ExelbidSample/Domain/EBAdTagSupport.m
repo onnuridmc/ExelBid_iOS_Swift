@@ -1,11 +1,10 @@
 //
-//  PostMesageInterface.m
-//  test-webview
+//  EBAdTagSupport.m
 //
-//  Created by Jaeuk Jeong on 2022/08/16.
+//  Created by s Jeong on 2022/08/16.
 //
 
-#import "PostMessageInterface.h"
+#import "EBAdTagSupport.h"
 #import <AdSupport/AdSupport.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -21,9 +20,12 @@ NSString * const kGender = @"gender";
 NSString * const kSegments = @"segments";
 
 NSString * const kAppVersion = @"app_version";
+
 NSString * const kISOCountryCode = @"iso_country_code";
 NSString * const kMobileCountryCode = @"mobile_country_code";
 NSString * const kMobileNetworkCode = @"mobile_network_code";
+NSString * const kCarrierName = @"carrier_name";
+
 NSString * const kCountryCode = @"country_code";
 NSString * const kOsVersion = @"os_version";
 NSString * const kDeviceModel = @"device_model";
@@ -31,16 +33,27 @@ NSString * const kDeviceMake = @"device_make";
 NSString * const kGeoLat = @"geo_lat";
 NSString * const kGeoLon = @"geo_lon";
 
-@interface PostMessageInterface () <CLLocationManagerDelegate>
+
+@interface EBAdTagSupport () <CLLocationManagerDelegate>
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *lastLocation;
 
 @end
 
-@implementation PostMessageInterface
+@implementation EBAdTagSupport
 
-@synthesize adUnitInfo = _adUnitInfo;
+static EBAdTagSupport *shared = nil;
+
++ (instancetype)sharedProvider
+{
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        shared = [[self alloc] init];
+    });
+    
+    return shared;
+}
 
 - (instancetype)init
 {
@@ -48,44 +61,15 @@ NSString * const kGeoLon = @"geo_lon";
 
     if (self) {
         
-        _adUnitInfo = [[NSMutableDictionary alloc] init];
-        
-        // IDFA
-        [_adUnitInfo setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:kIDFA];
-        
-        // COPPA
-        [_adUnitInfo setValue:[NSNumber numberWithBool:YES] forKey:kCOPPA];
-        
-        // App Version
-        NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-        [_adUnitInfo setValue:appVersion forKey:kAppVersion];
-        
-        // Carrier Info
-        CTTelephonyNetworkInfo *cttni = [[CTTelephonyNetworkInfo alloc] init];
-        CTCarrier *ctCarrier = [cttni subscriberCellularProvider];
-        
-        [_adUnitInfo setValue:ctCarrier.isoCountryCode forKey:kISOCountryCode];
-        [_adUnitInfo setValue:ctCarrier.mobileCountryCode forKey:kMobileCountryCode];
-        [_adUnitInfo setValue:ctCarrier.mobileNetworkCode forKey:kMobileNetworkCode];
-        
-        // Device CountryCode
-        [_adUnitInfo setValue:[[NSLocale autoupdatingCurrentLocale] countryCode] forKey:kCountryCode];
-        
-        // OS Version
-        [_adUnitInfo setValue:[[UIDevice currentDevice] systemVersion] forKey:kOsVersion];
-        
         // Device Model
         struct utsname systemInfo;
         uname(&systemInfo);
         NSString *deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
         
-        [_adUnitInfo setValue:deviceModel forKey:kDeviceModel];
-        [_adUnitInfo setValue:@"APPLE" forKey:kDeviceMake];
-        
         // Location
         _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
-        _locationManager.distanceFilter = 100.0;
+        
+        [self locationStart];
         
         CLLocation *existingLocation = _locationManager.location;
         if (existingLocation && existingLocation.horizontalAccuracy > 0) {
@@ -109,12 +93,76 @@ NSString * const kGeoLon = @"geo_lon";
     return self;
 }
 
+- (NSString *)params
+{
+    NSMutableDictionary * adTagModel = [[NSMutableDictionary alloc] init];
+    
+    // IDFA
+    [adTagModel setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:kIDFA];
+    
+    // COPPA
+    [adTagModel setValue:[NSNumber numberWithBool:self.coppa] forKey:kCOPPA];
+    [adTagModel setValue:self.yob forKey:kYob];
+    [adTagModel setValue:self.gender forKey:kGender];
+    [adTagModel setValue:self.segment forKey:kSegments];
+    
+    // App Version
+    [adTagModel setValue:NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"] forKey:kAppVersion];
+
+    // Carrier
+    CTCarrier * carrier = [self getCarrierInfo];
+    [adTagModel setValue:carrier.isoCountryCode forKey:kISOCountryCode];
+    [adTagModel setValue:carrier.mobileCountryCode forKey:kMobileCountryCode];
+    [adTagModel setValue:carrier.mobileNetworkCode forKey:kMobileNetworkCode];
+    [adTagModel setValue:carrier.carrierName forKey:kCarrierName];
+    
+    // Device CountryCode
+    [adTagModel setValue:[[NSLocale autoupdatingCurrentLocale] countryCode] forKey:kCountryCode];
+    
+    // Device Model
+    [adTagModel setValue:UIDevice.currentDevice.systemVersion forKey:kOsVersion];
+    [adTagModel setValue:[self getDeviceModel] forKey:kDeviceModel];
+    [adTagModel setValue:@"APPLE" forKey:kDeviceMake];
+    
+    [adTagModel setValue:[NSNumber numberWithDouble:self.lastLocation.coordinate.latitude] forKey:kGeoLat];
+    [adTagModel setValue:[NSNumber numberWithDouble:self.lastLocation.coordinate.longitude] forKey:kGeoLon];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:adTagModel options:NSJSONWritingPrettyPrinted error:&error];
+    if (jsonData) {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    return @"";
+}
+
+- (NSString *)getDeviceModel
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+
+- (CTCarrier *)getCarrierInfo
+{
+    CTTelephonyNetworkInfo *networkInfo = [[CTTelephonyNetworkInfo alloc] init];
+    NSDictionary<NSString *, CTCarrier *> *serviceProviders = [networkInfo serviceSubscriberCellularProviders];
+    return [serviceProviders objectForKey:[[serviceProviders allKeys] firstObject]];
+}
+
+- (void)locationStart
+{
+    // CLLocationDistance
+    _locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locationManager.distanceFilter = 100.0;
+}
+
 - (void)updateLastLocation:(CLLocation *)location
 {
     NSLog(@"GEO LAT : %@, LON : %@", [NSNumber numberWithDouble:location.coordinate.latitude], [NSNumber numberWithDouble:location.coordinate.longitude]);
-    [_adUnitInfo setValue:[NSNumber numberWithDouble:location.coordinate.latitude] forKey:kGeoLat];
-    [_adUnitInfo setValue:[NSNumber numberWithDouble:location.coordinate.longitude] forKey:kGeoLon];
-    
     self.lastLocation = location;
 }
 
@@ -122,40 +170,6 @@ NSString * const kGeoLon = @"geo_lon";
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
-}
-
-- (void)setCoppa:(BOOL)isCoppa
-{
-    [self.adUnitInfo setValue:[NSNumber numberWithBool:isCoppa] forKey:kCOPPA];
-}
-
-- (void)setYob:(NSString *)yob
-{
-    [self.adUnitInfo setValue:yob forKey:kYob];
-}
-
-- (void)setGender:(NSString *)gender
-{
-    [self.adUnitInfo setValue:gender forKey:kGender];
-}
-
-- (void)addSegment:(NSString *)value key:(NSString *)key
-{
-    NSMutableDictionary *segments;
-    if ([_adUnitInfo objectForKey:kSegments]) {
-        segments = [_adUnitInfo objectForKey:kSegments];
-    } else {
-        segments = [[NSMutableDictionary alloc] init];
-    }
-    
-    [segments setValue:value forKey:key];
-    [_adUnitInfo setObject:segments forKey:kSegments];
-}
-
-- (void)setSegment:(NSString *)value key:(NSString *)key
-{
-    NSMutableDictionary *segment = [[NSMutableDictionary alloc] initWithDictionary:@{key:value}];
-    [_adUnitInfo setObject:segment forKey:kSegments];
 }
 
 - (NSString *)toJSONString

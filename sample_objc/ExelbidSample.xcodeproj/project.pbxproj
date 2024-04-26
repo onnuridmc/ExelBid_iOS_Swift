@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D06F6102A5FCFEE003CB1E2 /* PostMesageInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D06F60F2A5FCFEE003CB1E2 /* PostMesageInterface.m */; };
+		1D06F6102A5FCFEE003CB1E2 /* EBAdTagSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D06F60F2A5FCFEE003CB1E2 /* EBAdTagSupport.m */; };
 		1D06F6132A5FD003003CB1E2 /* EBAdTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D06F6112A5FD003003CB1E2 /* EBAdTagViewController.m */; };
 		1D0F64A92BD0EB3500984E9F /* EBDialogAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F64A82BD0EB3500984E9F /* EBDialogAdViewController.m */; };
 		1D0F64AA2BD0EE7600984E9F /* TnkPubSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */; };
@@ -69,8 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D06F60E2A5FCFEE003CB1E2 /* PostMessageInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMessageInterface.h; sourceTree = "<group>"; };
-		1D06F60F2A5FCFEE003CB1E2 /* PostMesageInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMesageInterface.m; sourceTree = "<group>"; };
+		1D06F60E2A5FCFEE003CB1E2 /* EBAdTagSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBAdTagSupport.h; sourceTree = "<group>"; };
+		1D06F60F2A5FCFEE003CB1E2 /* EBAdTagSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBAdTagSupport.m; sourceTree = "<group>"; };
 		1D06F6112A5FD003003CB1E2 /* EBAdTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBAdTagViewController.m; sourceTree = "<group>"; };
 		1D06F6122A5FD003003CB1E2 /* EBAdTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBAdTagViewController.h; sourceTree = "<group>"; };
 		1D0F64A72BD0EB3500984E9F /* EBDialogAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDialogAdViewController.h; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		1D295550299B4FCD00D39514 /* EBMediationBizBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationBizBoardViewController.h; sourceTree = "<group>"; };
 		1D295551299B4FCD00D39514 /* EBMediationBizBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationBizBoardViewController.m; sourceTree = "<group>"; };
 		1D3D01BF2A6908B900CE6831 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TnkPubSdk.xcframework; sourceTree = "<group>"; };
+		1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:GVMWG8Q7H5:TnK Factory"; lastKnownFileType = wrapper.xcframework; path = TnkPubSdk.xcframework; sourceTree = "<group>"; };
 		1D5DA5602BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationNativeVideoAdViewController.m; sourceTree = "<group>"; };
 		1D5DA5612BD09CCF00D05BA6 /* EBMediationNativeVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationNativeVideoAdViewController.h; sourceTree = "<group>"; };
 		1D5DA5632BD0A68200D05BA6 /* EBMediationInterstitialVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBMediationInterstitialVideoAdViewController.h; sourceTree = "<group>"; };
@@ -287,8 +287,8 @@
 				641269561DBDA59C00A7F514 /* EBAdInfo.m */,
 				641269581DBDA6DE00A7F514 /* EBAdSection.h */,
 				641269591DBDA6DE00A7F514 /* EBAdSection.m */,
-				1D06F60E2A5FCFEE003CB1E2 /* PostMessageInterface.h */,
-				1D06F60F2A5FCFEE003CB1E2 /* PostMesageInterface.m */,
+				1D06F60E2A5FCFEE003CB1E2 /* EBAdTagSupport.h */,
+				1D06F60F2A5FCFEE003CB1E2 /* EBAdTagSupport.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 				1DD7B5592BA2966300F50FB0 /* EBPangleNativeAdView.m in Sources */,
 				64BFE6991DDB12C10030BCA0 /* EBDialogAdViewController.m in Sources */,
 				644762DE1DD9956600C08F2B /* EBNativeAdCollectionViewController.m in Sources */,
-				1D06F6102A5FCFEE003CB1E2 /* PostMesageInterface.m in Sources */,
+				1D06F6102A5FCFEE003CB1E2 /* EBAdTagSupport.m in Sources */,
 				1D8BF0692BA171420071236F /* EBAdMobNativeAdView.m in Sources */,
 				6412693A1DBDA31500A7F514 /* main.m in Sources */,
 			);

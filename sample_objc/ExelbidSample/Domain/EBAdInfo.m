@@ -96,7 +96,7 @@
         [EBAdInfo infoWithTitle:@"미디에이션 Interstitial Video" ID:@"202748c414a9f9a0be6c73893bc1589c6bc9af4a" type:EBAdInfoMediationInterstitial],
         [EBAdInfo infoWithTitle:@"미디에이션 Native" ID:@"5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoMediationNative],
         [EBAdInfo infoWithTitle:@"미디에이션 Native Video" ID:@"a43a885cdb49fb515b18d2db5e14c58a735fe7ee" type:EBAdInfoMediationNative],
-        [EBAdInfo infoWithTitle:@"애드태그" ID:@"cd54f7365c637fc41327422e3b7dee8d7fb3dcec" type:EBAdInfoAdTag]
+        [EBAdInfo infoWithTitle:@"애드태그" ID:@"" type:EBAdInfoAdTag]
     ];
 }
 
