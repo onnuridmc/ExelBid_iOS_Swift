@@ -645,8 +645,10 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 // ExelBid 미디에이션 요청 및 콜백
     [self.mediationManager requestMediationWithHandler:^(EBMediationManager *manager, NSError *error) {
     if (error) {
+        // 미디에이션 에러 처리
         NSLog(@"================> %@", error);
     } else {
+        // 성공 처리
         [self loadMediation];
     }
 }];
@@ -669,20 +671,21 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
         } else if ([mediation.id isEqualToString:EBMediationTypes.exelbid]) {
             [self loadExelBid:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.admob]) {
-            [self loadAdMob:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.facebook]) {
-            [self loadFan:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.adfit]) {
-            [self loadAdFit:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.digitalturbine]) {
-            [self loadDT:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
-            [self loadPangle:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.tnk]) {
-            [self loadPangle:mediation];
+            ...
         } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
-            [self loadPangle:mediation];
+            ...
         } else {
+            // 매칭되는 미디에이션이 없을경우 다음 순서로
             [self loadMediation];
         }
     }
@@ -692,13 +695,16 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 {
     NSLog(@"Mediation Empty");
     // 미디에이션 리셋 또는 광고 없음 처리
-//     [self.mediationManager reset];
-//     [self loadMediation];
+    // [self.mediationManager reset];
+    // [self loadMediation];
 }
 
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
-    self.ebAdView = [[EBAdView alloc] initWithAdUnitId:mediation.unit_id size:self.adViewContainer.bounds.size];
+    // 미디에이션에서 전달하는 유닛 ID
+    NSString * adUnitId = mediation.unit_id;
+
+    self.ebAdView = [[EBAdView alloc] initWithAdUnitId:adUnitId size:self.adViewContainer.bounds.size];
     self.ebAdView.delegate = self;
     [self.ebAdView setFullWebView:YES];
     [self.ebAdView setTesting:YES];
@@ -716,9 +722,13 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 
 > EBMediationManager Interface References  // 응답받은 미디에이션 순서를 가져오거나 재설정 합니다.
 > ```
-> - (NSInteger)count;
+> - (instancetype)initWithAdUnitId:(NSString *)adUnitId mediationTypes:(NSArray<NSString *> *)mediationTypes;
+> - (void)requestMediationWithHandler:(void (^)(EBMediationManager *, NSError *))handler;
+> - (void)clear;
 > - (EBMediationWrapper *)next;
+> - (BOOL)isNext;
 > - (void)reset;
+> - (NSInteger)count;
 > ```
 
 > EBMediationWrapper Interface References  // 미디에이션 정보입니다.
@@ -733,8 +743,8 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 자세한 내용은 아래 샘플코드를 참고해주세요.  
 배너 광고 - [EBMediationBannerAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationBannerAdViewController.m)  
 전면 광고 - [EBMediationInterstitialAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationInterstitialAdViewController.m)  
-네이티브 - [EBMediationNativeAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationNativeAdViewController.m)
-네이티브 동영상 - [EBMediationNativeVideoAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationNativeVideoAdViewController.m)
+네이티브 - [EBMediationNativeAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationNativeAdViewController.m)  
+네이티브 동영상 - [EBMediationNativeVideoAdViewController.m](./sample_objc/ExelbidSample/Contollers/mediation/EBMediationNativeVideoAdViewController.m)  
 
 ## 외에 Exelbid 및 타사 광고 SDK 연동은 각각의 해당 가이드를 참조해 설정한다.
 * AdMob - [https://developers.google.com/admob/ios/quick-start?hl=ko](https://developers.google.com/admob/ios/quick-start?hl=ko)

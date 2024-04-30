@@ -49,15 +49,11 @@ class EBAdTagViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
     }
     
     // MARK: - WKNavigationDelegate
+    
     // 페이지 이동시 scheme이나 host에 따라 분기처리
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         if let url = navigationAction.request.url {
-            print("decidePolicyForNavigationAction URL : \(url.absoluteString)")
-            print("decidePolicyForNavigationAction URL scheme : \(String(describing: url.scheme))")
-            print("decidePolicyForNavigationAction URL host : \(String(describing: url.host))")
-            print("decidePolicyForNavigationAction URL path : \(url.path)")
-            print("decidePolicyForNavigationAction URL query : \(String(describing: url.query))")
 
             // 대상 프레임이 존재하며 메인프레임(최상위 Document)일 경우
             if let targetFrame = navigationAction.targetFrame, targetFrame.isMainFrame {

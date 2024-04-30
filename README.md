@@ -667,7 +667,7 @@ let mediationTypes = [
 ];
 
 // 미디에이션 초기화
-self.mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
+self.mediationManager = EBMediationManager(adUnitId: "adUnitId", mediationTypes: mediationTypes)
 
 // ExelBid 미디에이션 요청 및 콜백
 if let mediationManager = mediationManager {
@@ -676,6 +676,7 @@ if let mediationManager = mediationManager {
             // 미디에이션 에러 처리
         } else {
             // 성공 처리
+            self.loadMediation()
         }
     }
 }
@@ -700,20 +701,21 @@ func loadMediation() {
             case EBMediationTypes.exelbid:
                 self.loadExelBid(mediation: mediation)
             case EBMediationTypes.admob:
-                self.loadAdMob(mediation: mediation)
+                ...
             case EBMediationTypes.facebook:
-                self.loadFan(mediation: mediation)
+                ...
             case EBMediationTypes.adfit:
-                self.loadAdFit(mediation: mediation)
+                ...
             case EBMediationTypes.digitalturbine:
-                self.loadDT(mediation: mediation)
+                ...
             case EBMediationTypes.pangle:
-                self.loadPangle(mediation: mediation)
+                ...
             case EBMediationTypes.tnk:
-                self.loadTnk(mediation: mediation)
+                ...
             case EBMediationTypes.applovin:
-                self.loadApplovin(mediation: mediation)
+                ...
             default:
+                // 매칭되는 미디에이션이 없을경우 다음 순서로
                 self.loadMediation()
             }
         } else {
@@ -731,8 +733,11 @@ func loadMediation() {
 
 func loadExelBid(mediation: EBMediationWrapper) {
     self.clearAd();
+    
+    // 미디에이션에서 전달하는 유닛 ID
+    let adUnitId = mediation.unit_id
 
-    self.ebAdView = EBAdView(adUnitId: mediation.unit_id, size: self.adViewContainer.bounds.size)
+    self.ebAdView = EBAdView(adUnitId: adUnitId, size: self.adViewContainer.bounds.size)
     
     if let adView = self.ebAdView {
         adView.delegate = self
@@ -755,23 +760,23 @@ func loadExelBid(mediation: EBMediationWrapper) {
 }
 ```
 
-> EBMediationManager Interface References  // 응답받은 미디에이션 순서를 가져오거나 재설정 합니다.
-```
-func requestMediation(handler: EBMediationRequestHandler)
-func clear()
-func next() -> ExelBidSDK.EBMediationWrapper?
-func isNext() -> Bool
-func reset()
-func count() -> Int
-```
+> EBMediationManager Interface References
+> ```
+> func requestMediation(handler: EBMediationRequestHandler)
+> func clear()
+> func next() -> ExelBidSDK.EBMediationWrapper?
+> func isNext() -> Bool
+> func reset()
+> func count() -> Int
+> ```
 
-> EBMediationWrapper Interface References  // 미디에이션 정보입니다.
-```
-var id: String { get }          // 미디에이션 타입
-var index: Int { get }          // 미디에이션 순번
-var priority_rate: Int { get }  // 비중
-var unit_id: String { get }     // 광고 유닛 아이디     
-```
+> EBMediationWrapper Interface References
+> ```
+> var id: String { get }          // 미디에이션 타입
+> var index: Int { get }          // 미디에이션 순번
+> var priority_rate: Int { get }  // 비중
+> var unit_id: String { get }     // 광고 유닛 아이디     
+> ```
 
 ## 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  
