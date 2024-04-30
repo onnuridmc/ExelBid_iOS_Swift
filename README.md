@@ -21,58 +21,14 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
 
 
-# Version History
+# Version History  
 
-**Version 2.0.4**
+##  Version 2.0.4 
 - 비디오 광고 수정
 - 비디오 미디에이션
 - 기타 버그 수정
 
-**Version 2.0.3**
-- 광고 레이아웃 이슈 수정
-- 기타 버그 수정
-
-**Version 2.0.2**
-- xcframework 재배포
-
-**Version 2.0.1**
-- ObjectiveC 호환성 설정
-
-**Version 2.0.0**
-- Swift로 변경
-
-**Version 1.3.17**
-- Native Ad tracking 정책 통일
-
-**Version 1.3.16**
-- _framework -> 미디에이션 기능 적용 (Exelbid, Adfit, Admob, Fan)_
-
-**Version 1.3.11**
-- _framework -> xcframework 파일로 변경 (multiple framework)_
-
-**Version 1.3.10**
-- _AdView 기능 수정_
-
-**Version 1.3.9**
-- _URLConnection add header Content-Type_
-
-**Version 1.3.8**
-- _UIWebView 사용 종료에 따른 WkWebView 로의 교체 대응 및 오류 FIX_
-
-**Version 1.3.5**
-- _iOS 13 ViewController issue 대응_
-
-**Version 1.3.4**
-- _Archive시 bitcode 설정 이슈 해결_
-
-**Version 1.3.3**
-- _iOS 11 버전 대응 (Safe Area 적용)_
-
-**Version 1.3.2**
-- _배너의 설정된 사이즈가 아닌 전체 Screen 전체 사이즈로 바인딩 될 수 있게 설정 가능한 Method 추가_
-
-**Version 1.2.0**
-- _방송통신위원회 시행령 '온라인 맞춤형 광고 개인정보보호 가이드라인' 에 따라서 네이티브 nativePrivacyInformationIconImageView 관련  추가 안내_
+[Old Version History](./VersionHistory.md)
 
 
 # 시작하기 전에

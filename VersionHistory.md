@@ -1,0 +1,75 @@
+# Version History
+
+## Version 2.0.3
+- 광고 레이아웃 이슈 수정
+- 기타 버그 수정
+
+---
+
+## Version 2.0.2
+- xcframework 재배포
+
+---
+
+## Version 2.0.1
+- ObjectiveC 호환성 설정
+
+---
+
+## Version 2.0.0
+- Swift로 변경
+
+---
+
+## Version 1.3.17
+- Native Ad tracking 정책 통일
+
+---
+
+## Version 1.3.16
+- framework -> 미디에이션 기능 적용 (Exelbid, Adfit, Admob, Fan)
+
+---
+
+## Version 1.3.11
+- framework -> xcframework 파일로 변경 (multiple framework)
+
+---
+
+## Version 1.3.10
+- AdView 기능 수정
+
+---
+
+## Version 1.3.9
+- URLConnection add header Content-Type
+
+---
+
+## Version 1.3.8
+- UIWebView 사용 종료에 따른 WkWebView 로의 교체 대응 및 오류 FIX
+
+---
+
+## Version 1.3.5
+- iOS 13 ViewController issue 대응
+
+---
+
+## Version 1.3.4
+- Archive시 bitcode 설정 이슈 해결
+
+---
+
+## Version 1.3.3
+- iOS 11 버전 대응 (Safe Area 적용)
+
+---
+
+## Version 1.3.2
+- 배너의 설정된 사이즈가 아닌 전체 Screen 전체 사이즈로 바인딩 될 수 있게 설정 가능한 Method 추가
+
+---
+
+## Version 1.2.0
+- 방송통신위원회 시행령 '온라인 맞춤형 광고 개인정보보호 가이드라인' 에 따라서 네이티브 nativePrivacyInformationIconImageView 관련  추가 안내
