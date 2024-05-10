@@ -1,5 +1,14 @@
 # Version History
 
+##  Version 2.0.5
+- 17.4.x UIImage async 이슈
+- 기타 버그 수정
+
+##  Version 2.0.4
+- 비디오 광고 수정
+- 비디오 미디에이션
+- 기타 버그 수정
+
 ## Version 2.0.3
 - 광고 레이아웃 이슈 수정
 - 기타 버그 수정
