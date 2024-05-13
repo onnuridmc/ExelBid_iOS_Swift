@@ -34,11 +34,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dK8ooQu0tqVrl53uD8+DxMQv7Lc=
+		2cGE0eq6FscAFKe//6GsWe9u+eM=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		j6EkIlws4TNV3fiLpHBgt3H+0M8=
+		fHpFtKkZ/KKuod7H9lQgbUB3ygo=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -54,11 +54,15 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		GIltnDSiJrsEBz+xN3Y67Q/yzbo=
+		oQL7u4H/NaHVUPu8fPDFhl/t/zw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		Lp4Z/xMcrlBdIY/aP2Hm34+wjFI=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		ikQ72T58AGnh16MwNZakhUL9Ie8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -116,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tw88P+WAnSQAwMQj5gnj3Jeo62p9EXEdZ0jlRD8ZnCc=
+			aAC2kPOJc7m6pEDr0y1Vz8PjG/7M6PvlobINHwwoDlo=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -144,7 +148,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3h4MumQlKBZWBdLY1aUbAI/3iC6Nv/8IWnsbIaGOcsQ=
+			mbae9j5ovPpB23ge0M0hp36MqVEhTu4+ta2/Ue83xIM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -152,6 +156,13 @@
 			<key>hash2</key>
 			<data>
 			7gzKdPKHx4e/X+k9WsDJXWn3J6F6cpq96xX4rd5Ibpo=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			X5S05K4+TJc8LWW6kKCZixa92P719oFc5fvc9aBrzv4=
 			</data>
 		</dict>
 	</dict>

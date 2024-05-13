@@ -1,5 +1,9 @@
 # Version History
 
+##  Version 2.0.6
+- privacy manifest
+- 네이티브 노출 트래킹 수정
+
 ##  Version 2.0.5
 - 17.4.x UIImage async 이슈
 - 기타 버그 수정

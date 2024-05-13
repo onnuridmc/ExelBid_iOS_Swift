@@ -22839,21 +22839,21 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 4870,
+      "offset": 4872,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 6313,
+      "offset": 6315,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 7816,
+      "offset": 7818,
       "length": 5,
       "value": "false"
     },
@@ -24239,14 +24239,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 6834,
+      "offset": 6836,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 6898,
+      "offset": 6900,
       "length": 3,
       "value": "0.5"
     },

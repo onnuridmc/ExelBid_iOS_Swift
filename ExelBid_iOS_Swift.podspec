@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name        = 'ExelBid_iOS_Swift'
-    s.version     = '2.0.5'
+    s.version     = '2.0.6'
     s.summary     = 'ExelBidSDK'
     s.description = 'ExelBidSDK for Publisher'
     s.homepage    = 'https://github.com/onnuridmc/ExelBid_iOS_Swift'
@@ -10,6 +10,10 @@ Pod::Spec.new do |s|
     }
     s.author = {
         'Motiv Intelligence' => 'dev@motiv-i.com'
+    }
+
+    s.resource_bundles = {
+        'ExelBid_iOS_Swift' => ['SDK/ExelBid_iOS_Swift.xcframework/ios-arm64/ExelBid_iOS_Swift.framework/PrivacyInfo.xcprivacy']
     }
 
     s.source = {
