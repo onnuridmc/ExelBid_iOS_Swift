@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     }
 
     s.resource_bundles = {
-        'ExelBid_iOS_Swift' => ['SDK/ExelBid_iOS_Swift.xcframework/ios-arm64/ExelBid_iOS_Swift.framework/PrivacyInfo.xcprivacy']
+        'ExelBid_iOS_Swift' => ['xcframework/ExelBidSDK.xcframework/ios-arm64/ExelBidSDK.framework/PrivacyInfo.xcprivacy']
     }
 
     s.source = {
