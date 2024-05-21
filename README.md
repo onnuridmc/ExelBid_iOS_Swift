@@ -716,6 +716,8 @@ func loadExelBid(mediation: EBMediationWrapper) {
 > self.loadMediation()
 > ```
 
+> **미디에이션 목록이 비어있다면 광고없음 처리를 해주세요.**
+
 ## EBMediationManager Interface References
 ```
 // 미디에이션 요청
