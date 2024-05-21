@@ -649,9 +649,7 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 - (void)emptyMediation
 {
     NSLog(@"Mediation Empty");
-    // 미디에이션 리셋 또는 광고 없음 처리
-    // [self.mediationManager reset];
-    // [self loadMediation];
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
 }
 
 - (void)loadExelBid:(EBMediationWrapper *)mediation
@@ -675,24 +673,36 @@ self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId"
 }
 ```
 
-> EBMediationManager Interface References  // 응답받은 미디에이션 순서를 가져오거나 재설정 합니다.
+> **타사 광고 요청 후 광고가 없거나 오류가 발생하면 미디에이션 다음 순서를 호출해주세요.**
 > ```
-> - (instancetype)initWithAdUnitId:(NSString *)adUnitId mediationTypes:(NSArray<NSString *> *)mediationTypes;
-> - (void)requestMediationWithHandler:(void (^)(EBMediationManager *, NSError *))handler;
-> - (void)clear;
-> - (EBMediationWrapper *)next;
-> - (BOOL)isNext;
-> - (void)reset;
-> - (NSInteger)count;
+> [self loadMediation];
 > ```
 
-> EBMediationWrapper Interface References  // 미디에이션 정보입니다.
-> ```
-> NSString *id          // 미디에이션 타입
-> int index             // 미디에이션 순번
-> int priority_rate     // 비중
-> NSString *unit_id     // 광고 유닛 아이디
-> ```
+EBMediationManager Interface References
+```
+// 미디에이션 초기화
+- (instancetype)initWithAdUnitId:(NSString *)adUnitId mediationTypes:(NSArray<NSString *> *)mediationTypes;
+
+// 미디에이션 요청
+- (void)requestMediationWithHandler:(void (^)(EBMediationManager *, NSError *))handler;
+
+// 미디에이션 목록 iterator
+- (EBMediationWrapper *)next;
+
+// 다음 미디에이션이 있는지 여부
+- (BOOL)isNext;
+
+// 미디에이션 목록 개수
+- (NSInteger)count;
+```
+
+## EBMediationWrapper Interface References
+```
+NSString *id          // 미디에이션 타입
+int index             // 미디에이션 순번
+int priority_rate     // 비중
+NSString *unit_id     // 광고 유닛 아이디
+```
 
 ## 미디에이션 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  

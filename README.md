@@ -681,9 +681,7 @@ func loadMediation() {
 
 - (void)emptyMediation
 {
-    // 미디에이션 리셋 또는 광고 없음 처리
-//    self.mediationManager?.reset()
-//    self.loadMediation()
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
 }
 
 func loadExelBid(mediation: EBMediationWrapper) {
@@ -710,28 +708,36 @@ func loadExelBid(mediation: EBMediationWrapper) {
         // 광고 호출
         adView.loadAd()
     }
-    
-    
 }
 ```
 
-> EBMediationManager Interface References
+> **타사 광고 요청 후 광고가 없거나 오류가 발생하면 미디에이션 다음 순서를 호출해주세요.**
 > ```
-> func requestMediation(handler: EBMediationRequestHandler)
-> func clear()
-> func next() -> ExelBidSDK.EBMediationWrapper?
-> func isNext() -> Bool
-> func reset()
-> func count() -> Int
+> self.loadMediation()
 > ```
 
-> EBMediationWrapper Interface References
-> ```
-> var id: String { get }          // 미디에이션 타입
-> var index: Int { get }          // 미디에이션 순번
-> var priority_rate: Int { get }  // 비중
-> var unit_id: String { get }     // 광고 유닛 아이디     
-> ```
+## EBMediationManager Interface References
+```
+// 미디에이션 요청
+func requestMediation(handler: EBMediationRequestHandler)
+ 
+// 미디에이션 목록 iterator
+func next() -> ExelBidSDK.EBMediationWrapper?
+
+// 다음 미디에이션이 있는지 여부
+func isNext() -> Bool
+
+// 미디에이션 목록 개수
+func count() -> Int
+```
+
+## EBMediationWrapper Interface References
+```
+var id: String { get }          // 미디에이션 타입
+var index: Int { get }          // 미디에이션 순번
+var priority_rate: Int { get }  // 비중
+var unit_id: String { get }     // 광고 유닛 아이디     
+```
 
 ## 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  
