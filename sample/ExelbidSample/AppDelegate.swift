@@ -25,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // SKAdNetwork
-        if #available(iOS 13.0, *){
-            self.window?.overrideUserInterfaceStyle = .light
-        }
         if #available(iOS 11.3, *) {
             SKAdNetwork.registerAppForAdNetworkAttribution()
         }
@@ -95,6 +92,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        // 사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.
+        // 앱 설치 후 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.
+        // 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
+        if #available(iOS 14.0, *) {
+            ATTrackingManager.requestTrackingAuthorization { _ in }
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

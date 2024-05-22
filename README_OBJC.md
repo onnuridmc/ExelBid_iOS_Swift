@@ -79,7 +79,7 @@ pod install
 ### 광고식별자 권한 요청
 
 사용자로부터 개인정보 보호에 관한 권한을 요청해야 합니다.  
-앱 설치 후 첫실행 시 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.  
+앱 설치 후 한번만 요청되며, 사용자가 권한에 대해 응답 후 더 이상 사용자에게 권한 요청을 하지 않습니다.  
 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
 
 **※ 광고를 호출하기 전에 완료되어야 합니다.**
@@ -88,10 +88,19 @@ pod install
 
 ...
 
-if #available(iOS 14.0, *) {
-    ATTrackingManager.requestTrackingAuthorization { _ in }
+if (@available(iOS 14, *)) {
+    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+        
+    }];
 }
 ```
+
+> 앱이 실행될때 광고식별자 권한 요청을 권장합니다.
+>
+> **AppDelegate.m**
+> ```
+> - (void)applicationDidBecomeActive:(UIApplication *)application
+> ```
 
 ### Info.plist 설정
 
