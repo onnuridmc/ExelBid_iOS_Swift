@@ -120,9 +120,7 @@ extension EBMediationInterstitialVideoViewController {
     
     func emptyMediation() {
         print("Mediation Empty")
-        // 미디에이션 리셋 또는 광고 없음 처리
-//        self.mediationManager?.reset()
-//        self.loadMediation()
+        // 미디에이션 목록이 비어있음. 광고 없음 처리.
     }
     
     func loadExelBid(mediation: EBMediationWrapper) {
