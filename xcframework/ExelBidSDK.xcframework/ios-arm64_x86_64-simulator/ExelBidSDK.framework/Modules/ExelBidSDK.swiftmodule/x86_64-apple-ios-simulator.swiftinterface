@@ -297,10 +297,6 @@ public let ExelBidKit: ExelBidSDK.ExelBid
     @objc get
     @objc set
   }
-  public var locationUpdatesEnabled: Swift.Bool? {
-    get
-    set
-  }
   public var frequencyCappingIdUsageEnabled: Swift.Bool? {
     get
     set

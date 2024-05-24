@@ -639,23 +639,6 @@
       },
       {
         "kind": "Import",
-        "name": "CoreLocation",
-        "printedName": "CoreLocation",
-        "declKind": "Import",
-        "moduleName": "ExelBidSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ExelBidSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -10186,112 +10169,6 @@
                 "declKind": "Accessor",
                 "usr": "s:10ExelBidSDK0aB0C7testingSbvM",
                 "mangledName": "$s10ExelBidSDK0aB0C7testingSbvM",
-                "moduleName": "ExelBidSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "locationUpdatesEnabled",
-            "printedName": "locationUpdatesEnabled",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Bool?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvp",
-            "mangledName": "$s10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvp",
-            "moduleName": "ExelBidSDK",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Bool?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Bool",
-                        "printedName": "Swift.Bool",
-                        "usr": "s:Sb"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvg",
-                "mangledName": "$s10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvg",
-                "moduleName": "ExelBidSDK",
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Bool?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Bool",
-                        "printedName": "Swift.Bool",
-                        "usr": "s:Sb"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvs",
-                "mangledName": "$s10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvs",
-                "moduleName": "ExelBidSDK",
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvM",
-                "mangledName": "$s10ExelBidSDK0aB0C22locationUpdatesEnabledSbSgvM",
                 "moduleName": "ExelBidSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -21540,13 +21417,6 @@
       "offset": 223,
       "length": 24,
       "value": "\"ExelBidSDK.EBStaticNativeAdRenderer\""
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBLocationInfo.swift",
-      "kind": "BooleanLiteral",
-      "offset": 309,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/Model\/XML schema\/EBVastViewableImpression.swift",

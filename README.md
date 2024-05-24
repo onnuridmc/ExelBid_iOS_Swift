@@ -21,11 +21,11 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
 
 
-# Version History  
+# Version History
 
-##  Version 2.0.6
-- privacy manifest
-- 네이티브 노출 트래킹 수정
+##  Version 2.0.7
+- 위치 인터페이스 제거
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
@@ -314,7 +314,7 @@ func videoAdDidFailToLoad(adUnitID: String, error: any Error)
 // 동영상 재생 시도가 실패 할 때 호출됩니다.
 func videoAdDidFailToPlay(adUnitID: String, error: (any Error)?)
 
-// 광고가 표시 되려고 할 때 호출됩니다.
+// 광고가 표시되려고 할 때 호출됩니다.
 func videoAdWillAppear(adUnitID: String)
 
 // 동영상 광고가 표시 될 때 호출됩니다.
@@ -774,3 +774,7 @@ var unit_id: String { get }     // 광고 유닛 아이디
 - setKeywords(NSString) : Custom 메타 데이터 (Key=Value, ...)
 - setTesting(BOOL) : 광고의 테스트를 위해 설정하는 값입니다. 통계에 적용 되지 않으며 항상 광고가 노출되게 됩니다.
 - setAdUnitId(String) : 광고 아이디를 셋팅 합니다.
+
+## 위치 정보 안내
+SDK에서는 위치 추적을 직접적으로 하지 않습니다.  
+위치정보는 선택 사항이며 앱을 통해 CLLocation을 전달받습니다.

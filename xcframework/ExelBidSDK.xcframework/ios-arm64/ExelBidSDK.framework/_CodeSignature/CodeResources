@@ -34,27 +34,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2cGE0eq6FscAFKe//6GsWe9u+eM=
+		uAX3B+vAnmtLGU5BH3yIEt5Ycxo=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		fHpFtKkZ/KKuod7H9lQgbUB3ygo=
+		MyB39b8dC9zQO4fejl0vnCKVHek=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		CWcVRYbAQ0AnsvAp3hidazY5sI0=
+		27tvQyGz7DA9zjwzBSNp4oIDmjA=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		i1pNMMQ/LxANCm2KETa/dBe5258=
+		FUZ7FYyakdsIYf4cTlClnHncK6E=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		CWcVRYbAQ0AnsvAp3hidazY5sI0=
+		27tvQyGz7DA9zjwzBSNp4oIDmjA=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		oQL7u4H/NaHVUPu8fPDFhl/t/zw=
+		7copuFvqzJq0s0eFWGhQr/6BgsM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -120,35 +120,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aAC2kPOJc7m6pEDr0y1Vz8PjG/7M6PvlobINHwwoDlo=
+			66sn2+HW+KQjwBgI1mzgXPmUaphyDLWdIOmbWGRFOfM=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EWdUE2fiJZa3NiRCDl2x36u8bCvXmSG5AWubDDGC0Rs=
+			2u+AA9KAplGSEWOCxx8OSgYROWsROOYZuHcTfG9I3ho=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rzfc0bEI+docgN6Yi5nSCJR9Zr7/QXeZaxKut6HLKqc=
+			ZorpI4T/12mwAF+HHkGCkEnT0+5yu1se4chxXmLGXdM=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EWdUE2fiJZa3NiRCDl2x36u8bCvXmSG5AWubDDGC0Rs=
+			2u+AA9KAplGSEWOCxx8OSgYROWsROOYZuHcTfG9I3ho=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mbae9j5ovPpB23ge0M0hp36MqVEhTu4+ta2/Ue83xIM=
+			LC6N2OxIk9hg35HoiSKUuEjfXaHI2NURBF8kyN2/cHU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
