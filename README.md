@@ -96,7 +96,11 @@ if #available(iOS 14.0, *) {
 >
 > **AppDelegate.swift**
 > ```
-> func applicationDidBecomeActive(_ application: UIApplication)
+> func applicationDidBecomeActive(_ application: UIApplication) {
+>     if #available(iOS 14.0, *) {
+>         ATTrackingManager.requestTrackingAuthorization { _ in }
+>     }
+> } 
 > ```
 
 ### Info.plist 설정

@@ -99,6 +99,13 @@ if (@available(iOS 14, *)) {
 > **AppDelegate.m**
 > ```
 > - (void)applicationDidBecomeActive:(UIApplication *)application
+> {
+>     if (@available(iOS 14, *)) {
+>         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+>  
+>         }];
+>     }
+> }
 > ```
 
 ### Info.plist 설정
