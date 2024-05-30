@@ -1,5 +1,8 @@
 # Version History
 
+##  Version 2.0.8
+- 네이티브에서 광고 없음 처리 수정
+
 ##  Version 2.0.7
 - 위치 인터페이스 제거
 - 기타 버그 수정
