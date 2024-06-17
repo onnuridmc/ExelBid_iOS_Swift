@@ -34,11 +34,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yd9s3yDRCt+Uvv1jolS+JR325W0=
+		uVO+GFpIE3Odzn7wj9HuJLDDtrA=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		7vuXjTFfjE2lYeQ8OawhYDyRipw=
+		In2zkDY+xScelDXhmL7AwOFIzB4=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		7vuXjTFfjE2lYeQ8OawhYDyRipw=
+		In2zkDY+xScelDXhmL7AwOFIzB4=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -140,7 +140,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			b1DFsU3SdGZgLXgAo8sy2GxUiwdISl0fZdwg8biOTFs=
+			k2jF7VOkjemZe354V0OZY3V1lBQdudhL43dxMDEX++c=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -175,7 +175,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			b1DFsU3SdGZgLXgAo8sy2GxUiwdISl0fZdwg8biOTFs=
+			k2jF7VOkjemZe354V0OZY3V1lBQdudhL43dxMDEX++c=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>

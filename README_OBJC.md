@@ -23,8 +23,9 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.0.8
-- 네이티브에서 광고 없음 처리 수정
+##  Version 2.0.9
+- URL scheme 처리 수정
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
