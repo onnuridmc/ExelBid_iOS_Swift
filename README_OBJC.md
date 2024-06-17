@@ -126,6 +126,24 @@ if (@available(iOS 14, *)) {
 3. Inventory -> Unit -> Create New Unit
    ![new app](./assets/inventory_unit.png)
 
+## 광고 요청 인스턴스 공통 메소드
+
+> 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
+
+- setAdUnitId(String) : 광고 아이디를 셋팅 합니다.
+- setCoppa(NSString) : 미국 아동 온라인 프라이버시 보호법(COPPA) (0 : 미적용, 1 : 적용)
+- setYob(NSString) : 태어난 연도 4자리(2016)
+- setGender(NSString) : 성별 (M : 남자, F : 여자)
+- setLocation(CLLocation) : 위치 정보
+- setKeywords(NSString) : Custom 메타 데이터 (Key=Value, ...)
+- setTesting(BOOL) : 광고의 테스트를 위해 설정하는 값입니다. 통계에 적용 되지 않으며 항상 광고가 노출되게 됩니다.
+
+
+## 위치 정보 안내
+SDK에서는 위치 추적을 직접적으로 하지 않습니다.  
+위치정보는 선택 사항이며 앱을 통해 CLLocation을 전달받습니다.
+
+
 ## 배너 광고
 
 **1. 광고 요청을 위한 변수 선언**
@@ -738,17 +756,3 @@ NSString *unit_id     // 광고 유닛 아이디
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
 
-# 광고 요청 인스턴스 공통 메소드
-
-> 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-
-- setYob(NSString) : 태어난 연도 4자리(2016)
-- setGender(NSString) : 성별 (M : 남자, F : 여자)
-- setLocation(CLLocation) : 위치 정보
-- setKeywords(NSString) : Custom 메타 데이터 (Key=Value, ...)
-- setTesting(BOOL) : 광고의 테스트를 위해 설정하는 값입니다. 통계에 적용 되지 않으며 항상 광고가 노출되게 됩니다.
-- setAdUnitId(String) : 광고 아이디를 셋팅 합니다.
-
-## 위치 정보 안내
-SDK에서는 위치 추적을 직접적으로 하지 않습니다.  
-위치정보는 선택 사항이며 앱을 통해 CLLocation을 전달받습니다.
