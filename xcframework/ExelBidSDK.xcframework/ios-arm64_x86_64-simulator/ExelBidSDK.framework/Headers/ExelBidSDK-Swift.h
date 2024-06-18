@@ -668,7 +668,6 @@ SWIFT_CLASS("_TtC10ExelBidSDK10EBNativeAd")
 
 
 
-
 SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @protocol EBVideoDelegate
 @optional
@@ -706,6 +705,7 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @interface EBNativeAd (SWIFT_EXTENSION(ExelBidSDK)) <EBVideoDelegate>
 - (void)videoAdDidReceiveTapEventWithAdUnitID:(NSString * _Nonnull)adUnitID;
 @end
+
 
 
 
@@ -1140,7 +1140,6 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 + (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -2033,7 +2032,6 @@ SWIFT_CLASS("_TtC10ExelBidSDK10EBNativeAd")
 
 
 
-
 SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @protocol EBVideoDelegate
 @optional
@@ -2071,6 +2069,7 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @interface EBNativeAd (SWIFT_EXTENSION(ExelBidSDK)) <EBVideoDelegate>
 - (void)videoAdDidReceiveTapEventWithAdUnitID:(NSString * _Nonnull)adUnitID;
 @end
+
 
 
 
@@ -2505,7 +2504,6 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 + (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
