@@ -53,7 +53,7 @@ class EBMediationBizBoardViewController : UIViewController {
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
             EBMediationTypes.applovin
-        ];
+        ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
@@ -116,12 +116,12 @@ extension EBMediationBizBoardViewController {
      예시는 배너 광고이며 전면 광고는 EBFrontBannerAdViewController 참고
      */
     func loadExelBid(mediation: EBMediationWrapper) {
-        ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(mediation.unit_id, EBNativeAdView.self)
-        ExelBidNativeManager.testing(true)
-        ExelBidNativeManager.yob("1976")
-        ExelBidNativeManager.gender("M")
+        let ebNativeManager = ExelBidNativeManager(mediation.unit_id, EBNativeAdView.self)
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+//        ebNativeManager.testing(true)
 
-        ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
             if error != nil {
                 // 광고가 없거나 요청 실패시 다음 미디에이션 처리를 위해 호출
                 self.loadMediation()

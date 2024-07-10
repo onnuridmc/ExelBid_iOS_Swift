@@ -54,12 +54,12 @@
     [self clearAd];
     
     // Create and configure a renderer configuration for native ads.
-    [ExelBidNativeManager initNativeAdWithAdUnitIdentifier:self.keywordsTextField.text :[EBNativeBannerAdView class]];
-    [ExelBidNativeManager testing:YES];
-    [ExelBidNativeManager yob:@"1976"];
-    [ExelBidNativeManager gender:@"M"];
+    ExelBidNativeManager * ebNativeManager = [[ExelBidNativeManager alloc] init:self.keywordsTextField.text :[EBNativeBannerAdView class]];
+    [ebNativeManager testing:YES];
+    [ebNativeManager yob:@"1976"];
+    [ebNativeManager gender:@"M"];
     
-    [ExelBidNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+    [ebNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
         if (error) {
             NSLog(@"================> %@", error);
             [self configureAdLoadFail];

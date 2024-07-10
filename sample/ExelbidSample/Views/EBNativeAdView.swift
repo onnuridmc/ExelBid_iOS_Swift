@@ -9,6 +9,7 @@ import UIKit
 import ExelBidSDK
 
 class EBNativeAdView: UIView {
+
     var titleLabel: UILabel!
     var mainTextLabel: UILabel!
     var iconImageView: UIImageView!
@@ -38,6 +39,7 @@ class EBNativeAdView: UIView {
         mainVideoView = UIView()
         mainVideoView.contentMode = .scaleAspectFill
         mainVideoView.clipsToBounds = true
+        mainVideoView.isUserInteractionEnabled = false
         self.addSubview(mainVideoView)
       
 

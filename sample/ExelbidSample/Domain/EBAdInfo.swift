@@ -30,7 +30,7 @@ struct EBAdInfo {
     func videoAds() -> [EBAdInfoModel] {
         return [
             EBAdInfoModel(title: "비디오 전면", ID: "3f548c41c3c6539ee7051aeb58ada2d4c039bc07", type: .Video),
-            EBAdInfoModel(title: "비디오 네이티브", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .NativeVideo)
+            EBAdInfoModel(title: "비디오 네이티브", ID: "ac6c351af0850502d7174a4e80aea169cf9c1823", type: .NativeVideo)
         ]
     }
     

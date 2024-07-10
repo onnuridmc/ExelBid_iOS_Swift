@@ -17,6 +17,9 @@
 #import "EBPangleNativeAdView.h"
 #import <PAGAdSDK/PAGAdSDK.h>
 
+// TargetPick
+//#import <LibADPlus/LibADPlus-Swift.h>
+
 @interface EBMediationNativeVideoAdViewController ()<UITextFieldDelegate, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, PAGLNativeAdDelegate>
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
@@ -30,9 +33,23 @@
 // Pangle
 @property (nonatomic, strong) PAGLNativeAd *pagNativeAd;
 
+// TargetPick
+//@property (nonatomic, assign) NSInteger tpPublisherId;
+//@property (nonatomic, assign) NSInteger tpMediaId;
+
 @end
 
 @implementation EBMediationNativeVideoAdViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+//        _tpPublisherId = 102;
+//        _tpMediaId = 202;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,6 +105,7 @@
 
 - (IBAction)didTapShowButton:(id)sender
 {
+    // 순차적으로 미디에이션 호출
     [self loadMediation];
 }
 
@@ -97,6 +115,63 @@
     [[self.adViewContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
+- (void)setAdViewAutolayoutConstraint:(UIView *)target mine:(UIView *)_mine
+{
+    [target addSubview:_mine];
+    
+    [_mine setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [target addConstraint:[NSLayoutConstraint
+                           constraintWithItem:_mine
+                           attribute:NSLayoutAttributeTop
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:target
+                           attribute:NSLayoutAttributeTop
+                           multiplier:1
+                           constant:0]];
+    
+    [target addConstraint:[NSLayoutConstraint
+                           constraintWithItem:_mine
+                           attribute:NSLayoutAttributeBottom
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:target
+                           attribute:NSLayoutAttributeBottom
+                           multiplier:1
+                           constant:0]];
+    
+    [target addConstraint:[NSLayoutConstraint
+                           constraintWithItem:_mine
+                           attribute:NSLayoutAttributeLeading
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:target
+                           attribute:NSLayoutAttributeLeading
+                           multiplier:1
+                           constant:0]];
+    
+    [target addConstraint:[NSLayoutConstraint
+                           constraintWithItem:_mine
+                           attribute:NSLayoutAttributeTrailing
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:target
+                           attribute:NSLayoutAttributeTrailing
+                           multiplier:1
+                           constant:0]];
+    
+    CGFloat _height = 0.0f;
+    _height = 50.0f;
+    
+    [target addConstraint:[NSLayoutConstraint
+                           constraintWithItem:_mine
+                           attribute:NSLayoutAttributeHeight
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:nil
+                           attribute:NSLayoutAttributeNotAnAttribute
+                           multiplier:1
+                           constant:_height]];
+    
+    [_mine setNeedsUpdateConstraints];
+}
+
+// 미디에이션 목록 순차 처리
 - (void)loadMediation
 {
     if (self.mediationManager != nil) {
@@ -114,28 +189,33 @@
             [self loadAdMob:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
+//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+//            [self loadTargetPick:mediation];
         } else {
             [self loadMediation];
         }
     }
 }
 
+// 미디에이션 목록이 비어있음. 광고 없음 처리.
 - (void)emptyMediation
 {
     NSLog(@"Mediation Empty");
-    // 미디에이션 목록이 비어있음. 광고 없음 처리.
 }
 
+#pragma mark - 미디에이션 광고 호출
+
+// Exelbid 광고 호출
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
     [self clearAd];
     
-    [ExelBidNativeManager initNativeAdWithAdUnitIdentifier:mediation.unit_id :[EBNativeAdView class]];
-    [ExelBidNativeManager testing:YES];
-    [ExelBidNativeManager yob:@"1976"];
-    [ExelBidNativeManager gender:@"M"];
+    ExelBidNativeManager * ebNativeManager = [[ExelBidNativeManager alloc] init:mediation.unit_id :[EBNativeAdView class]];
+    [ebNativeManager testing:YES];
+    [ebNativeManager yob:@"1976"];
+    [ebNativeManager gender:@"M"];
     
-    [ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
+    [ebNativeManager desiredAssets:[NSSet setWithObjects:
                                             EBNativeAsset.kAdIconImageKey,
                                             EBNativeAsset.kAdVideo,
                                             EBNativeAsset.kAdTitleKey,
@@ -143,7 +223,7 @@
                                             EBNativeAsset.kAdCTATextKey,
                                             nil]];
 
-    [ExelBidNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+    [ebNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
         if (error) {
             NSLog(@"================> %@", error);
             self.loadAdButton.enabled = YES;
@@ -164,6 +244,7 @@
     }];
 }
 
+// AdMob 광고 호출
 - (void)loadAdMob:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -173,6 +254,7 @@
     [self.gaAdLoad loadRequest:[GADRequest request]];
 }
 
+// Pangle 광고 호출
 - (void)loadPangle:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -187,6 +269,46 @@
         [self.adViewContainer addSubview:nativeAdView];
     }];
 }
+
+// TargetPick 광고 호출
+//- (void)loadTargetPick:(EBMediationWrapper *)mediation
+//{
+//    [self clearAd];
+//    
+//    NSInteger pid = 102;
+//    NSInteger mid = 202;
+//    NSInteger sid = 804408;
+//    CGSize size = CGSizeMake(320, 480);
+//    NSString *keyParam = @"KeywordTargeting";
+//    NSString *otherParam = @"BannerAdditionalParameters";
+//    NSString *appID = @"appID";
+//    NSString *appName = @"appName";
+//    NSString *storeURL = @"StoreURL";
+//    
+//    ADMZVideoModel *model = [[ADMZVideoModel alloc]
+//                             initWithPublisherID:pid withMediaID:mid withSectionID:sid withVideoSize:size withKeywordParameter:keyParam withOtherParameter:otherParam withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age withAppID:appID withAppName:appName withStoreURL:storeURL withSMS:YES withTel:YES withCalendar:YES withStorePicture:YES withAutoPlay:YES withAutoReplay:YES withMuteOption:YES withClickFull:YES withClickButtonShow:YES withSkipButtonShow:YES withClickVideoArea:YES withCloseButtonShow:YES withSoundButtonShow:YES withInlineVideo:YES];
+//    
+//    ADMZVideoView * videoAd = [[ADMZVideoView alloc] init];
+//    [videoAd updateModelWithValue:model];
+//
+//    [videoAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"VideoDidEventFailed");
+//    }];
+//    [videoAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"VideoDidEventOther");
+//    }];
+//    [videoAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"VideoDidEventSuccess");
+//    }];
+//    [videoAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
+//        NSLog(@"Result = %@",param);
+//    }];
+//    
+//    [self.adViewContainer addSubview:videoAd];
+//    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:videoAd];
+//    
+//    [videoAd startVideo];
+//}
 
 #pragma mark - UITextFieldDelegate
 

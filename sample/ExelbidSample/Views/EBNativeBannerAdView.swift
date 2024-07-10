@@ -119,7 +119,6 @@ extension EBNativeBannerAdView: EBNativeAdRendering {
     func nativeMainImageView() -> UIImageView? {
         return mainImageView
     }
-    
    
     func nativeCallToActionTextLabel() -> UILabel? {
         return ctaLabel

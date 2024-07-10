@@ -37,12 +37,15 @@ extension EBVideoAdViewController {
         
         if let unitId = self.keywordsTextField.text {
             EBVideoManager.initFullVideo(identifier: unitId)
-            EBVideoManager.testing(true)
-            EBVideoManager.yob("1976")
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            EBVideoManager.yob("1987")
             EBVideoManager.gender("M")
+            EBVideoManager.testing(true)
 
             EBVideoManager.startWithCompletionHandler { (request, error) in
-                if error != nil {
+                if let error = error  {
+                    print(">>> \(error.localizedDescription)")
                     self.configureAdLoadFail()
                 }else{
                     self.showAdButton.isHidden = false
@@ -58,6 +61,8 @@ extension EBVideoAdViewController {
     }
     
     func configureAdLoadFail() {
+        
         loadAdButton.isEnabled = true
     }
+
 }

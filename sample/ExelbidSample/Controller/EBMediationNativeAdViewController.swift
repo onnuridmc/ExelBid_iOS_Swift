@@ -88,7 +88,7 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
             EBMediationTypes.applovin
-        ];
+        ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
@@ -158,12 +158,21 @@ extension EBMediationNativeAdViewController {
      예시는 배너 광고이며 전면 광고는 EBFrontBannerAdViewController 참고
      */
     func loadExelBid(mediation: EBMediationWrapper) {
-        ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(mediation.unit_id, EBNativeAdView.self)
-        ExelBidNativeManager.testing(true)
-        ExelBidNativeManager.yob("1976")
-        ExelBidNativeManager.gender("M")
+        let ebNativeManager = ExelBidNativeManager(mediation.unit_id, EBNativeAdView.self)
+        
+        // 광고의 효율을 높이기 위해 옵션 설정
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+//        ExelBidNativeManager.testing(true)
+        
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdMainImageKey,
+                                       EBNativeAsset.kAdCTATextKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdTitleKey])
 
-        ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
             if error != nil {
                 // 광고가 없거나 요청 실패시 다음 미디에이션 처리를 위해 호출
                 self.loadMediation()
@@ -248,14 +257,14 @@ extension EBMediationNativeAdViewController {
         let nativeAdView = nativeAdViewNib.instantiate(withOwner: nil, options: nil).first! as! MANativeAdView?
 
         let adViewBinder = MANativeAdViewBinder.init(builderBlock: { (builder) in
-            builder.titleLabelTag = 1001;
-            builder.bodyLabelTag = 1003;
-            builder.callToActionButtonTag = 1007;
-            builder.iconImageViewTag = 1004;
-            builder.mediaContentViewTag = 1006;
-            builder.starRatingContentViewTag = 1008;
-            builder.advertiserLabelTag = 1002;
-            builder.optionsContentViewTag = 1005;
+            builder.titleLabelTag = 1001
+            builder.bodyLabelTag = 1003
+            builder.callToActionButtonTag = 1007
+            builder.iconImageViewTag = 1004
+            builder.mediaContentViewTag = 1006
+            builder.starRatingContentViewTag = 1008
+            builder.advertiserLabelTag = 1002
+            builder.optionsContentViewTag = 1005
         })
         nativeAdView?.bindViews(with: adViewBinder)
         self.alNativeAdView = nativeAdView

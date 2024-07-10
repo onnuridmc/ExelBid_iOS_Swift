@@ -41,19 +41,23 @@ extension EBNativeVideoAdViewController {
         clearAd()
         
         // Create and configure a renderer configuration for native ads.
-        ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(identifier, EBNativeAdView.self)
-        ExelBidNativeManager.testing(true)
-        ExelBidNativeManager.yob("1976")
-        ExelBidNativeManager.gender("M")
+        let ebNativeManager = ExelBidNativeManager(identifier, EBNativeAdView.self)
         
-        let allowedAdAssets = NSMutableSet(objects: EBNativeAsset.kAdTitleKey,
-                                           EBNativeAsset.kAdTextKey,
-                                           EBNativeAsset.kAdIconImageKey,
-                                           EBNativeAsset.kAdVideo,
-                                           EBNativeAsset.kAdCTATextKey)
-        ExelBidNativeManager.desiredAssets(allowedAdAssets)
-        ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
-            if error != nil {
+        // 광고의 효율을 높이기 위해 옵션 설정
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+        ebNativeManager.testing(true)
+
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        ebNativeManager.desiredAssets([EBNativeAsset.kAdTitleKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdVideo,
+                                       EBNativeAsset.kAdCTATextKey])
+
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
+            if let error = error {
+                print(">>> Native Video Error : \(error.localizedDescription)")
                 self.configureAdLoadFail()
             }else{
                 self.nativeAd = response

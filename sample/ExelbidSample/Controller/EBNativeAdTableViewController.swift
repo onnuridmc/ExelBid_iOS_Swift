@@ -37,14 +37,18 @@ class EBNativeAdTableViewController: UIViewController {
         // Create a targeting object to serve better ads.
         let targeting = EBNativeAdRequestTargeting.targeting
         targeting.location = CLLocation(latitude: 37.7793, longitude: -122.4175)
-        targeting.desiredAssets = NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                        EBNativeAsset.kAdMainImageKey,
-                                        EBNativeAsset.kAdCTATextKey,
-                                        EBNativeAsset.kAdTextKey,
-                                        EBNativeAsset.kAdTitleKey)
-        targeting.testing = true
-        targeting.yob = "1976"
+        
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        targeting.desiredAssets = [EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdMainImageKey,
+                                       EBNativeAsset.kAdCTATextKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdTitleKey]
+
+        // 광고의 효율을 높이기 위해 옵션 설정
+        targeting.yob = "1987"
         targeting.gender = "M"
+//        targeting.testing = true
         
         // Create and configure a renderer configuration.
         

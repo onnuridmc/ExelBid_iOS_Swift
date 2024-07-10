@@ -13,6 +13,7 @@
 #import <FBAudienceNetwork/FBAudienceNetwork.h>
 #import <IASDKCore/IASDKCore.h>
 #import <PAGAdSDK/PAGAdSDK.h>
+//#import <LibADPlus/LibADPlus-Swift.h>
 
 @interface AppDelegate ()
 
@@ -51,6 +52,9 @@
             //load ad data
         }
     }];
+    
+    // MezzoMedia
+//    [LibADPlusStore start];
     
     return YES;
 }

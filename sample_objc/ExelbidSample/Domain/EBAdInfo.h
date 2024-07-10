@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, EBAdInfoType) {
     EBAdInfoMediationBanner,
     EBAdInfoMediationInterstitial,
     EBAdInfoMediationNative,
+    EBAdInfoMediationNativeVideo,
     EBAdInfoMediationBizboardView,
     EBAdInfoAdTag
 };

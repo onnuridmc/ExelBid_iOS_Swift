@@ -36,20 +36,25 @@ extension EBNativeAdViewController {
         loadAdButton.isEnabled = false
         clearAd()
         
-        // Create and configure a renderer configuration for native ads.
-        ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(identifier, EBNativeAdView.self)
-        ExelBidNativeManager.testing(true)
-        ExelBidNativeManager.yob("1976")
-        ExelBidNativeManager.gender("M")
+        let ebNativeManager = ExelBidNativeManager(identifier, EBNativeAdView.self)
         
-        ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                                 EBNativeAsset.kAdMainImageKey,
-                                                 EBNativeAsset.kAdCTATextKey,
-                                                 EBNativeAsset.kAdTextKey,
-                                                 EBNativeAsset.kAdTitleKey));
+        // 광고의 효율을 높이기 위해 옵션 설정
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+//        ebNativeManager.testing(true)
 
-        ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
-            if error != nil {
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdMainImageKey,
+                                       EBNativeAsset.kAdCTATextKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdTitleKey])
+
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
+            self.loadAdButton.isEnabled = true
+
+            if let error = error {
+                print(">>> Native Error : \(error.localizedDescription)")
                 self.configureAdLoadFail()
             }else{
                 self.nativeAd = response
@@ -64,36 +69,40 @@ extension EBNativeAdViewController {
         adViewContainer.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
+
         nativeAd = nil
     }
     
     func displayAd() {
-        loadAdButton.isEnabled = true
-        adViewContainer.subviews.forEach { subview in
+        self.loadAdButton.isEnabled = true
+        self.adViewContainer.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
-        if let adView = nativeAd?.retrieveAdViewWithError(nil) {
-            adViewContainer.addSubview(adView)
-            setAutoLayout2(view: adViewContainer, adView: adView)
+
+        if let adView = self.nativeAd?.retrieveAdViewWithError(nil) {
+            self.adViewContainer.addSubview(adView)
+            self.setAutoLayout2(view: self.adViewContainer, adView: adView)
+        } else {
+            print(">>> ERROR Native displayAd")
         }
     }
     
     func configureAdLoadFail() {
-        loadAdButton.isEnabled = true
+        self.loadAdButton.isEnabled = true
     }
 }
 
 extension EBNativeAdViewController: EBNativeAdDelegate {
     func willLoadForNativeAd(_ nativeAd: EBNativeAd?) {
-        print("Will Load for native ad.")
+        print(">>> Will Load for native ad.")
     }
     
     func didLoadForNativeAd(_ nativeAd: EBNativeAd?) {
-        print("Did Load for native ad.")
+        print(">>> Did Load for native ad.")
     }
     
     func willLeaveApplicationFromNativeAd(_ nativeAd: EBNativeAd?) {
-        print("Will leave application from native ad.")
+        print(">>> Will leave application from native ad.")
     }
     
     func viewControllerForPresentingModalView() -> UIViewController? {

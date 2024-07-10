@@ -28,7 +28,10 @@
 // Applovin
 #import <AppLovinSDK/AppLovinSDK.h>
 
-@interface EBMediationBannerAdViewController ()<UITextFieldDelegate, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener>
+// TargetPick
+//#import <LibADPlus/LibADPlus-Swift.h>
+
+@interface EBMediationBannerAdViewController ()<UITextFieldDelegate, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, MAAdViewAdDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener>
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
 @property (nonatomic, strong) EBAdView *ebAdView;
@@ -52,9 +55,23 @@
 // applovin
 @property (nonatomic, strong) MAAdView *alBannerAd;
 
+// TargetPick
+//@property (nonatomic, assign) NSInteger tpPublisherId;
+//@property (nonatomic, assign) NSInteger tpMediaId;
+
 @end
 
 @implementation EBMediationBannerAdViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+//        _tpPublisherId = 102;
+//        _tpMediaId = 202;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,13 +102,11 @@
                                 EBMediationTypes.pangle,
                                 EBMediationTypes.tnk,
                                 EBMediationTypes.applovin,
+//                                EBMediationTypes.targetpick,
                                 nil];
 
     // ExelBid 미디에이션 초기화
     self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:mediationTypes];
-    
-    // ExelBid 미디에이션 테스트 설정
-    self.mediationManager.testing = YES;
 
     // ExelBid 미디에이션 요청 및 콜백
     [self.mediationManager requestMediationWithHandler:^(EBMediationManager *manager, NSError *error) {
@@ -116,48 +131,6 @@
     // 순차적으로 미디에이션 호출
     [self loadMediation];
 }
-
-- (void)loadMediation
-{
-    if (self.mediationManager != nil) {
-        // ExelBid 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
-        EBMediationWrapper *mediation = [self.mediationManager next];
-        
-        if (mediation == nil) {
-            [self emptyMediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.exelbid]) {
-            [self loadExelBid:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.admob]) {
-            [self loadAdMob:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.facebook]) {
-            [self loadFan:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.adfit]) {
-            [self loadAdFit:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.digitalturbine]) {
-            [self loadDT:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
-            [self loadPangle:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.tnk]) {
-            [self loadTnk:mediation];
-        } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
-            [self loadApplovin:mediation];
-        } else {
-            [self loadMediation];
-        }
-    }
-}
-
-- (void)clearAd {
-    // adViewContainer 내 추가된 서브뷰 제거
-    [[self.adViewContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-}
-
-- (void)emptyMediation
-{
-    NSLog(@"Mediation Empty");
-    // 미디에이션 목록이 비어있음. 광고 없음 처리.
-}
-
 
 - (BOOL)shouldAutorotate{
     return NO;
@@ -229,6 +202,54 @@
     [_mine setNeedsUpdateConstraints];
 }
 
+- (void)clearAd {
+    // adViewContainer 내 추가된 서브뷰 제거
+    [[self.adViewContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+
+// 미디에이션 목록 순차 처리
+- (void)loadMediation
+{
+    if (self.mediationManager != nil) {
+        // ExelBid 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
+        EBMediationWrapper *mediation = [self.mediationManager next];
+        
+        if (mediation == nil) {
+            [self emptyMediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.exelbid]) {
+            [self loadExelBid:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.admob]) {
+            [self loadAdMob:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.facebook]) {
+            [self loadFan:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.adfit]) {
+            [self loadAdFit:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.digitalturbine]) {
+            [self loadDT:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
+            [self loadPangle:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.tnk]) {
+            [self loadTnk:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
+            [self loadApplovin:mediation];
+//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+//            [self loadTargetPick:mediation];
+        } else {
+            [self loadMediation];
+        }
+    }
+}
+
+// 미디에이션 목록이 비어있음. 광고 없음 처리.
+- (void)emptyMediation
+{
+    NSLog(@"Mediation Empty");
+}
+
+#pragma mark - 미디에이션 광고 호출
+
+// Exelbid 광고 호출
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -248,6 +269,7 @@
     [self.ebAdView loadAd];
 }
 
+// AdMob 광고 호출
 - (void)loadAdMob:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -266,6 +288,7 @@
     [self.gaBannerView loadRequest:[GADRequest request]];
 }
 
+// Fan 광고 호출
 - (void)loadFan:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -276,6 +299,7 @@
     [self.fanAdView loadAd];
 }
 
+// AdFit 광고 호출
 - (void)loadAdFit:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -289,6 +313,7 @@
     [self.adfitBannerAdView loadAd];
 }
 
+// Digital Turbine 광고 호출
 - (void)loadDT:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -328,6 +353,7 @@
     }];
 }
 
+// Pangle 광고 호출
 - (void)loadPangle:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -353,6 +379,7 @@
     }];
 }
 
+// TNK 광고 호출
 - (void)loadTnk:(EBMediationWrapper *)mediation
 {
     [self clearAd];
@@ -364,14 +391,64 @@
     
 }
 
+// AppLovin 광고 호출
 - (void)loadApplovin:(EBMediationWrapper *)mediation
 {
+    [self clearAd];
+    
     self.alBannerAd = [[MAAdView alloc] initWithAdUnitIdentifier:mediation.unit_id];
     self.alBannerAd.delegate = self;
     
     self.alBannerAd.frame = self.adViewContainer.frame;
     [self.adViewContainer addSubview:self.alBannerAd];
 }
+
+// TargetPick 광고 호출
+//- (void)loadTargetPick:(EBMediationWrapper *)mediation
+//{
+//    [self clearAd];
+//    
+//    ADMZBannerModel *model = [[ADMZBannerModel alloc]
+//                              initWithPublisherID:self.tpPublisherId
+//                              withMediaID:self.tpMediaId
+//                              withSectionID:[mediation.unit_id integerValue]
+//                              withBannerSize:CGSizeMake(320, 50)
+//                              withKeywordParameter:@"KeywordTargeting"
+//                              withOtherParameter:@"BannerAdditionalParameters"
+//                              withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
+//                              withAppID:@"appID"
+//                              withAppName:@"appName"
+//                              withStoreURL:@"StoreURL"
+//                              withSMS:YES
+//                              withTel:YES
+//                              withCalendar:YES
+//                              withStorePicture:YES
+//                              withInlineVideo:YES
+//                              withBannerType:ADMZBannerTypeFront];
+//    
+//    ADMZBannerView * bannerAd = [[ADMZBannerView alloc] init];
+//    
+//    [bannerAd updateModelWithValue:model];
+//    
+//    [bannerAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"BannerDidEventFail");
+//    }];
+//    [bannerAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"BannerDidEventOther");
+//    }];
+//    [bannerAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"BannerDidEventSuccess");
+//    }];
+//    [bannerAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
+//        NSLog(@"Result = %@",param);
+//    }];
+//    
+//    [self.adViewContainer addSubview:bannerAd];
+//    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:bannerAd];
+//    
+//    [bannerAd startBanner];
+//    
+//}
 
 #pragma mark - EBAdViewDelegate
 
@@ -450,6 +527,18 @@
     if (self.fanAdView && self.fanAdView.isAdValid) {
         [self.adViewContainer addSubview:self.fanAdView];
     }
+}
+
+#pragma mark - MAAdViewAdDelegate
+
+- (void)didExpandAd:(MAAd *)ad
+{
+    
+}
+
+- (void)didCollapseAd:(MAAd *)ad
+{
+    
 }
 
 

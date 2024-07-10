@@ -149,11 +149,12 @@
 {
     [self clearAd];
     
-    [ExelBidNativeManager initNativeAdWithAdUnitIdentifier:mediation.unit_id :[EBNativeAdView class]];
-    [ExelBidNativeManager testing:YES];
-    [ExelBidNativeManager yob:@"1976"];
-    [ExelBidNativeManager gender:@"M"];
-    [ExelBidNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+    ExelBidNativeManager * ebNativeManager = [[ExelBidNativeManager alloc] init:mediation.unit_id :[EBNativeAdView class]];
+    [ebNativeManager testing:YES];
+    [ebNativeManager yob:@"1976"];
+    [ebNativeManager gender:@"M"];
+    
+    [ebNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
         if (error) {
             NSLog(@"================> %@", error);
             self.loadAdButton.enabled = YES;

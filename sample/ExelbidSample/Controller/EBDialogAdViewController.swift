@@ -67,10 +67,10 @@ extension EBDialogAdViewController {
         
         adView = EBAdView(adUnitId: keywordsTextField1.text, size: htmlDialogView.bounds.size)
         adView?.delegate = self
-        adView?.yob = "1976"
+        adView?.yob = "1987"
         adView?.gender = "M"
         adView?.fullWebView = true
-        adView?.testing = true
+//        adView?.testing = true
         
         if let adView = adView {
             htmlDialogView.addSubview(adView)
@@ -157,9 +157,9 @@ extension EBDialogAdViewController {
         let config = EBStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(settings)
         let adRequest = EBNativeAdRequest.requestWithAdUnitIdentifier(keywordsTextField2.text, rendererConfigurations: [config])
         let targeting = EBNativeAdRequestTargeting()
-        targeting.testing = true
         targeting.yob = "1976"
         targeting.gender = "M"
+//        targeting.testing = true
         adRequest.targeting = targeting
         
         adRequest.startWithCompletionHandler { (request, response, error) in

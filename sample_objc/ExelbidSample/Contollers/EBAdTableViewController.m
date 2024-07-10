@@ -21,6 +21,7 @@
 #import "EBMediationBannerAdViewController.h"
 #import "EBMediationInterstitialAdViewController.h"
 #import "EBMediationNativeAdViewController.h"
+#import "EBMediationNativeVideoAdViewController.h"
 #import "EBMediationBizBoardViewController.h"
 #import "EBAdTagViewController.h"
 
@@ -119,6 +120,9 @@
     }else if ([[segue identifier] isEqualToString:@"MediationNative"]){
         EBMediationNativeAdViewController *contoller = (EBMediationNativeAdViewController *)[segue destinationViewController];
         contoller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"MediationNativeVideo"]){
+        EBMediationNativeVideoAdViewController *contoller = (EBMediationNativeVideoAdViewController *)[segue destinationViewController];
+        contoller.info = info;
     }else if ([[segue identifier] isEqualToString:@"MediationBizboardView"]){
         EBMediationBizBoardViewController *contoller = (EBMediationBizBoardViewController *)[segue destinationViewController];
         contoller.info = info;
@@ -207,6 +211,9 @@
             break;
         case EBAdInfoMediationNative:
             [self performSegueWithIdentifier:@"MediationNative" sender:indexPath];
+            break;
+        case EBAdInfoMediationNativeVideo:
+            [self performSegueWithIdentifier:@"MediationNativeVideo" sender:indexPath];
             break;
         case EBAdInfoMediationBizboardView:
             [self performSegueWithIdentifier:@"MediationBizboardView" sender:indexPath];

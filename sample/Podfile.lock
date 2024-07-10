@@ -1,22 +1,22 @@
 PODS:
   - AdFitSDK (3.12.22)
-  - Ads-Global (6.0.0.4):
-    - Ads-Global/BUAdSDK (= 6.0.0.4)
-  - Ads-Global/BUAdSDK (6.0.0.4):
+  - Ads-Global (6.1.0.4):
+    - Ads-Global/BUAdSDK (= 6.1.0.4)
+  - Ads-Global/BUAdSDK (6.1.0.4):
     - Ads-Global/Dep_Accurate
-  - Ads-Global/Dep_Accurate (6.0.0.4):
-    - BURelyFoundation_Global/Pangle (= 0.3.0.0)
+  - Ads-Global/Dep_Accurate (6.1.0.4):
+    - BURelyFoundation_Global/Pangle (= 1.0.0.0)
   - AppLovinSDK (12.5.0)
-  - BURelyFoundation_Global/AFNetworking (0.3.0.0)
-  - BURelyFoundation_Global/APM (0.3.0.0)
-  - BURelyFoundation_Global/Foundation (0.3.0.0):
+  - BURelyFoundation_Global/AFNetworking (1.0.0.0)
+  - BURelyFoundation_Global/APM (1.0.0.0)
+  - BURelyFoundation_Global/Foundation (1.0.0.0):
     - BURelyFoundation_Global/NETWork
-  - BURelyFoundation_Global/Gecko (0.3.0.0):
+  - BURelyFoundation_Global/Gecko (1.0.0.0):
     - BURelyFoundation_Global/Foundation
-  - BURelyFoundation_Global/Header (0.3.0.0)
-  - BURelyFoundation_Global/NETWork (0.3.0.0):
+  - BURelyFoundation_Global/Header (1.0.0.0)
+  - BURelyFoundation_Global/NETWork (1.0.0.0):
     - BURelyFoundation_Global/AFNetworking
-  - BURelyFoundation_Global/Pangle (0.3.0.0):
+  - BURelyFoundation_Global/Pangle (1.0.0.0):
     - BURelyFoundation_Global/AFNetworking
     - BURelyFoundation_Global/APM
     - BURelyFoundation_Global/Foundation
@@ -27,20 +27,20 @@ PODS:
     - BURelyFoundation_Global/YYModel
     - BURelyFoundation_Global/ZFPlayer
     - BURelyFoundation_Global/Zip
-  - BURelyFoundation_Global/SDWebImage (0.3.0.0):
+  - BURelyFoundation_Global/SDWebImage (1.0.0.0):
     - BURelyFoundation_Global/Foundation
-  - BURelyFoundation_Global/YYModel (0.3.0.0)
-  - BURelyFoundation_Global/ZFPlayer (0.3.0.0):
+  - BURelyFoundation_Global/YYModel (1.0.0.0)
+  - BURelyFoundation_Global/ZFPlayer (1.0.0.0):
     - BURelyFoundation_Global/Foundation
     - BURelyFoundation_Global/Zip
-  - BURelyFoundation_Global/Zip (0.3.0.0):
+  - BURelyFoundation_Global/Zip (1.0.0.0):
     - BURelyFoundation_Global/Foundation
-  - ExelBid_iOS_Swift (2.0.8)
-  - FBAudienceNetwork (6.15.0)
-  - Fyber_Marketplace_SDK (8.2.8)
-  - Google-Mobile-Ads-SDK (11.5.0):
+  - ExelBid_iOS_Swift (2.0.11)
+  - FBAudienceNetwork (6.15.1)
+  - Fyber_Marketplace_SDK (8.3.1)
+  - Google-Mobile-Ads-SDK (11.6.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleUserMessagingPlatform (2.4.0)
+  - GoogleUserMessagingPlatform (2.5.0)
 
 DEPENDENCIES:
   - AdFitSDK (~> 3.12.18)
@@ -65,14 +65,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AdFitSDK: c766f1471897cfac5a6f333e090ed5dd86016286
-  Ads-Global: d0d2befe7276c4c2d1ac1e40ac3c674f30e55c64
+  Ads-Global: 3eb7a5213b3972a8c82710ef61bc268d4aca86af
   AppLovinSDK: 626d2aea57ae1bf9280d2012e8e20c521c58ce28
-  BURelyFoundation_Global: d00389bb70e40dfe48123b70a6a148a989b8c798
-  ExelBid_iOS_Swift: f1d57f24891399bf20abd06497a3b18580815d95
-  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
-  Fyber_Marketplace_SDK: 50fb9e3077ddbd99e3da08dfcaab60df689ac106
-  Google-Mobile-Ads-SDK: 7db2098033ad3bfcd72a11e7503b49700a93029e
-  GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
+  BURelyFoundation_Global: d8099571ab7a0767ec0a334052108e33ff6d8a3f
+  ExelBid_iOS_Swift: 8686989e9f632d0e6d2fd7d29fdb56c3cfb59334
+  FBAudienceNetwork: 80871c3b3057e89ab36d9eb79344be20377e3994
+  Fyber_Marketplace_SDK: 23285d363d7a56d77e97a9699685885069deb3f7
+  Google-Mobile-Ads-SDK: 28339250757645a9bab066ebbe667fa48d2c9bd7
+  GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
 
 PODFILE CHECKSUM: 7393f4ae2ec7edd3b1328e8e3ea2c4bcba4897aa
 

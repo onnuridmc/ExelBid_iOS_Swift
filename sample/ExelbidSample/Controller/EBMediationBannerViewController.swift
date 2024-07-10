@@ -31,7 +31,10 @@ import TnkPubSdk
 // Applovin
 import AppLovinSDK
 
-class EBMediationBannerViewController : UIViewController, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener, MAAdViewAdDelegate {
+// TargetPick
+//import LibADPlus
+
+class EBMediationBannerViewController : UIViewController {
     
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -61,13 +64,17 @@ class EBMediationBannerViewController : UIViewController, EBAdViewDelegate, GADB
     // Applovin
     var alBannerAd: MAAdView!
     
+    // TargetPick
+//    let tpPublisherId: Int? = 102
+//    let tpMediaId: Int? = 202
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.showAdButton.isHidden = true
         self.keywordsTextField.text = self.info?.ID
     }
-    
+
     @IBAction func didTapLoadButton(_ sender: UIButton) {
         self.keywordsTextField.endEditing(true)
 
@@ -83,8 +90,9 @@ class EBMediationBannerViewController : UIViewController, EBAdViewDelegate, GADB
             EBMediationTypes.digitalturbine,
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
-            EBMediationTypes.applovin
-        ];
+            EBMediationTypes.applovin,
+//            EBMediationTypes.targetpick
+        ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
@@ -99,13 +107,10 @@ class EBMediationBannerViewController : UIViewController, EBAdViewDelegate, GADB
             }
         }
     }
-    
+
     @IBAction func didTapShowButton(_ sender: UIButton) {
         self.loadMediation()
     }
-}
-
-extension EBMediationBannerViewController {
     
     // adViewController 내 추가된 서브 뷰 제거
     func clearAd() {
@@ -113,7 +118,11 @@ extension EBMediationBannerViewController {
             subview.removeFromSuperview()
         }
     }
+}
+
+extension EBMediationBannerViewController {
     
+    // 미디에이션 목록 순차 처리
     func loadMediation() {
         guard let mediationManager = mediationManager else {
             self.emptyMediation()
@@ -142,6 +151,8 @@ extension EBMediationBannerViewController {
                 self.loadTnk(mediation: mediation)
             case EBMediationTypes.applovin:
                 self.loadApplovin(mediation: mediation)
+//            case EBMediationTypes.targetpick:
+//                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -150,22 +161,27 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
     func emptyMediation() {
         print("Mediation Empty")
-        // 미디에이션 목록이 비어있음. 광고 없음 처리.
     }
+    
+    // MARK: - 미디에이션 광고 호출
 
+    // Exelbid 광고 호출
     func loadExelBid(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         self.ebAdView = EBAdView(adUnitId: mediation.unit_id, size: self.adViewContainer.bounds.size)
         
         if let adView = self.ebAdView {
             adView.delegate = self
-            adView.yob = "1976"
-            adView.gender = "M"
             adView.fullWebView = true
-            adView.testing = true
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            adView.yob = "1987"
+            adView.gender = "M"
+//            adView.testing = true
             
             self.adViewContainer.addSubview(adView)
             setAutoLayout(view: adViewContainer, adView: adView)
@@ -173,8 +189,9 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // AdMob 광고 호출
     func loadAdMob(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         let viewWidth = self.adViewContainer.frame.inset(by: self.adViewContainer.safeAreaInsets).width
         let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
@@ -191,8 +208,9 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // Fan 광고 호출
     func loadFan(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         self.fanAdview = FBAdView(placementID: mediation.unit_id, adSize: kFBAdSizeHeight50Banner, rootViewController: self)
         
@@ -203,6 +221,7 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // AdFit 광고 호출
     func loadAdFit(mediation: EBMediationWrapper) {
         self.clearAd()
 
@@ -216,8 +235,9 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // Digital Turbine 광고 호출
     func loadDT(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         IASDKCore.sharedInstance().userData = IAUserData.build() { builder in
             builder.age = 30
@@ -254,8 +274,9 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // Pangle 광고 호출
     func loadPangle(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         let size = kPAGBannerSize320x50
         PAGBannerAd.load(withSlotID: mediation.unit_id, request: PAGBannerRequest.init(bannerSize: size)) { (bannerAd, error) in
@@ -274,8 +295,9 @@ extension EBMediationBannerViewController {
         }
     }
     
+    // TNK 광고 호출
     func loadTnk(mediation: EBMediationWrapper) {
-        self.clearAd();
+        self.clearAd()
         
         let adView = TnkBannerAdView(placementId: mediation.unit_id, adListener: self)
         adView.frame = CGRect(x: 0, y: 0, width: 320, height: 50)
@@ -283,7 +305,10 @@ extension EBMediationBannerViewController {
         adView.load()
     }
     
+    // AppLovin 광고 호출
     func loadApplovin(mediation: EBMediationWrapper) {
+        self.clearAd()
+        
         self.alBannerAd = MAAdView(adUnitIdentifier: mediation.unit_id)
         self.alBannerAd.delegate = self
     
@@ -302,6 +327,68 @@ extension EBMediationBannerViewController {
         self.alBannerAd.loadAd()
     }
     
+    // TargetPick 광고 호출
+//    func loadTargetPick(mediation: EBMediationWrapper) {
+//        self.clearAd()
+//        
+//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+//        if let section_id = Int(mediation.unit_id),
+//           let pub_id = self.tpPublisherId,
+//           let media_id = self.tpMediaId {
+//            
+//            let model = ADMZBannerModel(withPublisherID: pub_id,
+//                                        withMediaID: media_id,
+//                                        withSectionID: section_id,
+//                                        withBannerSize: .init(width: 320.0, height: 50.0),
+//                                        withKeywordParameter: "KeywordTargeting",
+//                                        withOtherParameter: "BannerAdditionalParameters",
+//                                        withMediaAgeLevel: .over13Age,
+//                                        withAppID:"appID",
+//                                        withAppName: "appName",
+//                                        withStoreURL: "StoreURL",
+//                                        withSMS: true,
+//                                        withTel: true,
+//                                        withCalendar: true,
+//                                        withStorePicture: true,
+//                                        withInlineVideo: true,
+//                                        withBannerType:.Strip)
+//            model.setUserInfo(withGenderType: .Male,
+//                              withAge: 15,
+//                              withUserID: "mezzomedia",
+//                              withEmail: "mezzo@mezzomedia.co.kr",
+//                              withUserLocationAgree: false)
+//            
+//            let bannerAd = ADMZBannerView()
+//            bannerAd.updateModel(value: model)
+//            
+//            // 필요에따라 이벤트 핸들러 구분
+//            let handler: ADMZEventHandler = { code in
+//                print(">>> \(code) - \(code.rawValue)")
+//            }
+//            
+//            bannerAd.setFailHandler(value: handler)
+//            bannerAd.setSuccessHandler(value: handler)
+//            bannerAd.setOtherHandler(value: handler)
+//            bannerAd.setAPIResponseHandler(value: { dic in
+//                print("API DATA = \(String.init(describing: dic))")
+//            })
+//            
+//            self.adViewContainer.addSubview(bannerAd)
+//            setAutoLayout(view: self.adViewContainer, adView: bannerAd)
+//            
+//            bannerAd.startBanner()
+//        } else {
+//            // 예외 처리
+//            
+//            // 다음 미디에이션 호출
+//            self.loadMediation()
+//        }
+//    }
+
+}
+
+// MARK: - 광고 뷰 Delegate
+extension EBMediationBannerViewController : EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener, MAAdViewAdDelegate {
     
     // MARK: EBAdViewDelegate
     
@@ -314,7 +401,7 @@ extension EBMediationBannerViewController {
     }
     
     
-    // MARK: GADBannerViewDelegate
+    // MARK: - GADBannerViewDelegate
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.adViewContainer.addSubview(bannerView)
@@ -345,7 +432,7 @@ extension EBMediationBannerViewController {
     }
     
     
-    // MARK: FBAdViewDelegate
+    // MARK: - FBAdViewDelegate
     
     func adViewDidLoad(_ adView: FBAdView) {
         
@@ -363,21 +450,21 @@ extension EBMediationBannerViewController {
     }
     
     
-    // MARK: AdFitBannerAdViewDelegate
+    // MARK: - AdFitBannerAdViewDelegate
     
     func adViewDidFailToReceiveAd(_ bannerAdView: AdFitBannerAdView, error: Error) {
         self.loadMediation()
     }
     
     
-    // MARK: IAUnitDelegate
+    // MARK: - IAUnitDelegate
     
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return self
     }
     
     
-    // MARK: TnkAdListener
+    // MARK: - TnkAdListener
     
     func onLoad(_ adItem: any TnkAdItem) {
         adItem.show()
@@ -388,7 +475,7 @@ extension EBMediationBannerViewController {
     }
     
     
-    // MARK: MAAdViewAdDelegate
+    // MARK: - MAAdViewAdDelegate
     
     func didLoad(_ ad: MAAd) {
         

@@ -14,6 +14,7 @@ import FBAudienceNetwork
 import IASDKCore
 import PAGAdSDK
 import AppLovinSDK
+//import LibADPlus
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -71,6 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        ALSdk.shared().initialize(with: initConfig) { sdkConfig in
 //            // Start loading ads
 //        }
+        
+        // MezzoMedia
+//        LibADPlusStore.start()
     
         return true
     }

@@ -168,7 +168,7 @@ class EBAdTagSupport : NSObject, CLLocationManagerDelegate{
         for location in locations {
             if let lastLocation = lastLocation {
                 if location.horizontalAccuracy < 1 || location.timestamp.timeIntervalSince(lastLocation.timestamp) < 0 {
-                    continue;
+                    continue
                 }
             }
 

@@ -28,7 +28,10 @@ import TnkPubSdk
 // Applovin
 import AppLovinSDK
 
-class EBMediationInterstitialViewController : UIViewController, EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
+// TargetPick
+//import LibADPlus
+
+class EBMediationInterstitialViewController : UIViewController {
     
     @IBOutlet var keywordsTextField: UITextField!
     @IBOutlet var loadAdButton: UIButton!
@@ -53,6 +56,10 @@ class EBMediationInterstitialViewController : UIViewController, EBInterstitialAd
     
     // Applovin
     var alInterstitialAd: MAInterstitialAd!
+    
+    // TargetPick
+//    let tpPublisherId: Int? = 100
+//    let tpMediaId: Int? = 200
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +83,9 @@ class EBMediationInterstitialViewController : UIViewController, EBInterstitialAd
             EBMediationTypes.digitalturbine,
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
-            EBMediationTypes.applovin
-        ];
+            EBMediationTypes.applovin,
+//            EBMediationTypes.targetpick
+        ]
         
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -98,13 +106,15 @@ class EBMediationInterstitialViewController : UIViewController, EBInterstitialAd
 }
 
 extension EBMediationInterstitialViewController {
+    
+    // 미디에이션 목록 순차 처리
     func loadMediation() {
         guard let mediationManager = mediationManager else {
             self.emptyMediation()
             return
         }
         
-        // 미디에이션 목록을 순차적으로 가져옴
+        // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
             print(">>>>> \(#function) : \(mediation.id)")
@@ -124,6 +134,8 @@ extension EBMediationInterstitialViewController {
                 self.loadTnk(mediation: mediation)
             case EBMediationTypes.applovin:
                 self.loadApplovin(mediation: mediation)
+//            case EBMediationTypes.targetpick:
+//                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -132,22 +144,29 @@ extension EBMediationInterstitialViewController {
         }
     }
     
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
     func emptyMediation() {
         print("Mediation Empty")
-        // 미디에이션 목록이 비어있음. 광고 없음 처리.
     }
     
+    // MARK: - 미디에이션 광고 호출
+    
+    // Exelbid 광고 호출
     func loadExelBid(mediation: EBMediationWrapper) {
-        self.ebInterstitialAd = EBInterstitialAdController.interstitialAdControllerForAdUnitId(mediation.unit_id);
+        self.ebInterstitialAd = EBInterstitialAdController.interstitialAdControllerForAdUnitId(mediation.unit_id)
         if let interstitial = self.ebInterstitialAd {
             interstitial.delegate = self
-            interstitial.yob = "1990"
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            interstitial.yob = "1987"
             interstitial.gender = "M"
-            interstitial.testing = true
+//            interstitial.testing = true
+            
             interstitial.loadAd()
         }
     }
     
+    // AdMob 광고 호출
     func loadAdMob(mediation: EBMediationWrapper) {
         GADInterstitialAd.load(withAdUnitID: mediation.unit_id, request: GADRequest.init()) { (ad, error) in
             if let error = error {
@@ -163,13 +182,15 @@ extension EBMediationInterstitialViewController {
         }
     }
     
+    // Fan 광고 호출
     func loadFan(mediation: EBMediationWrapper) {
         self.fanInterstitialAd = FBInterstitialAd(placementID: mediation.unit_id)
         self.fanInterstitialAd?.delegate = self
-
+        
         self.fanInterstitialAd?.load()
     }
     
+    // Digital Turbine 광고 호출
     func loadDT(mediation: EBMediationWrapper) {
         IASDKCore.sharedInstance().userData = IAUserData.build() { builder in
             builder.age = 30
@@ -206,6 +227,7 @@ extension EBMediationInterstitialViewController {
         }
     }
     
+    // Pangle 광고 호출
     func loadPangle(mediation: EBMediationWrapper) {
         var adRequest = PAGInterstitialRequest.init()
         
@@ -223,23 +245,77 @@ extension EBMediationInterstitialViewController {
         }
     }
     
+    // TNK 광고 호출
     func loadTnk(mediation: EBMediationWrapper) {
         let adItem = TnkInterstitialAdItem(viewController: self, placementId: mediation.unit_id)
         adItem.setListener(self)
         adItem.load()
     }
     
+    // AppLovin 광고 호출
     func loadApplovin(mediation: EBMediationWrapper) {
         self.alInterstitialAd = MAInterstitialAd(adUnitIdentifier: "YOUR_AD_UNIT_ID")
         self.alInterstitialAd.delegate = self
-
+        
         // Load the first ad
         self.alInterstitialAd.load()
     }
     
+    // TargetPick 광고 호출
+//    func loadTargetPick(mediation: EBMediationWrapper) {
+//        
+//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+//        if let section_id = Int(mediation.unit_id),
+//           let pub_id = self.tpPublisherId,
+//           let media_id = self.tpMediaId {
+//            
+//            let model = ADMZInterstitialModel(withPublisherID: pub_id,
+//                                              withMediaID: media_id,
+//                                              withSectionID: section_id,
+//                                              withKeywordParameter: "KeywordTargeting",
+//                                              withOtherParameter: "BannerAdditionalParameters",
+//                                              withMediaAgeLevel: .under13Age,
+//                                              withAppID:"appID",
+//                                              withAppName: "appName",
+//                                              withStoreURL: "StoreURL",
+//                                              withSMS: true,
+//                                              withTel: true,
+//                                              withCalendar: true,
+//                                              withStorePicture: true,
+//                                              withInlineVideo: true,
+//                                              withPopupType: .FullSize)
+//            model.setUserInfo(withGenderType: .Male,
+//                              withAge: 15,
+//                              withUserID: "mezzomedia",
+//                              withEmail: "mezzo@mezzomedia.co.kr",
+//                              withUserLocationAgree: false)
+//            
+//            // 필요에따라 이벤트 핸들러 구분
+//            let handler: ADMZEventHandler = { code in
+//                print(">>> \(code) - \(code.rawValue)")
+//            }
+//            
+//            ADMZInterstitialLoader.presentAd(fromViewController:self,
+//                                             withModel: model,
+//                                             withSuccessHandler: handler,
+//                                             withFailedHandler: handler,
+//                                             withOtherEventHandler: handler)
+//            
+//        } else {
+//            // 예외 처리
+//            
+//            // 다음 미디에이션 호출
+//            self.loadMediation()
+//        }
+//    }
+    
+}
+
+// MARK: - 광고 뷰 Delegate
+extension EBMediationInterstitialViewController : EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
     
     // MARK: EBInterstitialAdControllerDelegate
-    
+
     func interstitialDidLoadAd(_ interstitial: EBInterstitialAdController?) {
         self.ebInterstitialAd?.showFromViewController(self)
     }
@@ -257,7 +333,7 @@ extension EBMediationInterstitialViewController {
     }
     
     
-    // MARK: GADFullScreenContentDelegate
+    // MARK: - GADFullScreenContentDelegate
     
     func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
         self.loadMediation()
@@ -272,7 +348,7 @@ extension EBMediationInterstitialViewController {
     }
     
     
-    // MARK: FBInterstitialAdDelegate
+    // MARK: - FBInterstitialAdDelegate
     
     func interstitialAdDidLoad(_ interstitialAd: FBInterstitialAd) {
         if interstitialAd.isAdValid {
@@ -285,14 +361,14 @@ extension EBMediationInterstitialViewController {
     }
     
     
-    // MARK: IAUnitDelegate
+    // MARK: - IAUnitDelegate
     
     func iaParentViewController(for unitController: IAUnitController?) -> UIViewController {
         return self
     }
     
     
-    // MARK: PAGLInterstitialAdDelegate
+    // MARK: - PAGLInterstitialAdDelegate
     
     func adDidShow(_ ad: any PAGAdProtocol) {
         
@@ -307,7 +383,7 @@ extension EBMediationInterstitialViewController {
     }
     
     
-    // MARK: TnkAdListener
+    // MARK: - TnkAdListener
     func onLoad(_ adItem: any TnkAdItem) {
         if adItem.isLoaded() {
             adItem.show()
@@ -319,7 +395,7 @@ extension EBMediationInterstitialViewController {
     }
 
     
-    // MARK: MAAdDelegate
+    // MARK: - MAAdDelegate
     func didLoad(_ ad: MAAd) {
         if self.alInterstitialAd.isReady {
             self.alInterstitialAd.show()

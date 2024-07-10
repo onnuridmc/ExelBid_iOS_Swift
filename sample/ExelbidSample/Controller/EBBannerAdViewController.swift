@@ -49,10 +49,11 @@ extension EBBannerAdViewController {
         
         if let adView = self.adView {
             adView.delegate = self
-            adView.yob = "1976"
-            adView.gender = "M"
             adView.fullWebView = true
-            adView.testing = true
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            adView.yob = "1987"
+            adView.gender = "M"
             
             self.adViewContainer.addSubview(adView)
             
@@ -74,6 +75,10 @@ extension EBBannerAdViewController: EBAdViewDelegate {
     }
     
     func adViewDidFailToLoadAd(_ view: EBAdView?) {
+    }
+    
+    func willLeaveApplicationFromAd(_ view: EBAdView?) {
+        print("willLeaveApplicationFromAd.")
     }
     
 }

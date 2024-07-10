@@ -71,7 +71,7 @@ class EBMediationInterstitialVideoViewController : UIViewController, EBVideoDele
             EBMediationTypes.exelbid,
             EBMediationTypes.admob,
             EBMediationTypes.pangle
-        ];
+        ]
         
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -125,9 +125,11 @@ extension EBMediationInterstitialVideoViewController {
     
     func loadExelBid(mediation: EBMediationWrapper) {
         EBVideoManager.initFullVideo(identifier: mediation.unit_id)
-        EBVideoManager.testing(true)
-        EBVideoManager.yob("1990")
+        
+        // 광고의 효율을 높이기 위해 옵션 설정
+        EBVideoManager.yob("1987")
         EBVideoManager.gender("M")
+//        EBVideoManager.testing(true)
 
         EBVideoManager.startWithCompletionHandler { (request, error) in
             if error != nil {

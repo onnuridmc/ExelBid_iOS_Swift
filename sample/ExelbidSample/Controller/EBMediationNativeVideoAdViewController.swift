@@ -16,7 +16,11 @@ import GoogleMobileAds
 // Pangle
 import PAGAdSDK
 
-class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate, PAGLNativeAdDelegate {
+// TargetPick
+//import LibADPlus
+
+
+class EBMediationNativeVideoAdViewController : UIViewController {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -33,6 +37,10 @@ class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDeleg
     
     // Pangle
     var pagNativeAd: PAGLNativeAd?
+    
+    // TargetPick
+//    let tpPublisherId: Int? = 102
+//    let tpMediaId: Int? = 202
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +63,9 @@ class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDeleg
         let mediationTypes = [
             EBMediationTypes.exelbid,
             EBMediationTypes.admob,
-            EBMediationTypes.pangle
-        ];
+            EBMediationTypes.pangle,
+//            EBMediationTypes.targetpick
+        ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
@@ -83,12 +92,14 @@ class EBMediationNativeVideoAdViewController : UIViewController, EBNativeAdDeleg
 }
 
 extension EBMediationNativeVideoAdViewController {
+    
+    // 미디에이션 목록 순차 처리
     func loadMediation() {
         guard let mediationManager = mediationManager else {
             return
         }
         
-        // 미디에이션 목록을 순차적으로 가져옴
+        // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
             print(">>>>> \(#function) : \(mediation.id)")
@@ -100,6 +111,8 @@ extension EBMediationNativeVideoAdViewController {
                 self.loadAdMob(mediation: mediation)
             case EBMediationTypes.pangle:
                 self.loadPangle(mediation: mediation)
+//            case EBMediationTypes.targetpick:
+//                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -108,29 +121,30 @@ extension EBMediationNativeVideoAdViewController {
         }
     }
     
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
     func emptyMediation() {
         print("Mediation Empty")
-        // 미디에이션 목록이 비어있음. 광고 없음 처리.
     }
     
-    /**
-     엑셀비드 광고 요청
-     예시는 배너 광고이며 전면 광고는 EBFrontBannerAdViewController 참고
-     */
+    // MARK: - 미디에이션 광고 호출
+    
+    // Exelbid 광고 호출
     func loadExelBid(mediation: EBMediationWrapper) {
-        ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(mediation.unit_id, EBNativeAdView.self)
-        ExelBidNativeManager.testing(true)
-        ExelBidNativeManager.yob("1976")
-        ExelBidNativeManager.gender("M")
+        let ebNativeManager = ExelBidNativeManager(mediation.unit_id, EBNativeAdView.self)
         
-        let allowedAdAssets = NSMutableSet(objects: EBNativeAsset.kAdTitleKey,
-                                           EBNativeAsset.kAdTextKey,
-                                           EBNativeAsset.kAdIconImageKey,
-                                           EBNativeAsset.kAdVideo,
-                                           EBNativeAsset.kAdCTATextKey)
+        // 광고의 효율을 높이기 위해 옵션 설정
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+//        ebNativeManager.testing(true)
+        
+        // 
+        ebNativeManager.desiredAssets([EBNativeAsset.kAdTitleKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdVideo,
+                                       EBNativeAsset.kAdCTATextKey])
 
-        ExelBidNativeManager.desiredAssets(allowedAdAssets)
-        ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
             if error != nil {
                 // 광고가 없거나 요청 실패시 다음 미디에이션 처리를 위해 호출
                 self.loadMediation()
@@ -148,17 +162,19 @@ extension EBMediationNativeVideoAdViewController {
         }
     }
     
+    // AdMob 광고 호출
     func loadAdMob(mediation: EBMediationWrapper) {
         self.clearAd()
         
         let videoOptions = GADVideoOptions()
         videoOptions.customControlsRequested = true
-
+        
         self.gaAdLoad = GADAdLoader.init(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: [videoOptions])
         self.gaAdLoad?.delegate = self
         self.gaAdLoad?.load(GADRequest.init())
     }
-
+    
+    // Pangle 광고 호출
     func loadPangle(mediation: EBMediationWrapper) {
         self.clearAd()
         
@@ -172,6 +188,77 @@ extension EBMediationNativeVideoAdViewController {
             nativeAdView.layoutSubviews()
         }
     }
+    
+    // TargetPick 광고 호출
+//    func loadTargetPick(mediation: EBMediationWrapper) {
+//        self.clearAd()
+//        
+//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+//        if let section_id = Int(mediation.unit_id),
+//           let pub_id = self.tpPublisherId,
+//           let media_id = self.tpMediaId {
+//            
+//            let model = ADMZVideoModel(withPublisherID:pub_id,
+//                                       withMediaID: media_id,
+//                                       withSectionID: section_id,
+//                                       withVideoSize: .init(width: 320, height: 480),
+//                                       withKeywordParameter: "KeywordTargeting",
+//                                       withOtherParameter: "BannerAdditionalParameters",
+//                                       withMediaAgeLevel: .unknownType,
+//                                       withAppID: "appID",
+//                                       withAppName: "appName",
+//                                       withStoreURL: "StoreURL",
+//                                       withSMS: true,
+//                                       withTel: true,
+//                                       withCalendar: true,
+//                                       withStorePicture: true,
+//                                       withAutoPlay: true,
+//                                       withAutoReplay: true,
+//                                       withMuteOption: true,
+//                                       withClickFull: true,
+//                                       withClickButtonShow: true,
+//                                       withSkipButtonShow: true,
+//                                       withClickVideoArea: true,
+//                                       withCloseButtonShow: true,
+//                                       withSoundButtonShow: true,
+//                                       withInlineVideo: true)
+//            model.setUserInfo(withGenderType: .Male,
+//                              withAge: 15,
+//                              withUserID: "mezzomedia",
+//                              withEmail: "mezzo@mezzomedia.co.kr",
+//                              withUserLocationAgree: false)
+//            
+//            
+//            let videoAd = ADMZVideoView()
+//            videoAd.updateModel(value: model)
+//            
+//            // 필요에따라 이벤트 핸들러 구분
+//            let handler: ADMZEventHandler = { code in
+//                print(">>> \(code) - \(code.rawValue)")
+//            }
+//            
+//            videoAd.setFailHandler(value: handler)
+//            videoAd.setSuccessHandler(value: handler)
+//            videoAd.setOtherHandler(value: handler)
+//            videoAd.setAPIResponseHandler(value: { dic in
+//                print("API DATA = \(String.init(describing: dic))")
+//            })
+//            
+//            self.adViewContainer.addSubview(videoAd)
+//            setAutoLayout(view: self.adViewContainer, adView: videoAd)
+//            
+//            videoAd.startVideo()
+//        } else {
+//            // 예외 처리
+//            
+//            // 다음 미디에이션 호출
+//            self.loadMediation()
+//        }
+//    }
+}
+ 
+// MARK: - 광고 뷰 Delegate
+extension EBMediationNativeVideoAdViewController : EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate, PAGLNativeAdDelegate {
     
     // MARK: EBNativeAdDelegate
     
@@ -287,7 +374,7 @@ extension EBMediationNativeVideoAdViewController {
     }
     
     
-    // MARK: PAGLNativeAdDelegate
+    // MARK: - PAGLNativeAdDelegate
     
     func adDidShow(_ ad: any PAGAdProtocol) {
         

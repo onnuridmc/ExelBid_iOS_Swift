@@ -22,6 +22,9 @@
 // Pangle
 #import <PAGAdSDK/PAGAdSDK.h>
 
+// TargetPick
+//#import <LibADPlus/LibADPlus-Swift.h>
+
 
 @interface EBMediationInterstitialAdViewController ()<EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate>
 
@@ -42,9 +45,23 @@
 // Pangle
 @property (nonatomic, strong) PAGLInterstitialAd *pagInterstitialAd;
 
+// TargetPick
+//@property (nonatomic, assign) NSInteger tpPublisherId;
+//@property (nonatomic, assign) NSInteger tpMediaId;
+
 @end
 
 @implementation EBMediationInterstitialAdViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+//        _tpPublisherId = 100;
+//        _tpMediaId = 200; integerValue];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -67,16 +84,14 @@
     
     // ExelBid 미디에이션 목록 설정
     NSArray * mediationTypes = [[NSArray alloc] initWithObjects:
-                       EBMediationTypes.exelbid,
-                       EBMediationTypes.admob,
-                       EBMediationTypes.pangle,
-                       nil];
+                                EBMediationTypes.exelbid,
+                                EBMediationTypes.admob,
+                                EBMediationTypes.pangle,
+//                                EBMediationTypes.targetpick,
+                                nil];
     
     // ExelBid 미디에이션 초기화
     self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:mediationTypes];
-    
-    // ExelBid 미디에이션 테스트 설정
-    self.mediationManager.testing = YES;
 
     // ExelBid 미디에이션 요청 및 콜백
     [self.mediationManager requestMediationWithHandler:^(EBMediationManager *manager, NSError *error) {
@@ -97,9 +112,11 @@
 
 - (IBAction)didTapShowButton:(id)sender
 {
+    // 순차적으로 미디에이션 호출
     [self loadMediation];
 }
 
+// 미디에이션 목록 순차 처리
 - (void)loadMediation
 {
     if (self.mediationManager != nil) {
@@ -118,18 +135,23 @@
             [self loadDT:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
+//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+//            [self loadTargetPick:mediation];
         } else {
             [self loadMediation];
         }
     }
 }
 
+// 미디에이션 목록이 비어있음. 광고 없음 처리.
 - (void)emptyMediation
 {
     NSLog(@"Mediation Empty");
-    // 미디에이션 목록이 비어있음. 광고 없음 처리.
 }
 
+#pragma mark - 미디에이션 광고 호출
+
+// Exelbid 광고 호출
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
     self.ebInterstitialAd = [EBInterstitialAdController interstitialAdControllerForAdUnitId:mediation.unit_id];
@@ -143,6 +165,7 @@
     [self.ebInterstitialAd loadAd];
 }
 
+// AdMob 광고 호출
 - (void)loadAdMob:(EBMediationWrapper *)mediation
 {
     // 전면 광고 요청
@@ -162,6 +185,7 @@
       }];
 }
 
+// Fan 광고 호출
 - (void)loadFan:(EBMediationWrapper *)mediation
 {
     self.fanInterstitialAd = [[FBInterstitialAd alloc] initWithPlacementID:mediation.unit_id];
@@ -176,6 +200,7 @@
     }
 }
 
+// Digital Turbine 광고 호출
 - (void)loadDT:(EBMediationWrapper *)mediation
 {
     IASDKCore.sharedInstance.userData = [IAUserData build:^(id<IAUserDataBuilder>  _Nonnull builder) {
@@ -213,6 +238,7 @@
     }];
 }
 
+// Pangle 광고 호출
 - (void)loadPangle:(EBMediationWrapper *)mediation
 {
     PAGInterstitialRequest *request = [PAGInterstitialRequest request];
@@ -230,6 +256,39 @@
             }
      }];
 }
+
+
+// TargetPick 광고 호출
+//- (void)loadTargetPick:(EBMediationWrapper *)mediation
+//{
+//    ADMZInterstitialModel *model = [[ADMZInterstitialModel alloc]
+//                                    initWithPublisherID:100
+//                                    withMediaID:200
+//                                    withSectionID:804313
+//                                    withKeywordParameter:@"KeywordTargeting"
+//                                    withOtherParameter:@"BannerAdditionalParameters"
+//                                    withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
+//                                    withAppID:@"appID"
+//                                    withAppName:@"appName"
+//                                    withStoreURL:@"StoreURL"
+//                                    withSMS:YES
+//                                    withTel:YES
+//                                    withCalendar:YES
+//                                    withStorePicture:YES
+//                                    withInlineVideo:YES
+//                                    withPopupType:ADMZInterstitialTypeFullSize];
+//    
+//    [ADMZInterstitialLoader presentAdFromViewController:self withModel:model
+//                                     withSuccessHandler:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"InterstitialDidEventSuccess");
+//    }
+//                                      withFailedHandler:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"InterstitialDidEventFail");
+//    }
+//                                  withOtherEventHandler:^(enum ADMZResponseStatusType type) {
+//        NSLog(@"InterstitialDidEventOther");
+//    }];
+//}
 
 #pragma mark - EBInterstitialAdControllerDelegate
 

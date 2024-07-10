@@ -38,12 +38,15 @@ extension EBFrontBannerAdViewController {
         self.showAdButton.isHidden = true
         self.loadAdButton.isEnabled = false
     
-        self.interstitial = EBInterstitialAdController.interstitialAdControllerForAdUnitId(self.keywordsTextField.text);
+        self.interstitial = EBInterstitialAdController.interstitialAdControllerForAdUnitId(self.keywordsTextField.text)
         if let interstitial = self.interstitial {
             interstitial.delegate = self
-            interstitial.yob = "1990"
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            interstitial.yob = "1987"
             interstitial.gender = "M"
-            interstitial.testing = true
+//            interstitial.testing = true
+            
             interstitial.loadAd()
         }
     }
