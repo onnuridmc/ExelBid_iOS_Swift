@@ -23,9 +23,9 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.0.10
-- NativeAd Delegate 응답 수정
-- BannerAd 클릭 처리 수정
+##  Version 2.0.11
+- 데이터 참조 이슈 수정
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
@@ -408,38 +408,39 @@ self.interstitial.delegate = self;
 
 **3. 네이티브 광고 요청 전처리**
 ```
-+ (void)initNativeAdWithAdUnitIdentifier:(NSString *)identifier :(Class)adViewClass;
+ExelBidNativeManager
+- (nonnull instancetype)init:(NSString *)identifier :(Class)adViewClass;
 ```
 
 예시)
 ```
-[ExelBidNativeManager initNativeAdWithAdUnitIdentifier:@"adUnitId" :[EBNativeAdView class]];
+ExelBidNativeManager * ebNativeManager = [[ExelBidNativeManager alloc] init:@"adUnitId" :[EBNativeAdView class]];
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
-[ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
-                                        EBNativeAsset.kAdIconImageKey,
-                                        EBNativeAsset.kAdMainImageKey,
-                                        EBNativeAsset.kAdTitleKey,
-                                        EBNativeAsset.kAdTextKey,
-                                        EBNativeAsset.kAdCTATextKey,
-                                        nil]];
+[ebNativeManager desiredAssets:[NSSet setWithObjects:
+                                EBNativeAsset.kAdIconImageKey,
+                                EBNativeAsset.kAdMainImageKey,
+                                EBNativeAsset.kAdTitleKey,
+                                EBNativeAsset.kAdTextKey,
+                                EBNativeAsset.kAdCTATextKey,
+                                nil]];
 ```
 
 **3-1. 네이티브 동영상 광고 요청 전처리**
 ```
-[ExelBidNativeManager desiredAssets:[NSSet setWithObjects:
-                                        EBNativeAsset.kAdIconImageKey,
-                                        EBNativeAsset.kAdVideo,
-                                        EBNativeAsset.kAdTitleKey,
-                                        EBNativeAsset.kAdTextKey,
-                                        EBNativeAsset.kAdCTATextKey,
-                                        nil]];
+[ebNativeManager desiredAssets:[NSSet setWithObjects:
+                                EBNativeAsset.kAdIconImageKey,
+                                EBNativeAsset.kAdVideo,
+                                EBNativeAsset.kAdTitleKey,
+                                EBNativeAsset.kAdTextKey,
+                                EBNativeAsset.kAdCTATextKey,
+                                nil]];
 ```
 
 **4. 네이티브 광고 요청 및 표시**
 ```
 
-[ExelBidNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+[ebNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
         if (error) {
             // 에러 처리
         } else {
@@ -755,4 +756,5 @@ NSString *unit_id     // 광고 유닛 아이디
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
+* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300](https://docs.meba.kr/s-plus/sdk/ios_v300)
 

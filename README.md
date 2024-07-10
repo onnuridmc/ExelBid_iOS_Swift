@@ -23,9 +23,9 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.0.10
-- NativeAd Delegate 응답 수정
-- BannerAd 클릭 처리 수정
+##  Version 2.0.11
+- 데이터 참조 이슈 수정
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
@@ -411,41 +411,40 @@ var nativeAd: EBNativeAd?
 
 **3. 네이티브 광고 요청 전처리**
 ```
-ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(_ identifier: String, _ adViewClass: AnyClass?)
+ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)
 ```
 
 예시)
 ```
-ExelBidNativeManager.initNativeAdWithAdUnitIdentifier("adUnitId", EBNativeAdView.self)
+let ebNativeManager = ExelBidNativeManager("adUnitId", EBNativeAdView.self)
 
 // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-ExelBidNativeManager.yob("1976")
-ExelBidNativeManager.gender("M")
+ebNativeManager.yob("1987")
+ebNativeManager.gender("M")
 
 // 광고 테스트 여부 (통계에 집계되지 않음)
-ExelBidNativeManager.testing(false)
+ebNativeManager.testing(true)
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
-ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                                EBNativeAsset.kAdMainImageKey,
-                                                EBNativeAsset.kAdTextKey,
-                                                EBNativeAsset.kAdTitleKey,
-                                                EBNativeAsset.kAdCTATextKey,));
+ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                               EBNativeAsset.kAdMainImageKey,
+                               EBNativeAsset.kAdCTATextKey,
+                               EBNativeAsset.kAdTextKey,
+                               EBNativeAsset.kAdTitleKey])
 ```
 
 **3-1. 네이티브 동영상 광고 요청 전처리**
 ```
-ExelBidNativeManager.desiredAssets(NSSet(objects:EBNativeAsset.kAdIconImageKey,
-                                                EBNativeAsset.kAdVideo,
-                                                EBNativeAsset.kAdTextKey,
-                                                EBNativeAsset.kAdTitleKey,
-                                                EBNativeAsset.kAdCTATextKey,))
+ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                               EBNativeAsset.kAdVideo,
+                               EBNativeAsset.kAdTextKey,
+                               EBNativeAsset.kAdTitleKey,
+                               EBNativeAsset.kAdCTATextKey])
 ```
 
 **4. 네이티브 광고 요청 및 표시**
 ```
-
-ExelBidNativeManager.startWithCompletionHandler { (request, response, error) in
+ebNativeManager.startWithCompletionHandler { (request, response, error) in
     if error != nil {
         // 에러 처리
     }else{
@@ -773,7 +772,8 @@ var unit_id: String { get }     // 광고 유닛 아이디
 ## 샘플 안내
 자세한 내용은 아래 샘플코드를 참고해주세요.  
 배너 광고 - [EBMediationBannerViewController.swift](./sample/ExelbidSample/Controller/EBMediationBannerViewController.swift)  
-전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)  
+전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)
+전면 비디오 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)
 네이티브 - [EBMediationNativeAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeAdViewController.swift)  
 네이티브 동영상 - [EBMediationNativeVideoAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeVideoAdViewController.swift)  
 
@@ -785,3 +785,4 @@ var unit_id: String { get }     // 광고 유닛 아이디
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
+* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300](https://docs.meba.kr/s-plus/sdk/ios_v300)

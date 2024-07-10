@@ -1,5 +1,9 @@
 # Version History
 
+##  Version 2.0.11
+- 데이터 참조 이슈 수정
+- 기타 버그 수정
+
 ##  Version 2.0.10
 - NativeAd Delegate 응답 수정
 - BannerAd 클릭 처리 수정

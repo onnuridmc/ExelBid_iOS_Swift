@@ -1107,9 +1107,6 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK27EBTableViewAdPlacerDelegate_")
 /// </ul>
 SWIFT_CLASS("_TtC10ExelBidSDK16EBVideoAdRequest")
 @interface EBVideoAdRequest : NSObject
-/// ExelBid 광고 서버에 대한 요청을 실행합니다.
-/// @param handler 요청이 완료되면 실행할 블록. 블록에 매개 변수로 요청 자체와 실패의 유효한 EBVideoAd 또는 NSError 객체 중 하나가 포함됩니다.
-- (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1167,27 +1164,28 @@ SWIFT_CLASS("_TtC10ExelBidSDK20ExelBidNativeManager")
 /// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
 /// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
 /// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.
-+ (void)keywords:(NSString * _Nonnull)keywords;
+- (void)keywords:(NSString * _Nonnull)keywords;
 /// 더 관련성 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 사용자의 위치를 나타내는<code>CLLocation</code> 개체입니다.
-+ (void)location:(CLLocation * _Nonnull)location;
+- (void)location:(CLLocation * _Nonnull)location;
 /// 생년 월일 (ex:2016)
-+ (void)yob:(NSString * _Nonnull)yob;
+- (void)yob:(NSString * _Nonnull)yob;
 /// 성별 (ex: M,F)
-+ (void)gender:(NSString * _Nonnull)gender;
+- (void)gender:(NSString * _Nonnull)gender;
 /// 광고보기가 테스트 모드에서 광고를 요청해야하는지 여부를 결정하는 Boolean 값입니다.
 /// The default value is NO.
-+ (void)testing:(BOOL)testing;
+- (void)testing:(BOOL)testing;
 /// Coppa (default : 0)
-+ (void)coppa:(NSString * _Nonnull)coppa;
+- (void)coppa:(NSString * _Nonnull)coppa;
 /// 원하는 네이티브 광고 개체의 자산에 해당하는 미리 정의 된 문자열 세트.
 /// ExelBid 광고 서버는 desiredAssets의 값들만 반환합니다.
-+ (void)desiredAssets:(NSSet * _Nonnull)desiredAssets;
-+ (void)initNativeAdWithAdUnitIdentifier:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass SWIFT_METHOD_FAMILY(none);
+- (void)desiredAssets:(NSSet * _Nonnull)desiredAssets;
+- (nonnull instancetype)init:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass OBJC_DESIGNATED_INITIALIZER;
 /// ExelBid 광고 서버에 대한 요청을 실행합니다.
 /// @param handler 요청이 완료 될 때 실행할 블록.
 /// 블록에는 요청 자체와 유효한 EBNativeAd 또는 실패를 나타내는 NSError 개체가 매개 변수로 포함됩니다.
-+ (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -2471,9 +2469,6 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK27EBTableViewAdPlacerDelegate_")
 /// </ul>
 SWIFT_CLASS("_TtC10ExelBidSDK16EBVideoAdRequest")
 @interface EBVideoAdRequest : NSObject
-/// ExelBid 광고 서버에 대한 요청을 실행합니다.
-/// @param handler 요청이 완료되면 실행할 블록. 블록에 매개 변수로 요청 자체와 실패의 유효한 EBVideoAd 또는 NSError 객체 중 하나가 포함됩니다.
-- (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2531,27 +2526,28 @@ SWIFT_CLASS("_TtC10ExelBidSDK20ExelBidNativeManager")
 /// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
 /// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
 /// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.
-+ (void)keywords:(NSString * _Nonnull)keywords;
+- (void)keywords:(NSString * _Nonnull)keywords;
 /// 더 관련성 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 사용자의 위치를 나타내는<code>CLLocation</code> 개체입니다.
-+ (void)location:(CLLocation * _Nonnull)location;
+- (void)location:(CLLocation * _Nonnull)location;
 /// 생년 월일 (ex:2016)
-+ (void)yob:(NSString * _Nonnull)yob;
+- (void)yob:(NSString * _Nonnull)yob;
 /// 성별 (ex: M,F)
-+ (void)gender:(NSString * _Nonnull)gender;
+- (void)gender:(NSString * _Nonnull)gender;
 /// 광고보기가 테스트 모드에서 광고를 요청해야하는지 여부를 결정하는 Boolean 값입니다.
 /// The default value is NO.
-+ (void)testing:(BOOL)testing;
+- (void)testing:(BOOL)testing;
 /// Coppa (default : 0)
-+ (void)coppa:(NSString * _Nonnull)coppa;
+- (void)coppa:(NSString * _Nonnull)coppa;
 /// 원하는 네이티브 광고 개체의 자산에 해당하는 미리 정의 된 문자열 세트.
 /// ExelBid 광고 서버는 desiredAssets의 값들만 반환합니다.
-+ (void)desiredAssets:(NSSet * _Nonnull)desiredAssets;
-+ (void)initNativeAdWithAdUnitIdentifier:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass SWIFT_METHOD_FAMILY(none);
+- (void)desiredAssets:(NSSet * _Nonnull)desiredAssets;
+- (nonnull instancetype)init:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass OBJC_DESIGNATED_INITIALIZER;
 /// ExelBid 광고 서버에 대한 요청을 실행합니다.
 /// @param handler 요청이 완료 될 때 실행할 블록.
 /// 블록에는 요청 자체와 유효한 EBNativeAd 또는 실패를 나타내는 NSError 개체가 매개 변수로 포함됩니다.
-+ (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

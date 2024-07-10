@@ -8931,10 +8931,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)keywords:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC8keywordsyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)keywords:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC8keywordsyySSF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -8961,10 +8960,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)location:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC8locationyySo10CLLocationCFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)location:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC8locationyySo10CLLocationCF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -8991,10 +8989,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)yob:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC3yobyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)yob:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC3yobyySSF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9021,10 +9018,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)gender:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC6genderyySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)gender:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC6genderyySSF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9051,10 +9047,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)testing:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC7testingyySbFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)testing:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC7testingyySbF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9081,10 +9076,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)coppa:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC5coppayySSFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)coppa:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC5coppayySSF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9111,10 +9105,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)desiredAssets:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC13desiredAssetsyySo5NSSetCFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)desiredAssets:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC13desiredAssetsyySo5NSSetCF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9124,14 +9117,15 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Function",
-            "name": "initNativeAdWithAdUnitIdentifier",
-            "printedName": "initNativeAdWithAdUnitIdentifier(_:_:)",
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:_:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "ExelBidNativeManager",
+                "printedName": "ExelBidSDK.ExelBidNativeManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager"
               },
               {
                 "kind": "TypeNominal",
@@ -9160,17 +9154,15 @@
                 "usr": "s:Sq"
               }
             ],
-            "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)initNativeAdWithAdUnitIdentifier::",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC04initd6AdWithG14UnitIdentifieryySS_yXlXpSgtFZ",
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)init::",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerCyACSS_yXlXpSgtcfc",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
-              "Final",
               "AccessControl",
               "ObjC"
             ],
-            "funcSelfKind": "NonMutating"
+            "init_kind": "Designated"
           },
           {
             "kind": "Function",
@@ -9253,10 +9245,9 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)startWithCompletionHandler:",
-            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC26startWithCompletionHandleryyyAA17EBNativeAdRequestCSg_AA0jK0CSgs5Error_pSgtcSgFZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(im)startWithCompletionHandler:",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC26startWithCompletionHandleryyyAA17EBNativeAdRequestCSg_AA0jK0CSgs5Error_pSgtcSgF",
             "moduleName": "ExelBidSDK",
-            "static": true,
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -9303,7 +9294,6 @@
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "ObjectiveC.NSObject"
         ],
@@ -13841,83 +13831,6 @@
         "name": "EBVideoAdRequest",
         "printedName": "EBVideoAdRequest",
         "children": [
-          {
-            "kind": "Function",
-            "name": "startWithCompletionHandler",
-            "printedName": "startWithCompletionHandler(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((ExelBidSDK.EBVideoAdRequest?, (any Swift.Error)?) -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(ExelBidSDK.EBVideoAdRequest?, (any Swift.Error)?) -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(ExelBidSDK.EBVideoAdRequest?, (any Swift.Error)?)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Optional",
-                            "printedName": "ExelBidSDK.EBVideoAdRequest?",
-                            "children": [
-                              {
-                                "kind": "TypeNominal",
-                                "name": "EBVideoAdRequest",
-                                "printedName": "ExelBidSDK.EBVideoAdRequest",
-                                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest"
-                              }
-                            ],
-                            "usr": "s:Sq"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Optional",
-                            "printedName": "(any Swift.Error)?",
-                            "children": [
-                              {
-                                "kind": "TypeNominal",
-                                "name": "Error",
-                                "printedName": "any Swift.Error",
-                                "usr": "s:s5ErrorP"
-                              }
-                            ],
-                            "usr": "s:Sq"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoAdRequest(im)startWithCompletionHandler:",
-            "mangledName": "$s10ExelBidSDK16EBVideoAdRequestC26startWithCompletionHandleryyyACSg_s5Error_pSgtcSgF",
-            "moduleName": "ExelBidSDK",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
           {
             "kind": "Constructor",
             "name": "init",
@@ -21142,34 +21055,34 @@
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "StringLiteral",
       "offset": 166,
-      "length": 12,
-      "value": "\"Learn More\""
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 848,
+      "offset": 838,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1030,
+      "offset": 1020,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "FloatLiteral",
-      "offset": 1806,
+      "offset": 1796,
       "length": 8,
       "value": "123456.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "StringLiteral",
-      "offset": 186,
+      "offset": 176,
       "length": 13,
       "value": "\"ExelBidSDK.EBVideoConfig\""
     },
@@ -21351,14 +21264,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBNativePositionSource.swift",
       "kind": "IntegerLiteral",
-      "offset": 570,
+      "offset": 614,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBNativePositionSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 589,
+      "offset": 633,
       "length": 5,
       "value": "false"
     },
@@ -22709,21 +22622,21 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 4804,
+      "offset": 4815,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 6179,
+      "offset": 6203,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 7614,
+      "offset": 7638,
       "length": 5,
       "value": "false"
     },
@@ -23101,7 +23014,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBAdDestinationDisplayAgent.swift",
       "kind": "BooleanLiteral",
-      "offset": 711,
+      "offset": 915,
       "length": 5,
       "value": "false"
     },
@@ -23143,7 +23056,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBSKAdNetworkManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3308,
+      "offset": 3219,
       "length": 5,
       "value": "false"
     },
@@ -23227,9 +23140,16 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/ExelBidNativeManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3321,
+      "offset": 3020,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/ExelBidNativeManager.swift",
+      "kind": "StringLiteral",
+      "offset": 322,
+      "length": 20,
+      "value": "\"ExelBidSDK.ExelBidNativeManager\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAdRequest.swift",
@@ -23270,8 +23190,8 @@
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
       "offset": 367,
-      "length": 28,
-      "value": "\"http:\/\/sdk-bid.exelbid.com\""
+      "length": 29,
+      "value": "\"https:\/\/sdk-bid.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
@@ -23284,69 +23204,69 @@
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
       "offset": 367,
-      "length": 28,
-      "value": "\"http:\/\/sdk-bid.exelbid.com\""
+      "length": 29,
+      "value": "\"https:\/\/sdk-bid.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 489,
+      "offset": 490,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:84\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 558,
-      "length": 30,
-      "value": "\"http:\/\/mediation.exelbid.com\""
+      "offset": 559,
+      "length": 31,
+      "value": "\"https:\/\/mediation.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 489,
+      "offset": 490,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:84\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 558,
-      "length": 30,
-      "value": "\"http:\/\/mediation.exelbid.com\""
+      "offset": 559,
+      "length": 31,
+      "value": "\"https:\/\/mediation.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 673,
+      "offset": 675,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 717,
+      "offset": 719,
       "length": 21,
       "value": "\"multipart\/form-data\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 673,
+      "offset": 675,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 717,
+      "offset": 719,
       "length": 21,
       "value": "\"multipart\/form-data\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "BooleanLiteral",
-      "offset": 815,
+      "offset": 817,
       "length": 5,
       "value": "false"
     },
@@ -23556,21 +23476,21 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 531,
+      "offset": 657,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 828,
+      "offset": 954,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoAdRequest.swift",
       "kind": "StringLiteral",
-      "offset": 476,
+      "offset": 602,
       "length": 16,
       "value": "\"ExelBidSDK.EBVideoAdRequest\""
     },
@@ -23836,287 +23756,294 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 960,
+      "offset": 1039,
       "length": 10,
       "value": "\"X-Adtype\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1088,
+      "offset": 1167,
       "length": 16,
       "value": "\"X-Clickthrough\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1277,
+      "offset": 1356,
       "length": 13,
       "value": "\"X-AdInfoUrl\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1371,
+      "offset": 1450,
       "length": 16,
       "value": "\"X-AdInfoImgUrl\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1468,
+      "offset": 1547,
       "length": 17,
       "value": "\"X-DspCreativeid\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1553,
+      "offset": 1632,
       "length": 14,
       "value": "\"X-Imptracker\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1645,
+      "offset": 1724,
       "length": 15,
       "value": "\"X-Refreshtime\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1744,
+      "offset": 1823,
       "length": 9,
       "value": "\"X-Width\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1829,
+      "offset": 1908,
       "length": 10,
       "value": "\"X-Height\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1912,
+      "offset": 1991,
       "length": 9,
       "value": "\"X-Fixed\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2098,
+      "offset": 2177,
       "length": 13,
       "value": "\"X-Repeating\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2282,
+      "offset": 2361,
       "length": 17,
       "value": "\"X-skadn-version\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2364,
+      "offset": 2443,
       "length": 17,
       "value": "\"X-skadn-network\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2442,
+      "offset": 2521,
       "length": 18,
       "value": "\"X-skadn-campaign\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2618,
+      "offset": 2697,
       "length": 20,
       "value": "\"X-skadn-itunesitem\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2719,
+      "offset": 2798,
       "length": 15,
       "value": "\"X-skadn-nonce\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2815,
+      "offset": 2894,
       "length": 19,
       "value": "\"X-skadn-sourceapp\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2914,
+      "offset": 2993,
       "length": 19,
       "value": "\"X-skadn-timestamp\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3008,
+      "offset": 3087,
       "length": 19,
       "value": "\"X-skadn-signature\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 960,
+      "offset": 1039,
       "length": 10,
       "value": "\"X-Adtype\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1088,
+      "offset": 1167,
       "length": 16,
       "value": "\"X-Clickthrough\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1277,
+      "offset": 1356,
       "length": 13,
       "value": "\"X-AdInfoUrl\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1371,
+      "offset": 1450,
       "length": 16,
       "value": "\"X-AdInfoImgUrl\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1468,
+      "offset": 1547,
       "length": 17,
       "value": "\"X-DspCreativeid\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1553,
+      "offset": 1632,
       "length": 14,
       "value": "\"X-Imptracker\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1645,
+      "offset": 1724,
       "length": 15,
       "value": "\"X-Refreshtime\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1744,
+      "offset": 1823,
       "length": 9,
       "value": "\"X-Width\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1829,
+      "offset": 1908,
       "length": 10,
       "value": "\"X-Height\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 1912,
+      "offset": 1991,
       "length": 9,
       "value": "\"X-Fixed\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2098,
+      "offset": 2177,
       "length": 13,
       "value": "\"X-Repeating\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2282,
+      "offset": 2361,
       "length": 17,
       "value": "\"X-skadn-version\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2364,
+      "offset": 2443,
       "length": 17,
       "value": "\"X-skadn-network\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2442,
+      "offset": 2521,
       "length": 18,
       "value": "\"X-skadn-campaign\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2618,
+      "offset": 2697,
       "length": 20,
       "value": "\"X-skadn-itunesitem\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2719,
+      "offset": 2798,
       "length": 15,
       "value": "\"X-skadn-nonce\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2815,
+      "offset": 2894,
       "length": 19,
       "value": "\"X-skadn-sourceapp\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 2914,
+      "offset": 2993,
       "length": 19,
       "value": "\"X-skadn-timestamp\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3008,
+      "offset": 3087,
       "length": 19,
       "value": "\"X-skadn-signature\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
       "kind": "FloatLiteral",
-      "offset": 3114,
+      "offset": 3193,
       "length": 4,
       "value": "10.0"
     },
     {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 338,
+      "length": 17,
+      "value": "\"ExelBidSDK.EBAdConfiguration\""
+    },
+    {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 6836,
+      "offset": 7293,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 6900,
+      "offset": 7357,
       "length": 3,
       "value": "0.5"
     },
@@ -24655,7 +24582,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5034,
+      "offset": 5031,
       "length": 5,
       "value": "false"
     },
@@ -24671,7 +24598,7 @@
       "kind": "FloatLiteral",
       "offset": 377,
       "length": 4,
-      "value": "10.0"
+      "value": "30.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Common\/EBConstants.swift",

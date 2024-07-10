@@ -267,17 +267,16 @@ extension ExelBidSDK.EBStreamAdPlacer : ExelBidSDK.EBNativeAdDelegate {
   @objc dynamic public func viewControllerForPresentingModalView() -> UIKit.UIViewController?
 }
 public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdRequest?, _ response: ExelBidSDK.EBNativeAd?, _ error: (any Swift.Error)?) -> Swift.Void
-@objc @_inheritsConvenienceInitializers @objcMembers final public class ExelBidNativeManager : ObjectiveC.NSObject {
-  @objc public static func keywords(_ keywords: Swift.String)
-  @objc public static func location(_ location: CoreLocation.CLLocation)
-  @objc public static func yob(_ yob: Swift.String)
-  @objc public static func gender(_ gender: Swift.String)
-  @objc public static func testing(_ testing: Swift.Bool)
-  @objc public static func coppa(_ coppa: Swift.String)
-  @objc public static func desiredAssets(_ desiredAssets: Foundation.NSSet)
-  @objc public static func initNativeAdWithAdUnitIdentifier(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?)
-  @objc public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
-  @objc override dynamic public init()
+@objc @objcMembers final public class ExelBidNativeManager : ObjectiveC.NSObject {
+  @objc final public func keywords(_ keywords: Swift.String)
+  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func yob(_ yob: Swift.String)
+  @objc final public func gender(_ gender: Swift.String)
+  @objc final public func testing(_ testing: Swift.Bool)
+  @objc final public func coppa(_ coppa: Swift.String)
+  @objc final public func desiredAssets(_ desiredAssets: Foundation.NSSet)
+  @objc public init(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?)
+  @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBNativeAdRequest : ObjectiveC.NSObject {
@@ -425,7 +424,6 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBVideoAdRequest : ObjectiveC.NSObject {
-  @objc public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
   @objc deinit
 }
 @objc public protocol EBNativeAdDelegate {
@@ -496,7 +494,7 @@ extension ExelBidSDK.EBVastModel : Swift.Equatable {
   @objc optional func videoAdDidDisappear(adUnitID: Swift.String)
   @objc optional func videoAdDidReceiveTapEvent(adUnitID: Swift.String)
 }
-public typealias EBVideoAdRequestHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
+public typealias EBVideoManagerHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
 @objc @_inheritsConvenienceInitializers @objcMembers final public class EBVideoManager : ObjectiveC.NSObject {
   @objc public static func keywords(_ keywords: Swift.String)
   @objc public static func location(_ location: CoreLocation.CLLocation)
@@ -505,7 +503,7 @@ public typealias EBVideoAdRequestHandler = (_ request: ExelBidSDK.EBVideoAdReque
   @objc public static func testing(_ testing: Swift.Bool)
   @objc public static func coppa(_ coppa: Swift.String)
   @objc public static func initFullVideo(identifier unitId: Swift.String)
-  @objc public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoAdRequestHandler?)
+  @objc public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoManagerHandler?)
   @objc public static func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
   @objc override dynamic public init()
   @objc deinit
