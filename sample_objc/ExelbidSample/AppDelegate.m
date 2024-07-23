@@ -13,7 +13,7 @@
 #import <FBAudienceNetwork/FBAudienceNetwork.h>
 #import <IASDKCore/IASDKCore.h>
 #import <PAGAdSDK/PAGAdSDK.h>
-//#import <LibADPlus/LibADPlus-Swift.h>
+#import <LibADPlus/LibADPlus-Swift.h>
 
 @interface AppDelegate ()
 
@@ -28,9 +28,9 @@
     // AdMob
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
     
-//    // Facebook
-//    [FBAudienceNetworkAds initializeWithSettings:nil completionHandler:nil];
-//    [FBAdSettings setAdvertiserTrackingEnabled:YES];
+    // Facebook
+    [FBAudienceNetworkAds initializeWithSettings:nil completionHandler:nil];
+    [FBAdSettings setAdvertiserTrackingEnabled:YES];
     
     // Digital Turbine
     [IASDKCore.sharedInstance initWithAppID:@""
@@ -54,7 +54,7 @@
     }];
     
     // MezzoMedia
-//    [LibADPlusStore start];
+    [LibADPlusStore start];
     
     return YES;
 }

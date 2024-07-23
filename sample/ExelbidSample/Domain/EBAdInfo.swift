@@ -39,9 +39,9 @@ struct EBAdInfo {
         return [
             EBAdInfoModel(title: "미디에이션 Banner", ID: "08377f76c8b3e46c4ed36c82e434da2b394a4dfa", type: .MediationBanner),
             EBAdInfoModel(title: "미디에이션 Interstitial", ID: "615217b82a648b795040baee8bc81986a71d0eb7", type: .MediationInterstitial),
-            EBAdInfoModel(title: "미디에이션 Interstitial Video", ID: "202748c414a9f9a0be6c73893bc1589c6bc9af4a", type: .MediationInterstitialVideo),
+            EBAdInfoModel(title: "미디에이션 Interstitial Video", ID: "3f548c41c3c6539ee7051aeb58ada2d4c039bc07", type: .MediationInterstitialVideo),
             EBAdInfoModel(title: "미디에이션 Native", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .MediationNative),
-            EBAdInfoModel(title: "미디에이션 Native Video", ID: "a43a885cdb49fb515b18d2db5e14c58a735fe7ee", type: .MediationNativeVideo),
+            EBAdInfoModel(title: "미디에이션 Native Video", ID: "ac6c351af0850502d7174a4e80aea169cf9c1823", type: .MediationNativeVideo),
 //            EBAdInfoModel(title: "미디에이션 BizboardView", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .MediationBizboard),
             EBAdInfoModel(title: "애드태그", ID: "", type: .AdTag)
         ]

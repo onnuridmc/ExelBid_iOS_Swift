@@ -32,7 +32,7 @@ import TnkPubSdk
 import AppLovinSDK
 
 // TargetPick
-//import LibADPlus
+import LibADPlus
 
 class EBMediationBannerViewController : UIViewController {
     
@@ -65,8 +65,8 @@ class EBMediationBannerViewController : UIViewController {
     var alBannerAd: MAAdView!
     
     // TargetPick
-//    let tpPublisherId: Int? = 102
-//    let tpMediaId: Int? = 202
+    let tpPublisherId: Int? = 1761
+    let tpMediaId: Int? = 33372
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +91,7 @@ class EBMediationBannerViewController : UIViewController {
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
             EBMediationTypes.applovin,
-//            EBMediationTypes.targetpick
+            EBMediationTypes.targetpick
         ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -132,7 +132,7 @@ extension EBMediationBannerViewController {
         // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
-            print(">>>>> \(#function) : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -151,8 +151,8 @@ extension EBMediationBannerViewController {
                 self.loadTnk(mediation: mediation)
             case EBMediationTypes.applovin:
                 self.loadApplovin(mediation: mediation)
-//            case EBMediationTypes.targetpick:
-//                self.loadTargetPick(mediation: mediation)
+            case EBMediationTypes.targetpick:
+                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -328,62 +328,62 @@ extension EBMediationBannerViewController {
     }
     
     // TargetPick 광고 호출
-//    func loadTargetPick(mediation: EBMediationWrapper) {
-//        self.clearAd()
-//        
-//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
-//        if let section_id = Int(mediation.unit_id),
-//           let pub_id = self.tpPublisherId,
-//           let media_id = self.tpMediaId {
-//            
-//            let model = ADMZBannerModel(withPublisherID: pub_id,
-//                                        withMediaID: media_id,
-//                                        withSectionID: section_id,
-//                                        withBannerSize: .init(width: 320.0, height: 50.0),
-//                                        withKeywordParameter: "KeywordTargeting",
-//                                        withOtherParameter: "BannerAdditionalParameters",
-//                                        withMediaAgeLevel: .over13Age,
-//                                        withAppID:"appID",
-//                                        withAppName: "appName",
-//                                        withStoreURL: "StoreURL",
-//                                        withSMS: true,
-//                                        withTel: true,
-//                                        withCalendar: true,
-//                                        withStorePicture: true,
-//                                        withInlineVideo: true,
-//                                        withBannerType:.Strip)
-//            model.setUserInfo(withGenderType: .Male,
-//                              withAge: 15,
-//                              withUserID: "mezzomedia",
-//                              withEmail: "mezzo@mezzomedia.co.kr",
-//                              withUserLocationAgree: false)
-//            
-//            let bannerAd = ADMZBannerView()
-//            bannerAd.updateModel(value: model)
-//            
-//            // 필요에따라 이벤트 핸들러 구분
-//            let handler: ADMZEventHandler = { code in
-//                print(">>> \(code) - \(code.rawValue)")
-//            }
-//            
-//            bannerAd.setFailHandler(value: handler)
-//            bannerAd.setSuccessHandler(value: handler)
-//            bannerAd.setOtherHandler(value: handler)
-//            bannerAd.setAPIResponseHandler(value: { dic in
-//                print("API DATA = \(String.init(describing: dic))")
-//            })
-//            
-//            self.adViewContainer.addSubview(bannerAd)
-//            setAutoLayout(view: self.adViewContainer, adView: bannerAd)
-//            
-//            bannerAd.startBanner()
-//        } else {
-//            // 예외 처리
-//            
-//            // 다음 미디에이션 호출
-//            self.loadMediation()
-//        }
-//    }
+    func loadTargetPick(mediation: EBMediationWrapper) {
+        self.clearAd()
+        
+        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+        if let section_id = Int(mediation.unit_id),
+           let pub_id = self.tpPublisherId,
+           let media_id = self.tpMediaId {
+
+            let model = ADMZBannerModel(withPublisherID: pub_id,
+                                        withMediaID: media_id,
+                                        withSectionID: section_id,
+                                        withBannerSize: .init(width: 320.0, height: 50.0),
+                                        withKeywordParameter: "",
+                                        withOtherParameter: "",
+                                        withMediaAgeLevel: .over13Age,
+                                        withAppID:Bundle.main.bundleIdentifier,
+                                        withAppName: "ExelbidDemo(iOS)",
+                                        withStoreURL: "StoreURL",
+                                        withSMS: true,
+                                        withTel: true,
+                                        withCalendar: true,
+                                        withStorePicture: true,
+                                        withInlineVideo: true,
+                                        withBannerType:.Strip)
+            model.setUserInfo(withGenderType: .Male,
+                              withAge: 15,
+                              withUserID: "mezzomedia",
+                              withEmail: "mezzo@mezzomedia.co.kr",
+                              withUserLocationAgree: false)
+            
+            let bannerAd = ADMZBannerView()
+            bannerAd.updateModel(value: model)
+            
+            // 필요에따라 이벤트 핸들러 구분
+            let handler: ADMZEventHandler = { code in
+                print(">>> \(code) - \(code.rawValue)")
+            }
+            
+            bannerAd.setFailHandler(value: handler)
+            bannerAd.setSuccessHandler(value: handler)
+            bannerAd.setOtherHandler(value: handler)
+            bannerAd.setAPIResponseHandler(value: { dic in
+                print("API DATA = \(String.init(describing: dic))")
+            })
+            
+            self.adViewContainer.addSubview(bannerAd)
+            setAutoLayout(view: self.adViewContainer, adView: bannerAd)
+            
+            bannerAd.startBanner()
+        } else {
+            // 예외 처리
+            
+            // 다음 미디에이션 호출
+            self.loadMediation()
+        }
+    }
 
 }
 

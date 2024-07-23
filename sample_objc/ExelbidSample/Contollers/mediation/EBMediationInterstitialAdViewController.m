@@ -23,7 +23,7 @@
 #import <PAGAdSDK/PAGAdSDK.h>
 
 // TargetPick
-//#import <LibADPlus/LibADPlus-Swift.h>
+#import <LibADPlus/LibADPlus-Swift.h>
 
 
 @interface EBMediationInterstitialAdViewController ()<EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate>
@@ -46,8 +46,8 @@
 @property (nonatomic, strong) PAGLInterstitialAd *pagInterstitialAd;
 
 // TargetPick
-//@property (nonatomic, assign) NSInteger tpPublisherId;
-//@property (nonatomic, assign) NSInteger tpMediaId;
+@property (nonatomic, assign) NSInteger tpPublisherId;
+@property (nonatomic, assign) NSInteger tpMediaId;
 
 @end
 
@@ -57,8 +57,8 @@
 {
     self = [super init];
     if (self) {
-//        _tpPublisherId = 100;
-//        _tpMediaId = 200; integerValue];
+        _tpPublisherId = 1761;
+        _tpMediaId = 33372;
     }
     return self;
 }
@@ -87,7 +87,7 @@
                                 EBMediationTypes.exelbid,
                                 EBMediationTypes.admob,
                                 EBMediationTypes.pangle,
-//                                EBMediationTypes.targetpick,
+                                EBMediationTypes.targetpick,
                                 nil];
     
     // ExelBid 미디에이션 초기화
@@ -135,8 +135,8 @@
             [self loadDT:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
-//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
-//            [self loadTargetPick:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+            [self loadTargetPick:mediation];
         } else {
             [self loadMediation];
         }
@@ -154,7 +154,8 @@
 // Exelbid 광고 호출
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
-    self.ebInterstitialAd = [EBInterstitialAdController interstitialAdControllerForAdUnitId:mediation.unit_id];
+    
+    self.ebInterstitialAd = [[EBInterstitialAdController alloc] initWithAdUnitId:mediation.unit_id];
     self.ebInterstitialAd.delegate = self;
 
     [self.ebInterstitialAd setYob:@"1976"];
@@ -259,36 +260,36 @@
 
 
 // TargetPick 광고 호출
-//- (void)loadTargetPick:(EBMediationWrapper *)mediation
-//{
-//    ADMZInterstitialModel *model = [[ADMZInterstitialModel alloc]
-//                                    initWithPublisherID:100
-//                                    withMediaID:200
-//                                    withSectionID:804313
-//                                    withKeywordParameter:@"KeywordTargeting"
-//                                    withOtherParameter:@"BannerAdditionalParameters"
-//                                    withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
-//                                    withAppID:@"appID"
-//                                    withAppName:@"appName"
-//                                    withStoreURL:@"StoreURL"
-//                                    withSMS:YES
-//                                    withTel:YES
-//                                    withCalendar:YES
-//                                    withStorePicture:YES
-//                                    withInlineVideo:YES
-//                                    withPopupType:ADMZInterstitialTypeFullSize];
-//    
-//    [ADMZInterstitialLoader presentAdFromViewController:self withModel:model
-//                                     withSuccessHandler:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"InterstitialDidEventSuccess");
-//    }
-//                                      withFailedHandler:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"InterstitialDidEventFail");
-//    }
-//                                  withOtherEventHandler:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"InterstitialDidEventOther");
-//    }];
-//}
+- (void)loadTargetPick:(EBMediationWrapper *)mediation
+{
+    ADMZInterstitialModel *model = [[ADMZInterstitialModel alloc]
+                                    initWithPublisherID:self.tpPublisherId
+                                    withMediaID:self.tpMediaId
+                                    withSectionID:[mediation.unit_id integerValue]
+                                    withKeywordParameter:@"KeywordTargeting"
+                                    withOtherParameter:@"BannerAdditionalParameters"
+                                    withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
+                                    withAppID:[[NSBundle mainBundle] bundleIdentifier]
+                                    withAppName:@"ExelbidDemo(iOS)"
+                                    withStoreURL:@"StoreURL"
+                                    withSMS:YES
+                                    withTel:YES
+                                    withCalendar:YES
+                                    withStorePicture:YES
+                                    withInlineVideo:YES
+                                    withPopupType:ADMZInterstitialTypeFullSize];
+    
+    [ADMZInterstitialLoader presentAdFromViewController:self withModel:model
+                                     withSuccessHandler:^(enum ADMZResponseStatusType type) {
+        NSLog(@"InterstitialDidEventSuccess");
+    }
+                                      withFailedHandler:^(enum ADMZResponseStatusType type) {
+        NSLog(@"InterstitialDidEventFail");
+    }
+                                  withOtherEventHandler:^(enum ADMZResponseStatusType type) {
+        NSLog(@"InterstitialDidEventOther");
+    }];
+}
 
 #pragma mark - EBInterstitialAdControllerDelegate
 

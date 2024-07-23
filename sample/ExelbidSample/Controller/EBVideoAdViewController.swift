@@ -14,6 +14,7 @@ class EBVideoAdViewController: UIViewController, EBVideoDelegate {
     @IBOutlet var showAdButton: UIButton!
   
     var info: EBAdInfoModel?
+    var videoManager: EBVideoManager?
 }
 
 extension EBVideoAdViewController {
@@ -36,27 +37,29 @@ extension EBVideoAdViewController {
         self.loadAdButton.isEnabled = false
         
         if let unitId = self.keywordsTextField.text {
-            EBVideoManager.initFullVideo(identifier: unitId)
+            self.videoManager = EBVideoManager(identifier: unitId)
             
-            // 광고의 효율을 높이기 위해 옵션 설정
-            EBVideoManager.yob("1987")
-            EBVideoManager.gender("M")
-            EBVideoManager.testing(true)
+            if let videoManager = self.videoManager {
+                // 광고의 효율을 높이기 위해 옵션 설정
+                videoManager.yob("1987")
+                videoManager.gender("M")
+                videoManager.testing(true)
 
-            EBVideoManager.startWithCompletionHandler { (request, error) in
-                if let error = error  {
-                    print(">>> \(error.localizedDescription)")
-                    self.configureAdLoadFail()
-                }else{
-                    self.showAdButton.isHidden = false
+                videoManager.startWithCompletionHandler { (request, error) in
+                    if let error = error  {
+                        print(">>> \(error.localizedDescription)")
+                        self.configureAdLoadFail()
+                    }else{
+                        self.showAdButton.isHidden = false
+                    }
+                    self.loadAdButton.isEnabled = true
                 }
-                self.loadAdButton.isEnabled = true
             }
         }
     }
     
     @IBAction func didTapShowButton(_ sender: UIButton) {
-        EBVideoManager.presentAd(controller: self, delegate: self)
+        self.videoManager?.presentAd(controller: self, delegate: self)
         self.showAdButton.isHidden = true       //다음 클릭 초기화 위해 삭제를 합니다.
     }
     

@@ -38,7 +38,7 @@ extension EBFrontBannerAdViewController {
         self.showAdButton.isHidden = true
         self.loadAdButton.isEnabled = false
     
-        self.interstitial = EBInterstitialAdController.interstitialAdControllerForAdUnitId(self.keywordsTextField.text)
+        self.interstitial = EBInterstitialAdController(adUnitId: self.keywordsTextField.text)
         if let interstitial = self.interstitial {
             interstitial.delegate = self
             

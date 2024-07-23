@@ -20,6 +20,7 @@
 @interface EBMediationInterstitialVideoAdViewController ()<EBVideoDelegate, GADFullScreenContentDelegate, PAGLInterstitialAdDelegate>
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
+@property (nonatomic, strong) EBVideoManager *adManager;
 
 // AdMob
 @property (nonatomic, strong) GADInterstitialAd *gaInterstitial;
@@ -113,16 +114,16 @@
 
 - (void)loadExelBid:(EBMediationWrapper *)mediation
 {
-    [EBVideoManager initFullVideoWithIdentifier:mediation.unit_id];
-    [EBVideoManager testing:YES];
-    [EBVideoManager yob:@"1990"];
-    [EBVideoManager gender:@"M"];
+    self.adManager = [[EBVideoManager alloc] initWithIdentifier:mediation.unit_id];
+    [self.adManager testing:YES];
+    [self.adManager yob:@"1990"];
+    [self.adManager gender:@"M"];
     
-    [EBVideoManager startWithCompletionHandler:^(EBVideoAdRequest *request, NSError *error) {
+    [self.adManager startWithCompletionHandler:^(EBVideoAdRequest *request, NSError *error) {
         if (error) {
             [self loadMediation];
         } else {
-            [EBVideoManager presentAdWithController:self delegate:self];
+            [self.adManager presentAdWithController:self delegate:self];
         }
     }];
 }

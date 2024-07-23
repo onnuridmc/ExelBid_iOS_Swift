@@ -36,6 +36,7 @@ class EBMediationInterstitialVideoViewController : UIViewController, EBVideoDele
     
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
+    var ebVideoManaber: EBVideoManager?
     
     // AdMob
     var gaInterstital: GADInterstitialAd?
@@ -101,7 +102,7 @@ extension EBMediationInterstitialVideoViewController {
         // 미디에이션 목록을 순차적으로 가져옴
         if let mediation = mediationManager.next() {
             
-            print(">>>>> \(#function) : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -124,18 +125,18 @@ extension EBMediationInterstitialVideoViewController {
     }
     
     func loadExelBid(mediation: EBMediationWrapper) {
-        EBVideoManager.initFullVideo(identifier: mediation.unit_id)
+        self.ebVideoManaber = EBVideoManager(identifier: mediation.unit_id)
         
         // 광고의 효율을 높이기 위해 옵션 설정
-        EBVideoManager.yob("1987")
-        EBVideoManager.gender("M")
-//        EBVideoManager.testing(true)
+        self.ebVideoManaber?.yob("1987")
+        self.ebVideoManaber?.gender("M")
+//        self.ebVideoManaber?.testing(true)
 
-        EBVideoManager.startWithCompletionHandler { (request, error) in
+        self.ebVideoManaber?.startWithCompletionHandler { (request, error) in
             if error != nil {
                 self.loadMediation()
             } else {
-                EBVideoManager.presentAd(controller: self, delegate: self)
+                self.ebVideoManaber?.presentAd(controller: self, delegate: self)
             }
         }
     }

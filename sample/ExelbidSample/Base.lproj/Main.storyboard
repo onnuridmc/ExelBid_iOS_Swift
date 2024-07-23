@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,8 +13,8 @@
             <objects>
                 <viewController title="Banner View" id="mS0-Jg-d1E" customClass="EBBannerAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NGO-jK-tpw"/>
-                        <viewControllerLayoutGuide type="bottom" id="X5o-d6-z1L"/>
+                        <viewControllerLayoutGuide type="top" id="uVd-Yl-wwm"/>
+                        <viewControllerLayoutGuide type="bottom" id="g1R-Um-KcK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RA9-NB-ayB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -58,9 +58,9 @@
                             <constraint firstItem="MBF-4r-Pen" firstAttribute="leading" secondItem="RA9-NB-ayB" secondAttribute="leading" constant="8" id="2u5-sZ-L4l"/>
                             <constraint firstItem="Jjh-x6-1SO" firstAttribute="leading" secondItem="RA9-NB-ayB" secondAttribute="leading" constant="8" id="FfO-1a-gEZ"/>
                             <constraint firstItem="IBy-Hi-JRl" firstAttribute="leading" secondItem="RA9-NB-ayB" secondAttribute="leading" id="aDK-bY-kLB"/>
-                            <constraint firstItem="MBF-4r-Pen" firstAttribute="top" secondItem="NGO-jK-tpw" secondAttribute="bottom" constant="20" id="hRa-Ws-JHR"/>
+                            <constraint firstItem="MBF-4r-Pen" firstAttribute="top" secondItem="uVd-Yl-wwm" secondAttribute="bottom" constant="20" id="hRa-Ws-JHR"/>
                             <constraint firstItem="Jjh-x6-1SO" firstAttribute="top" secondItem="MBF-4r-Pen" secondAttribute="bottom" constant="12" id="nvk-G3-TC1"/>
-                            <constraint firstItem="X5o-d6-z1L" firstAttribute="top" secondItem="IBy-Hi-JRl" secondAttribute="bottom" id="oMJ-Jx-FVk"/>
+                            <constraint firstItem="g1R-Um-KcK" firstAttribute="top" secondItem="IBy-Hi-JRl" secondAttribute="bottom" id="oMJ-Jx-FVk"/>
                             <constraint firstAttribute="trailing" secondItem="MBF-4r-Pen" secondAttribute="trailing" constant="8" id="qsO-CC-oCj"/>
                             <constraint firstAttribute="trailing" secondItem="IBy-Hi-JRl" secondAttribute="trailing" id="vF3-Ub-Uxk"/>
                         </constraints>
@@ -81,8 +81,8 @@
             <objects>
                 <viewController title="Banner View" id="dit-mr-7x9" customClass="EBFrontBannerAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZAw-eU-kqg"/>
-                        <viewControllerLayoutGuide type="bottom" id="0pJ-MZ-dId"/>
+                        <viewControllerLayoutGuide type="top" id="OUZ-ne-iRH"/>
+                        <viewControllerLayoutGuide type="bottom" id="f1O-e3-uwc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2MU-f5-qSI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -136,7 +136,7 @@
                             <constraint firstItem="edm-ob-L9P" firstAttribute="leading" secondItem="2MU-f5-qSI" secondAttribute="leading" constant="8" id="LIP-cH-Lkv"/>
                             <constraint firstItem="QUl-eh-aCA" firstAttribute="width" secondItem="edm-ob-L9P" secondAttribute="width" id="vFk-4h-3cA"/>
                             <constraint firstAttribute="trailing" secondItem="YU1-uE-Jke" secondAttribute="trailing" constant="8" id="w5k-n8-oAW"/>
-                            <constraint firstItem="YU1-uE-Jke" firstAttribute="top" secondItem="ZAw-eU-kqg" secondAttribute="bottom" constant="20" id="wQk-on-eQd"/>
+                            <constraint firstItem="YU1-uE-Jke" firstAttribute="top" secondItem="OUZ-ne-iRH" secondAttribute="bottom" constant="20" id="wQk-on-eQd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Front Banner View" id="A8t-mH-Gha"/>
@@ -155,8 +155,8 @@
             <objects>
                 <viewController title="TableView Ad" id="3ol-ZJ-HUo" customClass="EBNativeAdTableViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x5z-Jl-vic"/>
-                        <viewControllerLayoutGuide type="bottom" id="o6w-Z7-mSd"/>
+                        <viewControllerLayoutGuide type="top" id="a4U-EO-PIA"/>
+                        <viewControllerLayoutGuide type="bottom" id="eiK-Yu-K7D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Q3-N9-Fag">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -173,10 +173,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="o6w-Z7-mSd" firstAttribute="top" secondItem="zEs-rD-CIo" secondAttribute="bottom" id="Odm-1X-nw1"/>
+                            <constraint firstItem="eiK-Yu-K7D" firstAttribute="top" secondItem="zEs-rD-CIo" secondAttribute="bottom" id="Odm-1X-nw1"/>
                             <constraint firstItem="zEs-rD-CIo" firstAttribute="leading" secondItem="6Q3-N9-Fag" secondAttribute="leading" id="WJH-yw-XqE"/>
                             <constraint firstAttribute="trailing" secondItem="zEs-rD-CIo" secondAttribute="trailing" id="cWN-kM-ReR"/>
-                            <constraint firstItem="zEs-rD-CIo" firstAttribute="top" secondItem="x5z-Jl-vic" secondAttribute="bottom" id="jY1-gU-CC0"/>
+                            <constraint firstItem="zEs-rD-CIo" firstAttribute="top" secondItem="a4U-EO-PIA" secondAttribute="bottom" id="jY1-gU-CC0"/>
                         </constraints>
                     </view>
                     <connections>
@@ -225,9 +225,9 @@
                         <segue destination="rVi-Aq-6vD" kind="show" identifier="MediationBanner" id="fTD-iK-5Za"/>
                         <segue destination="kWs-pS-o4g" kind="show" identifier="MediationBizboardView" id="TTy-C1-HPS"/>
                         <segue destination="b4a-9N-vf4" kind="show" identifier="MediationNative" id="xdh-d8-uLD"/>
-                        <segue destination="rif-y0-IK0" kind="show" identifier="MediationInterstitial" id="VO7-aJ-zCc"/>
                         <segue destination="E1O-ar-lsf" kind="show" identifier="MediationNativeVideo" id="xvv-JK-sMD"/>
-                        <segue destination="4WU-cb-BOc" kind="show" identifier="MediationInterstitialVideo" id="cJl-JX-Hwh"/>
+                        <segue destination="OBJ-iN-io6" kind="show" identifier="MediationInterstitial" id="f87-1k-87f"/>
+                        <segue destination="2j9-EO-D19" kind="show" identifier="MediationInterstitialVideo" id="Qa1-iW-feE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zn-ip-6N8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,8 +256,8 @@
             <objects>
                 <viewController title="Banner View" id="QaE-NS-RMM" customClass="EBNativeAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hL4-4B-s4c"/>
-                        <viewControllerLayoutGuide type="bottom" id="X5U-FC-NS1"/>
+                        <viewControllerLayoutGuide type="top" id="vuc-KT-A66"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Yo-Ii-pWG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bM6-4b-7tB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -336,8 +336,8 @@
             <objects>
                 <viewController title="CollectionView Ad" id="aeh-pq-aNj" customClass="EBNativeAdCollectionViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="v9d-Qp-K0s"/>
-                        <viewControllerLayoutGuide type="bottom" id="a35-5j-qQx"/>
+                        <viewControllerLayoutGuide type="top" id="OQR-Vm-1ya"/>
+                        <viewControllerLayoutGuide type="bottom" id="1hM-15-sbF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tkz-1W-0uy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -362,9 +362,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KSj-ig-dmu" firstAttribute="leading" secondItem="tkz-1W-0uy" secondAttribute="leading" id="PVb-P0-u57"/>
-                            <constraint firstItem="a35-5j-qQx" firstAttribute="top" secondItem="KSj-ig-dmu" secondAttribute="bottom" id="Re0-ms-Iis"/>
+                            <constraint firstItem="1hM-15-sbF" firstAttribute="top" secondItem="KSj-ig-dmu" secondAttribute="bottom" id="Re0-ms-Iis"/>
                             <constraint firstAttribute="trailing" secondItem="KSj-ig-dmu" secondAttribute="trailing" id="ZTt-Bh-SeZ"/>
-                            <constraint firstItem="KSj-ig-dmu" firstAttribute="top" secondItem="v9d-Qp-K0s" secondAttribute="bottom" id="lLN-jR-jJ4"/>
+                            <constraint firstItem="KSj-ig-dmu" firstAttribute="top" secondItem="OQR-Vm-1ya" secondAttribute="bottom" id="lLN-jR-jJ4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -381,8 +381,8 @@
             <objects>
                 <viewController title="Banner View" id="8lo-hl-hvO" customClass="EBNativeBannerAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nNi-u2-d3C"/>
-                        <viewControllerLayoutGuide type="bottom" id="onw-HJ-NN8"/>
+                        <viewControllerLayoutGuide type="top" id="ooF-d4-a1K"/>
+                        <viewControllerLayoutGuide type="bottom" id="6wZ-Hw-vgk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CFR-rl-SaS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -423,10 +423,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WPX-ii-3O6" firstAttribute="leading" secondItem="CFR-rl-SaS" secondAttribute="leading" constant="8" id="3fv-WJ-YjO"/>
-                            <constraint firstItem="WPX-ii-3O6" firstAttribute="top" secondItem="nNi-u2-d3C" secondAttribute="bottom" constant="20" id="E4z-24-FgU"/>
+                            <constraint firstItem="WPX-ii-3O6" firstAttribute="top" secondItem="ooF-d4-a1K" secondAttribute="bottom" constant="20" id="E4z-24-FgU"/>
                             <constraint firstAttribute="trailing" secondItem="K87-Xb-AEX" secondAttribute="trailing" constant="8" id="KYd-8y-jgn"/>
                             <constraint firstItem="aer-r6-PYZ" firstAttribute="leading" secondItem="CFR-rl-SaS" secondAttribute="leading" id="SGq-vV-Rbr"/>
-                            <constraint firstItem="onw-HJ-NN8" firstAttribute="top" secondItem="aer-r6-PYZ" secondAttribute="bottom" id="WDq-ds-sL9"/>
+                            <constraint firstItem="6wZ-Hw-vgk" firstAttribute="top" secondItem="aer-r6-PYZ" secondAttribute="bottom" id="WDq-ds-sL9"/>
                             <constraint firstAttribute="trailing" secondItem="WPX-ii-3O6" secondAttribute="trailing" constant="8" id="f5Z-TW-WYt"/>
                             <constraint firstItem="K87-Xb-AEX" firstAttribute="top" secondItem="WPX-ii-3O6" secondAttribute="bottom" constant="12" id="o9N-Gv-3Of"/>
                             <constraint firstItem="K87-Xb-AEX" firstAttribute="leading" secondItem="CFR-rl-SaS" secondAttribute="leading" constant="8" id="pGb-Lh-Doa"/>
@@ -447,11 +447,10 @@
         <!--Banner View-->
         <scene sceneID="iZM-hH-56k">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ka-CG-osN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Banner View" id="hI4-Mn-dTE" customClass="EBDialogAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lbh-2I-L9u"/>
-                        <viewControllerLayoutGuide type="bottom" id="BHB-wp-XY7"/>
+                        <viewControllerLayoutGuide type="top" id="eVB-Ss-N6K"/>
+                        <viewControllerLayoutGuide type="bottom" id="xCM-UB-zpX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SWA-b4-EpQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -650,6 +649,7 @@
                         <outlet property="showNativeAdButton2" destination="dpm-TB-cwf" id="4yE-wS-Xrq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ka-CG-osN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3024.8000000000002" y="662.51874062968523"/>
         </scene>
@@ -658,8 +658,8 @@
             <objects>
                 <viewController title="Banner View" id="piw-hj-Vj8" customClass="EBVideoAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UeF-X2-TKZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fw7-sW-gIN"/>
+                        <viewControllerLayoutGuide type="top" id="zSg-5j-Tgz"/>
+                        <viewControllerLayoutGuide type="bottom" id="dSW-QH-zN0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ccM-1k-DfF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -711,7 +711,7 @@
                             <constraint firstItem="wCC-s9-Ptt" firstAttribute="leading" secondItem="n78-yc-mHi" secondAttribute="trailing" constant="19" id="Hsv-EI-JBb"/>
                             <constraint firstItem="wCC-s9-Ptt" firstAttribute="top" secondItem="wpq-Sd-cSz" secondAttribute="bottom" constant="12" id="MO6-hz-nVI"/>
                             <constraint firstItem="n78-yc-mHi" firstAttribute="leading" secondItem="ccM-1k-DfF" secondAttribute="leading" constant="8" id="OaD-nA-0qd"/>
-                            <constraint firstItem="wpq-Sd-cSz" firstAttribute="top" secondItem="UeF-X2-TKZ" secondAttribute="bottom" constant="20" id="Qd8-DP-gK0"/>
+                            <constraint firstItem="wpq-Sd-cSz" firstAttribute="top" secondItem="zSg-5j-Tgz" secondAttribute="bottom" constant="20" id="Qd8-DP-gK0"/>
                             <constraint firstItem="wpq-Sd-cSz" firstAttribute="leading" secondItem="ccM-1k-DfF" secondAttribute="leading" constant="8" id="rOX-6j-pi2"/>
                             <constraint firstAttribute="trailing" secondItem="wCC-s9-Ptt" secondAttribute="trailing" constant="8" id="rzi-wn-yUo"/>
                         </constraints>
@@ -732,8 +732,8 @@
             <objects>
                 <viewController title="Banner View" id="bIZ-1A-moh" customClass="EBNativeVideoAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1O8-4w-EHc"/>
-                        <viewControllerLayoutGuide type="bottom" id="zTR-AH-IUt"/>
+                        <viewControllerLayoutGuide type="top" id="xD4-3S-Y4Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="af6-vk-MTo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rP3-HM-sZy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -812,8 +812,8 @@
             <objects>
                 <viewController id="OZV-Tk-d90" customClass="EBAdTagViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EMu-Li-GYq"/>
-                        <viewControllerLayoutGuide type="bottom" id="kMH-Ko-RIJ"/>
+                        <viewControllerLayoutGuide type="top" id="xyb-9y-Alf"/>
+                        <viewControllerLayoutGuide type="bottom" id="KHr-Xd-8b8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DPM-1l-da5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -840,13 +840,13 @@
             </objects>
             <point key="canvasLocation" x="30" y="2920"/>
         </scene>
-        <!--Mediation Ad View-->
+        <!--Mediation Interstitial View-->
         <scene sceneID="5fT-oz-dpw">
             <objects>
-                <viewController title="Mediation Ad View" id="rVi-Aq-6vD" customClass="EBMediationBannerViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mediation Interstitial View" id="rVi-Aq-6vD" customClass="EBMediationBannerViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TxF-OW-CKa"/>
-                        <viewControllerLayoutGuide type="bottom" id="h8E-BQ-PLr"/>
+                        <viewControllerLayoutGuide type="top" id="t20-km-h1S"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wgu-Cy-aA4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f26-Nf-SY3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -905,9 +905,9 @@
                             <constraint firstItem="Zvj-F5-66v" firstAttribute="leading" secondItem="f26-Nf-SY3" secondAttribute="leading" id="DYl-vU-Qca"/>
                             <constraint firstItem="tvr-yE-m2w" firstAttribute="width" secondItem="HiS-lq-Z6a" secondAttribute="width" id="ROe-BZ-V1K"/>
                             <constraint firstAttribute="trailing" secondItem="Zvj-F5-66v" secondAttribute="trailing" id="X4S-qs-Obn"/>
-                            <constraint firstItem="h8E-BQ-PLr" firstAttribute="top" secondItem="Zvj-F5-66v" secondAttribute="bottom" id="e8Y-kU-wae"/>
+                            <constraint firstItem="Wgu-Cy-aA4" firstAttribute="top" secondItem="Zvj-F5-66v" secondAttribute="bottom" id="e8Y-kU-wae"/>
                             <constraint firstItem="HiS-lq-Z6a" firstAttribute="leading" secondItem="f26-Nf-SY3" secondAttribute="leading" constant="8" id="gsV-65-OMO"/>
-                            <constraint firstItem="GO4-RJ-q6N" firstAttribute="top" secondItem="TxF-OW-CKa" secondAttribute="bottom" constant="12" id="hSg-Kn-lVe"/>
+                            <constraint firstItem="GO4-RJ-q6N" firstAttribute="top" secondItem="t20-km-h1S" secondAttribute="bottom" constant="12" id="hSg-Kn-lVe"/>
                             <constraint firstAttribute="trailing" secondItem="tvr-yE-m2w" secondAttribute="trailing" constant="8" id="jvU-ck-iqv"/>
                             <constraint firstItem="tvr-yE-m2w" firstAttribute="leading" secondItem="HiS-lq-Z6a" secondAttribute="trailing" constant="19" id="xLr-h5-mhi"/>
                             <constraint firstItem="HiS-lq-Z6a" firstAttribute="top" secondItem="GO4-RJ-q6N" secondAttribute="bottom" constant="12" id="yRn-1M-n3e"/>
@@ -925,89 +925,13 @@
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="2112.5937031484259"/>
         </scene>
-        <!--Mediation Interstitial-->
-        <scene sceneID="MEA-3s-op2">
-            <objects>
-                <viewController id="rif-y0-IK0" customClass="EBMediationInterstitialViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SFf-ye-FWA"/>
-                        <viewControllerLayoutGuide type="bottom" id="XOX-HK-pQx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="epd-Mq-8cO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyj-ir-v8Y">
-                                <rect key="frame" x="8" y="12" width="377" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6DM-zA-Qoe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="rVi-Aq-6vD" id="mIn-rK-lxg"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMl-Rz-L1n">
-                                <rect key="frame" x="8" y="54" width="179" height="40"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="KV5-aG-b9N"/>
-                                </constraints>
-                                <state key="normal" title="Request Mediaion">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapLoadButton:" destination="rif-y0-IK0" eventType="touchUpInside" id="Pjp-6r-t5L"/>
-                                    <action selector="didTapLoadButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="sD9-93-38T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxw-sX-1nD">
-                                <rect key="frame" x="206" y="54" width="179" height="40"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="f3M-7W-4Q0"/>
-                                </constraints>
-                                <state key="normal" title="Load Mediation">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapShowButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="TZH-Hg-TqO"/>
-                                    <action selector="didTapShowButton:" destination="rif-y0-IK0" eventType="touchUpInside" id="jCC-vJ-dQV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lyj-ir-v8Y" secondAttribute="trailing" constant="8" id="GRF-I5-h6k"/>
-                            <constraint firstItem="fxw-sX-1nD" firstAttribute="leading" secondItem="dMl-Rz-L1n" secondAttribute="trailing" constant="19" id="IUg-Lh-QSX"/>
-                            <constraint firstItem="dMl-Rz-L1n" firstAttribute="top" secondItem="lyj-ir-v8Y" secondAttribute="bottom" constant="12" id="JaS-2Q-X87"/>
-                            <constraint firstItem="fxw-sX-1nD" firstAttribute="top" secondItem="lyj-ir-v8Y" secondAttribute="bottom" constant="12" id="Nlh-xU-DwM"/>
-                            <constraint firstItem="lyj-ir-v8Y" firstAttribute="top" secondItem="epd-Mq-8cO" secondAttribute="top" constant="12" id="Opm-V5-KEc"/>
-                            <constraint firstItem="lyj-ir-v8Y" firstAttribute="leading" secondItem="epd-Mq-8cO" secondAttribute="leading" constant="8" id="aD7-wA-2K0"/>
-                            <constraint firstItem="fxw-sX-1nD" firstAttribute="width" secondItem="dMl-Rz-L1n" secondAttribute="width" id="e1R-M0-tAe"/>
-                            <constraint firstItem="dMl-Rz-L1n" firstAttribute="leading" secondItem="epd-Mq-8cO" secondAttribute="leading" constant="8" id="f21-Bm-evp"/>
-                            <constraint firstAttribute="trailing" secondItem="fxw-sX-1nD" secondAttribute="trailing" constant="8" id="vmW-oQ-LG0"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Mediation Interstitial" id="CZt-pY-LG0"/>
-                    <connections>
-                        <outlet property="keywordsTextField" destination="lyj-ir-v8Y" id="8nL-qT-3Oh"/>
-                        <outlet property="loadAdButton" destination="dMl-Rz-L1n" id="rfh-eT-BaI"/>
-                        <outlet property="showAdButton" destination="fxw-sX-1nD" id="ji2-pD-ecs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z9d-tb-9kc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="815" y="2112"/>
-        </scene>
         <!--Mediation Native-->
         <scene sceneID="QNc-J3-Cuh">
             <objects>
                 <viewController title="Mediation Native" id="b4a-9N-vf4" customClass="EBMediationNativeAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dLz-te-L0p"/>
-                        <viewControllerLayoutGuide type="bottom" id="jWW-1e-5m2"/>
+                        <viewControllerLayoutGuide type="top" id="b66-rE-RYb"/>
+                        <viewControllerLayoutGuide type="bottom" id="E25-Bp-d2m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IQd-Df-9F8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -1062,7 +986,7 @@
                             <constraint firstItem="ajd-m7-h62" firstAttribute="top" secondItem="fKZ-4Z-0Lf" secondAttribute="bottom" constant="12" id="Qx3-ll-c4H"/>
                             <constraint firstItem="Ath-o3-Dad" firstAttribute="top" secondItem="fKZ-4Z-0Lf" secondAttribute="bottom" constant="12" id="RtE-pt-lae"/>
                             <constraint firstAttribute="trailing" secondItem="eqd-4H-fgI" secondAttribute="trailing" id="TeO-jS-dQZ"/>
-                            <constraint firstItem="fKZ-4Z-0Lf" firstAttribute="top" secondItem="dLz-te-L0p" secondAttribute="bottom" constant="12" id="WKq-jd-wcS"/>
+                            <constraint firstItem="fKZ-4Z-0Lf" firstAttribute="top" secondItem="b66-rE-RYb" secondAttribute="bottom" constant="12" id="WKq-jd-wcS"/>
                             <constraint firstItem="eqd-4H-fgI" firstAttribute="top" secondItem="ajd-m7-h62" secondAttribute="bottom" constant="8" id="YD1-m2-W6R"/>
                             <constraint firstAttribute="trailing" secondItem="fKZ-4Z-0Lf" secondAttribute="trailing" constant="8" id="a4d-5N-Nzd"/>
                             <constraint firstItem="fKZ-4Z-0Lf" firstAttribute="leading" secondItem="IQd-Df-9F8" secondAttribute="leading" constant="8" id="lr5-6q-Usc"/>
@@ -1089,8 +1013,8 @@
             <objects>
                 <viewController title="Mediation BizBoard" id="kWs-pS-o4g" customClass="EBMediationBizBoardViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Edm-6f-Hem"/>
-                        <viewControllerLayoutGuide type="bottom" id="heS-ka-Esv"/>
+                        <viewControllerLayoutGuide type="top" id="enN-Tn-0rP"/>
+                        <viewControllerLayoutGuide type="bottom" id="2lD-hb-ZiD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XbW-sx-zZo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -1139,7 +1063,7 @@
                             <constraint firstItem="zJn-9r-hlA" firstAttribute="width" secondItem="BCr-mO-YZX" secondAttribute="width" id="abU-eP-H25"/>
                             <constraint firstItem="BCr-mO-YZX" firstAttribute="top" secondItem="RMg-v7-BJB" secondAttribute="bottom" constant="12" id="bg2-wA-c7r"/>
                             <constraint firstItem="zJn-9r-hlA" firstAttribute="leading" secondItem="BCr-mO-YZX" secondAttribute="trailing" constant="19" id="eUF-nY-13Y"/>
-                            <constraint firstItem="RMg-v7-BJB" firstAttribute="top" secondItem="Edm-6f-Hem" secondAttribute="bottom" constant="12" id="gKG-J8-AsS"/>
+                            <constraint firstItem="RMg-v7-BJB" firstAttribute="top" secondItem="enN-Tn-0rP" secondAttribute="bottom" constant="12" id="gKG-J8-AsS"/>
                             <constraint firstItem="zJn-9r-hlA" firstAttribute="leading" secondItem="BCr-mO-YZX" secondAttribute="trailing" constant="19" id="gTR-Sr-3cX"/>
                             <constraint firstAttribute="trailing" secondItem="zJn-9r-hlA" secondAttribute="trailing" constant="8" id="nPP-Pn-zTL"/>
                             <constraint firstItem="zJn-9r-hlA" firstAttribute="top" secondItem="RMg-v7-BJB" secondAttribute="bottom" constant="12" id="xSj-FZ-9HK"/>
@@ -1161,8 +1085,8 @@
             <objects>
                 <viewController title="Mediation Native" id="E1O-ar-lsf" customClass="EBMediationNativeVideoAdViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jab-Lg-HUD"/>
-                        <viewControllerLayoutGuide type="bottom" id="v6o-v4-R6v"/>
+                        <viewControllerLayoutGuide type="top" id="gQ3-DX-e0v"/>
+                        <viewControllerLayoutGuide type="bottom" id="IjM-5b-gJW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zlc-oe-mdd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
@@ -1212,7 +1136,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pQK-xf-awk" firstAttribute="top" secondItem="Jab-Lg-HUD" secondAttribute="bottom" constant="12" id="21D-UV-8yl"/>
+                            <constraint firstItem="pQK-xf-awk" firstAttribute="top" secondItem="gQ3-DX-e0v" secondAttribute="bottom" constant="12" id="21D-UV-8yl"/>
                             <constraint firstItem="h0r-Y3-DGA" firstAttribute="top" secondItem="pQK-xf-awk" secondAttribute="bottom" constant="12" id="48E-vM-HYE"/>
                             <constraint firstItem="zCI-st-RXa" firstAttribute="top" secondItem="pQK-xf-awk" secondAttribute="bottom" constant="12" id="H1k-KX-Xwt"/>
                             <constraint firstAttribute="trailing" secondItem="h0r-Y3-DGA" secondAttribute="trailing" constant="8" id="HZG-M1-qSF"/>
@@ -1239,81 +1163,153 @@
             </objects>
             <point key="canvasLocation" x="3004" y="2113"/>
         </scene>
-        <!--Mediation Interstitial Video-->
-        <scene sceneID="mpu-en-UPX">
+        <!--Mediation Interstitial View-->
+        <scene sceneID="gAP-y5-mZv">
             <objects>
-                <viewController id="4WU-cb-BOc" customClass="EBMediationInterstitialVideoViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mediation Interstitial View" id="OBJ-iN-io6" customClass="EBMediationInterstitialViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jOW-cL-86x"/>
-                        <viewControllerLayoutGuide type="bottom" id="DQd-9L-ENw"/>
+                        <viewControllerLayoutGuide type="top" id="XNl-Ud-6vj"/>
+                        <viewControllerLayoutGuide type="bottom" id="9wH-4L-juA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VaU-jV-Czm">
+                    <view key="view" contentMode="scaleToFill" id="iWO-3s-qsF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfz-Fs-r3P">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ywc-BQ-X7A">
                                 <rect key="frame" x="8" y="12" width="377" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3wo-FM-Tvi"/>
+                                    <constraint firstAttribute="height" constant="30" id="DgM-qa-qq6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="rVi-Aq-6vD" id="v47-ql-aJw"/>
+                                    <outlet property="delegate" destination="OBJ-iN-io6" id="GWc-85-XYp"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-T0-Kny">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ML-ma-TXA">
                                 <rect key="frame" x="8" y="54" width="179" height="40"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cgJ-Ub-5kN"/>
+                                    <constraint firstAttribute="height" constant="40" id="EPH-Xf-J1n"/>
                                 </constraints>
                                 <state key="normal" title="Request Mediaion">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapLoadButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="Wc4-WH-V18"/>
-                                    <action selector="didTapLoadButton:" destination="4WU-cb-BOc" eventType="touchUpInside" id="gij-rf-C2s"/>
+                                    <action selector="didTapLoadButton:" destination="OBJ-iN-io6" eventType="touchUpInside" id="bcC-yV-ils"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7do-y2-qQH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2b-4M-Odj">
                                 <rect key="frame" x="206" y="54" width="179" height="40"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Aqv-Pt-Kkq"/>
+                                    <constraint firstAttribute="height" constant="40" id="v3d-rR-6Ho"/>
                                 </constraints>
                                 <state key="normal" title="Load Mediation">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapShowButton:" destination="rVi-Aq-6vD" eventType="touchUpInside" id="9Fh-Y0-bwQ"/>
-                                    <action selector="didTapShowButton:" destination="4WU-cb-BOc" eventType="touchUpInside" id="c93-Bx-GXf"/>
+                                    <action selector="didTapShowButton:" destination="OBJ-iN-io6" eventType="touchUpInside" id="kkQ-HG-JV8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Gfz-Fs-r3P" firstAttribute="leading" secondItem="VaU-jV-Czm" secondAttribute="leading" constant="8" id="FVU-0U-Rh3"/>
-                            <constraint firstItem="7do-y2-qQH" firstAttribute="top" secondItem="Gfz-Fs-r3P" secondAttribute="bottom" constant="12" id="JIj-uA-7n7"/>
-                            <constraint firstAttribute="trailing" secondItem="7do-y2-qQH" secondAttribute="trailing" constant="8" id="Nwh-oO-KIa"/>
-                            <constraint firstItem="7do-y2-qQH" firstAttribute="width" secondItem="WEO-T0-Kny" secondAttribute="width" id="SEm-rs-2lL"/>
-                            <constraint firstItem="WEO-T0-Kny" firstAttribute="leading" secondItem="VaU-jV-Czm" secondAttribute="leading" constant="8" id="Shl-Ee-cSo"/>
-                            <constraint firstItem="Gfz-Fs-r3P" firstAttribute="top" secondItem="VaU-jV-Czm" secondAttribute="top" constant="12" id="boC-v5-JGQ"/>
-                            <constraint firstItem="WEO-T0-Kny" firstAttribute="top" secondItem="Gfz-Fs-r3P" secondAttribute="bottom" constant="12" id="dNj-Ox-zRH"/>
-                            <constraint firstAttribute="trailing" secondItem="Gfz-Fs-r3P" secondAttribute="trailing" constant="8" id="hoJ-e7-MM5"/>
-                            <constraint firstItem="7do-y2-qQH" firstAttribute="leading" secondItem="WEO-T0-Kny" secondAttribute="trailing" constant="19" id="vav-Da-7Yu"/>
+                            <constraint firstAttribute="trailing" secondItem="p2b-4M-Odj" secondAttribute="trailing" constant="8" id="355-ps-IeE"/>
+                            <constraint firstItem="p2b-4M-Odj" firstAttribute="top" secondItem="Ywc-BQ-X7A" secondAttribute="bottom" constant="12" id="8mj-gd-cM2"/>
+                            <constraint firstItem="p2b-4M-Odj" firstAttribute="leading" secondItem="2ML-ma-TXA" secondAttribute="trailing" constant="19" id="E3x-6x-UkA"/>
+                            <constraint firstItem="Ywc-BQ-X7A" firstAttribute="leading" secondItem="iWO-3s-qsF" secondAttribute="leading" constant="8" id="OIJ-wC-glv"/>
+                            <constraint firstItem="2ML-ma-TXA" firstAttribute="leading" secondItem="iWO-3s-qsF" secondAttribute="leading" constant="8" id="Rj8-Ml-imX"/>
+                            <constraint firstItem="p2b-4M-Odj" firstAttribute="width" secondItem="2ML-ma-TXA" secondAttribute="width" id="WMW-HM-ivC"/>
+                            <constraint firstItem="2ML-ma-TXA" firstAttribute="top" secondItem="Ywc-BQ-X7A" secondAttribute="bottom" constant="12" id="kUp-Af-ELX"/>
+                            <constraint firstAttribute="trailing" secondItem="Ywc-BQ-X7A" secondAttribute="trailing" constant="8" id="taP-I7-0eP"/>
+                            <constraint firstItem="Ywc-BQ-X7A" firstAttribute="top" secondItem="XNl-Ud-6vj" secondAttribute="bottom" constant="12" id="yHC-Wk-n4m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mediation Interstitial Video" id="obO-Gk-Gkr"/>
+                    <navigationItem key="navigationItem" title="Mediation Interstitial View" id="Hx5-Fz-xvx"/>
                     <connections>
-                        <outlet property="keywordsTextField" destination="Gfz-Fs-r3P" id="Xoe-Zw-Lvz"/>
-                        <outlet property="loadAdButton" destination="WEO-T0-Kny" id="I51-IG-f4W"/>
-                        <outlet property="showAdButton" destination="7do-y2-qQH" id="Y2N-Qn-o4Z"/>
+                        <outlet property="keywordsTextField" destination="Ywc-BQ-X7A" id="Q4j-B3-ias"/>
+                        <outlet property="loadAdButton" destination="2ML-ma-TXA" id="wgg-yh-0ON"/>
+                        <outlet property="showAdButton" destination="p2b-4M-Odj" id="tOM-WZ-yfv"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P0N-vc-LRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jV5-fk-6Dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="2113"/>
+            <point key="canvasLocation" x="815" y="2113"/>
+        </scene>
+        <!--Mediation Interstitial Video View-->
+        <scene sceneID="NQz-kj-akL">
+            <objects>
+                <viewController title="Mediation Interstitial Video View" id="2j9-EO-D19" customClass="EBMediationInterstitialViewController" customModule="ExelbidSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7h8-gr-83q"/>
+                        <viewControllerLayoutGuide type="bottom" id="BvV-Db-Xaa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H5L-So-SVM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCm-Lj-3RA">
+                                <rect key="frame" x="8" y="12" width="377" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cwY-mZ-EfG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2j9-EO-D19" id="FiG-ku-Trt"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nc-5e-vHL">
+                                <rect key="frame" x="8" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="r6e-hH-dAj"/>
+                                </constraints>
+                                <state key="normal" title="Request Mediaion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoadButton:" destination="2j9-EO-D19" eventType="touchUpInside" id="6iP-1N-wJH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-ln-99d">
+                                <rect key="frame" x="206" y="54" width="179" height="40"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wb5-Xv-JAh"/>
+                                </constraints>
+                                <state key="normal" title="Load Mediation">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowButton:" destination="2j9-EO-D19" eventType="touchUpInside" id="hOW-1q-k2E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Df2-ln-99d" firstAttribute="width" secondItem="9Nc-5e-vHL" secondAttribute="width" id="DUs-vw-FNs"/>
+                            <constraint firstItem="9Nc-5e-vHL" firstAttribute="leading" secondItem="H5L-So-SVM" secondAttribute="leading" constant="8" id="EZo-kk-OVW"/>
+                            <constraint firstAttribute="trailing" secondItem="CCm-Lj-3RA" secondAttribute="trailing" constant="8" id="FSN-uB-5qX"/>
+                            <constraint firstItem="9Nc-5e-vHL" firstAttribute="top" secondItem="CCm-Lj-3RA" secondAttribute="bottom" constant="12" id="Jxr-Lp-7FU"/>
+                            <constraint firstItem="CCm-Lj-3RA" firstAttribute="top" secondItem="7h8-gr-83q" secondAttribute="bottom" constant="12" id="ale-rw-5a5"/>
+                            <constraint firstItem="Df2-ln-99d" firstAttribute="leading" secondItem="9Nc-5e-vHL" secondAttribute="trailing" constant="19" id="h4o-ni-AqP"/>
+                            <constraint firstItem="Df2-ln-99d" firstAttribute="top" secondItem="CCm-Lj-3RA" secondAttribute="bottom" constant="12" id="lh1-a3-oHS"/>
+                            <constraint firstItem="CCm-Lj-3RA" firstAttribute="leading" secondItem="H5L-So-SVM" secondAttribute="leading" constant="8" id="pTG-g3-mEk"/>
+                            <constraint firstAttribute="trailing" secondItem="Df2-ln-99d" secondAttribute="trailing" constant="8" id="uH6-XD-OcS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mediation Interstitial Video View" id="UJK-1f-s6M"/>
+                    <connections>
+                        <outlet property="keywordsTextField" destination="CCm-Lj-3RA" id="oGj-wZ-Mof"/>
+                        <outlet property="loadAdButton" destination="9Nc-5e-vHL" id="PjB-VZ-epg"/>
+                        <outlet property="showAdButton" destination="Df2-ln-99d" id="bho-bW-Vbd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWV-f1-D9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="2113"/>
         </scene>
     </scenes>
     <resources>

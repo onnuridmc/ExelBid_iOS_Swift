@@ -29,7 +29,7 @@
 #import <AppLovinSDK/AppLovinSDK.h>
 
 // TargetPick
-//#import <LibADPlus/LibADPlus-Swift.h>
+#import <LibADPlus/LibADPlus-Swift.h>
 
 @interface EBMediationBannerAdViewController ()<UITextFieldDelegate, EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, MAAdViewAdDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener>
 
@@ -56,8 +56,8 @@
 @property (nonatomic, strong) MAAdView *alBannerAd;
 
 // TargetPick
-//@property (nonatomic, assign) NSInteger tpPublisherId;
-//@property (nonatomic, assign) NSInteger tpMediaId;
+@property (nonatomic, assign) NSInteger tpPublisherId;
+@property (nonatomic, assign) NSInteger tpMediaId;
 
 @end
 
@@ -67,8 +67,8 @@
 {
     self = [super init];
     if (self) {
-//        _tpPublisherId = 102;
-//        _tpMediaId = 202;
+        _tpPublisherId = 1761;
+        _tpMediaId = 33372;
     }
     return self;
 }
@@ -102,7 +102,7 @@
                                 EBMediationTypes.pangle,
                                 EBMediationTypes.tnk,
                                 EBMediationTypes.applovin,
-//                                EBMediationTypes.targetpick,
+                                EBMediationTypes.targetpick,
                                 nil];
 
     // ExelBid 미디에이션 초기화
@@ -233,8 +233,8 @@
             [self loadTnk:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.applovin]) {
             [self loadApplovin:mediation];
-//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
-//            [self loadTargetPick:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+            [self loadTargetPick:mediation];
         } else {
             [self loadMediation];
         }
@@ -404,51 +404,51 @@
 }
 
 // TargetPick 광고 호출
-//- (void)loadTargetPick:(EBMediationWrapper *)mediation
-//{
-//    [self clearAd];
-//    
-//    ADMZBannerModel *model = [[ADMZBannerModel alloc]
-//                              initWithPublisherID:self.tpPublisherId
-//                              withMediaID:self.tpMediaId
-//                              withSectionID:[mediation.unit_id integerValue]
-//                              withBannerSize:CGSizeMake(320, 50)
-//                              withKeywordParameter:@"KeywordTargeting"
-//                              withOtherParameter:@"BannerAdditionalParameters"
-//                              withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
-//                              withAppID:@"appID"
-//                              withAppName:@"appName"
-//                              withStoreURL:@"StoreURL"
-//                              withSMS:YES
-//                              withTel:YES
-//                              withCalendar:YES
-//                              withStorePicture:YES
-//                              withInlineVideo:YES
-//                              withBannerType:ADMZBannerTypeFront];
-//    
-//    ADMZBannerView * bannerAd = [[ADMZBannerView alloc] init];
-//    
-//    [bannerAd updateModelWithValue:model];
-//    
-//    [bannerAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"BannerDidEventFail");
-//    }];
-//    [bannerAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"BannerDidEventOther");
-//    }];
-//    [bannerAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"BannerDidEventSuccess");
-//    }];
-//    [bannerAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
-//        NSLog(@"Result = %@",param);
-//    }];
-//    
-//    [self.adViewContainer addSubview:bannerAd];
-//    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:bannerAd];
-//    
-//    [bannerAd startBanner];
-//    
-//}
+- (void)loadTargetPick:(EBMediationWrapper *)mediation
+{
+    [self clearAd];
+    
+    ADMZBannerModel *model = [[ADMZBannerModel alloc]
+                              initWithPublisherID:self.tpPublisherId
+                              withMediaID:self.tpMediaId
+                              withSectionID:[mediation.unit_id integerValue]
+                              withBannerSize:CGSizeMake(320, 50)
+                              withKeywordParameter:@"KeywordTargeting"
+                              withOtherParameter:@"BannerAdditionalParameters"
+                              withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
+                              withAppID:[[NSBundle mainBundle] bundleIdentifier]
+                              withAppName:@"ExelbidDemo(iOS)"
+                              withStoreURL:@"StoreURL"
+                              withSMS:YES
+                              withTel:YES
+                              withCalendar:YES
+                              withStorePicture:YES
+                              withInlineVideo:YES
+                              withBannerType:ADMZBannerTypeFront];
+    
+    ADMZBannerView * bannerAd = [[ADMZBannerView alloc] init];
+    
+    [bannerAd updateModelWithValue:model];
+    
+    [bannerAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"BannerDidEventFail");
+    }];
+    [bannerAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"BannerDidEventOther");
+    }];
+    [bannerAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"BannerDidEventSuccess");
+    }];
+    [bannerAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
+        NSLog(@"Result = %@",param);
+    }];
+    
+    [self.adViewContainer addSubview:bannerAd];
+    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:bannerAd];
+    
+    [bannerAd startBanner];
+    
+}
 
 #pragma mark - EBAdViewDelegate
 

@@ -17,7 +17,7 @@ import GoogleMobileAds
 import PAGAdSDK
 
 // TargetPick
-//import LibADPlus
+import LibADPlus
 
 
 class EBMediationNativeVideoAdViewController : UIViewController {
@@ -39,8 +39,8 @@ class EBMediationNativeVideoAdViewController : UIViewController {
     var pagNativeAd: PAGLNativeAd?
     
     // TargetPick
-//    let tpPublisherId: Int? = 102
-//    let tpMediaId: Int? = 202
+    let tpPublisherId: Int? = 1761
+    let tpMediaId: Int? = 33372
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class EBMediationNativeVideoAdViewController : UIViewController {
             EBMediationTypes.exelbid,
             EBMediationTypes.admob,
             EBMediationTypes.pangle,
-//            EBMediationTypes.targetpick
+            EBMediationTypes.targetpick
         ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -102,7 +102,7 @@ extension EBMediationNativeVideoAdViewController {
         // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
-            print(">>>>> \(#function) : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -111,8 +111,8 @@ extension EBMediationNativeVideoAdViewController {
                 self.loadAdMob(mediation: mediation)
             case EBMediationTypes.pangle:
                 self.loadPangle(mediation: mediation)
-//            case EBMediationTypes.targetpick:
-//                self.loadTargetPick(mediation: mediation)
+            case EBMediationTypes.targetpick:
+                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -190,71 +190,71 @@ extension EBMediationNativeVideoAdViewController {
     }
     
     // TargetPick 광고 호출
-//    func loadTargetPick(mediation: EBMediationWrapper) {
-//        self.clearAd()
-//        
-//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
-//        if let section_id = Int(mediation.unit_id),
-//           let pub_id = self.tpPublisherId,
-//           let media_id = self.tpMediaId {
-//            
-//            let model = ADMZVideoModel(withPublisherID:pub_id,
-//                                       withMediaID: media_id,
-//                                       withSectionID: section_id,
-//                                       withVideoSize: .init(width: 320, height: 480),
-//                                       withKeywordParameter: "KeywordTargeting",
-//                                       withOtherParameter: "BannerAdditionalParameters",
-//                                       withMediaAgeLevel: .unknownType,
-//                                       withAppID: "appID",
-//                                       withAppName: "appName",
-//                                       withStoreURL: "StoreURL",
-//                                       withSMS: true,
-//                                       withTel: true,
-//                                       withCalendar: true,
-//                                       withStorePicture: true,
-//                                       withAutoPlay: true,
-//                                       withAutoReplay: true,
-//                                       withMuteOption: true,
-//                                       withClickFull: true,
-//                                       withClickButtonShow: true,
-//                                       withSkipButtonShow: true,
-//                                       withClickVideoArea: true,
-//                                       withCloseButtonShow: true,
-//                                       withSoundButtonShow: true,
-//                                       withInlineVideo: true)
-//            model.setUserInfo(withGenderType: .Male,
-//                              withAge: 15,
-//                              withUserID: "mezzomedia",
-//                              withEmail: "mezzo@mezzomedia.co.kr",
-//                              withUserLocationAgree: false)
-//            
-//            
-//            let videoAd = ADMZVideoView()
-//            videoAd.updateModel(value: model)
-//            
-//            // 필요에따라 이벤트 핸들러 구분
-//            let handler: ADMZEventHandler = { code in
-//                print(">>> \(code) - \(code.rawValue)")
-//            }
-//            
-//            videoAd.setFailHandler(value: handler)
-//            videoAd.setSuccessHandler(value: handler)
-//            videoAd.setOtherHandler(value: handler)
-//            videoAd.setAPIResponseHandler(value: { dic in
-//                print("API DATA = \(String.init(describing: dic))")
-//            })
-//            
-//            self.adViewContainer.addSubview(videoAd)
-//            setAutoLayout(view: self.adViewContainer, adView: videoAd)
-//            
-//            videoAd.startVideo()
-//        } else {
-//            // 예외 처리
-//            
-//            // 다음 미디에이션 호출
-//            self.loadMediation()
-//        }
-//    }
+    func loadTargetPick(mediation: EBMediationWrapper) {
+        self.clearAd()
+        
+        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+        if let section_id = Int(mediation.unit_id),
+           let pub_id = self.tpPublisherId,
+           let media_id = self.tpMediaId {
+            
+            let model = ADMZVideoModel(withPublisherID:pub_id,
+                                       withMediaID: media_id,
+                                       withSectionID: section_id,
+                                       withVideoSize: .init(width: 320, height: 480),
+                                       withKeywordParameter: "KeywordTargeting",
+                                       withOtherParameter: "BannerAdditionalParameters",
+                                       withMediaAgeLevel: .unknownType,
+                                       withAppID: "appID",
+                                       withAppName: "appName",
+                                       withStoreURL: "StoreURL",
+                                       withSMS: true,
+                                       withTel: true,
+                                       withCalendar: true,
+                                       withStorePicture: true,
+                                       withAutoPlay: true,
+                                       withAutoReplay: true,
+                                       withMuteOption: true,
+                                       withClickFull: true,
+                                       withClickButtonShow: true,
+                                       withSkipButtonShow: true,
+                                       withClickVideoArea: true,
+                                       withCloseButtonShow: true,
+                                       withSoundButtonShow: true,
+                                       withInlineVideo: true)
+            model.setUserInfo(withGenderType: .Male,
+                              withAge: 15,
+                              withUserID: "mezzomedia",
+                              withEmail: "mezzo@mezzomedia.co.kr",
+                              withUserLocationAgree: false)
+            
+            
+            let videoAd = ADMZVideoView()
+            videoAd.updateModel(value: model)
+            
+            // 필요에따라 이벤트 핸들러 구분
+            let handler: ADMZEventHandler = { code in
+                print(">>> \(code) - \(code.rawValue)")
+            }
+            
+            videoAd.setFailHandler(value: handler)
+            videoAd.setSuccessHandler(value: handler)
+            videoAd.setOtherHandler(value: handler)
+            videoAd.setAPIResponseHandler(value: { dic in
+                print("API DATA = \(String.init(describing: dic))")
+            })
+            
+            self.adViewContainer.addSubview(videoAd)
+            setAutoLayout(view: self.adViewContainer, adView: videoAd)
+            
+            videoAd.startVideo()
+        } else {
+            // 예외 처리
+            
+            // 다음 미디에이션 호출
+            self.loadMediation()
+        }
+    }
 }
  
 // MARK: - 광고 뷰 Delegate

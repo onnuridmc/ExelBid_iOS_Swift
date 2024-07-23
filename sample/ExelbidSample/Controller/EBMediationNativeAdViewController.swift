@@ -123,7 +123,7 @@ extension EBMediationNativeAdViewController {
         // 미디에이션 목록을 순차적으로 가져옴
         if let mediation = mediationManager.next() {
             
-            print(">>>>> \(#function) : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:

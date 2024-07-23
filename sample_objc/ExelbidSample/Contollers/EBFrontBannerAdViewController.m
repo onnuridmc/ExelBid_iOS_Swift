@@ -51,7 +51,8 @@
 //        [[EBAdPersistenceManager sharedManager] addSavedAd:self.info];
 //    }
     
-    self.interstitial = [EBInterstitialAdController interstitialAdControllerForAdUnitId:self.keywordsTextField.text];
+    
+    self.interstitial = [[EBInterstitialAdController alloc] initWithAdUnitId:self.keywordsTextField.text];
     self.interstitial.delegate = self;
 
      [self.interstitial setYob:@"1976"];

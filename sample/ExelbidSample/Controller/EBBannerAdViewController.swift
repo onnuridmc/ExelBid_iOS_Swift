@@ -49,11 +49,15 @@ extension EBBannerAdViewController {
         
         if let adView = self.adView {
             adView.delegate = self
+            
+            // AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.
+            // 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
             adView.fullWebView = true
             
             // 광고의 효율을 높이기 위해 옵션 설정
             adView.yob = "1987"
             adView.gender = "M"
+            // adView.testing = true
             
             self.adViewContainer.addSubview(adView)
             

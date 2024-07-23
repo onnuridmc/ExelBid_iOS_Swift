@@ -18,7 +18,7 @@
 #import <PAGAdSDK/PAGAdSDK.h>
 
 // TargetPick
-//#import <LibADPlus/LibADPlus-Swift.h>
+#import <LibADPlus/LibADPlus-Swift.h>
 
 @interface EBMediationNativeVideoAdViewController ()<UITextFieldDelegate, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, PAGLNativeAdDelegate>
 
@@ -34,8 +34,8 @@
 @property (nonatomic, strong) PAGLNativeAd *pagNativeAd;
 
 // TargetPick
-//@property (nonatomic, assign) NSInteger tpPublisherId;
-//@property (nonatomic, assign) NSInteger tpMediaId;
+@property (nonatomic, assign) NSInteger tpPublisherId;
+@property (nonatomic, assign) NSInteger tpMediaId;
 
 @end
 
@@ -45,8 +45,8 @@
 {
     self = [super init];
     if (self) {
-//        _tpPublisherId = 102;
-//        _tpMediaId = 202;
+        _tpPublisherId = 1761;
+        _tpMediaId = 33372;
     }
     return self;
 }
@@ -75,10 +75,11 @@
     
     // ExelBid 미디에이션 목록 설정
     NSArray * mediationTypes = [[NSArray alloc] initWithObjects:
-                       EBMediationTypes.exelbid,
-                       EBMediationTypes.admob,
-                       EBMediationTypes.pangle,
-                       nil];
+                                EBMediationTypes.exelbid,
+                                EBMediationTypes.admob,
+                                EBMediationTypes.pangle,
+                                EBMediationTypes.targetpick,
+                                nil];
     
     // ExelBid 미디에이션 초기화
     self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:mediationTypes];
@@ -189,8 +190,8 @@
             [self loadAdMob:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.pangle]) {
             [self loadPangle:mediation];
-//        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
-//            [self loadTargetPick:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
+            [self loadTargetPick:mediation];
         } else {
             [self loadMediation];
         }
@@ -271,44 +272,57 @@
 }
 
 // TargetPick 광고 호출
-//- (void)loadTargetPick:(EBMediationWrapper *)mediation
-//{
-//    [self clearAd];
-//    
-//    NSInteger pid = 102;
-//    NSInteger mid = 202;
-//    NSInteger sid = 804408;
-//    CGSize size = CGSizeMake(320, 480);
-//    NSString *keyParam = @"KeywordTargeting";
-//    NSString *otherParam = @"BannerAdditionalParameters";
-//    NSString *appID = @"appID";
-//    NSString *appName = @"appName";
-//    NSString *storeURL = @"StoreURL";
-//    
-//    ADMZVideoModel *model = [[ADMZVideoModel alloc]
-//                             initWithPublisherID:pid withMediaID:mid withSectionID:sid withVideoSize:size withKeywordParameter:keyParam withOtherParameter:otherParam withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age withAppID:appID withAppName:appName withStoreURL:storeURL withSMS:YES withTel:YES withCalendar:YES withStorePicture:YES withAutoPlay:YES withAutoReplay:YES withMuteOption:YES withClickFull:YES withClickButtonShow:YES withSkipButtonShow:YES withClickVideoArea:YES withCloseButtonShow:YES withSoundButtonShow:YES withInlineVideo:YES];
-//    
-//    ADMZVideoView * videoAd = [[ADMZVideoView alloc] init];
-//    [videoAd updateModelWithValue:model];
-//
-//    [videoAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"VideoDidEventFailed");
-//    }];
-//    [videoAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"VideoDidEventOther");
-//    }];
-//    [videoAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
-//        NSLog(@"VideoDidEventSuccess");
-//    }];
-//    [videoAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
-//        NSLog(@"Result = %@",param);
-//    }];
-//    
-//    [self.adViewContainer addSubview:videoAd];
-//    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:videoAd];
-//    
-//    [videoAd startVideo];
-//}
+- (void)loadTargetPick:(EBMediationWrapper *)mediation
+{
+    [self clearAd];
+    
+    ADMZVideoModel *model = [[ADMZVideoModel alloc]
+                             initWithPublisherID:self.tpPublisherId
+                             withMediaID:self.tpMediaId
+                             withSectionID:[mediation.unit_id integerValue]
+                             withVideoSize:CGSizeMake(320, 480)
+                             withKeywordParameter:@"KeywordTargeting"
+                             withOtherParameter:@"BannerAdditionalParameters"
+                             withMediaAgeLevel:ADMZUserAgeLevelTypeOver13Age
+                             withAppID:[[NSBundle mainBundle] bundleIdentifier]
+                             withAppName:@"ExelbidDemo(iOS)"
+                             withStoreURL:@"StoreURL"
+                             withSMS:YES
+                             withTel:YES
+                             withCalendar:YES
+                             withStorePicture:YES
+                             withAutoPlay:YES
+                             withAutoReplay:YES
+                             withMuteOption:YES
+                             withClickFull:YES
+                             withClickButtonShow:YES
+                             withSkipButtonShow:YES
+                             withClickVideoArea:YES 
+                             withCloseButtonShow:YES
+                             withSoundButtonShow:YES
+                             withInlineVideo:YES];
+    
+    ADMZVideoView * videoAd = [[ADMZVideoView alloc] init];
+    [videoAd updateModelWithValue:model];
+
+    [videoAd setFailHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"VideoDidEventFailed");
+    }];
+    [videoAd setOtherHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"VideoDidEventOther");
+    }];
+    [videoAd setSuccessHandlerWithValue:^(enum ADMZResponseStatusType type) {
+        NSLog(@"VideoDidEventSuccess");
+    }];
+    [videoAd setAPIResponseHandlerWithValue:^(NSDictionary<NSString *,id> * _Nullable param) {
+        NSLog(@"Result = %@",param);
+    }];
+    
+    [self.adViewContainer addSubview:videoAd];
+    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:videoAd];
+    
+    [videoAd startVideo];
+}
 
 #pragma mark - UITextFieldDelegate
 

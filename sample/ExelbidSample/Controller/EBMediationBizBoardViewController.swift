@@ -91,7 +91,7 @@ extension EBMediationBizBoardViewController {
         // 미디에이션 목록을 순차적으로 가져옴
         if let mediation = mediationManager.next() {
             
-            print(">>>>> Mediation ID : \(mediation.id)")
+            print(">>>>> Mediation ID : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:

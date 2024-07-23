@@ -29,7 +29,7 @@ import TnkPubSdk
 import AppLovinSDK
 
 // TargetPick
-//import LibADPlus
+import LibADPlus
 
 class EBMediationInterstitialViewController : UIViewController {
     
@@ -58,8 +58,8 @@ class EBMediationInterstitialViewController : UIViewController {
     var alInterstitialAd: MAInterstitialAd!
     
     // TargetPick
-//    let tpPublisherId: Int? = 100
-//    let tpMediaId: Int? = 200
+    let tpPublisherId: Int? = 1761
+    let tpMediaId: Int? = 33372
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,7 @@ class EBMediationInterstitialViewController : UIViewController {
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
             EBMediationTypes.applovin,
-//            EBMediationTypes.targetpick
+            EBMediationTypes.targetpick
         ]
         
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
@@ -117,7 +117,7 @@ extension EBMediationInterstitialViewController {
         // 미디에이션 순서대로 가져오기 (더이상 없으면 nil)
         if let mediation = mediationManager.next() {
             
-            print(">>>>> \(#function) : \(mediation.id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -134,8 +134,8 @@ extension EBMediationInterstitialViewController {
                 self.loadTnk(mediation: mediation)
             case EBMediationTypes.applovin:
                 self.loadApplovin(mediation: mediation)
-//            case EBMediationTypes.targetpick:
-//                self.loadTargetPick(mediation: mediation)
+            case EBMediationTypes.targetpick:
+                self.loadTargetPick(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -153,7 +153,7 @@ extension EBMediationInterstitialViewController {
     
     // Exelbid 광고 호출
     func loadExelBid(mediation: EBMediationWrapper) {
-        self.ebInterstitialAd = EBInterstitialAdController.interstitialAdControllerForAdUnitId(mediation.unit_id)
+        self.ebInterstitialAd = EBInterstitialAdController(adUnitId: mediation.unit_id)
         if let interstitial = self.ebInterstitialAd {
             interstitial.delegate = self
             
@@ -262,52 +262,52 @@ extension EBMediationInterstitialViewController {
     }
     
     // TargetPick 광고 호출
-//    func loadTargetPick(mediation: EBMediationWrapper) {
-//        
-//        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
-//        if let section_id = Int(mediation.unit_id),
-//           let pub_id = self.tpPublisherId,
-//           let media_id = self.tpMediaId {
-//            
-//            let model = ADMZInterstitialModel(withPublisherID: pub_id,
-//                                              withMediaID: media_id,
-//                                              withSectionID: section_id,
-//                                              withKeywordParameter: "KeywordTargeting",
-//                                              withOtherParameter: "BannerAdditionalParameters",
-//                                              withMediaAgeLevel: .under13Age,
-//                                              withAppID:"appID",
-//                                              withAppName: "appName",
-//                                              withStoreURL: "StoreURL",
-//                                              withSMS: true,
-//                                              withTel: true,
-//                                              withCalendar: true,
-//                                              withStorePicture: true,
-//                                              withInlineVideo: true,
-//                                              withPopupType: .FullSize)
-//            model.setUserInfo(withGenderType: .Male,
-//                              withAge: 15,
-//                              withUserID: "mezzomedia",
-//                              withEmail: "mezzo@mezzomedia.co.kr",
-//                              withUserLocationAgree: false)
-//            
-//            // 필요에따라 이벤트 핸들러 구분
-//            let handler: ADMZEventHandler = { code in
-//                print(">>> \(code) - \(code.rawValue)")
-//            }
-//            
-//            ADMZInterstitialLoader.presentAd(fromViewController:self,
-//                                             withModel: model,
-//                                             withSuccessHandler: handler,
-//                                             withFailedHandler: handler,
-//                                             withOtherEventHandler: handler)
-//            
-//        } else {
-//            // 예외 처리
-//            
-//            // 다음 미디에이션 호출
-//            self.loadMediation()
-//        }
-//    }
+    func loadTargetPick(mediation: EBMediationWrapper) {
+        
+        // withSectionID 데이터형을 맞추기 위해 unit_id를 정수로 변환
+        if let section_id = Int(mediation.unit_id),
+           let pub_id = self.tpPublisherId,
+           let media_id = self.tpMediaId {
+            
+            let model = ADMZInterstitialModel(withPublisherID: pub_id,
+                                              withMediaID: media_id,
+                                              withSectionID: section_id,
+                                              withKeywordParameter: "KeywordTargeting",
+                                              withOtherParameter: "BannerAdditionalParameters",
+                                              withMediaAgeLevel: .under13Age,
+                                              withAppID:"appID",
+                                              withAppName: "appName",
+                                              withStoreURL: "StoreURL",
+                                              withSMS: true,
+                                              withTel: true,
+                                              withCalendar: true,
+                                              withStorePicture: true,
+                                              withInlineVideo: true,
+                                              withPopupType: .FullSize)
+            model.setUserInfo(withGenderType: .Male,
+                              withAge: 15,
+                              withUserID: "mezzomedia",
+                              withEmail: "mezzo@mezzomedia.co.kr",
+                              withUserLocationAgree: false)
+            
+            // 필요에따라 이벤트 핸들러 구분
+            let handler: ADMZEventHandler = { code in
+                print(">>> \(#function) \(code) - \(code.rawValue)")
+            }
+            
+            ADMZInterstitialLoader.presentAd(fromViewController:self,
+                                             withModel: model,
+                                             withSuccessHandler: handler,
+                                             withFailedHandler: handler,
+                                             withOtherEventHandler: handler)
+            
+        } else {
+            // 예외 처리
+            
+            // 다음 미디에이션 호출
+            self.loadMediation()
+        }
+    }
     
 }
 

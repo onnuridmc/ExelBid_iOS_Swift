@@ -28,6 +28,10 @@
 		1DBADE66299B29120054FD2A /* EBMediationNativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBADE65299B29120054FD2A /* EBMediationNativeAdViewController.m */; };
 		1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D93FC32299A004800E4F103 /* AppTrackingTransparency.framework */; };
 		1DD7B5592BA2966300F50FB0 /* EBPangleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7B5582BA2966300F50FB0 /* EBPangleNativeAdView.m */; };
+		1DE94B5F2C4F781D00548492 /* LibADPlus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */; };
+		1DE94B602C4F781D00548492 /* LibADPlus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1DE94B612C4F781F00548492 /* OMSDK_Cjnet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5C2C4F781100548492 /* OMSDK_Cjnet.xcframework */; };
+		1DE94B622C4F781F00548492 /* OMSDK_Cjnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5C2C4F781100548492 /* OMSDK_Cjnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6412693A1DBDA31500A7F514 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 641269391DBDA31500A7F514 /* main.m */; };
 		6412693D1DBDA31500A7F514 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6412693C1DBDA31500A7F514 /* AppDelegate.m */; };
 		641269431DBDA31500A7F514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641269411DBDA31500A7F514 /* Main.storyboard */; };
@@ -61,6 +65,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1DE94B602C4F781D00548492 /* LibADPlus.xcframework in Embed Frameworks */,
+				1DE94B622C4F781F00548492 /* OMSDK_Cjnet.xcframework in Embed Frameworks */,
 				1D0F64AB2BD0EE7600984E9F /* TnkPubSdk.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -104,6 +110,8 @@
 		1DBADE65299B29120054FD2A /* EBMediationNativeAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBMediationNativeAdViewController.m; sourceTree = "<group>"; };
 		1DD7B5572BA2965200F50FB0 /* EBPangleNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBPangleNativeAdView.h; sourceTree = "<group>"; };
 		1DD7B5582BA2966300F50FB0 /* EBPangleNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBPangleNativeAdView.m; sourceTree = "<group>"; };
+		1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibADPlus.xcframework; sourceTree = "<group>"; };
+		1DE94B5C2C4F781100548492 /* OMSDK_Cjnet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = OMSDK_Cjnet.xcframework; sourceTree = "<group>"; };
 		352C21172146500DF8097C84 /* Pods-ExelbidSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExelbidSample.release.xcconfig"; path = "Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample.release.xcconfig"; sourceTree = "<group>"; };
 		517D6F7328E229F17BEC974A /* Pods-ExelbidSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExelbidSample.debug.xcconfig"; path = "Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample.debug.xcconfig"; sourceTree = "<group>"; };
 		590CE9F932A982158A277ED3 /* Pods_ExelbidSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExelbidSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,7 +168,9 @@
 			files = (
 				1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */,
 				BBB55C1629E5B7F8CC01AE31 /* Pods_ExelbidSample.framework in Frameworks */,
+				1DE94B5F2C4F781D00548492 /* LibADPlus.xcframework in Frameworks */,
 				1D0F64AA2BD0EE7600984E9F /* TnkPubSdk.xcframework in Frameworks */,
+				1DE94B612C4F781F00548492 /* OMSDK_Cjnet.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				1D5DA55E2BD09C3900D05BA6 /* TnkPubSdk.xcframework */,
+				1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */,
+				1DE94B5C2C4F781100548492 /* OMSDK_Cjnet.xcframework */,
 				641269371DBDA31500A7F514 /* ExelbidSample */,
 				641269361DBDA31500A7F514 /* Products */,
 				1D93FC31299A004800E4F103 /* Frameworks */,

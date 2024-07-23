@@ -10,7 +10,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loadAdButton;
 @property (weak, nonatomic) IBOutlet UIButton *showAdButton;
 
-@property (nonatomic, strong) EBVideoManager *interstitial;
+@property (nonatomic, strong) EBVideoManager *adManager;
 @end
 
 @implementation EBVideoAdViewController
@@ -39,12 +39,12 @@
     self.loadAdButton.enabled = NO;
     self.failLabel.hidden = YES;
     
-    [EBVideoManager initFullVideoWithIdentifier:self.keywordsTextField.text];
-    [EBVideoManager testing:YES];
-    [EBVideoManager yob:@"1976"];
-    [EBVideoManager gender:@"M"];
+    self.adManager = [[EBVideoManager alloc] initWithIdentifier:self.keywordsTextField.text];
+    [self.adManager testing:YES];
+    [self.adManager yob:@"1976"];
+    [self.adManager gender:@"M"];
     
-    [EBVideoManager startWithCompletionHandler:^(EBVideoAdRequest *request, NSError *error) {
+    [self.adManager startWithCompletionHandler:^(EBVideoAdRequest *request, NSError *error) {
         if (error) {
             NSLog(@"Failed to load video ad with error: %@", [error localizedDescription]);
             return;
@@ -57,7 +57,7 @@
 
 - (IBAction)didTapShowButton:(id)sender
 {
-    [EBVideoManager presentAdWithController:self delegate:self];
+    [self.adManager presentAdWithController:self delegate:self];
     self.showAdButton.hidden = YES;
 }
 
