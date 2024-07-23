@@ -23,8 +23,8 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.0.11
-- 데이터 참조 이슈 수정
+##  Version 2.1.0
+- 광고 인스턴스 사용 방법 변경
 - 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
@@ -227,16 +227,18 @@ self.adView.delegate = self;
 
 **2. 전면 광고 인스턴스 생성 함수 호출**
 ```
+@interface EBInterstitialAdController : UIViewController
+
 /**
  * @param adUnitId - 광고 유닛 ID
  */
- + (EBInterstitialAdController *)interstitialAdControllerForAdUnitId:(NSString *)adUnitId;
+- (instancetype)initWithAdUnitId:(NSString *)adUnitId
 ```
 
 예시)
 ```
 // 전면 광고 인스턴스 생성
-self.interstitial = [EBInterstitialAdController interstitialAdControllerForAdUnitId:@"adUnitId"];
+self.interstitial = [[EBInterstitialAdController alloc] initWithAdUnitId:@"adUnitId"];
 self.interstitial.delegate = self;
 ```
 
@@ -290,22 +292,36 @@ self.interstitial.delegate = self;
 
 ## 전면 동영상 광고
 
-**1. 전면 동영상 광고 호출**
+**1. 전면 동영상 광고 요청을 위한 변수 선언**
+```
+// 전면 동영상 광고 인스턴스  
+@property (nonatomic, strong) EBVideoManager *adManager;
+
+```
+
+**2. 전면 동영상 광고 호출**
 
 예시)
 ```
 // 전면 동영상 광고 유닛 설정
-[EBVideoManager initFullVideoWithIdentifier:@"adUnitId"];
+self.adManager = [[EBVideoManager alloc] initWithIdentifier:@"adUnitId"];
 
 // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-[EBVideoManager yob:@"1976"];
-[EBVideoManager gender:@"M"];
+[self.adManager yob:@"1976"];
+[self.adManager gender:@"M"];
 
 // 광고 테스트 여부 (통계에 집계되지 않음)
-[EBVideoManager testing:YES];
+[self.adManager testing:YES];
+
+[self.adManager startWithCompletionHandler:^(EBVideoAdRequest *request, NSError *error) {
+    if (error) {
+        NSLog(@"Failed to load video ad with error: %@", [error localizedDescription]);
+        return;
+    }
+}];
 ```
 
-**2. 전면 동영상 광고 표시**
+**3. 전면 동영상 광고 표시**
 ```
 /**
  * @param controller 전면 동영상 광고를 표시하는 데 사용해야하는 UIViewController입니다.
@@ -316,7 +332,7 @@ self.interstitial.delegate = self;
 
 예시)
 ```
-[EBVideoManager presentAdWithController:self delegate:self];
+[self.adManager presentAdWithController:self delegate:self];
 ```
 
 ### 전면 동영상 광고 Protocol (EBVideoDelegate Protocol Reference)
@@ -756,5 +772,6 @@ NSString *unit_id     // 광고 유닛 아이디
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
-* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300](https://docs.meba.kr/s-plus/sdk/ios_v300)
+
+[//]: # (* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300]&#40;https://docs.meba.kr/s-plus/sdk/ios_v300&#41;)
 

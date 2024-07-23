@@ -65,11 +65,6 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init()
   @objc deinit
 }
-extension WebKit.WKWebView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
-    @objc get
-  }
-}
 public enum EBNativeAdError : Foundation.LocalizedError {
   case Unkown
   case HttpError
@@ -405,7 +400,6 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc optional func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class EBInterstitialAdController : UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) public static func interstitialAdControllerForAdUnitId(_ adUnitId: Swift.String?) -> ExelBidSDK.EBInterstitialAdController
   @objc @_Concurrency.MainActor(unsafe) public var delegate: (any ExelBidSDK.EBInterstitialAdControllerDelegate)?
   @objc @_Concurrency.MainActor(unsafe) public var adUnitId: Swift.String?
   @objc @_Concurrency.MainActor(unsafe) public var yob: Swift.String?
@@ -421,6 +415,7 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc @_Concurrency.MainActor(unsafe) public func showFromViewController(_ controller: UIKit.UIViewController? = nil)
   @objc @_Concurrency.MainActor(unsafe) public func removeSharedInterstitialAdController(_ controller: ExelBidSDK.EBInterstitialAdController)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public init(adUnitId: Swift.String?)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBVideoAdRequest : ObjectiveC.NSObject {
@@ -464,6 +459,7 @@ public typealias EBMediationRequestHandler = (_ manager: ExelBidSDK.EBMediationM
   @objc public static let pangle: Swift.String
   @objc public static let applovin: Swift.String
   @objc public static let tnk: Swift.String
+  @objc public static let targetpick: Swift.String
   @objc deinit
 }
 @objc @objcMembers final public class EBMediationManager : ObjectiveC.NSObject {
@@ -495,17 +491,16 @@ extension ExelBidSDK.EBVastModel : Swift.Equatable {
   @objc optional func videoAdDidReceiveTapEvent(adUnitID: Swift.String)
 }
 public typealias EBVideoManagerHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
-@objc @_inheritsConvenienceInitializers @objcMembers final public class EBVideoManager : ObjectiveC.NSObject {
-  @objc public static func keywords(_ keywords: Swift.String)
-  @objc public static func location(_ location: CoreLocation.CLLocation)
-  @objc public static func yob(_ yob: Swift.String)
-  @objc public static func gender(_ gender: Swift.String)
-  @objc public static func testing(_ testing: Swift.Bool)
-  @objc public static func coppa(_ coppa: Swift.String)
-  @objc public static func initFullVideo(identifier unitId: Swift.String)
-  @objc public static func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoManagerHandler?)
-  @objc public static func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
-  @objc override dynamic public init()
+@objc @objcMembers final public class EBVideoManager : ObjectiveC.NSObject {
+  @objc final public func keywords(_ keywords: Swift.String)
+  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func yob(_ yob: Swift.String)
+  @objc final public func gender(_ gender: Swift.String)
+  @objc final public func testing(_ testing: Swift.Bool)
+  @objc final public func coppa(_ coppa: Swift.String)
+  @objc public init(identifier unitId: Swift.String)
+  @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoManagerHandler?)
+  @objc final public func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
   @objc deinit
 }
 extension ExelBidSDK.HTTPMethod : Swift.Equatable {}

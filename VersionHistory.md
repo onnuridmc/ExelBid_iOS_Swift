@@ -1,36 +1,58 @@
 # Version History
 
+##  Version 2.1.0
+- 광고 인스턴스 사용 방법 변경
+- 기타 버그 수정
+
+--- 
+
 ##  Version 2.0.11
 - 데이터 참조 이슈 수정
 - 기타 버그 수정
+
+---
 
 ##  Version 2.0.10
 - NativeAd Delegate 응답 수정
 - BannerAd 클릭 처리 수정
 
+---
+
 ##  Version 2.0.9
 - URL scheme 처리 수정
 - 기타 버그 수정
 
+---
+
 ##  Version 2.0.8
 - 네이티브에서 광고 없음 처리 수정
+
+---
 
 ##  Version 2.0.7
 - 위치 인터페이스 제거
 - 기타 버그 수정
 
+---
+
 ##  Version 2.0.6
 - privacy manifest
 - 네이티브 노출 트래킹 수정
+
+---
 
 ##  Version 2.0.5
 - 17.4.x UIImage async 이슈
 - 기타 버그 수정
 
+---
+
 ##  Version 2.0.4
 - 비디오 광고 수정
 - 비디오 미디에이션
 - 기타 버그 수정
+
+---
 
 ## Version 2.0.3
 - 광고 레이아웃 이슈 수정

@@ -23,8 +23,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.0.11
-- 데이터 참조 이슈 수정
+##  Version 2.1.0
+- 광고 인스턴스 사용 방법 변경
 - 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
@@ -37,7 +37,7 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 
 # SDK 정보
-ExelbidSDK는 Xcode 15.3, iOS 12.0 버전으로 빌드되었습니다.  
+ExelbidSDK는 Xcode 15.4, iOS 12.0 버전으로 빌드되었습니다.  
 XCFramework 형태로 제공됩니다.  
 
 - 참조 1: [App Store 제출을 위한 SDK 최소 요구 사항 보기](https://developer.apple.com/kr/news/upcoming-requirements)
@@ -157,7 +157,7 @@ var adView: EBAdView?
  * @param adUnitId - 광고 유닛 ID
  * @param size - 원하는 광고 크기입니다.
  */
-EBAdView.init(adUnitId: String?, size: CGSize)
+EBAdView(adUnitId: String?, size: CGSize)
 ```
 
 예시)
@@ -167,16 +167,14 @@ self.adView = EBAdView(adUnitId: "adUnitId", size: self.adViewContainer.bounds.s
 if let adView = self.adView {
     adView.delegate = self
     
-    // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-    adView.yob = "1976"
-    adView.gender = "M"
-    
     // AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.  
     // 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
     adView.fullWebView = true
     
-    // 광고 테스트 여부 (통계에 집계되지 않음)
-    adView.testing = true
+    // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
+    adView.yob = "1976"
+    adView.gender = "M"
+    // adView.testing = true
 }
 ```
 
@@ -227,7 +225,7 @@ var interstitial: EBInterstitialAdController?
 /**
  * @param adUnitId - 광고 유닛 ID
  */
-EBInterstitialAdController.interstitialAdControllerForAdUnitId(_ adUnitId: String?) -> ExelBidSDK.EBInterstitialAdController
+EBInterstitialAdController(_ adUnitId: String?)
 ```
 
 예시)
@@ -301,14 +299,24 @@ func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdC
 예시)
 ```
 // 전면 동영상 광고 유닛 설정
-EBVideoManager.initFullVideo(identifier: @"adUnitId")
+self.videoManager = EBVideoManager(identifier: @"adUnitId")
 
-// 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
-EBVideoManager.yob("1976")
-EBVideoManager.gender("M")
-
-// 광고 테스트 여부 (통계에 집계되지 않음)
-EBVideoManager.testing(true)
+if let videoManager = self.videoManager {
+    // 광고의 효율을 높이기 위해 옵션 설정
+    videoManager.yob("1987")
+    videoManager.gender("M")
+    // videoManager.testing(true)
+    
+    videoManager.startWithCompletionHandler { (request, error) in
+        if let error = error  {
+            print(">>> \(error.localizedDescription)")
+            self.configureAdLoadFail()
+        }else{
+            self.showAdButton.isHidden = false
+        }
+        self.loadAdButton.isEnabled = true
+    }
+}
 ```
 
 **2. 전면 동영상 광고 표시**
@@ -322,7 +330,7 @@ func presentAd(controller: UIViewController, delegate: any ExelBidSDK.EBVideoDel
 
 예시)
 ```
-EBVideoManager.presentAd(controller: self, delegate: self)
+self.videoManager?.presentAd(controller: self, delegate: self)
 ```
 
 ### 전면 동영상 광고 Protocol (EBVideoDelegate Protocol Reference)
@@ -421,9 +429,7 @@ let ebNativeManager = ExelBidNativeManager("adUnitId", EBNativeAdView.self)
 // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
 ebNativeManager.yob("1987")
 ebNativeManager.gender("M")
-
-// 광고 테스트 여부 (통계에 집계되지 않음)
-ebNativeManager.testing(true)
+// ebNativeManager.testing(true)
 
 // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
 ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
@@ -722,10 +728,15 @@ func loadExelBid(mediation: EBMediationWrapper) {
     
     if let adView = self.ebAdView {
         adView.delegate = self
+        
+        // AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.  
+        // 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
+        adView.fullWebView = true
+        
+        // 광고의 효율을 높이기 위해 나이, 성별을 설정하는 것이 좋습니다.
         adView.yob = "1976"
         adView.gender = "M"
-        adView.fullWebView = true
-        adView.testing = true
+        // adView.testing = true
         
         // 광고 위치에 광고뷰 추가
         self.adViewContainer.addSubview(adView)
@@ -785,4 +796,5 @@ var unit_id: String { get }     // 광고 유닛 아이디
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
-* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300](https://docs.meba.kr/s-plus/sdk/ios_v300)
+
+[//]: # (* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300]&#40;https://docs.meba.kr/s-plus/sdk/ios_v300&#41;)

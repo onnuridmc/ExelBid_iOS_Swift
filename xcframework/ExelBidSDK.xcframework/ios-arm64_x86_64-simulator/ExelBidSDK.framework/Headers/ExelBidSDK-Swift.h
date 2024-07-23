@@ -281,7 +281,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
-@import WebKit;
 #endif
 
 #endif
@@ -510,12 +509,6 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK32EBCollectionViewAdPlacerDelegate_")
 
 SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 @interface EBInterstitialAdController : UIViewController
-/// 지정된 광고 ID와 일치하는 전면 광고 개체를 반환합니다.
-/// 광고 ID에 대해이 메서드가 처음 호출되면 새 전면 광고가 생성되고 공유 풀에 저장되고 반환됩니다.
-/// 동일한 광고 단위 ID에 대한 후속 호출은<code>removeSharedInterstitialAdController :</code>를 사용하여 개체를 삭제하지 않는 한 해당 개체를 반환합니다.
-/// 주어진 시간에 광고 ID에 대해 하나의 전면 광고 개체 만있을 수 있습니다.
-/// @param adUnitId Exelbid 광고 ID를 나타내는 문자열입니다.
-+ (EBInterstitialAdController * _Nonnull)interstitialAdControllerForAdUnitId:(NSString * _Nullable)adUnitId SWIFT_WARN_UNUSED_RESULT;
 /// The delegate (<code>EBInterstitialAdControllerDelegate</code>) of the interstitial ad object.
 @property (nonatomic, strong) id <EBInterstitialAdControllerDelegate> _Nullable delegate;
 /// 이 전면 광고의 Exelbid 광고 ID입니다.
@@ -553,6 +546,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 /// @param controller The interstitial ad object that should be disposed.
 - (void)removeSharedInterstitialAdController:(EBInterstitialAdController * _Nonnull)controller;
 - (void)viewDidLoad;
+- (nonnull instancetype)initWithAdUnitId:(NSString * _Nullable)adUnitId OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
@@ -635,6 +629,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)applovin SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull tnk;)
 + (NSString * _Nonnull)tnk SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull targetpick;)
++ (NSString * _Nonnull)targetpick SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1118,24 +1114,25 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 /// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
 /// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
 /// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.
-+ (void)keywords:(NSString * _Nonnull)keywords;
+- (void)keywords:(NSString * _Nonnull)keywords;
 /// 더 관련성 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 사용자의 위치를 나타내는<code>CLLocation</code> 개체입니다.
-+ (void)location:(CLLocation * _Nonnull)location;
+- (void)location:(CLLocation * _Nonnull)location;
 /// 생년 월일 (ex:2016)
-+ (void)yob:(NSString * _Nonnull)yob;
+- (void)yob:(NSString * _Nonnull)yob;
 /// 성별 (ex: M,F)
-+ (void)gender:(NSString * _Nonnull)gender;
+- (void)gender:(NSString * _Nonnull)gender;
 /// 광고보기가 테스트 모드에서 광고를 요청해야하는지 여부를 결정하는 Boolean 값입니다.
 /// The default value is NO.
-+ (void)testing:(BOOL)testing;
+- (void)testing:(BOOL)testing;
 /// Coppa (default : 0)
-+ (void)coppa:(NSString * _Nonnull)coppa;
-+ (void)initFullVideoWithIdentifier:(NSString * _Nonnull)unitId SWIFT_METHOD_FAMILY(none);
+- (void)coppa:(NSString * _Nonnull)coppa;
+- (nonnull instancetype)initWithIdentifier:(NSString * _Nonnull)unitId OBJC_DESIGNATED_INITIALIZER;
 /// 광고 서버통신 성공후에 호출한다
 /// @param handler
-+ (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
-+ (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
+- (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1347,10 +1344,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull kAdP
 
 
 
-
-@interface WKWebView (SWIFT_EXTENSION(ExelBidSDK))
-@property (nonatomic, readonly) UIEdgeInsets safeAreaInsets;
-@end
 
 #endif
 #if __has_attribute(external_source_symbol)
@@ -1643,7 +1636,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
-@import WebKit;
 #endif
 
 #endif
@@ -1872,12 +1864,6 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK32EBCollectionViewAdPlacerDelegate_")
 
 SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 @interface EBInterstitialAdController : UIViewController
-/// 지정된 광고 ID와 일치하는 전면 광고 개체를 반환합니다.
-/// 광고 ID에 대해이 메서드가 처음 호출되면 새 전면 광고가 생성되고 공유 풀에 저장되고 반환됩니다.
-/// 동일한 광고 단위 ID에 대한 후속 호출은<code>removeSharedInterstitialAdController :</code>를 사용하여 개체를 삭제하지 않는 한 해당 개체를 반환합니다.
-/// 주어진 시간에 광고 ID에 대해 하나의 전면 광고 개체 만있을 수 있습니다.
-/// @param adUnitId Exelbid 광고 ID를 나타내는 문자열입니다.
-+ (EBInterstitialAdController * _Nonnull)interstitialAdControllerForAdUnitId:(NSString * _Nullable)adUnitId SWIFT_WARN_UNUSED_RESULT;
 /// The delegate (<code>EBInterstitialAdControllerDelegate</code>) of the interstitial ad object.
 @property (nonatomic, strong) id <EBInterstitialAdControllerDelegate> _Nullable delegate;
 /// 이 전면 광고의 Exelbid 광고 ID입니다.
@@ -1915,6 +1901,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 /// @param controller The interstitial ad object that should be disposed.
 - (void)removeSharedInterstitialAdController:(EBInterstitialAdController * _Nonnull)controller;
 - (void)viewDidLoad;
+- (nonnull instancetype)initWithAdUnitId:(NSString * _Nullable)adUnitId OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
@@ -1997,6 +1984,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)applovin SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull tnk;)
 + (NSString * _Nonnull)tnk SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull targetpick;)
++ (NSString * _Nonnull)targetpick SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2480,24 +2469,25 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 /// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
 /// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
 /// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.
-+ (void)keywords:(NSString * _Nonnull)keywords;
+- (void)keywords:(NSString * _Nonnull)keywords;
 /// 더 관련성 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 사용자의 위치를 나타내는<code>CLLocation</code> 개체입니다.
-+ (void)location:(CLLocation * _Nonnull)location;
+- (void)location:(CLLocation * _Nonnull)location;
 /// 생년 월일 (ex:2016)
-+ (void)yob:(NSString * _Nonnull)yob;
+- (void)yob:(NSString * _Nonnull)yob;
 /// 성별 (ex: M,F)
-+ (void)gender:(NSString * _Nonnull)gender;
+- (void)gender:(NSString * _Nonnull)gender;
 /// 광고보기가 테스트 모드에서 광고를 요청해야하는지 여부를 결정하는 Boolean 값입니다.
 /// The default value is NO.
-+ (void)testing:(BOOL)testing;
+- (void)testing:(BOOL)testing;
 /// Coppa (default : 0)
-+ (void)coppa:(NSString * _Nonnull)coppa;
-+ (void)initFullVideoWithIdentifier:(NSString * _Nonnull)unitId SWIFT_METHOD_FAMILY(none);
+- (void)coppa:(NSString * _Nonnull)coppa;
+- (nonnull instancetype)initWithIdentifier:(NSString * _Nonnull)unitId OBJC_DESIGNATED_INITIALIZER;
 /// 광고 서버통신 성공후에 호출한다
 /// @param handler
-+ (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
-+ (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
+- (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -2709,10 +2699,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull kAdP
 
 
 
-
-@interface WKWebView (SWIFT_EXTENSION(ExelBidSDK))
-@property (nonatomic, readonly) UIEdgeInsets safeAreaInsets;
-@end
 
 #endif
 #if __has_attribute(external_source_symbol)
