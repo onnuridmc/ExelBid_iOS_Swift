@@ -221,6 +221,10 @@ var interstitial: EBInterstitialAdController?
 ```
 
 **2. 전면 광고 인스턴스 생성 함수 호출**
+
+### Deprecated
+- EBInterstitialAdController.interstitialAdControllerForAdUnitId(_ adUnitId: String?) -> ExelBidSDK.EBInterstitialAdController : 이 함수는 더 이상 사용되지 않습니다. 대신 `EBInterstitialAdController(_ adUnitId: String?)`를 사용하세요.
+
 ```
 /**
  * @param adUnitId - 광고 유닛 ID
@@ -294,7 +298,10 @@ func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdC
 
 ## 전면 동영상 광고
 
-**1. 전면 동영상 광고 호출**  
+### Deprecated
+- EBVideoManager.initFullVideo(identifier: @"adUnitId") : 이 함수는 더 이상 사용되지 않습니다. 대신 `EBVideoManager(identifier: @"adUnitId")`를 사용하세요.
+
+**1. 전면 동영상 광고 호출**
 
 예시)
 ```
@@ -418,6 +425,10 @@ var nativeAd: EBNativeAd?
 ```
 
 **3. 네이티브 광고 요청 전처리**
+
+### Deprecated
+- ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(_ identifier: String, _ adViewClass: AnyClass?) : 이 함수는 더 이상 사용되지 않습니다. 대신 `ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)`를 사용하세요.
+
 ```
 ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)
 ```

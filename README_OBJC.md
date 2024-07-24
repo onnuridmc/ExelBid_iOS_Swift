@@ -226,6 +226,10 @@ self.adView.delegate = self;
 ```
 
 **2. 전면 광고 인스턴스 생성 함수 호출**
+
+### Deprecated
+- (EBInterstitialAdController *)interstitialAdControllerForAdUnitId:(NSString *)adUnitId : 이 함수는 더 이상 사용되지 않습니다. 대신 `(instancetype)initWithAdUnitId:(NSString *)adUnitId`를 사용하세요.
+
 ```
 @interface EBInterstitialAdController : UIViewController
 
@@ -293,6 +297,7 @@ self.interstitial.delegate = self;
 ## 전면 동영상 광고
 
 **1. 전면 동영상 광고 요청을 위한 변수 선언**
+
 ```
 // 전면 동영상 광고 인스턴스  
 @property (nonatomic, strong) EBVideoManager *adManager;
@@ -300,6 +305,9 @@ self.interstitial.delegate = self;
 ```
 
 **2. 전면 동영상 광고 호출**
+
+### Deprecated
+- (EBVideoManager *)initFullVideoWithIdentifier:(NSString *)adUnitId : 이 함수는 더 이상 사용되지 않습니다. 대신 `(instancetype)initWithIdentifier:(NSString *)adUnitId`를 사용하세요.
 
 예시)
 ```
@@ -423,9 +431,13 @@ self.adManager = [[EBVideoManager alloc] initWithIdentifier:@"adUnitId"];
 ```
 
 **3. 네이티브 광고 요청 전처리**
+
+### Deprecated
+- (void)initNativeAdWithAdUnitIdentifier:(NSString *)identifier :(Class)adViewClass :이 함수는 더 이상 사용되지 않습니다. 대신 `(instancetype)init:(NSString *)identifier :(Class)adViewClass`를 사용하세요.
+
 ```
 ExelBidNativeManager
-- (nonnull instancetype)init:(NSString *)identifier :(Class)adViewClass;
+- (instancetype)init:(NSString *)identifier :(Class)adViewClass;
 ```
 
 예시)
