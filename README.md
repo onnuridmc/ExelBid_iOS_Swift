@@ -26,9 +26,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.1.0
-- 광고 인스턴스 사용 방법 변경
-- 기타 버그 수정
+##  Version 2.1.1
+- MPartners Banner, Native 추가
 
 [Old Version History](./VersionHistory.md)
 

@@ -1,5 +1,8 @@
 # Version History
 
+##  Version 2.1.1
+- MPartners Banner, Native 추가
+
 ##  Version 2.1.0
 - 광고 인스턴스 사용 방법 변경
 - 기타 버그 수정
