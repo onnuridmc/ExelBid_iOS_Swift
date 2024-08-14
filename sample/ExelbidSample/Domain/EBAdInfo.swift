@@ -13,6 +13,7 @@ struct EBAdInfo {
     func bannerAds() -> [EBAdInfoModel] {
         return [
             EBAdInfoModel(title: "배너광고", ID: "08377f76c8b3e46c4ed36c82e434da2b394a4dfa", type: .Banner),
+            EBAdInfoModel(title: "MPartners 배너광고", ID: "exelbiddev", type: .MPartnersBanner),
             EBAdInfoModel(title: "전면광고", ID: "615217b82a648b795040baee8bc81986a71d0eb7", type: .AllBanner),
             EBAdInfoModel(title: "다이얼로그광고", ID: "615217b82a648b795040baee8bc81986a71d0eb7,5792d262715cbd399d6910200437b40a95dcc0f6", type: .DailBanner)
         ]
@@ -21,6 +22,7 @@ struct EBAdInfo {
     func nativeAds() -> [EBAdInfoModel] {
         return [
             EBAdInfoModel(title: "네이티브", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .Native),
+            EBAdInfoModel(title: "MPartners 네이티브", ID: "exelbiddev", type: .MPartnersNative),
             EBAdInfoModel(title: "네이티브 Banner", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .NativeBanner),
             EBAdInfoModel(title: "네이티브 Ad (CollectionView)", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .NativeInCollectionView),
             EBAdInfoModel(title: "네이티브 Ad (TableView)", ID: "5792d262715cbd399d6910200437b40a95dcc0f6", type: .NativeTableViewPlacer)

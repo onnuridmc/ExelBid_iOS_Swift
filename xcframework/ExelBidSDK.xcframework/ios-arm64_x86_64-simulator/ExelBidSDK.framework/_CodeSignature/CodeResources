@@ -30,51 +30,51 @@
 		</data>
 		<key>Headers/ExelBidSDK-Swift.h</key>
 		<data>
-		0H0ZULx0o79B/R2+6KHZ0uz9hRU=
+		YpPz4UvCIs2S3dhgrEHDGqqZEsQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dp7GwLmmmKOn1UfbRiMoGNgs14w=
+		6Gh0kCyViKNnF2QnpMl1fi3JLNY=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		FZhFZMp5xGI3LTXDMXoUrIzwLGQ=
+		GMhc27uOnfVyrWTHrbFbCgUPbDM=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		+nT2J6EgJP9OOxE8dhDbJ56ox2M=
+		YV7EXGTQJUrN8Rp+ZVkJfq1q8IE=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		7q6y0XVgHXRPxBH7J0mH/ofGbRU=
+		0+47ZzZZu+xuFrlTiHNciEIFj0M=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		+nT2J6EgJP9OOxE8dhDbJ56ox2M=
+		YV7EXGTQJUrN8Rp+ZVkJfq1q8IE=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		fXVOVI9Qs8zuVDhlfuW//HZfsUU=
+		hlS0CKdoygbu32ltMv8zYYxjN00=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		FZhFZMp5xGI3LTXDMXoUrIzwLGQ=
+		GMhc27uOnfVyrWTHrbFbCgUPbDM=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		rl5roGXXY/rvnnNf8edFLUvYK3s=
+		kb/aoc8MCEqD2bi04JUnfCFtdPs=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		wsKHNiEPJ2hlbUiw9tJ+ifl1VaE=
+		+tH955AQFbPzfvB4YKwvgnQLcPw=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		rl5roGXXY/rvnnNf8edFLUvYK3s=
+		kb/aoc8MCEqD2bi04JUnfCFtdPs=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DXyoc2tCU05yQXPExKHKzsDb/0s=
+		W7RIz8cWfgJKO8FcxdLle8RBxFc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -133,77 +133,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SPU6dDBiXNQak+0alHRdozJgkBoQvc5PpJw3HQGAgi4=
+			AQYbrcCuvDCOfEUmwGl252Jl+ffVnXbkmuh1kPfXcNA=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j2hb221D7+tCFsn0oARa6tR8PPAobKEjBNLyvFhhtJc=
+			bfd98HHIDXJYyVBnc+HusGn1xDxRfU4xOyAcxXrvuUI=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZZUBg0yCIAUCBE2JtFz4TNwaLI35DCVNZoj1Qz0OCl0=
+			xHn9hdbPr8dzaoR5YuFIRJFXONGKfoLD2cq/4lJDPp4=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vEjxVXuKZBGtoTc/5I33nyWWC6z4xwHOA3w7kKlHM2o=
+			qVyhIQsxX93eQxZLBDb62UfFETXtT5Nuek/nwq+cdMg=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZZUBg0yCIAUCBE2JtFz4TNwaLI35DCVNZoj1Qz0OCl0=
+			xHn9hdbPr8dzaoR5YuFIRJFXONGKfoLD2cq/4lJDPp4=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bn+nh3Kx9RWse0eYj9PRzKS4P+2YcY/xzorbMQPpDio=
+			AeemKztFSIoe8tkTi0dQDapFVRypVKmbLK7pBSegnjw=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j2hb221D7+tCFsn0oARa6tR8PPAobKEjBNLyvFhhtJc=
+			bfd98HHIDXJYyVBnc+HusGn1xDxRfU4xOyAcxXrvuUI=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PAcS9ACIsgM5rbLLAIGcAlCi0VCsNZoi7uWHXrUd0Xg=
+			l2mA2vNh5WbLzpJoArZlKZA9spmfSHr12x00RH9Ftbg=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			beg6PnT2mvj5s8p/nfgcLNwDVZmoWOnWzV+BN7DHvhI=
+			ByCcbcnZw2auTlx2PNyUQy5Ge0RZQbm28sVIOC6IwKo=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PAcS9ACIsgM5rbLLAIGcAlCi0VCsNZoi7uWHXrUd0Xg=
+			l2mA2vNh5WbLzpJoArZlKZA9spmfSHr12x00RH9Ftbg=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5ZM0XlxlkIa5yQQL4gKSoKwCuwoxVUd1/2KWzyLOOOw=
+			Cx9EGDpE0rkWL3vDMYk4FXWf4SQvjiiI9UMdGvamnr0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

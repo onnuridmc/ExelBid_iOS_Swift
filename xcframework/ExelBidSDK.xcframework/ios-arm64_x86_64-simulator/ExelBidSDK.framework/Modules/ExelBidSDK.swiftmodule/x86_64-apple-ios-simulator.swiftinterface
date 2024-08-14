@@ -16,6 +16,18 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@objc @objcMembers final public class MPartnersNativeManager : ObjectiveC.NSObject {
+  @objc final public func keywords(_ keywords: Swift.String)
+  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func yob(_ yob: Swift.String)
+  @objc final public func gender(_ gender: Swift.String)
+  @objc final public func testing(_ testing: Swift.Bool)
+  @objc final public func coppa(_ coppa: Swift.String)
+  @objc final public func desiredAssets(_ desiredAssets: Foundation.NSSet)
+  @objc public init(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?)
+  @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
+  @objc deinit
+}
 @objc public protocol EBNativeAdRendering {
   @objc optional func nativeMainTextLabel() -> UIKit.UILabel?
   @objc optional func nativeTitleTextLabel() -> UIKit.UILabel?
@@ -27,6 +39,10 @@ import _SwiftConcurrencyShims
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBStaticNativeAdRenderer : ObjectiveC.NSObject {
   @objc public static func rendererConfigurationWithRendererSettings(_ rendererSettings: any ExelBidSDK.EBNativeAdRendererSettings) -> ExelBidSDK.EBNativeAdRendererConfiguration
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class MPartnersAdView : ExelBidSDK.EBAdView {
+  @_Concurrency.MainActor(unsafe) @objc override public init(adUnitId: Swift.String?, size: CoreFoundation.CGSize)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class EBNativeAsset : ObjectiveC.NSObject {
@@ -271,6 +287,8 @@ public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdReq
   @objc final public func coppa(_ coppa: Swift.String)
   @objc final public func desiredAssets(_ desiredAssets: Foundation.NSSet)
   @objc public init(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?)
+  @objc @available(*, deprecated, message: "이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)'를 사용하세요.")
+  public static func initNativeAdWithAdUnitIdentifier(_ identifier: Swift.String, _ adViewClass: Swift.AnyClass?) -> ExelBidSDK.ExelBidNativeManager
   @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
   @objc deinit
 }
@@ -278,6 +296,7 @@ public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdReq
   @objc public var targeting: ExelBidSDK.EBNativeAdRequestTargeting?
   @objc public static func requestWithAdUnitIdentifier(_ identifier: Swift.String?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBNativeAdRequest
   @objc public func startWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
+  @objc public func startMPartnersWithCompletionHandler(_ handler: ExelBidSDK.EBNativeAdRequestHandler?)
   @objc deinit
 }
 public let ExelBidKit: ExelBidSDK.ExelBid
@@ -416,6 +435,8 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc @_Concurrency.MainActor(unsafe) public func removeSharedInterstitialAdController(_ controller: ExelBidSDK.EBInterstitialAdController)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc @_Concurrency.MainActor(unsafe) public init(adUnitId: Swift.String?)
+  @objc @available(*, deprecated, message: "이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'EBInterstitialAdController(adUnitId: String?)'를 사용하세요.")
+  @_Concurrency.MainActor(unsafe) public static func interstitialAdControllerForAdUnitId(_ adUnitId: Swift.String?) -> ExelBidSDK.EBInterstitialAdController
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBVideoAdRequest : ObjectiveC.NSObject {
@@ -499,6 +520,8 @@ public typealias EBVideoManagerHandler = (_ request: ExelBidSDK.EBVideoAdRequest
   @objc final public func testing(_ testing: Swift.Bool)
   @objc final public func coppa(_ coppa: Swift.String)
   @objc public init(identifier unitId: Swift.String)
+  @objc @available(*, deprecated, message: "이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'EBVideoManager(_ identifier: String)'를 사용하세요.")
+  public static func initFullVideo(identifier unitId: Swift.String) -> ExelBidSDK.EBVideoManager
   @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoManagerHandler?)
   @objc final public func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
   @objc deinit

@@ -12,13 +12,16 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
   - [ExelBid SDK 추가하기](#SDK-추가하기-for-cocoapods)
   - [어플리케이션 설정](#어플리케이션-설정)
 - [광고 적용하기](#광고-적용하기)
+  - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
   - [배너 광고](#배너-광고)
   - [전면 광고](#전면-광고)
   - [네이티브 광고, 네이티브 동영상 광고](#네이티브-광고-네이티브-동영상-광고)
   - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
   - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
-- [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
+- [MPartners](#mpartners)
+  - [배너 광고](#mpartners-배너-광고)
+  - [네이티브 광고](#mpartners-네이티브-광고)
 
 
 # Version History
@@ -809,3 +812,10 @@ var unit_id: String { get }     // 광고 유닛 아이디
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
 
 [//]: # (* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300]&#40;https://docs.meba.kr/s-plus/sdk/ios_v300&#41;)
+
+
+# MPartners
+> Exelbid 광고 호출과 동일하며 광고생성 클래스가 다릅니다.  
+> 이점 광고 생성에 참고해주세요.
+
+### [MPartners Guide](./README_MPartners.md)

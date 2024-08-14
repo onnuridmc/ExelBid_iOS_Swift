@@ -539,15 +539,12 @@ SWIFT_CLASS("_TtC10ExelBidSDK26EBInterstitialAdController")
 /// @param controller 전면 광고를 표시하는 데 사용해야하는 뷰 컨트롤러입니다.
 - (void)showFromViewController:(UIViewController * _Nullable)controller;
 /// 응용 프로그램에서 사용할 수있는 삽입 광고의 공유 풀에서 지정된 삽입 광고 개체를 제거합니다.
-/// 이 방법은 삽입 광고의 광고 단위 ID로 삽입 광고 개체에 대한 매핑을 제거합니다.
-/// 즉, 동일한 광고  ID에 나중에<code>interstitialAdControllerForAdUnitId :</code>를 호출하면 다른 광고 오브젝트를받습니다.
-/// @warning * 중요 ** :이 방법은 삽입 광고 개체가 불필요하게되었을 때 할당을 해제하는 데 사용하는 것을 목적으로하고 있습니다.
-/// 이 메소드를 호출 한 후 개체에 대한 참조를 “nil”해야합니다.
 /// @param controller The interstitial ad object that should be disposed.
 - (void)removeSharedInterstitialAdController:(EBInterstitialAdController * _Nonnull)controller;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithAdUnitId:(NSString * _Nullable)adUnitId OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
++ (EBInterstitialAdController * _Nonnull)interstitialAdControllerForAdUnitId:(NSString * _Nullable)adUnitId SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'EBInterstitialAdController(adUnitId: String?)'를 사용하세요.");
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
@@ -664,6 +661,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK10EBNativeAd")
 
 
 
+
 SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @protocol EBVideoDelegate
 @optional
@@ -701,7 +699,6 @@ SWIFT_PROTOCOL("_TtP10ExelBidSDK15EBVideoDelegate_")
 @interface EBNativeAd (SWIFT_EXTENSION(ExelBidSDK)) <EBVideoDelegate>
 - (void)videoAdDidReceiveTapEventWithAdUnitID:(NSString * _Nonnull)adUnitID;
 @end
-
 
 
 
@@ -805,6 +802,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK17EBNativeAdRequest")
 /// ExelBid 광고 서버에 대한 요청을 실행합니다.
 /// @param handler 요청이 완료되면 실행할 블록. 블록에 매개 변수로 요청 자체와 실패의 유효한 EBNativeAd 또는 NSError 객체 중 하나가 포함됩니다.
 - (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
+- (void)startMPartnersWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1127,6 +1125,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 /// Coppa (default : 0)
 - (void)coppa:(NSString * _Nonnull)coppa;
 - (nonnull instancetype)initWithIdentifier:(NSString * _Nonnull)unitId OBJC_DESIGNATED_INITIALIZER;
++ (EBVideoManager * _Nonnull)initFullVideoWithIdentifier:(NSString * _Nonnull)unitId SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'EBVideoManager(_ identifier: String)'를 사용하세요.");
 /// 광고 서버통신 성공후에 호출한다
 /// @param handler
 - (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
@@ -1158,6 +1157,44 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) ExelBid * _Nonnull sha
 
 SWIFT_CLASS("_TtC10ExelBidSDK20ExelBidNativeManager")
 @interface ExelBidNativeManager : NSObject
+/// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
+/// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
+/// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.
+- (void)keywords:(NSString * _Nonnull)keywords;
+/// 더 관련성 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 사용자의 위치를 나타내는<code>CLLocation</code> 개체입니다.
+- (void)location:(CLLocation * _Nonnull)location;
+/// 생년 월일 (ex:2016)
+- (void)yob:(NSString * _Nonnull)yob;
+/// 성별 (ex: M,F)
+- (void)gender:(NSString * _Nonnull)gender;
+/// 광고보기가 테스트 모드에서 광고를 요청해야하는지 여부를 결정하는 Boolean 값입니다.
+/// The default value is NO.
+- (void)testing:(BOOL)testing;
+/// Coppa (default : 0)
+- (void)coppa:(NSString * _Nonnull)coppa;
+/// 원하는 네이티브 광고 개체의 자산에 해당하는 미리 정의 된 문자열 세트.
+/// ExelBid 광고 서버는 desiredAssets의 값들만 반환합니다.
+- (void)desiredAssets:(NSSet * _Nonnull)desiredAssets;
+- (nonnull instancetype)init:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass OBJC_DESIGNATED_INITIALIZER;
++ (ExelBidNativeManager * _Nonnull)initNativeAdWithAdUnitIdentifier:(NSString * _Nonnull)identifier :(Class _Nullable)adViewClass SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("이 함수는 더 이상 사용되지 않습니다. 대신 생성자 'ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)'를 사용하세요.");
+/// ExelBid 광고 서버에 대한 요청을 실행합니다.
+/// @param handler 요청이 완료 될 때 실행할 블록.
+/// 블록에는 요청 자체와 유효한 EBNativeAd 또는 실패를 나타내는 NSError 개체가 매개 변수로 포함됩니다.
+- (void)startWithCompletionHandler:(void (^ _Nullable)(EBNativeAdRequest * _Nullable, EBNativeAd * _Nullable, NSError * _Nullable))handler;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_CLASS("_TtC10ExelBidSDK15MPartnersAdView")
+@interface MPartnersAdView : EBAdView
+- (nonnull instancetype)initWithAdUnitId:(NSString * _Nullable)adUnitId size:(CGSize)size OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10ExelBidSDK22MPartnersNativeManager")
+@interface MPartnersNativeManager : NSObject
 /// 관련성이 더 높은 광고를 수신하기 위해 ExelBid 광고 서버로 전달되어야하는 키워드 세트를 나타내는 문자열입니다.
 /// 키워드는 일반적으로 특정 사용자 세그먼트에서 광고 캠페인을 타겟팅하는 데 사용됩니다. 쉼표로 구분 된 키-값 쌍 형식이어야합니다 (e.g. “marital:single,age:24”).
 /// ExelBid 웹 사이트의 키워드 타겟팅 옵션은 캠페인 관리시 “고급 타겟팅”섹션에서 찾을 수 있습니다.

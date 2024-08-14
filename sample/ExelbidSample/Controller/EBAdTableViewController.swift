@@ -102,6 +102,14 @@ class EBAdTableViewController: UITableViewController {
             if let controller = segue.destination as? EBAdTagViewController {
                 controller.info = info
             }
+        }else if segue.identifier == "MPartners Banner" {
+            if let controller = segue.destination as? EBMPartnersBannerAdViewController {
+                controller.info = info
+            }
+        }else if segue.identifier == "MPartners Native" {
+            if let controller = segue.destination as? EBMPartnersNativeAdViewController {
+                controller.info = info
+            }
         }
     }
 
@@ -165,6 +173,10 @@ class EBAdTableViewController: UITableViewController {
                 performSegue(withIdentifier: "MediationBizboardView", sender: indexPath)
             case .AdTag:
                 performSegue(withIdentifier: "AdTag", sender: indexPath)
+            case .MPartnersBanner:
+                performSegue(withIdentifier: "MPartners Banner", sender: indexPath)
+            case .MPartnersNative:
+                performSegue(withIdentifier: "MPartners Native", sender: indexPath)
         }
     }
 }

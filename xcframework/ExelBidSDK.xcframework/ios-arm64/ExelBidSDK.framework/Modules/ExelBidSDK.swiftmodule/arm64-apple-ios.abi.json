@@ -16,6 +16,471 @@
       },
       {
         "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPartnersNativeManager",
+        "printedName": "MPartnersNativeManager",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "keywords",
+            "printedName": "keywords(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)keywords:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC8keywordsyySSF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "location",
+            "printedName": "location(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocation",
+                "printedName": "CoreLocation.CLLocation",
+                "usr": "c:objc(cs)CLLocation"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)location:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC8locationyySo10CLLocationCF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "yob",
+            "printedName": "yob(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)yob:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC3yobyySSF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "gender",
+            "printedName": "gender(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)gender:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC6genderyySSF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "testing",
+            "printedName": "testing(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)testing:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC7testingyySbF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "coppa",
+            "printedName": "coppa(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)coppa:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC5coppayySSF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "desiredAssets",
+            "printedName": "desiredAssets(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSSet",
+                "printedName": "Foundation.NSSet",
+                "usr": "c:objc(cs)NSSet"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)desiredAssets:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC13desiredAssetsyySo5NSSetCF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPartnersNativeManager",
+                "printedName": "ExelBidSDK.MPartnersNativeManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)init::",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerCyACSS_yXlXpSgtcfc",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "startWithCompletionHandler",
+            "printedName": "startWithCompletionHandler(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "ExelBidSDK.EBNativeAdRequest?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "EBNativeAdRequest",
+                                "printedName": "ExelBidSDK.EBNativeAdRequest",
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAdRequest"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "ExelBidSDK.EBNativeAd?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "EBNativeAd",
+                                "printedName": "ExelBidSDK.EBNativeAd",
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAd"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "(any Swift.Error)?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "any Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)startWithCompletionHandler:",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC26startWithCompletionHandleryyyAA17EBNativeAdRequestCSg_AA0kL0CSgs5Error_pSgtcSgF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPartnersNativeManager",
+                "printedName": "ExelBidSDK.MPartnersNativeManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager(im)init",
+            "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerCACycfc",
+            "moduleName": "ExelBidSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersNativeManager",
+        "mangledName": "$s10ExelBidSDK22MPartnersNativeManagerC",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "AccessControl",
+          "Final",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -726,6 +1191,160 @@
         "moduleName": "ExelBidSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MPartnersAdView",
+        "printedName": "MPartnersAdView",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adUnitId:size:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MPartnersAdView",
+                "printedName": "ExelBidSDK.MPartnersAdView",
+                "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersAdView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersAdView(im)initWithAdUnitId:size:",
+            "mangledName": "$s10ExelBidSDK15MPartnersAdViewC8adUnitId4sizeACSSSg_So6CGSizeVtcfc",
+            "moduleName": "ExelBidSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithAdUnitId:size:",
+            "declAttributes": [
+              "ObjC",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ExelBidSDK@objc(cs)MPartnersAdView",
+        "mangledName": "$s10ExelBidSDK15MPartnersAdViewC",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "Custom",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@ExelBidSDK@objc(cs)EBAdView",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ExelBidSDK.EBAdView",
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          }
         ]
       },
       {
@@ -6054,13 +6673,6 @@
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
             "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -9166,6 +9778,58 @@
           },
           {
             "kind": "Function",
+            "name": "initNativeAdWithAdUnitIdentifier",
+            "printedName": "initNativeAdWithAdUnitIdentifier(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ExelBidNativeManager",
+                "printedName": "ExelBidSDK.ExelBidNativeManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AnyObject.Type)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ExistentialMetatype",
+                    "printedName": "any AnyObject.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)ExelBidNativeManager(cm)initNativeAdWithAdUnitIdentifier::",
+            "mangledName": "$s10ExelBidSDK0aB13NativeManagerC04initd6AdWithG14UnitIdentifieryACSS_yXlXpSgtFZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "startWithCompletionHandler",
             "printedName": "startWithCompletionHandler(_:)",
             "children": [
@@ -9630,6 +10294,96 @@
             "declAttributes": [
               "AccessControl",
               "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startMPartnersWithCompletionHandler",
+            "printedName": "startMPartnersWithCompletionHandler(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(ExelBidSDK.EBNativeAdRequest?, ExelBidSDK.EBNativeAd?, (any Swift.Error)?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "ExelBidSDK.EBNativeAdRequest?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "EBNativeAdRequest",
+                                "printedName": "ExelBidSDK.EBNativeAdRequest",
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAdRequest"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "ExelBidSDK.EBNativeAd?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "EBNativeAd",
+                                "printedName": "ExelBidSDK.EBNativeAd",
+                                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAd"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "(any Swift.Error)?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "any Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAdRequest(im)startMPartnersWithCompletionHandler:",
+            "mangledName": "$s10ExelBidSDK17EBNativeAdRequestC35startMPartnersWithCompletionHandleryyyACSg_AA0dE0CSgs5Error_pSgtcSgF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "AccessControl",
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
@@ -13641,6 +14395,47 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Function",
+            "name": "interstitialAdControllerForAdUnitId",
+            "printedName": "interstitialAdControllerForAdUnitId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EBInterstitialAdController",
+                "printedName": "ExelBidSDK.EBInterstitialAdController",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBInterstitialAdController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBInterstitialAdController(cm)interstitialAdControllerForAdUnitId:",
+            "mangledName": "$s10ExelBidSDK26EBInterstitialAdControllerC012interstitialef3ForE6UnitIdyACSSSgFZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "AccessControl",
+              "Available",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(nibName:bundle:)",
@@ -14010,6 +14805,23 @@
         "kind": "Import",
         "name": "StoreKit",
         "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
         "declKind": "Import",
         "moduleName": "ExelBidSDK"
       },
@@ -15222,6 +16034,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ExelBidSDK",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -17052,6 +17874,38 @@
               "ObjC"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "initFullVideo",
+            "printedName": "initFullVideo(identifier:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "EBVideoManager",
+                "printedName": "ExelBidSDK.EBVideoManager",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(cm)initFullVideoWithIdentifier:",
+            "mangledName": "$s10ExelBidSDK14EBVideoManagerC13initFullVideo10identifierACSS_tFZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -20937,6 +21791,20 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/MPNative\/MPartnersNativeManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2824,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/MPNative\/MPartnersNativeManager.swift",
+      "kind": "StringLiteral",
+      "offset": 124,
+      "length": 22,
+      "value": "\"ExelBidSDK.MPartnersNativeManager\""
+    },
+    {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Internal\/EBVideoConfig.swift",
       "kind": "StringLiteral",
       "offset": 166,
@@ -22526,6 +23394,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9947,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/VideoPlayer\/EBVASTCompanionAdView.swift",
       "kind": "BooleanLiteral",
       "offset": 789,
@@ -23025,7 +23900,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/ExelBidNativeManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3020,
+      "offset": 3429,
       "length": 5,
       "value": "false"
     },
@@ -23067,91 +23942,119 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 298,
+      "offset": 321,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:81\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 367,
+      "offset": 390,
       "length": 29,
       "value": "\"https:\/\/sdk-bid.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 298,
+      "offset": 321,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:81\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 367,
+      "offset": 390,
       "length": 29,
       "value": "\"https:\/\/sdk-bid.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 490,
+      "offset": 512,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:84\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 559,
+      "offset": 581,
       "length": 31,
       "value": "\"https:\/\/mediation.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 490,
+      "offset": 512,
       "length": 27,
       "value": "\"http:\/\/dev.exelbid.com:84\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 559,
+      "offset": 581,
       "length": 31,
       "value": "\"https:\/\/mediation.exelbid.com\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 703,
+      "length": 27,
+      "value": "\"http:\/\/dev.exelbid.com:87\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
+      "kind": "StringLiteral",
+      "offset": 772,
+      "length": 28,
+      "value": "\"https:\/\/mp-api.exelbid.com\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
+      "kind": "StringLiteral",
+      "offset": 703,
+      "length": 27,
+      "value": "\"http:\/\/dev.exelbid.com:87\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
+      "kind": "StringLiteral",
+      "offset": 772,
+      "length": 28,
+      "value": "\"https:\/\/mp-api.exelbid.com\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
+      "kind": "StringLiteral",
+      "offset": 886,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 719,
+      "offset": 930,
       "length": 21,
       "value": "\"multipart\/form-data\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 886,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "StringLiteral",
-      "offset": 719,
+      "offset": 930,
       "length": 21,
       "value": "\"multipart\/form-data\""
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/Network\/EBNetworkInformation.swift",
       "kind": "BooleanLiteral",
-      "offset": 817,
+      "offset": 1028,
       "length": 5,
       "value": "false"
     },
@@ -24474,7 +25377,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4822,
+      "offset": 5137,
       "length": 5,
       "value": "false"
     },

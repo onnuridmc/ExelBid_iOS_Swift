@@ -63,6 +63,7 @@
  
     [ads addObjectsFromArray:@[
         [EBAdInfo infoWithTitle:@"배너광고" ID:@"08377f76c8b3e46c4ed36c82e434da2b394a4dfa" type:EBAdInfoBanner],
+        [EBAdInfo infoWithTitle:@"MPartners 배너광고" ID:@"ZSYmgZX8ku" type:EBAdInfoMPartnersBanner],
         [EBAdInfo infoWithTitle:@"전면광고" ID:@"615217b82a648b795040baee8bc81986a71d0eb7" type:EBAdInfoAllBanner],
         [EBAdInfo infoWithTitle:@"다이얼로그광고" ID:@"615217b82a648b795040baee8bc81986a71d0eb7,5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoDailBanner]
     ]];
@@ -74,6 +75,7 @@
 {
     return @[
         [EBAdInfo infoWithTitle:@"네이티브" ID:@"5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoNative],
+        [EBAdInfo infoWithTitle:@"MPartners 네이티브" ID:@"ZSYmgZX8ku" type:EBAdInfoMPartnersNative],
         [EBAdInfo infoWithTitle:@"네이티브 Banner" ID:@"5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoNativeBanner],
         [EBAdInfo infoWithTitle:@"네이티브 Ad (CollectionView)" ID:@"5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoNativeInCollectionView],
         [EBAdInfo infoWithTitle:@"네이티브 Ad (TableView)" ID:@"5792d262715cbd399d6910200437b40a95dcc0f6" type:EBAdInfoNativeTableViewPlacer],

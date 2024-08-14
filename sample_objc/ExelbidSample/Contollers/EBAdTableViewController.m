@@ -24,6 +24,8 @@
 #import "EBMediationNativeVideoAdViewController.h"
 #import "EBMediationBizBoardViewController.h"
 #import "EBAdTagViewController.h"
+#import "EBMPartnersBannerAdViewController.h"
+#import "EBMPartnersNativeAdViewController.h"
 
 #import <Foundation/Foundation.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
@@ -129,6 +131,12 @@
     }else if ([[segue identifier] isEqualToString:@"AdTag"]){
         EBAdTagViewController *controller = (EBAdTagViewController *)[segue destinationViewController];
         controller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"MPartners Banner"]){
+        EBMPartnersBannerAdViewController *controller = (EBMPartnersBannerAdViewController *)[segue destinationViewController];
+        controller.info = info;
+    }else if ([[segue identifier] isEqualToString:@"MPartners Native"]){
+        EBMPartnersNativeAdViewController *controller = (EBMPartnersNativeAdViewController *)[segue destinationViewController];
+        controller.info = info;
     }
 
 }
@@ -220,6 +228,12 @@
             break;
         case EBAdInfoAdTag:
             [self performSegueWithIdentifier:@"AdTag" sender:indexPath];
+            break;
+        case EBAdInfoMPartnersBanner:
+            [self performSegueWithIdentifier:@"MPartners Banner" sender:indexPath];
+            break;
+        case EBAdInfoMPartnersNative:
+            [self performSegueWithIdentifier:@"MPartners Native" sender:indexPath];
             break;
         default:
             break;

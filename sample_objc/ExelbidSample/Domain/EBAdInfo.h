@@ -24,7 +24,9 @@ typedef NS_ENUM(NSInteger, EBAdInfoType) {
     EBAdInfoMediationNative,
     EBAdInfoMediationNativeVideo,
     EBAdInfoMediationBizboardView,
-    EBAdInfoAdTag
+    EBAdInfoAdTag,
+    EBAdInfoMPartnersBanner,
+    EBAdInfoMPartnersNative
 };
 
 @interface EBAdInfo : NSObject
