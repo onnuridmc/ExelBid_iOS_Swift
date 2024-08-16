@@ -15,13 +15,12 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
   - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
   - [배너 광고](#배너-광고)
   - [전면 광고](#전면-광고)
+  - [전면 동영상 광고](#전면-동영상-광고)
   - [네이티브 광고, 네이티브 동영상 광고](#네이티브-광고-네이티브-동영상-광고)
   - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
   - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
 - [MPartners](#mpartners)
-  - [배너 광고](#mpartners-배너-광고)
-  - [네이티브 광고](#mpartners-네이티브-광고)
 
 
 # Version History
