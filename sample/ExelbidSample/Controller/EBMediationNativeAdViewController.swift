@@ -39,6 +39,7 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
     var ebNativeAd: EBNativeAd?
+    var mpNativeAd: EBNativeAd?
     
     // AdMob
     var gaAdLoad: GADAdLoader?
@@ -87,7 +88,8 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
             EBMediationTypes.digitalturbine,
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
-            EBMediationTypes.applovin
+            EBMediationTypes.applovin,
+            EBMediationTypes.mpartners
         ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -140,6 +142,8 @@ extension EBMediationNativeAdViewController {
                 self.loadTnk(mediation: mediation)
             case EBMediationTypes.applovin:
                 self.loadApplovin(mediation: mediation)
+            case EBMediationTypes.mpartners:
+                self.loadExelBid(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -250,6 +254,39 @@ extension EBMediationNativeAdViewController {
         // call to custom native ad
         self.alNativeAdLoader?.loadAd(into: self.alNativeAdView)
 
+    }
+    
+    func loadMPartners(mediation: EBMediationWrapper) {
+        let mpNativeManager = MPartnersNativeManager(mediation.unit_id, EBNativeAdView.self)
+        
+        // 광고의 효율을 높이기 위해 옵션 설정
+        mpNativeManager.yob("1987")
+        mpNativeManager.gender("M")
+//        ExelBidNativeManager.testing(true)
+        
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        mpNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdMainImageKey,
+                                       EBNativeAsset.kAdCTATextKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdTitleKey])
+
+        mpNativeManager.startWithCompletionHandler { (request, response, error) in
+            if error != nil {
+                // 광고가 없거나 요청 실패시 다음 미디에이션 처리를 위해 호출
+                self.loadMediation()
+            }else{
+                self.clearAd()
+                
+                self.mpNativeAd = response
+                self.mpNativeAd?.delegate = self
+                
+                if let adView = self.mpNativeAd?.retrieveAdViewWithError(nil) {
+                    self.adViewContainer.addSubview(adView)
+                    self.setAutoLayout2(view: self.adViewContainer, adView: adView)
+                }
+            }
+        }
     }
     
     func createApplovinNativeAdview() {

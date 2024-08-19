@@ -35,6 +35,7 @@
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
 @property (nonatomic, strong) EBAdView *ebAdView;
+@property (nonatomic, strong) EBAdView *mpAdView;
 
 // AdMob
 @property (nonatomic, strong) GADBannerView *gaBannerView;
@@ -103,6 +104,7 @@
                                 EBMediationTypes.tnk,
                                 EBMediationTypes.applovin,
                                 EBMediationTypes.targetpick,
+                                EBMediationTypes.mpartners,
                                 nil];
 
     // ExelBid 미디에이션 초기화
@@ -235,6 +237,8 @@
             [self loadApplovin:mediation];
         } else if ([mediation.id isEqualToString:EBMediationTypes.targetpick]) {
             [self loadTargetPick:mediation];
+        } else if ([mediation.id isEqualToString:EBMediationTypes.mpartners]) {
+            [self loadMPartners:mediation];
         } else {
             [self loadMediation];
         }
@@ -448,6 +452,26 @@
     
     [bannerAd startBanner];
     
+}
+
+// MPartners 광고 호출
+- (void)loadMPartners:(EBMediationWrapper *)mediation
+{
+    [self clearAd];
+    
+    self.mpAdView = [[MPartnersAdView alloc] initWithAdUnitId:mediation.unit_id size:self.adViewContainer.bounds.size];
+    self.mpAdView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    self.mpAdView.delegate = self;
+    [self.mpAdView setYob:@"1976"];
+    [self.mpAdView setGender:@"M"];
+    [self.mpAdView setFullWebView:YES];
+    [self.mpAdView setTesting:YES];
+    
+    [_adViewContainer addSubview:self.mpAdView];
+    
+    [self setAdViewAutolayoutConstraint:self.adViewContainer mine:self.mpAdView];
+    
+    [self.mpAdView loadAd];
 }
 
 #pragma mark - EBAdViewDelegate

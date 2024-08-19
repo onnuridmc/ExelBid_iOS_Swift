@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) EBMediationManager *mediationManager;
 @property (nonatomic, strong) EBNativeAd *ebNativeAd;
+@property (nonatomic, strong) EBNativeAd *mpNativeAd;
 
 // AdMob
 @property (nonatomic, strong) GADAdLoader *gaAdLoad;
@@ -73,10 +74,11 @@
     
     // ExelBid 미디에이션 목록 설정
     NSArray * mediationTypes = [[NSArray alloc] initWithObjects:
-                       EBMediationTypes.exelbid,
-                       EBMediationTypes.admob,
-                       EBMediationTypes.pangle,
-                       nil];
+                                EBMediationTypes.exelbid,
+                                EBMediationTypes.admob,
+                                EBMediationTypes.pangle,
+                                EBMediationTypes.mpartners,
+                                nil];
     
     // ExelBid 미디에이션 초기화
     self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:self.keywordsTextField.text mediationTypes:mediationTypes];
@@ -213,6 +215,36 @@
         [nativeAdView layoutSubviews];
         
         [self.adViewContainer addSubview:nativeAdView];
+    }];
+}
+
+- (void)loadMPartners:(EBMediationWrapper *)mediation
+{
+    [self clearAd];
+    
+    MPartnersNativeManager * mpNativeManager = [[MPartnersNativeManager alloc] init:mediation.unit_id :[EBNativeAdView class]];
+    [mpNativeManager testing:YES];
+    [mpNativeManager yob:@"1976"];
+    [mpNativeManager gender:@"M"];
+    
+    [mpNativeManager startWithCompletionHandler:^(EBNativeAdRequest *request, EBNativeAd *response, NSError *error) {
+        if (error) {
+            NSLog(@"================> %@", error);
+            self.loadAdButton.enabled = YES;
+            self.failLabel.hidden = NO;
+        } else {
+            NSLog(@"Received Native Ad");
+            self.loadAdButton.enabled = YES;
+            
+            self.mpNativeAd = response;
+            self.mpNativeAd.delegate = self;
+            
+            UIView *adView = [self.mpNativeAd retrieveAdViewWithError:nil];
+            [self.adViewContainer addSubview:adView];
+            adView.frame = self.adViewContainer.bounds;
+        }
+        
+        [self.spinner setHidden:YES];
     }];
 }
 

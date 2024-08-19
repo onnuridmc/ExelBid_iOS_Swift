@@ -44,6 +44,7 @@ class EBMediationBannerViewController : UIViewController {
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
     var ebAdView: EBAdView?
+    var mpAdView: EBAdView?
     
     // AdMob
     var gaBannerView: GADBannerView?
@@ -91,7 +92,8 @@ class EBMediationBannerViewController : UIViewController {
             EBMediationTypes.pangle,
             EBMediationTypes.tnk,
             EBMediationTypes.applovin,
-            EBMediationTypes.targetpick
+            EBMediationTypes.targetpick,
+            EBMediationTypes.mpartners
         ]
         mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
         
@@ -153,6 +155,8 @@ extension EBMediationBannerViewController {
                 self.loadApplovin(mediation: mediation)
             case EBMediationTypes.targetpick:
                 self.loadTargetPick(mediation: mediation)
+            case EBMediationTypes.mpartners:
+                self.loadMPartners(mediation: mediation)
             default:
                 self.loadMediation()
             }
@@ -382,6 +386,26 @@ extension EBMediationBannerViewController {
             
             // 다음 미디에이션 호출
             self.loadMediation()
+        }
+    }
+    
+    func loadMPartners(mediation: EBMediationWrapper) {
+        self.clearAd()
+        
+        self.mpAdView = MPartnersAdView(adUnitId: mediation.unit_id, size: self.adViewContainer.bounds.size)
+        
+        if let adView = self.mpAdView {
+            adView.delegate = self
+            adView.fullWebView = true
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            adView.yob = "1987"
+            adView.gender = "M"
+//            adView.testing = true
+            
+            self.adViewContainer.addSubview(adView)
+            setAutoLayout(view: adViewContainer, adView: adView)
+            adView.loadAd()
         }
     }
 
