@@ -628,6 +628,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)tnk SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull targetpick;)
 + (NSString * _Nonnull)targetpick SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull mpartners;)
++ (NSString * _Nonnull)mpartners SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1130,6 +1132,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 /// @param handler
 - (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
 - (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
+- (UIViewController * _Nullable)adViewWithDelegate:(id <EBVideoDelegate> _Nonnull)delegate SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2020,6 +2023,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)tnk SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull targetpick;)
 + (NSString * _Nonnull)targetpick SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull mpartners;)
++ (NSString * _Nonnull)mpartners SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2522,6 +2527,7 @@ SWIFT_CLASS("_TtC10ExelBidSDK14EBVideoManager")
 /// @param handler
 - (void)startWithCompletionHandler:(void (^ _Nullable)(EBVideoAdRequest * _Nullable, NSError * _Nullable))handler;
 - (void)presentAdWithController:(UIViewController * _Nonnull)controller delegate:(id <EBVideoDelegate> _Nonnull)delegate;
+- (UIViewController * _Nullable)adViewWithDelegate:(id <EBVideoDelegate> _Nonnull)delegate SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

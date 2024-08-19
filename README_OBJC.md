@@ -25,8 +25,8 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.1.1
-- MPartners Banner, Native 추가
+##  Version 2.1.2
+- 미디에이션 MPartners 추가
 
 [Old Version History](./VersionHistory.md)
 
@@ -652,13 +652,38 @@ self.placer.delegate = self;
 # 미디에이션
 Exelbid iOS SDK를 이용한 광고 연동시 Mediation 연동의 경우, 각 앱에서 연동하고 있는 광고 SDK들의 최적화 된 호출 순서를 응답한다.(Exelbid 포함)
 
+## 미디에이션 네트워크
+
+| 네트워크           | 미디에이션                           |
+|----------------|---------------------------------|
+| Exelbid        | EBMediationTypes.exelbid        |
+| AdMob          | EBMediationTypes.admob          |
+| FaceBook       | EBMediationTypes.facebook       |
+| AdFit          | EBMediationTypes.adfit          |
+| DigitalTurbine | EBMediationTypes.digitalturbine |
+| Pangel         | EBMediationTypes.pangle         |
+| TNK            | EBMediationTypes.tnk            |
+| AppLovin       | EBMediationTypes.applovin       |
+| MPartners      | EBMediationTypes.mpartners      |
+
+, EBMediationTypeAdfit
+
 ## 미디에이션 설정 및 요청
 ```
-// 미디에이션 초기화
-self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId" mediationTypes:;
-
 // ExelBid 미디에이션 타입 설정
-[ExelBidMediationManager mediationTypes: [NSSet setWithObjects:EBMediationTypeExelbid, EBMediationTypeAdfit, nil]];
+NSArray * mediationTypes = [[NSArray alloc] initWithObjects:
+                                EBMediationTypes.exelbid,
+                                EBMediationTypes.admob,
+                                EBMediationTypes.facebook,
+                                EBMediationTypes.adfit,
+                                EBMediationTypes.pangle,
+                                EBMediationTypes.tnk,
+                                EBMediationTypes.applovin,
+                                EBMediationTypes.targetpick,
+                                nil];
+                                
+// 미디에이션 초기화
+self.mediationManager = [[EBMediationManager alloc] initWithAdUnitId:@"adUnitId" mediationTypes:mediationTypes];
 
 // ExelBid 미디에이션 요청 및 콜백
     [self.mediationManager requestMediationWithHandler:^(EBMediationManager *manager, NSError *error) {
@@ -784,6 +809,7 @@ NSString *unit_id     // 광고 유닛 아이디
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
+* MPartners - [https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/main/README_MPartners_Objc.md](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/main/README_MPartners_Objc.md)
 
 [//]: # (* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300]&#40;https://docs.meba.kr/s-plus/sdk/ios_v300&#41;)
 

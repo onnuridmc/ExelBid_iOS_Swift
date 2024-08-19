@@ -9,41 +9,39 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 - [Version History](#version-history)
 - [SDK 정보](#sdk-정보)
 - [시작하기](#시작하기)
-  - [ExelBid SDK 추가하기](#SDK-추가하기-for-cocoapods)
-  - [어플리케이션 설정](#어플리케이션-설정)
+    - [ExelBid SDK 추가하기](#SDK-추가하기-for-cocoapods)
+    - [어플리케이션 설정](#어플리케이션-설정)
 - [광고 적용하기](#광고-적용하기)
-  - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
-  - [배너 광고](#배너-광고)
-  - [전면 광고](#전면-광고)
-  - [전면 동영상 광고](#전면-동영상-광고)
-  - [네이티브 광고, 네이티브 동영상 광고](#네이티브-광고-네이티브-동영상-광고)
-  - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
-  - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
+    - [광고 요청 인스턴스 공통 메소드](#광고-요청-인스턴스-공통-메소드)
+    - [배너 광고](#배너-광고)
+    - [전면 광고](#전면-광고)
+    - [전면 동영상 광고](#전면-동영상-광고)
+    - [네이티브 광고, 네이티브 동영상 광고](#네이티브-광고-네이티브-동영상-광고)
+    - [네이티브 TableView Adapter](#네이티브-tableview-adapter)
+    - [네이티브 CollectionView Adapter](#네이티브-collectionview-adapter)
 - [미디에이션](#미디에이션)
 - [MPartners](#mpartners)
 
-
 # Version History
 
-##  Version 2.1.1
-- MPartners Banner, Native 추가
+## Version 2.1.2
+
+- 미디에이션 MPartners 추가
 
 [Old Version History](./VersionHistory.md)
-
 
 # 시작하기 전에
 
 - Exelbid에서는 광고 요청에 대한 응답 후 노출까지의 시간(노출 캐시 시간)을 30분 이내로 권장합니다.(IAB 권장)
 - 광고 응답 이후 노출 시간 차이가 해당 시간보다 길어지면 광고 캠페인에 따라서 노출이 무효 처리될 수 있습니다.
 
-
 # SDK 정보
+
 ExelbidSDK는 Xcode 15.4, iOS 12.0 버전으로 빌드되었습니다.  
-XCFramework 형태로 제공됩니다.  
+XCFramework 형태로 제공됩니다.
 
 - 참조 1: [App Store 제출을 위한 SDK 최소 요구 사항 보기](https://developer.apple.com/kr/news/upcoming-requirements)
 - 참조 2: [최소 요구 사항 및 지원되는 SDK](https://developer.apple.com/kr/support/xcode)
-
 
 # 시작하기
 
@@ -54,14 +52,17 @@ XCFramework 형태로 제공됩니다.
 ### POD Install
 
 Podfile 만들기
+
 ```
 pod init
 ```
 
 Podfile 수정
+
 ```
 vi Podfile
 ```
+
 ```
 target 'MyApp' do
   use_frameworks!
@@ -71,6 +72,7 @@ end
 ```
 
 Podfile 설치
+
 ```
 pod install
 ```
@@ -84,6 +86,7 @@ pod install
 광고식별자를 수집하지 못하는 경우 광고 요청에 대해 응답이 실패할 수 있습니다.
 
 **※ 광고를 호출하기 전에 완료되어야 합니다.**
+
 ```
 import AppTrackingTransparency
 
@@ -112,7 +115,6 @@ if #available(iOS 14.0, *) {
 | Privacy - Tracking Usage Description                         | 필수       | EX) 맞춤형 광고 제공을 위해 디바이스 식별 데이터를 사용하려 합니다. | 앱이 디바이스 추적 데이터에 액세스 해야하는 이유 |
 | App Transport Security Settings<br/> > Allow Arbitrary Loads | 선택       | EX) YES or NO                            | HTTP 프로토콜 임의 로드 여부 설정       |
 
-
 # 광고 적용하기
 
 1. 계정을 생성합니다
@@ -134,11 +136,10 @@ if #available(iOS 14.0, *) {
 - keywords(String) : Custom 메타 데이터 (Key=Value, ...)
 - testing(BOOL) : 광고의 테스트를 위해 설정하는 값입니다. 통계에 적용 되지 않으며 항상 광고가 노출되게 됩니다.
 
-
 ## 위치 정보 안내
+
 SDK에서는 위치 추적을 직접적으로 하지 않습니다.  
 위치정보는 선택 사항이며 앱을 통해 CLLocation을 전달받습니다.
-
 
 ## 배너 광고
 
@@ -153,6 +154,7 @@ var adView: EBAdView?
 ```
 
 **2. 광고 인스턴스 생성**
+
 ```
 /**
  * @param adUnitId - 광고 유닛 ID
@@ -162,6 +164,7 @@ EBAdView(adUnitId: String?, size: CGSize)
 ```
 
 예시)
+
 ```
 // 광고 인스턴스 생성
 self.adView = EBAdView(adUnitId: "adUnitId", size: self.adViewContainer.bounds.size)
@@ -180,6 +183,7 @@ if let adView = self.adView {
 ```
 
 **3. 광고 위치에 광고 뷰 추가**
+
 ```
 self.adViewContainer.addSubview(adView)
 
@@ -188,12 +192,13 @@ setAutoLayout(view: self.adViewContainer, adView: adView)
 ```
 
 **4. 광고 요청**
+
 ```
 adView.loadAd()
 ```
 
-
 ### 배너광고 Protocol (EBAdViewDelegate Protocol Reference)
+
 ```
 // 광고를 성공적으로로드하면 전송됩니다.
 func adViewDidLoadAd(_ view: ExelBidSDK.EBAdView?)
@@ -211,10 +216,10 @@ func didLoadViewForAd(_ view: ExelBidSDK.EBAdView?)
 func willLeaveApplicationFromAd(_ view: ExelBidSDK.EBAdView?)
 ```
 
-
 ## 전면 광고
 
 **1. 전면 광고 요청을 위한 변수 선언**
+
 ```
 // 전면 광고 인스턴스  
 var interstitial: EBInterstitialAdController?
@@ -224,7 +229,10 @@ var interstitial: EBInterstitialAdController?
 **2. 전면 광고 인스턴스 생성 함수 호출**
 
 ### Deprecated
-- EBInterstitialAdController.interstitialAdControllerForAdUnitId(_ adUnitId: String?) -> ExelBidSDK.EBInterstitialAdController : 이 함수는 더 이상 사용되지 않습니다. 대신 `EBInterstitialAdController(_ adUnitId: String?)`를 사용하세요.
+
+- EBInterstitialAdController.interstitialAdControllerForAdUnitId(_ adUnitId: String?) ->
+  ExelBidSDK.EBInterstitialAdController : 이 함수는 더 이상 사용되지 않습니다. 대신 `EBInterstitialAdController(_ adUnitId: String?)`를
+  사용하세요.
 
 ```
 /**
@@ -234,6 +242,7 @@ EBInterstitialAdController(_ adUnitId: String?)
 ```
 
 예시)
+
 ```
 // 전면 광고 인스턴스 생성
 self.interstitial = EBInterstitialAdController.interstitialAdControllerForAdUnitId("adUnitId");
@@ -250,11 +259,13 @@ if let interstitial = self.interstitial {
 ```
 
 **3. 전면 광고 요청**
+
 ```
 interstitial.loadAd()
 ```
 
 **4. 전면 광고 표시**
+
 ```
 /**
  * @param controller 전면 광고를 표시하는 데 사용해야하는 UIViewController입니다.
@@ -263,11 +274,13 @@ EBInterstitialAdController.showFromViewController(_ controller: UIViewController
 ```
 
 예시)
+
 ```
 self.interstitial?.showFromViewController(self)
 ```
 
 ### 전면 광고 Protocol (EBInterstitialAdViewDelegate Protocol Reference)
+
 ```
 // 전면 광고를 성공적으로로드하면 전송됩니다.
 func interstitialDidLoadAd(_ interstitial: ExelBidSDK.EBInterstitialAdController?)
@@ -300,11 +313,14 @@ func interstitialDidReceiveTapEvent(_ interstitial: ExelBidSDK.EBInterstitialAdC
 ## 전면 동영상 광고
 
 ### Deprecated
-- EBVideoManager.initFullVideo(identifier: @"adUnitId") : 이 함수는 더 이상 사용되지 않습니다. 대신 `EBVideoManager(identifier: @"adUnitId")`를 사용하세요.
+
+- EBVideoManager.initFullVideo(identifier: @"adUnitId") : 이 함수는 더 이상 사용되지 않습니다.
+  대신 `EBVideoManager(identifier: @"adUnitId")`를 사용하세요.
 
 **1. 전면 동영상 광고 호출**
 
 예시)
+
 ```
 // 전면 동영상 광고 유닛 설정
 self.videoManager = EBVideoManager(identifier: @"adUnitId")
@@ -328,6 +344,7 @@ if let videoManager = self.videoManager {
 ```
 
 **2. 전면 동영상 광고 표시**
+
 ```
 /**
  * @param controller 전면 동영상 광고를 표시하는 데 사용해야하는 UIViewController입니다.
@@ -337,11 +354,13 @@ func presentAd(controller: UIViewController, delegate: any ExelBidSDK.EBVideoDel
 ```
 
 예시)
+
 ```
 self.videoManager?.presentAd(controller: self, delegate: self)
 ```
 
 ### 전면 동영상 광고 Protocol (EBVideoDelegate Protocol Reference)
+
 ```
 // 광고가 성공적으로로드 된 후에 호출됩니다.
 func videoAdDidLoad(adUnitID: String)
@@ -378,6 +397,7 @@ func videoAdDidReceiveTapEvent(adUnitID: String)
 - [EBNativeAdView.swift](./sample/ExelbidSample/Views/EBNativeAdView.swift)
 
 **네이티브 광고 뷰 인스턴스 변수 선언**
+
 ```
 var titleLabel: UILabel!
 var mainTextLabel: UILabel!
@@ -389,6 +409,7 @@ var ctaLabel: UILabel!
 ```
 
 **네이티브 광고 뷰 Protocol (EBNativeAdRenderingDelegate Protocol Reference)**
+
 ```
 // 메인 텍스트에 사용하고있는 UILabel을 반환합니다.
 func nativeMainTextLabel() -> UILabel?
@@ -413,10 +434,11 @@ func nativePrivacyInformationIconImageView() -> UIImageView?
 ```
 
 > 2017/07 방송통신위원회에서 시행되는 '온라인 맞춤형 광고 개인정보보호 가이드라인' 에 따라서 필수 적용 되어야 합니다.   
-광고주측에서 제공하는 해당 광고의 타입(맞춤형 광고 여부)에 따라 정보 표시 아이콘(Opt-out)의 노출이 결정됩니다.  
-※ 광고 정보 표시 아이콘이 노출될 ImageView의 사이즈는 NxN(권장 20x20)으로 설정 되어야 합니다.  
+> 광고주측에서 제공하는 해당 광고의 타입(맞춤형 광고 여부)에 따라 정보 표시 아이콘(Opt-out)의 노출이 결정됩니다.  
+> ※ 광고 정보 표시 아이콘이 노출될 ImageView의 사이즈는 NxN(권장 20x20)으로 설정 되어야 합니다.
 
 **2. 네이트브 광고 인스턴스 변수 선언**
+
 ```
 // 네이티브 광고 인스턴스 선언  
 var nativeAd: EBNativeAd?
@@ -428,13 +450,16 @@ var nativeAd: EBNativeAd?
 **3. 네이티브 광고 요청 전처리**
 
 ### Deprecated
-- ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(_ identifier: String, _ adViewClass: AnyClass?) : 이 함수는 더 이상 사용되지 않습니다. 대신 `ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)`를 사용하세요.
+
+- ExelBidNativeManager.initNativeAdWithAdUnitIdentifier(_ identifier: String, _ adViewClass: AnyClass?) : 이 함수는 더 이상
+  사용되지 않습니다. 대신 `ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)`를 사용하세요.
 
 ```
 ExelBidNativeManager(_ identifier: String, _ adViewClass: AnyClass?)
 ```
 
 예시)
+
 ```
 let ebNativeManager = ExelBidNativeManager("adUnitId", EBNativeAdView.self)
 
@@ -452,6 +477,7 @@ ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
 ```
 
 **3-1. 네이티브 동영상 광고 요청 전처리**
+
 ```
 ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
                                EBNativeAsset.kAdVideo,
@@ -461,6 +487,7 @@ ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
 ```
 
 **4. 네이티브 광고 요청 및 표시**
+
 ```
 ebNativeManager.startWithCompletionHandler { (request, response, error) in
     if error != nil {
@@ -474,6 +501,7 @@ ebNativeManager.startWithCompletionHandler { (request, response, error) in
     }
 }
 ```
+
 ```
 
 func displayAd() {
@@ -490,6 +518,7 @@ func displayAd() {
 ```
 
 ### 네이티브 광고 Protocol (EBNativeAdDelegate Protocol Reference)
+
 ```
 
 // 네이티브 광고가 모달 콘텐츠를 표시 할 때 전송됩니다.
@@ -508,16 +537,19 @@ func viewControllerForPresentingModalView() -> UIViewController?
 ## 네이티브 TableView Adapter
 
 **1. 네이티브 TableView Adapter 인스턴스 선언**
+
 ```
 var placer: EBTableViewAdPlacer?
 ```
 
 **네이티브 EBTableViewAdPlacer Protocol (EBTableViewAdPlacer Protocol Reference)**
+
 ```
 func placerWithTableView(_ tableView: UITableView?, viewController controller: UIViewController?, rendererConfigurations: [ExelBidSDK.EBNativeAdRendererConfiguration]?) -> ExelBidSDK.EBTableViewAdPlacer
 ```
 
 **2. 네이티브 TableView Adapter 설정 및 광고 요청**
+
 ```
 // 광고 타겟팅 설정
 let targeting = EBNativeAdRequestTargeting.targeting
@@ -567,7 +599,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
 ```
 
-### 네이티브 TableView Protocol (EBTableViewAdPlacerDelegate Protocol Reference) 
+### 네이티브 TableView Protocol (EBTableViewAdPlacerDelegate Protocol Reference)
+
 ```
 func nativeAdWillLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
 func nativeAdDidLoadForTableViewAdPlacer(_ placer: ExelBidSDK.EBTableViewAdPlacer?)
@@ -577,16 +610,19 @@ func nativeAdWillLeaveApplicationFromTableViewAdPlacer(_ placer: ExelBidSDK.EBTa
 ## 네이티브 CollectionView Adapter
 
 **1. 네이티브 CollectionView Adapter 인스턴스 선언**
+
 ```
 var placer: EBCollectionViewAdPlacer?
 ```
 
 **네이티브 EBCollectionViewAdPlacer Protocol (EBCollectionViewAdPlacer Protocol Reference)**
+
 ```
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
 ```
 
 **2. 네이티브 CollectionView Adapter 설정 및 광고 요청**
+
 ```
 // 광고 타겟팅 설정
 let targeting = EBNativeAdRequestTargeting.targeting
@@ -626,6 +662,7 @@ self.placer?.loadAdsForAdUnitID("adUnitId", targeting: targeting)
 ```
 
 **3. collectionView Delegate**
+
 ```
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if let cell = collectionView.EB_dequeueReusableCellWithIdentifier(kReuseIdentifier, forIndexPath: indexPath) {
@@ -638,6 +675,7 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 ```
 
 ### 네이티브 CollectionView Protocol (EBCollectionViewAdPlacerDelegate Protocol Reference)
+
 ```
 func nativeAdWillLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
 func nativeAdDidLoadForCollectionViewAdPlacer(_ placer: ExelBidSDK.EBCollectionViewAdPlacer)
@@ -645,11 +683,27 @@ func nativeAdWillLeaveApplicationFromCollectionViewAdPlacer(_ placer: ExelBidSDK
 ```
 
 # 미디에이션
+
 Exelbid iOS SDK를 이용한 광고 연동시 Mediation 연동의 경우, 각 앱에서 연동하고 있는 광고 SDK들의 최적화 된 호출 순서를 응답한다.(Exelbid 포함)
+
+## 미디에이션 네트워크
+
+| 네트워크           | 미디에이션                           |
+|----------------|---------------------------------|
+| Exelbid        | EBMediationTypes.exelbid        |
+| AdMob          | EBMediationTypes.admob          |
+| FaceBook       | EBMediationTypes.facebook       |
+| AdFit          | EBMediationTypes.adfit          |
+| DigitalTurbine | EBMediationTypes.digitalturbine |
+| Pangel         | EBMediationTypes.pangle         |
+| TNK            | EBMediationTypes.tnk            |
+| AppLovin       | EBMediationTypes.applovin       |
+| MPartners      | EBMediationTypes.mpartners      |
 
 ## 미디에이션 설정 및 요청
 
 **네이티브 광고 뷰 인스턴스 변수 선언**
+
 ```
 var mediationManager: EBMediationManager?
 ```
@@ -664,7 +718,8 @@ let mediationTypes = [
     EBMediationTypes.digitalturbine,
     EBMediationTypes.pangle,
     EBMediationTypes.tnk,
-    EBMediationTypes.applovin
+    EBMediationTypes.applovin,
+    EBMediationTypes.mpartners
 ];
 
 // 미디에이션 초기화
@@ -684,6 +739,7 @@ if let mediationManager = mediationManager {
 ```
 
 ## 미디에이션 순서 호출
+
 ```
 func loadMediation() {
     // ExelBid 미디에이션 객체 체크
@@ -770,6 +826,7 @@ func loadExelBid(mediation: EBMediationWrapper) {
 > **미디에이션 목록이 비어있다면 광고없음 처리를 해주세요.**
 
 ## EBMediationManager Interface References
+
 ```
 // 미디에이션 요청
 func requestMediation(handler: EBMediationRequestHandler)
@@ -785,6 +842,7 @@ func count() -> Int
 ```
 
 ## EBMediationWrapper Interface References
+
 ```
 var id: String { get }          // 미디에이션 타입
 var index: Int { get }          // 미디에이션 순번
@@ -793,26 +851,29 @@ var unit_id: String { get }     // 광고 유닛 아이디
 ```
 
 ## 샘플 안내
+
 자세한 내용은 아래 샘플코드를 참고해주세요.  
 배너 광고 - [EBMediationBannerViewController.swift](./sample/ExelbidSample/Controller/EBMediationBannerViewController.swift)  
-전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)
-전면 비디오 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)
+전면 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)  
+전면 비디오 광고 - [EBMediationInterstitialViewController.swift](./sample/ExelbidSample/Controller/EBMediationInterstitialViewController.swift)  
 네이티브 - [EBMediationNativeAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeAdViewController.swift)  
-네이티브 동영상 - [EBMediationNativeVideoAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeVideoAdViewController.swift)  
+네이티브 동영상 - [EBMediationNativeVideoAdViewController.swift](./sample/ExelbidSample/Controller/EBMediationNativeVideoAdViewController.swift)
 
 ## 외에 Exelbid 및 타사 광고 SDK 연동은 각각의 해당 가이드를 참조해 설정한다.
+
 * AdMob - [https://developers.google.com/admob/ios/quick-start?hl=ko](https://developers.google.com/admob/ios/quick-start?hl=ko)
 * FaceBook - [https://developers.facebook.com/docs/audience-network/guides](https://developers.facebook.com/docs/audience-network/guides)
 * Kakao-Adfit - [https://github.com/adfit/adfit-ios-sdk/wiki](https://github.com/adfit/adfit-ios-sdk/wiki)
-* Digital Turbine - [https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK](https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK)
+* DigitalTurbine - [https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK](https://developer.digitalturbine.com/hc/en-us/articles/360010915618-Integrating-the-iOS-SDK)
 * Pangle - [https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios](https://www.pangleglobal.com/kr/integration/integrate-pangle-sdk-for-ios)
 * TNK - [https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md](https://github.com/tnkfactory/ios-pub-sdk/blob/main/iOS_Guide.md)
 * AppLovin - [https://dash.applovin.com/documentation/mediation/ios/getting-started/integration](https://dash.applovin.com/documentation/mediation/ios/getting-started/integration)
+* MPartners - [https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/main/README_MPartners.md](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/main/README_MPartners.md)
 
 [//]: # (* MezzoMedia - [https://docs.meba.kr/s-plus/sdk/ios_v300]&#40;https://docs.meba.kr/s-plus/sdk/ios_v300&#41;)
 
-
 # MPartners
+
 > Exelbid 광고 호출과 동일하며 광고생성 클래스가 다릅니다.  
 > 이점 광고 생성에 참고해주세요.
 

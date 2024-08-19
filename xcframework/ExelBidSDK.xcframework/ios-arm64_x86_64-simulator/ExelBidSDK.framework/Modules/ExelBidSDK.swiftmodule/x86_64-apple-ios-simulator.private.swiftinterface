@@ -481,6 +481,7 @@ public typealias EBMediationRequestHandler = (_ manager: ExelBidSDK.EBMediationM
   @objc public static let applovin: Swift.String
   @objc public static let tnk: Swift.String
   @objc public static let targetpick: Swift.String
+  @objc public static let mpartners: Swift.String
   @objc deinit
 }
 @objc @objcMembers final public class EBMediationManager : ObjectiveC.NSObject {
@@ -524,6 +525,7 @@ public typealias EBVideoManagerHandler = (_ request: ExelBidSDK.EBVideoAdRequest
   public static func initFullVideo(identifier unitId: Swift.String) -> ExelBidSDK.EBVideoManager
   @objc final public func startWithCompletionHandler(_ handler: ExelBidSDK.EBVideoManagerHandler?)
   @objc final public func presentAd(controller: UIKit.UIViewController, delegate: any ExelBidSDK.EBVideoDelegate)
+  @objc final public func adView(delegate: any ExelBidSDK.EBVideoDelegate) -> UIKit.UIViewController?
   @objc deinit
 }
 extension ExelBidSDK.HTTPMethod : Swift.Equatable {}

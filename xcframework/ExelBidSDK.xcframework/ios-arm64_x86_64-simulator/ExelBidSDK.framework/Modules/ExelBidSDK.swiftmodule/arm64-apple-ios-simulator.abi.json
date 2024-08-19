@@ -16654,6 +16654,59 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "mpartners",
+            "printedName": "mpartners",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cpy)mpartners",
+            "mangledName": "$s10ExelBidSDK16EBMediationTypesC9mpartnersSSvpZ",
+            "moduleName": "ExelBidSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBMediationTypes(cm)mpartners",
+                "mangledName": "$s10ExelBidSDK16EBMediationTypesC9mpartnersSSvgZ",
+                "moduleName": "ExelBidSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -18011,6 +18064,43 @@
             "declKind": "Func",
             "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(im)presentAdWithController:delegate:",
             "mangledName": "$s10ExelBidSDK14EBVideoManagerC9presentAd10controller8delegateySo16UIViewControllerC_AA0D8Delegate_ptF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adView",
+            "printedName": "adView(delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EBVideoDelegate",
+                "printedName": "any ExelBidSDK.EBVideoDelegate",
+                "usr": "c:@M@ExelBidSDK@objc(pl)EBVideoDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBVideoManager(im)adViewWithDelegate:",
+            "mangledName": "$s10ExelBidSDK14EBVideoManagerC6adView8delegateSo16UIViewControllerCSgAA0D8Delegate_p_tF",
             "moduleName": "ExelBidSDK",
             "declAttributes": [
               "Final",
@@ -23375,28 +23465,28 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 4815,
+      "offset": 5029,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 6203,
+      "offset": 6417,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 7638,
+      "offset": 7852,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdRequest.swift",
       "kind": "BooleanLiteral",
-      "offset": 9947,
+      "offset": 10158,
       "length": 5,
       "value": "false"
     },
@@ -25236,29 +25326,36 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 675,
+      "length": 4,
+      "value": "\"mp\""
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "Array",
-      "offset": 1051,
+      "offset": 1090,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "Array",
-      "offset": 1128,
+      "offset": 1167,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1167,
+      "offset": 1206,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Mediation\/EBMediationManager.swift",
       "kind": "StringLiteral",
-      "offset": 955,
+      "offset": 994,
       "length": 18,
       "value": "\"ExelBidSDK.EBMediationManager\""
     },
@@ -25377,7 +25474,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/EBVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5137,
+      "offset": 5310,
       "length": 5,
       "value": "false"
     },

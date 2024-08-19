@@ -1,5 +1,8 @@
 # Version History
 
+##  Version 2.1.2
+- 미디에이션 MPartners 추가
+
 ##  Version 2.1.1
 - MPartners Banner, Native 추가
 
