@@ -65,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //            // Note: you may also set these values in your Info.plist
 //            builder.settings.termsAndPrivacyPolicyFlowSettings.isEnabled = true
-//            builder.settings.termsAndPrivacyPolicyFlowSettings.termsOfServiceURL = URL(string: "https://www.motiv-i.com/terms")
-//            builder.settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string:"https://www.motiv-i.com/privacy")
+//            builder.settings.termsAndPrivacyPolicyFlowSettings.termsOfServiceURL = URL(string: "«URL-TERMS»")
+//            builder.settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string:"«URL-PRIVACY»")
 //        }
 //
 //        ALSdk.shared().initialize(with: initConfig) { sdkConfig in

@@ -38,8 +38,8 @@ class EBMediationBannerViewController : UIViewController {
     
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
-    @IBOutlet var loadAdButton: UIButton!
-    @IBOutlet var showAdButton: UIButton!
+    @IBOutlet var loadButton: UIButton!
+    @IBOutlet var nextButton: UIButton!
     
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
@@ -71,17 +71,16 @@ class EBMediationBannerViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.showAdButton.isHidden = true
+
         self.keywordsTextField.text = self.info?.ID
     }
 
     @IBAction func didTapLoadButton(_ sender: UIButton) {
-        self.keywordsTextField.endEditing(true)
-
-        guard let unitId = self.keywordsTextField.text else {
+        guard let identifier = keywordsTextField.text else {
             return
         }
+        
+        self.keywordsTextField.endEditing(true)
         
         let mediationTypes = [
             EBMediationTypes.exelbid,
@@ -95,22 +94,23 @@ class EBMediationBannerViewController : UIViewController {
             EBMediationTypes.targetpick,
             EBMediationTypes.mpartners
         ]
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
+        mediationManager = EBMediationManager(adUnitId: identifier, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
-            self.showAdButton.isHidden = false
             
             mediationManager.requestMediation { (manager, error) in
                 if error != nil {
                     // 미디에이션 에러 처리
+                    self.nextButton.isEnabled = false
                 } else {
                     // 성공 처리
+                    self.nextButton.isEnabled = true
                 }
             }
         }
     }
 
-    @IBAction func didTapShowButton(_ sender: UIButton) {
+    @IBAction func didTapNextButton(_ sender: UIButton) {
         self.loadMediation()
     }
     
@@ -185,6 +185,8 @@ extension EBMediationBannerViewController {
             // 광고의 효율을 높이기 위해 옵션 설정
             adView.yob = "1987"
             adView.gender = "M"
+            
+            // 테스트 광고 설정 (true - 테스트 광고가 응답)
 //            adView.testing = true
             
             self.adViewContainer.addSubview(adView)
@@ -401,6 +403,8 @@ extension EBMediationBannerViewController {
             // 광고의 효율을 높이기 위해 옵션 설정
             adView.yob = "1987"
             adView.gender = "M"
+            
+            // 테스트 광고 설정 (true - 테스트 광고가 응답)
 //            adView.testing = true
             
             self.adViewContainer.addSubview(adView)

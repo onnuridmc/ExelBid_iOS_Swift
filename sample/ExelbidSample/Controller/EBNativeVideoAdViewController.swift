@@ -12,7 +12,9 @@ class EBNativeVideoAdViewController: UIViewController {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
+    @IBOutlet var isTest: UIButton!
     @IBOutlet var loadAdButton: UIButton!
+    @IBOutlet var showAdButton: UIButton!
    
     var info: EBAdInfoModel?
     var nativeAd: EBNativeAd?
@@ -20,13 +22,22 @@ class EBNativeVideoAdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         keywordsTextField.text = info?.ID
-        loadAdButton.layer.cornerRadius = 3.0
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        clearAd()
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    func clearAd() {
+        // 광고 영역 내 모든 뷰 제거
+        adViewContainer.subviews.forEach { subview in
+            subview.removeFromSuperview()
+        }
     }
 }
 
@@ -35,18 +46,19 @@ extension EBNativeVideoAdViewController {
         guard let identifier = keywordsTextField.text else {
             return
         }
+        
         keywordsTextField.endEditing(true)
         
         loadAdButton.isEnabled = false
-        clearAd()
-        
-        // Create and configure a renderer configuration for native ads.
+
         let ebNativeManager = ExelBidNativeManager(identifier, EBNativeAdView.self)
         
         // 광고의 효율을 높이기 위해 옵션 설정
         ebNativeManager.yob("1987")
         ebNativeManager.gender("M")
-        ebNativeManager.testing(true)
+        
+        // 테스트 광고 설정 (true - 테스트 광고가 응답)
+        ebNativeManager.testing(isTest.isSelected)
 
         // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
         ebNativeManager.desiredAssets([EBNativeAsset.kAdTitleKey,
@@ -56,39 +68,44 @@ extension EBNativeVideoAdViewController {
                                        EBNativeAsset.kAdCTATextKey])
 
         ebNativeManager.startWithCompletionHandler { (request, response, error) in
+            self.loadAdButton.isEnabled = true
+            
             if let error = error {
                 print(">>> Native Video Error : \(error.localizedDescription)")
-                self.configureAdLoadFail()
+                
+                "Fail Load Ad".alert(self)
             }else{
                 self.nativeAd = response
                 self.nativeAd?.delegate = self
-                self.displayAd()
+                
+                self.showAdButton.isEnabled = true
+                "Load Ad".alert(self)
             }
         }
 
     }
-
-    func clearAd() {
-        adViewContainer.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
-        nativeAd?.stopNativeVideo()
-        nativeAd = nil
-    }
     
-    func displayAd() {
-        loadAdButton.isEnabled = true
-        adViewContainer.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
+    @IBAction func showAdButton(_ sender: UIButton) {
+        showAdButton.isEnabled = false
+        
         if let adView = nativeAd?.retrieveAdViewWithError(nil) {
+            
+            // 기존 광고 뷰 제거
+            clearAd()
+
             adViewContainer.addSubview(adView)
             setAutoLayout2(view: adViewContainer, adView: adView)
+        } else {
+            "Error Native Video".alert(self)
         }
     }
+
+    @IBAction func toggleTestButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
     
-    func configureAdLoadFail() {
-        loadAdButton.isEnabled = true
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        keywordsTextField.resignFirstResponder()
     }
 }
 

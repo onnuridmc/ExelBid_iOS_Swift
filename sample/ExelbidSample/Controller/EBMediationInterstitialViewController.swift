@@ -34,8 +34,8 @@ import LibADPlus
 class EBMediationInterstitialViewController : UIViewController {
     
     @IBOutlet var keywordsTextField: UITextField!
-    @IBOutlet var loadAdButton: UIButton!
-    @IBOutlet var showAdButton: UIButton!
+    @IBOutlet var loadButton: UIButton!
+    @IBOutlet var nextButton: UIButton!
     
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
@@ -63,17 +63,16 @@ class EBMediationInterstitialViewController : UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.showAdButton.isHidden = true
+
         self.keywordsTextField.text = self.info?.ID
     }
     
     @IBAction func didTapLoadButton(_ sender: UIButton) {
-        self.keywordsTextField.endEditing(true)
-
-        guard let unitId = self.keywordsTextField.text else {
+        guard let identifier = keywordsTextField.text else {
             return
         }
+
+        self.keywordsTextField.endEditing(true)
         
         let mediationTypes = [
             EBMediationTypes.exelbid,
@@ -87,20 +86,23 @@ class EBMediationInterstitialViewController : UIViewController {
             EBMediationTypes.targetpick
         ]
         
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
+        mediationManager = EBMediationManager(adUnitId: identifier, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
-            self.showAdButton.isHidden = false
-            
+
             mediationManager.requestMediation() { (manager, error) in
                 if error != nil {
                     // 미디에이션 에러 처리
+                    self.nextButton.isEnabled = false
+                } else {
+                    // 성공 처리
+                    self.nextButton.isEnabled = true
                 }
             }
         }
     }
     
-    @IBAction func didTapShowButton(_ sender: UIButton) {
+    @IBAction func didTapNextButton(_ sender: UIButton) {
         self.loadMediation()
     }
 }

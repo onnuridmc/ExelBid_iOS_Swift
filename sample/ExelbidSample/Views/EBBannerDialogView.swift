@@ -1,5 +1,5 @@
 //
-//  EBHTMLDialogView.swift
+//  EBBannerDialogView.swift
 //  com.zionbi.ExelbidSample-Swift
 //
 //  Created by HeroK on 2021/02/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EBHTMLDialogView: UIView {
+class EBBannerDialogView: UIView {
     var adView: UIView!
     var closeButton: UIButton!
     var cancleButton: UIButton!

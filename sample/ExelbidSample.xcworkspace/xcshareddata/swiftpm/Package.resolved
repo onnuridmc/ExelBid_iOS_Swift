@@ -1,0 +1,24 @@
+{
+  "originHash" : "b687c9161b7e4f0ecf6c819d72031a2efabfa62fb5c85c9b7051642b5f83d0cb",
+  "pins" : [
+    {
+      "identity" : "adfit-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adfit/adfit-spm.git",
+      "state" : {
+        "revision" : "c8ff3fc627cccf7d550f880d6d69651af29cdeaa",
+        "version" : "3.15.4"
+      }
+    },
+    {
+      "identity" : "devicekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devicekit/DeviceKit.git",
+      "state" : {
+        "revision" : "7ff5331960151aec74fb422e1d45f54ef6cc086d",
+        "version" : "5.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}

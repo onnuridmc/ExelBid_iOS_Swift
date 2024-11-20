@@ -10,21 +10,21 @@ import ExelBidSDK
 
 class EBDialogAdViewController: UIViewController {
     @IBOutlet var keywordsTextField1: UITextField!
+    @IBOutlet var isTest1: UIButton!
+    @IBOutlet var loadBannerAdButton: UIButton!
+    @IBOutlet var showBannerAdButton: UIButton!
+    
     @IBOutlet var keywordsTextField2: UITextField!
-    @IBOutlet var loadHTMLAdButton: UIButton!
-    @IBOutlet var showHTMLAdButton: UIButton!
-    @IBOutlet var loadNativeAdButton1: UIButton!
-    @IBOutlet var showNativeAdButton1: UIButton!
-    @IBOutlet var loadNativeAdButton2: UIButton!
-    @IBOutlet var showNativeAdButton2: UIButton!
+    @IBOutlet var isTest2: UIButton!
+    @IBOutlet var loadNativeAdButton: UIButton!
+    @IBOutlet var showNativeAdButton: UIButton!
    
     var info: EBAdInfoModel?
     var nativeAd: EBNativeAd?
     var adView: EBAdView?
   
-    var htmlDialogView: EBHTMLDialogView?
+    var bannerDialogView: EBBannerDialogView?
     var nativeDialogView: EBNativeDialogView?
-    var nativeRoundView: EBNativeRoundView?
 
 
     override func viewDidLoad() {
@@ -34,71 +34,109 @@ class EBDialogAdViewController: UIViewController {
         
         keywordsTextField1.text = info?.ID.components(separatedBy: ",")[0]
         keywordsTextField2.text = info?.ID.components(separatedBy: ",")[1]
-        loadHTMLAdButton.layer.cornerRadius = 3.0
-        showHTMLAdButton.layer.cornerRadius = 3.0
-        loadNativeAdButton1.layer.cornerRadius = 3.0
-        showNativeAdButton1.layer.cornerRadius = 3.0
-        loadNativeAdButton2.layer.cornerRadius = 3.0
-        showNativeAdButton2.layer.cornerRadius = 3.0
-        buttonReset()
         
-        htmlDialogView = EBHTMLDialogView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+        bannerDialogView = EBBannerDialogView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
         nativeDialogView = EBNativeDialogView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        nativeRoundView = EBNativeRoundView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        
-  
     }
 
 }
 
 extension EBDialogAdViewController {
-    @IBAction func didTapHTMLLoadButton(_ sender: UIButton) {
-        keywordsTextField1.endEditing(true)
-        buttonReset()
-        loadHTMLAdButton.isEnabled = false
-
-        if adView != nil {
-            adView?.removeFromSuperview()
-        }
-        
-        guard let htmlDialogView = htmlDialogView?.adView else {
+    @IBAction func loadBannerAdClicked(_ sender: UIButton) {
+        guard let identifier = keywordsTextField1.text, let bannerDialogView = bannerDialogView else {
             return
         }
         
-        adView = EBAdView(adUnitId: keywordsTextField1.text, size: htmlDialogView.bounds.size)
-        adView?.delegate = self
-        adView?.yob = "1987"
-        adView?.gender = "M"
-        adView?.fullWebView = true
-//        adView?.testing = true
+        loadBannerAdButton.isEnabled = false
+        
+        keywordsTextField1.resignFirstResponder()
+        
+        adView = EBAdView(adUnitId: identifier, size: bannerDialogView.bounds.size)
         
         if let adView = adView {
-            htmlDialogView.addSubview(adView)
-            adView.setAutoLayout(view: htmlDialogView)
+            adView.delegate = self
+
+            // AdView 안에 너비 100%로 웹뷰가 바인딩되게 설정하려면 아래와 같이 메소드를 추가할 수 있습니다.
+            // 기본 상태는 설정된 광고사이즈로 센터정렬되어 바인딩 된다.
+            adView.fullWebView = true
+            
+            // 광고의 효율을 높이기 위해 옵션 설정
+            adView.yob = "1987"
+            adView.gender = "M"
+
+            // 테스트 광고 설정 (true - 테스트 광고가 응답)
+            adView.testing = isTest1.isSelected
+            
             adView.loadAd()
         }
-        
     }
     
-    @IBAction func didTapHTMLShowButton(_ sender: UIButton) {
-        guard let htmlDialogView = htmlDialogView else {
+    @IBAction func showBannerAdButton(_ sender: UIButton) {
+        showBannerAdButton.isEnabled = false
+
+        if let adView = adView, let bannerDialogView = bannerDialogView {
+            
+            bannerDialogView.adView.subviews.forEach { subview in
+                subview.removeFromSuperview()
+            }
+
+            // 광고 뷰 추가
+            bannerDialogView.adView.addSubview(adView)
+            // 광고 뷰 autolayout
+            adView.setAutoLayout(view: bannerDialogView.adView)
+            
+            // 배너 다이얼로그 뷰
+            if let naviView = navigationController?.view {
+                naviView.addSubview(bannerDialogView)
+                bannerDialogView.setAutoLayout(view: naviView)
+            }
+        }
+    }
+   
+    @IBAction func loadNativeAdClicked(_ sender: UIButton) {
+        guard let identifier = keywordsTextField2.text else {
             return
         }
-        if let naviView = navigationController?.view {
-            naviView.addSubview(htmlDialogView)
-            htmlDialogView.setAutoLayout(view: naviView)
+        
+        keywordsTextField2.endEditing(true)
+        
+        loadNativeAdButton.isEnabled = false
+        
+        
+        let ebNativeManager = ExelBidNativeManager(identifier, EBNativeAdView.self)
+        
+        // 광고의 효율을 높이기 위해 옵션 설정
+        ebNativeManager.yob("1987")
+        ebNativeManager.gender("M")
+        
+        // 테스트 광고 설정 (true - 테스트 광고가 응답)
+        ebNativeManager.testing(isTest2.isSelected)
+
+        // 네이티브 광고 요청시 어플리케이션에서 필수로 요청할 항목들을 설정합니다.
+        ebNativeManager.desiredAssets([EBNativeAsset.kAdIconImageKey,
+                                       EBNativeAsset.kAdMainImageKey,
+                                       EBNativeAsset.kAdCTATextKey,
+                                       EBNativeAsset.kAdTextKey,
+                                       EBNativeAsset.kAdTitleKey])
+
+        ebNativeManager.startWithCompletionHandler { (request, response, error) in
+            self.loadNativeAdButton.isEnabled = true
+
+            if let error = error {
+                print(">>> Native Error : \(error.localizedDescription)")
+
+                "Fail Load Native Ad".alert(self)
+            }else{
+                self.nativeAd = response
+                self.nativeAd?.delegate = self
+                
+                self.showNativeAdButton.isEnabled = true
+                "Load Native Ad".alert(self)
+            }
         }
     }
    
-    @IBAction func didTapNativeLoadButton1(_ sender: UIButton) {
-        keywordsTextField1.endEditing(true)
-        buttonReset()
-        loadNativeAdButton1.isEnabled = false
-        clearAd1()
-        nativeAdLoad(1)
-    }
-   
-    @IBAction func didTapNativeShowButton1(_ sender: UIButton) {
+    @IBAction func showNativeAdButton(_ sender: UIButton) {
         guard let nativeDialogView = nativeDialogView else {
             return
         }
@@ -114,114 +152,32 @@ extension EBDialogAdViewController {
             }
         }
     }
-   
-    @IBAction func didTapNativeLoadButton2(_ sender: UIButton) {
-        keywordsTextField1.endEditing(true)
-        buttonReset()
-        loadNativeAdButton2.isEnabled = false
-        clearAd2()
-        nativeAdLoad(2)
-    }
-   
-    @IBAction func didTapNativeShowButton2(_ sender: UIButton) {
-        guard let nativeRoundView = nativeRoundView else {
-            return
-        }
-        nativeRoundView.adView.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
-        if let adView = nativeAd?.retrieveAdViewWithError(nil) {
-            nativeRoundView.adView.addSubview(adView)
-            adView.setAutoLayout(view: nativeRoundView.adView)
-          
-          
-            if let naviView = navigationController?.view {
-                naviView.addSubview(nativeRoundView)
-                nativeRoundView.setAutoLayout(view: naviView)
-            }
-        }
-  
-    }
-   
 }
 
 extension EBDialogAdViewController {
-    func nativeAdLoad(_ type: Int) {
-        let settings = EBStaticNativeAdRendererSettings()
-        if type == 1 {
-            settings.renderingViewClass = EBNativeAdView.self
-        }else{
-            settings.renderingViewClass = EBNativeAd2View.self
-        }
-        
-        let config = EBStaticNativeAdRenderer.rendererConfigurationWithRendererSettings(settings)
-        let adRequest = EBNativeAdRequest.requestWithAdUnitIdentifier(keywordsTextField2.text, rendererConfigurations: [config])
-        let targeting = EBNativeAdRequestTargeting()
-        targeting.yob = "1976"
-        targeting.gender = "M"
-//        targeting.testing = true
-        adRequest.targeting = targeting
-        
-        adRequest.startWithCompletionHandler { (request, response, error) in
-            if error != nil {
-                self.configureAdLoadFail()
-                return
-            }
-            
-            self.nativeAd = response
-            self.nativeAd?.delegate = self
-            if type == 1 {
-                self.loadNativeAdButton1.isEnabled = true
-                self.showNativeAdButton1.isHidden = false
-            }else{
-                self.loadNativeAdButton2.isEnabled = true
-                self.showNativeAdButton2.isHidden = false
-            }
-        }
-    }
     
-    func buttonReset() {
-        showHTMLAdButton.isHidden = true
-        showNativeAdButton1.isHidden = true
-        showNativeAdButton2.isHidden = true
+    @IBAction func toggleTestButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
-    
-    func clearAd1() {
-        nativeDialogView?.adView.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
-        nativeAd = nil
-    }
-    
-    func clearAd2() {
-        nativeRoundView?.adView.subviews.forEach { subview in
-            subview.removeFromSuperview()
-        }
-        nativeAd = nil
-    }
-    
-    func configureAdLoadFail() {
-        loadNativeAdButton1.isEnabled = true
-        loadNativeAdButton2.isEnabled = true
-    }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         keywordsTextField1.resignFirstResponder()
         keywordsTextField2.resignFirstResponder()
     }
-    
 
 }
 
 
 extension EBDialogAdViewController: EBAdViewDelegate {
     func adViewDidLoadAd(_ view: EBAdView?) {
-        loadHTMLAdButton.isEnabled = true
-        showHTMLAdButton.isHidden = false
+        showBannerAdButton.isEnabled = true
+        loadBannerAdButton.isEnabled = true
+        "Load Banner Ad".alert(self)
     }
     
     func adViewDidFailToLoadAd(_ view: EBAdView?) {
-        loadHTMLAdButton.isEnabled = true
+        loadBannerAdButton.isEnabled = true
+        "Fail Load Banner Ad".alert(self)
     }
     
 }

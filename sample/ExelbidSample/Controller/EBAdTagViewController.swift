@@ -37,6 +37,7 @@ class EBAdTagViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
         webViewConfig.allowsInlineMediaPlayback = true
         webViewConfig.mediaTypesRequiringUserActionForPlayback = .audio
         webViewConfig.userContentController = userController
+//        webViewConfig.preferences.javaScriptCanOpenWindowsAutomatically = true
 
         webView = WKWebView(frame: self.view.frame, configuration: webViewConfig)
         webView.uiDelegate = self
@@ -146,6 +147,11 @@ class EBAdTagViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
             
         }
         
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        print(">>> JavaScript Alert: \(message)")
+        completionHandler()
     }
 }
 

@@ -40,7 +40,7 @@
             
             function exelbidAdTag(data) {
                 exelbidtag.push(function () {
-                    const adunit = exelbidtag.initAdBanner("08377f76c8b3e46c4ed36c82e434da2b394a4dfa", "100%", 200, "div-exelbid-08377f76c8b3e46c4ed36c82e434da2b394a4dfa")
+                    const adunit = exelbidtag.initAdBanner("da4cecc2882205e05b62f23a678c611cf90d56a6", 300, 250, "div-exelbid-adtag")
                         .setResponseCallback(MyResponse)
                         .setIsInApp(true); // 이것은 특별히 inapp 인 경우 반드시 해줘야 합니다.
 
@@ -108,14 +108,14 @@
                 });
 
                 exelbidtag.push(function () {
-                    exelbidtag.loadAd("08377f76c8b3e46c4ed36c82e434da2b394a4dfa");
+                    exelbidtag.loadAd("da4cecc2882205e05b62f23a678c611cf90d56a6");
                 });
             }
 
         </script>
 
         <div id="root">
-            <div id="div-exelbid-08377f76c8b3e46c4ed36c82e434da2b394a4dfa" style="background-color: #555;">
+            <div id="div-exelbid-adtag" style="background-color: #555;">
                 <script type='text/javascript'>
                     if (window.webkit && window.webkit.messageHandlers) {
                         window.webkit.messageHandlers.exelbidAdTag.postMessage("exelbidAdTag");

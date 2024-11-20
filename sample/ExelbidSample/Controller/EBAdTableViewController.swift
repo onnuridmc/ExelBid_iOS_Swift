@@ -27,7 +27,6 @@ class EBAdTableViewController: UITableViewController {
         }
     }
     
-    
     func info(indexPath: IndexPath) -> EBAdInfoModel {
         return sections[indexPath.section].adAtIndex(indexPath.row)
     }
@@ -42,8 +41,8 @@ class EBAdTableViewController: UITableViewController {
             if let controller = segue.destination as? EBBannerAdViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "FrontBanner" {
-            if let controller = segue.destination as? EBFrontBannerAdViewController {
+        }else if segue.identifier == "Interstitial" {
+            if let controller = segue.destination as? EBInterstitialAdViewController {
                 controller.info = info
             }
         }else if segue.identifier == "Native" {
@@ -70,27 +69,27 @@ class EBAdTableViewController: UITableViewController {
             if let controller = segue.destination as? EBDialogAdViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "NativeVideo" {
+        }else if segue.identifier == "Native Video" {
             if let controller = segue.destination as? EBNativeVideoAdViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "MediationBanner" {
+        }else if segue.identifier == "Mediation Banner" {
             if let controller = segue.destination as? EBMediationBannerViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "MediationInterstitial" {
+        }else if segue.identifier == "Mediation Interstitial" {
             if let controller = segue.destination as? EBMediationInterstitialViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "MediationInterstitialVideo" {
+        }else if segue.identifier == "Mediation Interstitial Video" {
             if let controller = segue.destination as? EBMediationInterstitialVideoViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "MediationNative" {
+        }else if segue.identifier == "Mediation Native" {
             if let controller = segue.destination as? EBMediationNativeAdViewController {
                 controller.info = info
             }
-        }else if segue.identifier == "MediationNativeVideo" {
+        }else if segue.identifier == "Mediation Native Video" {
             if let controller = segue.destination as? EBMediationNativeVideoAdViewController {
                 controller.info = info
             }
@@ -109,6 +108,9 @@ class EBAdTableViewController: UITableViewController {
         }else if segue.identifier == "MPartners Native" {
             if let controller = segue.destination as? EBMPartnersNativeAdViewController {
                 controller.info = info
+            }
+        }else if segue.identifier == "MPartners Offerwall" {
+            if let controller = segue.destination as? EBMPartnersOfferwallViewController {
             }
         }
     }
@@ -130,7 +132,6 @@ class EBAdTableViewController: UITableViewController {
         
         let info = self.info(indexPath: indexPath)
         cell.textLabel?.text = info.title
-        cell.textLabel?.textColor = UIColor(red: 0.32, green: 0.36, blue: 0.35, alpha: 1)
         return cell
     }
 
@@ -143,8 +144,8 @@ class EBAdTableViewController: UITableViewController {
         switch info.type {
             case .Banner:
                 performSegue(withIdentifier: "Banner", sender: indexPath)
-            case .AllBanner:
-                performSegue(withIdentifier: "FrontBanner", sender: indexPath)
+            case .Interstitial:
+                performSegue(withIdentifier: "Interstitial", sender: indexPath)
             case .DailBanner:
                 performSegue(withIdentifier: "Dialog", sender: indexPath)
             case .Native:
@@ -158,17 +159,17 @@ class EBAdTableViewController: UITableViewController {
             case .Video:
                 performSegue(withIdentifier: "Video", sender: indexPath)
             case .NativeVideo:
-                performSegue(withIdentifier: "NativeVideo", sender: indexPath)
+                performSegue(withIdentifier: "Native Video", sender: indexPath)
             case .MediationBanner:
-                performSegue(withIdentifier: "MediationBanner", sender: indexPath)
+                performSegue(withIdentifier: "Mediation Banner", sender: indexPath)
             case .MediationInterstitial:
-                performSegue(withIdentifier: "MediationInterstitial", sender: indexPath)
+                performSegue(withIdentifier: "Mediation Interstitial", sender: indexPath)
             case .MediationInterstitialVideo:
-                performSegue(withIdentifier: "MediationInterstitialVideo", sender: indexPath)
+                performSegue(withIdentifier: "Mediation Interstitial Video", sender: indexPath)
             case .MediationNative:
-                performSegue(withIdentifier: "MediationNative", sender: indexPath)
+                performSegue(withIdentifier: "Mediation Native", sender: indexPath)
             case .MediationNativeVideo:
-                performSegue(withIdentifier: "MediationNativeVideo", sender: indexPath)
+                performSegue(withIdentifier: "Mediation Native Video", sender: indexPath)
             case .MediationBizboard:
                 performSegue(withIdentifier: "MediationBizboardView", sender: indexPath)
             case .AdTag:
@@ -177,6 +178,8 @@ class EBAdTableViewController: UITableViewController {
                 performSegue(withIdentifier: "MPartners Banner", sender: indexPath)
             case .MPartnersNative:
                 performSegue(withIdentifier: "MPartners Native", sender: indexPath)
+            case .MPartnersOfferwall:
+                performSegue(withIdentifier: "MPartners Offerwall", sender: indexPath)
         }
     }
 }

@@ -16,7 +16,7 @@ target 'ExelbidSample' do
   pod 'FBAudienceNetwork'
 
   # Adfit
-  pod 'AdFitSDK', '~> 3.12.18'
+#  pod 'AdFitSDK', '~> 3.12.18'
   
   # Digital Turbine
   pod 'Fyber_Marketplace_SDK'

@@ -16,7 +16,6 @@ class EBCollectionViewAdPlacerView: UIView {
    
     override init(frame: CGRect) {
         super.init(frame: frame)
- 
         
         titleLabel = UILabel(frame: CGRect(x: 2, y: 0, width: 61, height: 24))
         titleLabel.font = UIFont.boldSystemFont(ofSize: 12)

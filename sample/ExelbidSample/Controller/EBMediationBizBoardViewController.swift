@@ -16,7 +16,7 @@ class EBMediationBizBoardViewController : UIViewController {
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
     @IBOutlet var loadAdButton: UIButton!
-    @IBOutlet var showAdButton: UIButton!
+    @IBOutlet var nextButton: UIButton!
     
     var info: EBAdInfoModel?
     var mediationManager: EBMediationManager?
@@ -27,7 +27,6 @@ class EBMediationBizBoardViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.showAdButton.isHidden = true
         self.keywordsTextField.text = self.info?.ID
         
         // 광고 요청하기 전에 사용자로 부터 개인정보 보호에 관한 권한을 요청해야 합니다.
@@ -38,11 +37,11 @@ class EBMediationBizBoardViewController : UIViewController {
     }
     
     @IBAction func didTapLoadButton(_ sender: UIButton) {
-        self.keywordsTextField.endEditing(true)
-
-        guard let unitId = self.keywordsTextField.text else {
+        guard let identifier = keywordsTextField.text else {
             return
         }
+        
+        self.keywordsTextField.endEditing(true)
         
         let mediationTypes = [
             EBMediationTypes.exelbid,
@@ -54,23 +53,24 @@ class EBMediationBizBoardViewController : UIViewController {
             EBMediationTypes.tnk,
             EBMediationTypes.applovin
         ]
-        mediationManager = EBMediationManager(adUnitId: unitId, mediationTypes: mediationTypes)
+        mediationManager = EBMediationManager(adUnitId: identifier, mediationTypes: mediationTypes)
         
         if let mediationManager = mediationManager {
-            self.showAdButton.isHidden = false
             
             mediationManager.requestMediation() { (manager, error) in
                 if error != nil {
-                    // ERROR - Request Mediation
+                    // 미디에이션 에러 처리
+                    self.nextButton.isEnabled = false
                 } else {
-                    self.loadMediation()
+                    // 성공 처리
+                    self.nextButton.isEnabled = true
                 }
             }
         }
     }
     
-    @IBAction func didTapShowButton(_ sender: UIButton) {
-
+    @IBAction func didTapNextButton(_ sender: UIButton) {
+        self.loadMediation()
     }
     
     // adViewController 내 추가된 서브 뷰 제거
@@ -85,13 +85,14 @@ extension EBMediationBizBoardViewController {
     
     func loadMediation() {
         guard let mediationManager = mediationManager else {
+            self.emptyMediation()
             return
         }
         
         // 미디에이션 목록을 순차적으로 가져옴
         if let mediation = mediationManager.next() {
             
-            print(">>>>> Mediation ID : \(mediation.id), \(mediation.unit_id)")
+            print(">>>>> \(#function) : \(mediation.id), \(mediation.unit_id)")
             
             switch mediation.id {
             case EBMediationTypes.exelbid:
@@ -106,9 +107,9 @@ extension EBMediationBizBoardViewController {
         }
     }
     
+    // 미디에이션 목록이 비어있음. 광고 없음 처리.
     func emptyMediation() {
         print("Mediation Empty")
-        // 미디에이션 목록이 비어있음. 광고 없음 처리.
     }
     
     /**

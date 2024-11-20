@@ -11,7 +11,9 @@ import ExelBidSDK
 class EBMPartnersBannerAdViewController: UIViewController {
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
+    @IBOutlet var isTest: UIButton!
     @IBOutlet var loadAdButton: UIButton!
+    @IBOutlet var showAdButton: UIButton!
     
     var info: EBAdInfoModel?
     var adView: EBAdView?
@@ -19,13 +21,8 @@ class EBMPartnersBannerAdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         keywordsTextField.text = info?.ID
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        adView?.stopAutomaticallyRefreshingContents()   //광로 리로드를 종료
-//    }
    
     override var shouldAutorotate: Bool {
         return false
@@ -34,18 +31,28 @@ class EBMPartnersBannerAdViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    func clearAd() {
+        // 광고 영역 내 모든 뷰 제거
+        self.adViewContainer.subviews.forEach { subview in
+            subview.removeFromSuperview()
+        }
+    }
 }
 
 extension EBMPartnersBannerAdViewController {
     @IBAction func loadAdClicked(_ sender: UIButton) {
-        if adView != nil {
-            adView?.removeFromSuperview()
-            adView = nil
+        
+        guard let identifier = keywordsTextField.text else {
+            return
         }
+        
+        loadAdButton.isEnabled = false
+        
         keywordsTextField.resignFirstResponder()
         
         // MPartners Ad View 생성
-        self.adView = MPartnersAdView(adUnitId: keywordsTextField.text, size: self.adViewContainer.bounds.size)
+        self.adView = MPartnersAdView(adUnitId: identifier, size: CGSizeMake(320, 50))
         
         if let adView = self.adView {
             adView.delegate = self
@@ -57,14 +64,32 @@ extension EBMPartnersBannerAdViewController {
             // 광고의 효율을 높이기 위해 옵션 설정
             adView.yob = "1987"
             adView.gender = "M"
-            // adView.testing = true
             
-            self.adViewContainer.addSubview(adView)
-            
-            setAutoLayout(view: self.adViewContainer, adView: adView)
+            // 테스트 광고 설정 (true - 테스트 광고가 응답)
+            adView.testing = self.isTest.isSelected
             
             adView.loadAd()
         }
+    }
+    
+    @IBAction func showAdClicked(_ sender: UIButton) {
+        showAdButton.isEnabled = false
+        
+        if let adView = self.adView {
+            // 기존 광고 뷰 제거
+            self.clearAd()
+            
+            self.showAdButton.isEnabled = false
+            
+            // 광고 뷰 추가
+            self.adViewContainer.addSubview(adView)
+            // 광고 뷰 autolayout
+            setAutoLayout(view: adViewContainer, adView: adView)
+        }
+    }
+    
+    @IBAction func toggleTestButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,11 +100,14 @@ extension EBMPartnersBannerAdViewController {
 
 extension EBMPartnersBannerAdViewController: EBAdViewDelegate {
     func adViewDidLoadAd(_ view: EBAdView?) {
-        print("adViewDidLoadAd.")
+        "Load Ad".alert(self)
+        showAdButton.isEnabled = true
+        loadAdButton.isEnabled = true
     }
 
     func adViewDidFailToLoadAd(_ view: EBAdView?) {
-        print("adViewDidFailToLoadAd.")
+        "Fail Load Ad".alert(self)
+        loadAdButton.isEnabled = true
     }
 
     func willLeaveApplicationFromAd(_ view: EBAdView?) {
