@@ -25,8 +25,8 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-##  Version 2.1.2
-- 미디에이션 MPartners 추가
+##  Version 2.1.3
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
