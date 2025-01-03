@@ -132,7 +132,7 @@ if #available(iOS 14.0, *) {
 - yob(String) : 태어난 연도 4자리(2016)
 - gender(String) : 성별 (M : 남자, F : 여자)
 - location(CLLocation) : 위치 정보
-- keywords(String) : Custom 메타 데이터 (Key=Value, ...)
+- keywords(String) : Custom 메타 데이터 (Key:Value, ...)
 - testing(BOOL) : 광고의 테스트를 위해 설정하는 값입니다. 통계에 적용 되지 않으며 항상 광고가 노출되게 됩니다.
 
 ## 위치 정보 안내
