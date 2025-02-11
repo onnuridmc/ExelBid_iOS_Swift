@@ -1653,8 +1653,8 @@
           },
           {
             "kind": "Var",
-            "name": "kAdLogoeKey",
-            "printedName": "kAdLogoeKey",
+            "name": "kAdLogoKey",
+            "printedName": "kAdLogoKey",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1664,8 +1664,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAsset(cpy)kAdLogoeKey",
-            "mangledName": "$s10ExelBidSDK13EBNativeAssetC11kAdLogoeKeySSvpZ",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAsset(cpy)kAdLogoKey",
+            "mangledName": "$s10ExelBidSDK13EBNativeAssetC10kAdLogoKeySSvpZ",
             "moduleName": "ExelBidSDK",
             "static": true,
             "declAttributes": [
@@ -1692,8 +1692,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAsset(cm)kAdLogoeKey",
-                "mangledName": "$s10ExelBidSDK13EBNativeAssetC11kAdLogoeKeySSvgZ",
+                "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAsset(cm)kAdLogoKey",
+                "mangledName": "$s10ExelBidSDK13EBNativeAssetC10kAdLogoKeySSvgZ",
                 "moduleName": "ExelBidSDK",
                 "static": true,
                 "implicit": true,
@@ -15722,6 +15722,42 @@
           },
           {
             "kind": "Function",
+            "name": "retrieveAdViewWithAdView",
+            "printedName": "retrieveAdViewWithAdView(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "EBNativeAdRendering",
+                "printedName": "any ExelBidSDK.EBNativeAdRendering",
+                "usr": "c:@M@ExelBidSDK@objc(pl)EBNativeAdRendering"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ExelBidSDK@objc(cs)EBNativeAd(im)retrieveAdViewWithAdView:",
+            "mangledName": "$s10ExelBidSDK10EBNativeAdC08retrievee8ViewWitheG0ySo6UIViewCSgAA0dE9Rendering_pF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "stopNativeVideo",
             "printedName": "stopNativeVideo()",
             "children": [
@@ -15739,6 +15775,57 @@
               "AccessControl",
               "RawDocComment",
               "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getNativeData",
+            "printedName": "getNativeData()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String?]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String?]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10ExelBidSDK10EBNativeAdC13getNativeDataSDyS2SSgGSgyF",
+            "mangledName": "$s10ExelBidSDK10EBNativeAdC13getNativeDataSDyS2SSgGSgyF",
+            "moduleName": "ExelBidSDK",
+            "declAttributes": [
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -22933,7 +23020,7 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAdRequestTargeting.swift",
       "kind": "StringLiteral",
-      "offset": 530,
+      "offset": 529,
       "length": 6,
       "value": "\"logo\""
     },
@@ -24529,14 +24616,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 7293,
+      "offset": 7292,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 7357,
+      "offset": 7356,
       "length": 3,
       "value": "0.5"
     },
@@ -24802,21 +24889,21 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
       "kind": "Array",
-      "offset": 1988,
+      "offset": 1953,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
       "kind": "Array",
-      "offset": 2030,
+      "offset": 1995,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
       "kind": "BooleanLiteral",
-      "offset": 2061,
+      "offset": 2026,
       "length": 5,
       "value": "false"
     },

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ExelBidSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVFoundation
@@ -51,7 +51,7 @@ import _SwiftConcurrencyShims
   @objc public static let kAdTextKey: Swift.String
   @objc public static let kAdIconImageKey: Swift.String
   @objc public static let kAdMainImageKey: Swift.String
-  @objc public static let kAdLogoeKey: Swift.String
+  @objc public static let kAdLogoKey: Swift.String
   @objc public static let kAdSponsoredKey: Swift.String
   @objc public static let kAdStarRatingKey: Swift.String
   @objc public static let kAdLikesKey: Swift.String
@@ -452,7 +452,9 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
 @objc @_hasMissingDesignatedInitializers @objcMembers public class EBNativeAd : ObjectiveC.NSObject {
   @objc public var delegate: (any ExelBidSDK.EBNativeAdDelegate)?
   @objc public func retrieveAdViewWithError(_ error: (any Swift.Error)?) -> UIKit.UIView?
+  @objc public func retrieveAdViewWithAdView(_ adView: any ExelBidSDK.EBNativeAdRendering) -> UIKit.UIView?
   @objc public func stopNativeVideo()
+  public func getNativeData() -> [Swift.String : Swift.String?]?
   @objc deinit
 }
 extension ExelBidSDK.EBNativeAd : ExelBidSDK.EBVideoDelegate {
