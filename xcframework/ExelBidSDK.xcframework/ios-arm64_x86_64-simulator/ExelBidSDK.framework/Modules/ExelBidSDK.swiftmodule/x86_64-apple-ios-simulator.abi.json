@@ -24607,13 +24607,6 @@
       "value": "\"X-skadn-signature\""
     },
     {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Core\/EBAdConfiguration.swift",
-      "kind": "FloatLiteral",
-      "offset": 3193,
-      "length": 4,
-      "value": "10.0"
-    },
-    {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "Array",
       "offset": 7544,

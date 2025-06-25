@@ -34,11 +34,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		AmfnBRzD+DlyxUYd3T69G8KPyVw=
+		pzeT7N07yoe93uGuYqjXOkw/Ew0=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		O8MaUtsuK9iUMes0ViTuefJgAP8=
+		evfBOfmEyPucqmcbB37jYKTW3TU=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		6EOYiSCwlpbpDVq8SKL26hxrua0=
+		qKYFRnHYHG1kexkKzbgXyEhXndw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -120,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WDe5zsCzX2cEANslCd+IL8wrcGOOXJPZqzDJO7EwtQ4=
+			spoFOABFlhPwkeZB6bgzfplqKDjNbxsIhFW8eXUet30=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -148,7 +148,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tv55mlXXiH7qdPPZhtSu2ZVowChXt0sRfjc0o45kKDM=
+			FvdyQUDMu7qB4LpE3S4q5NHZQsMarGB5buF+9HBge4Q=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

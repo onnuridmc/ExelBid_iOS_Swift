@@ -24,8 +24,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.2.0
-- Viewability 옵션 추가
+## Version 2.2.1
+- 배너 광고 refreshtime 수정
 
 [Old Version History](./VersionHistory.md)
 

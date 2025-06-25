@@ -1,5 +1,8 @@
 # Version History
 
+## Version 2.2.1
+- 배너 광고 refreshtime 수정
+
 ## Version 2.2.0
 - Viewability 옵션 추가
 
