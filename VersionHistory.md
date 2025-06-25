@@ -1,5 +1,8 @@
 # Version History
 
+## Version 2.2.0
+- Viewability 옵션 추가
+
 ## Version 2.1.4
 - 광고 응답 처리 수정
 - 네이티브 광고 뷰 처리 추가

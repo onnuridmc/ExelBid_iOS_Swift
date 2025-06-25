@@ -23902,14 +23902,14 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBStaticNativeAdImpressionTimer.swift",
       "kind": "FloatLiteral",
-      "offset": 702,
+      "offset": 743,
       "length": 4,
       "value": "0.25"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBStaticNativeAdImpressionTimer.swift",
       "kind": "IntegerLiteral",
-      "offset": 762,
+      "offset": 803,
       "length": 2,
       "value": "-1"
     },
@@ -24615,17 +24615,17 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
-      "kind": "FloatLiteral",
-      "offset": 7292,
-      "length": 3,
-      "value": "1.0"
+      "kind": "Array",
+      "offset": 7448,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "FloatLiteral",
-      "offset": 7356,
+      "offset": 7517,
       "length": 3,
-      "value": "0.5"
+      "value": "1.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/Model\/EBTrackingCreative.swift",
@@ -24902,8 +24902,22 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
+      "kind": "Array",
+      "offset": 2039,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
+      "kind": "Array",
+      "offset": 2084,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
       "kind": "BooleanLiteral",
-      "offset": 2026,
+      "offset": 2115,
       "length": 5,
       "value": "false"
     },

@@ -24,9 +24,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.1.4
-- 광고 응답 처리 수정
-- 네이티브 광고 뷰 처리 추가
+## Version 2.2.0
+- Viewability 옵션 추가
 
 [Old Version History](./VersionHistory.md)
 
@@ -702,7 +701,7 @@ Exelbid iOS SDK를 이용한 광고 연동시 Mediation 연동의 경우, 각 �
 
 ## 미디에이션 설정 및 요청
 
-**네이티브 광고 뷰 인스턴스 변수 선언**
+**미디에이션 인스턴스 변수 선언**
 
 ```
 var mediationManager: EBMediationManager?
