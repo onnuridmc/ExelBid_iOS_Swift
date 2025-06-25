@@ -24616,16 +24616,37 @@
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
       "kind": "Array",
-      "offset": 7448,
+      "offset": 7544,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
-      "kind": "FloatLiteral",
-      "offset": 7517,
-      "length": 3,
-      "value": "1.0"
+      "kind": "Array",
+      "offset": 7588,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
+      "kind": "Array",
+      "offset": 7633,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
+      "kind": "Array",
+      "offset": 7670,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Internal\/EBExelBidNativeAdAdapter.swift",
+      "kind": "Array",
+      "offset": 7877,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/Model\/EBTrackingCreative.swift",
@@ -24888,38 +24909,17 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
-      "kind": "Array",
-      "offset": 1953,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
-      "kind": "Array",
-      "offset": 1995,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
-      "kind": "Array",
-      "offset": 2039,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
-      "kind": "Array",
-      "offset": 2084,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/EBNativeAd.swift",
       "kind": "BooleanLiteral",
-      "offset": 2115,
+      "offset": 1946,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Model\/EBNativeModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2052,
+      "length": 4,
+      "value": "1000"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Native\/Placer\/EBAdPositioning.swift",

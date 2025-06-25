@@ -1,5 +1,5 @@
 {
-  "originHash" : "ddeffcdc524cbc869dff06b03c9f00bc91352aef5f78a86c5a522e3ffda14d5c",
+  "originHash" : "42c1fe97370d9071634f0145f5563422cf684eec40f653026e538dc5519fb9d0",
   "pins" : [
     {
       "identity" : "adfit-spm",
@@ -17,15 +17,6 @@
       "state" : {
         "revision" : "513b9d7e7a1bd46504a1009bbab943b75ce2f195",
         "version" : "5.6.0"
-      }
-    },
-    {
-      "identity" : "exelbid_ios_swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onnuridmc/ExelBid_iOS_Swift.git",
-      "state" : {
-        "revision" : "d28785bfe96d95af36035c2b5b4c6cb8bb927461",
-        "version" : "2.2.0"
       }
     },
     {
