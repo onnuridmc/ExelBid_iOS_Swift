@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // AdMob
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        MobileAds.shared.start(completionHandler: nil)
         
         // FaceBook
         FBAudienceNetworkAds.initialize(with: nil, completionHandler: nil)

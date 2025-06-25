@@ -44,7 +44,7 @@ XCFramework 형태로 제공됩니다.
 
 # 시작하기
 
-## SDK 추가하기 for CocoaPods
+## ~~SDK 추가하기 for CocoaPods~~ (Cocoapod 재정비로 인해 업데이트 중지)
 
 **[Cocoapods 설치 가이드](https://guides.cocoapods.org/using/getting-started.html)**
 
@@ -75,6 +75,13 @@ Podfile 설치
 ```
 pod install
 ```
+
+## Swift Package Manager
+
+1. `Project` -> `Package Dependencies` 탭으로 이동
+2. `+` 버튼 클릭 후 검색창에 `https://github.com/onnuridmc/ExelBid_iOS_Swift` 입력
+3. exelbid_ios_swift 선택 후 `Add Package`
+4. `Target` -> `General` 탭에서 `Frameworks` 항목에 `ExelbidSDK` 가 포함되었는지 확인
 
 ## 어플리케이션 설정
 

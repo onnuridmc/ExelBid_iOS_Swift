@@ -42,7 +42,7 @@ class EBMediationInterstitialViewController : UIViewController {
     var ebInterstitialAd: EBInterstitialAdController?
     
     // AdMob
-    var gaInterstital: GADInterstitialAd?
+    var gaInterstital: InterstitialAd?
     
     // Facebook
     var fanInterstitialAd: FBInterstitialAd?
@@ -170,16 +170,14 @@ extension EBMediationInterstitialViewController {
     
     // AdMob 광고 호출
     func loadAdMob(mediation: EBMediationWrapper) {
-        GADInterstitialAd.load(withAdUnitID: mediation.unit_id, request: GADRequest.init()) { (ad, error) in
-            if let error = error {
+        Task {
+            do {
+                gaInterstital = try await InterstitialAd.load(with: mediation.unit_id, request: Request())
+                gaInterstital?.fullScreenContentDelegate = self
+                gaInterstital?.present(from: self)
+            } catch {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 self.loadMediation()
-            } else {
-                self.gaInterstital = ad
-                
-                if let gaInterstital = self.gaInterstital {
-                    gaInterstital.fullScreenContentDelegate = self
-                    gaInterstital.present(fromRootViewController: self)
-                }
             }
         }
     }
@@ -314,7 +312,7 @@ extension EBMediationInterstitialViewController {
 }
 
 // MARK: - 광고 뷰 Delegate
-extension EBMediationInterstitialViewController : EBInterstitialAdControllerDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
+extension EBMediationInterstitialViewController : EBInterstitialAdControllerDelegate, FullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
     
     // MARK: EBInterstitialAdControllerDelegate
 
@@ -335,18 +333,35 @@ extension EBMediationInterstitialViewController : EBInterstitialAdControllerDele
     }
     
     
-    // MARK: - GADFullScreenContentDelegate
+    // MARK: - FullScreenContentDelegate
     
-    func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
+    func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func adDidRecordClick(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("\(#function) called with error: \(error.localizedDescription)")
+      // Clear the interstitial ad.
+        gaInterstital = nil
         self.loadMediation()
     }
-    
-    func adWillPresentFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
-        
+
+    func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
     }
-    
-    func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
-        
+
+    func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+        print("\(#function) called")
+        // Clear the interstitial ad.
+        gaInterstital = nil
     }
     
     

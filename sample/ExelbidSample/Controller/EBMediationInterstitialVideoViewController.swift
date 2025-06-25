@@ -28,7 +28,7 @@ import TnkPubSdk
 // Applovin
 import AppLovinSDK
 
-class EBMediationInterstitialVideoViewController : UIViewController, EBVideoDelegate, GADFullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
+class EBMediationInterstitialVideoViewController : UIViewController, EBVideoDelegate, FullScreenContentDelegate, FBInterstitialAdDelegate, IAUnitDelegate, PAGLInterstitialAdDelegate, TnkAdListener, MAAdDelegate {
     
     @IBOutlet var keywordsTextField: UITextField!
     @IBOutlet var loadAdButton: UIButton!
@@ -39,7 +39,7 @@ class EBMediationInterstitialVideoViewController : UIViewController, EBVideoDele
     var ebVideoManaber: EBVideoManager?
     
     // AdMob
-    var gaInterstital: GADInterstitialAd?
+    var gaInterstital: InterstitialAd?
     
     // Facebook
     var fanInterstitialAd: FBInterstitialAd?
@@ -144,16 +144,14 @@ extension EBMediationInterstitialVideoViewController {
     }
     
     func loadAdMob(mediation: EBMediationWrapper) {
-        GADInterstitialAd.load(withAdUnitID: mediation.unit_id, request: GADRequest.init()) { (ad, error) in
-            if let error = error {
+        Task {
+            do {
+                gaInterstital = try await InterstitialAd.load(with: mediation.unit_id, request: Request())
+                gaInterstital?.fullScreenContentDelegate = self
+                gaInterstital?.present(from: self)
+            } catch {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 self.loadMediation()
-            } else {
-                self.gaInterstital = ad
-                
-                if let gaInterstital = self.gaInterstital {
-                    gaInterstital.fullScreenContentDelegate = self
-                    gaInterstital.present(fromRootViewController: self)
-                }
             }
         }
     }
@@ -201,16 +199,35 @@ extension EBMediationInterstitialVideoViewController {
     
     // MARK: GADFullScreenContentDelegate
     
-    func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
+    // MARK: - FullScreenContentDelegate
+    
+    func adDidRecordImpression(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func adDidRecordClick(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("\(#function) called with error: \(error.localizedDescription)")
+      // Clear the interstitial ad.
+        gaInterstital = nil
         self.loadMediation()
     }
-    
-    func adWillPresentFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
-        
+
+    func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
     }
-    
-    func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
-        
+
+    func adWillDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+      print("\(#function) called")
+    }
+
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+        print("\(#function) called")
+        // Clear the interstitial ad.
+        gaInterstital = nil
     }
     
     

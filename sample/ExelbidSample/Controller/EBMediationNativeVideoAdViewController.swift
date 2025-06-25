@@ -32,8 +32,8 @@ class EBMediationNativeVideoAdViewController : UIViewController {
     var ebNativeAd: EBNativeAd?
     
     // AdMob
-    var gaAdLoad: GADAdLoader?
-    var gaNativeAdView: GADNativeAdView?
+    var gaAdLoad: AdLoader?
+    var gaNativeAdView: NativeAdView?
     
     // Pangle
     var pagNativeAd: PAGLNativeAd?
@@ -168,12 +168,12 @@ extension EBMediationNativeVideoAdViewController {
     func loadAdMob(mediation: EBMediationWrapper) {
         self.clearAd()
         
-        let videoOptions = GADVideoOptions()
-        videoOptions.customControlsRequested = true
+        let videoOptions = VideoOptions()
+        videoOptions.areCustomControlsRequested = true
         
-        self.gaAdLoad = GADAdLoader.init(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: [videoOptions])
+        self.gaAdLoad = AdLoader(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: [videoOptions])
         self.gaAdLoad?.delegate = self
-        self.gaAdLoad?.load(GADRequest.init())
+        self.gaAdLoad?.load(Request.init())
     }
     
     // Pangle 광고 호출
@@ -260,7 +260,7 @@ extension EBMediationNativeVideoAdViewController {
 }
  
 // MARK: - 광고 뷰 Delegate
-extension EBMediationNativeVideoAdViewController : EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate, PAGLNativeAdDelegate {
+extension EBMediationNativeVideoAdViewController : EBNativeAdDelegate, NativeAdLoaderDelegate, NativeAdDelegate, VideoControllerDelegate, PAGLNativeAdDelegate {
     
     // MARK: EBNativeAdDelegate
     
@@ -283,9 +283,9 @@ extension EBMediationNativeVideoAdViewController : EBNativeAdDelegate, GADNative
     
     // MARK: - GADNativeAdLoaderDelegate
     
-    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
+    func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
         let nibView = Bundle.main.loadNibNamed("EBAdMobNativeAdView", owner: nil, options: nil)?.first
-        guard let nativeAdView = nibView as? GADNativeAdView else {
+        guard let nativeAdView = nibView as? NativeAdView else {
             print(">>>>> Not Found loadNibNamed(EBAdMobNativeAdView)")
             
             return
@@ -353,7 +353,7 @@ extension EBMediationNativeVideoAdViewController : EBNativeAdDelegate, GADNative
         nativeAdView.nativeAd = nativeAd
     }
     
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: any Error) {
+    func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: any Error) {
         self.loadMediation()
     }
     

@@ -17,14 +17,13 @@
 		1D30CE392A89B86700B8C222 /* EBMediationBizBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */; };
 		1D3B6FD42BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */; };
 		1D44EBF82CCA13B900C2D59F /* EBMPartnersOfferwallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D44EBF72CCA13B900C2D59F /* EBMPartnersOfferwallCell.swift */; };
-		1D4929062CCA35AF006139C9 /* ExelBidSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4929042CCA359D006139C9 /* ExelBidSDK.xcframework */; };
-		1D4929072CCA35AF006139C9 /* ExelBidSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4929042CCA359D006139C9 /* ExelBidSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D4A00262BA959AB0046443B /* EBAdMobNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */; };
 		1D4A00282BA959DD0046443B /* EBFanNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */; };
 		1D4A002A2BA95A010046443B /* EBFanNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */; };
 		1D4A002C2BA9693A0046443B /* EBPangleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A002B2BA9693A0046443B /* EBPangleNativeAdView.swift */; };
 		1D4CC6812CC792EC0035652C /* EBMPartnersOfferwallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CC6802CC792EC0035652C /* EBMPartnersOfferwallViewController.swift */; };
 		1D4CCEBB2CD0C58700586E5C /* EBInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CCEBA2CD0C58700586E5C /* EBInformationViewController.swift */; };
+		1D51C8962E0BB97B00419D53 /* ExelbidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D51C8952E0BB97B00419D53 /* ExelbidSDK */; };
 		1D53EB402CD218E200E980DC /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D53EB3F2CD218E200E980DC /* DeviceKit */; };
 		1D5FDCF22AA7084A002A5C0E /* EBMediationBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */; };
 		1D63ED792C412230005C75A8 /* LibADPlus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D63ED742C412206005C75A8 /* LibADPlus.xcframework */; };
@@ -33,6 +32,7 @@
 		1D63ED7C2C412231005C75A8 /* OMSDK_Cjnet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D63ED732C412206005C75A8 /* OMSDK_Cjnet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D642D932BC8BE950029D8ED /* EBApplovinNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D642D922BC8BE950029D8ED /* EBApplovinNativeAdView.xib */; };
 		1D730F372CDB4ACA0042FD3A /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D730F362CDB4ACA0042FD3A /* StringExt.swift */; };
+		1D7FDED12DE69F2C0054F9AC /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1D7FDED02DE69F2C0054F9AC /* GoogleMobileAds */; };
 		1D8E8BE52C59FC2600A16CCD /* EBMPartnersBannerAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E8BE42C59FC2600A16CCD /* EBMPartnersBannerAdViewController.swift */; };
 		1D8E8BE72C59FE3500A16CCD /* EBMPartnersNativeAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8E8BE62C59FE3500A16CCD /* EBMPartnersNativeAdViewController.swift */; };
 		1DA65B952CC895D900C3A13A /* EBMPartnersOfferwallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA65B942CC895D900C3A13A /* EBMPartnersOfferwallView.swift */; };
@@ -83,7 +83,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1D4929072CCA35AF006139C9 /* ExelBidSDK.xcframework in Embed Frameworks */,
 				1DBD30C12BCF5E4A00858B6E /* TnkPubSdk.xcframework in Embed Frameworks */,
 				1D63ED7A2C412230005C75A8 /* LibADPlus.xcframework in Embed Frameworks */,
 				1D63ED7C2C412231005C75A8 /* OMSDK_Cjnet.xcframework in Embed Frameworks */,
@@ -106,7 +105,6 @@
 		1D30CE382A89B86700B8C222 /* EBMediationBizBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationBizBoardViewController.swift; sourceTree = "<group>"; };
 		1D3B6FD32BCE3D6D00A0B2D0 /* EBMediationNativeVideoAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMediationNativeVideoAdViewController.swift; sourceTree = "<group>"; };
 		1D44EBF72CCA13B900C2D59F /* EBMPartnersOfferwallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBMPartnersOfferwallCell.swift; sourceTree = "<group>"; };
-		1D4929042CCA359D006139C9 /* ExelBidSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ExelBidSDK.xcframework; path = "/Users/jaeukjeong/work_ex/exelbid-ios-sdk-v2/ExelBidSDK.xcframework"; sourceTree = "<absolute>"; };
 		1D4A00252BA959AA0046443B /* EBAdMobNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBAdMobNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBAdMobNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00272BA959DD0046443B /* EBFanNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EBFanNativeAdView.xib; path = ../../../sample_objc/ExelbidSample/Views/EBFanNativeAdView.xib; sourceTree = "<group>"; };
 		1D4A00292BA95A010046443B /* EBFanNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBFanNativeAdView.swift; sourceTree = "<group>"; };
@@ -169,11 +167,12 @@
 				1D0F64AE2BD0EEC000984E9F /* AppTrackingTransparency.framework in Frameworks */,
 				1D63ED7B2C412231005C75A8 /* OMSDK_Cjnet.xcframework in Frameworks */,
 				1DE246362CDC86510081ACC1 /* AdFitSDK in Frameworks */,
-				1D4929062CCA35AF006139C9 /* ExelBidSDK.xcframework in Frameworks */,
 				1D63ED792C412230005C75A8 /* LibADPlus.xcframework in Frameworks */,
+				1D7FDED12DE69F2C0054F9AC /* GoogleMobileAds in Frameworks */,
 				1D53EB402CD218E200E980DC /* DeviceKit in Frameworks */,
 				1DBD30C02BCF5E4A00858B6E /* TnkPubSdk.xcframework in Frameworks */,
 				1DBD30BB2BCF50B800858B6E /* Pods_ExelbidSample.framework in Frameworks */,
+				1D51C8962E0BB97B00419D53 /* ExelbidSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +241,6 @@
 				1D2D294F2BC79D9B00D347DF /* TnkPubSdk.xcframework */,
 				1D63ED742C412206005C75A8 /* LibADPlus.xcframework */,
 				1D63ED732C412206005C75A8 /* OMSDK_Cjnet.xcframework */,
-				1D4929042CCA359D006139C9 /* ExelBidSDK.xcframework */,
 				645B144C25AD271D00AE0569 /* ExelbidSample */,
 				645B144B25AD271D00AE0569 /* Products */,
 				3A151D766408AF37FA893FB8 /* Pods */,
@@ -346,6 +344,8 @@
 			packageProductDependencies = (
 				1D53EB3F2CD218E200E980DC /* DeviceKit */,
 				1DE246352CDC86510081ACC1 /* AdFitSDK */,
+				1D7FDED02DE69F2C0054F9AC /* GoogleMobileAds */,
+				1D51C8952E0BB97B00419D53 /* ExelbidSDK */,
 			);
 			productName = "com.zionbi.ExelbidSample-Swift";
 			productReference = 645B144A25AD271D00AE0569 /* ExelbidSample.app */;
@@ -377,6 +377,8 @@
 			packageReferences = (
 				1D53EB3E2CD218E200E980DC /* XCRemoteSwiftPackageReference "DeviceKit" */,
 				1DE246342CDC86510081ACC1 /* XCRemoteSwiftPackageReference "adfit-spm" */,
+				1D7FDECF2DE69F2C0054F9AC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				1D51C8942E0BB97A00419D53 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
 			);
 			productRefGroup = 645B144B25AD271D00AE0569 /* Products */;
 			projectDirPath = "";
@@ -416,9 +418,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -455,9 +461,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -736,12 +746,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1D51C8942E0BB97A00419D53 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		1D53EB3E2CD218E200E980DC /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devicekit/DeviceKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.5.0;
+			};
+		};
+		1D7FDECF2DE69F2C0054F9AC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.5.0;
 			};
 		};
 		1DE246342CDC86510081ACC1 /* XCRemoteSwiftPackageReference "adfit-spm" */ = {
@@ -755,10 +781,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1D51C8952E0BB97B00419D53 /* ExelbidSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D51C8942E0BB97A00419D53 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
+			productName = ExelbidSDK;
+		};
 		1D53EB3F2CD218E200E980DC /* DeviceKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1D53EB3E2CD218E200E980DC /* XCRemoteSwiftPackageReference "DeviceKit" */;
 			productName = DeviceKit;
+		};
+		1D7FDED02DE69F2C0054F9AC /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D7FDECF2DE69F2C0054F9AC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 		1DE246352CDC86510081ACC1 /* AdFitSDK */ = {
 			isa = XCSwiftPackageProductDependency;

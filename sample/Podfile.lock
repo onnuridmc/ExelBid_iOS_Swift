@@ -1,42 +1,30 @@
 PODS:
-  - Ads-Global (6.3.1.0):
-    - Ads-Global/BUAdSDK (= 6.3.1.0)
-  - Ads-Global/BUAdSDK (6.3.1.0)
-  - AppLovinSDK (13.0.1)
-  - ExelBid_iOS_Swift (2.1.3)
-  - FBAudienceNetwork (6.16.0)
-  - Fyber_Marketplace_SDK (8.3.2)
-  - Google-Mobile-Ads-SDK (11.12.0):
-    - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleUserMessagingPlatform (2.7.0)
+  - Ads-Global (6.5.0.8):
+    - Ads-Global/BUAdSDK (= 6.5.0.8)
+  - Ads-Global/BUAdSDK (6.5.0.8)
+  - AppLovinSDK (13.1.0)
+  - FBAudienceNetwork (6.17.0)
+  - Fyber_Marketplace_SDK (8.3.5)
 
 DEPENDENCIES:
   - Ads-Global
   - AppLovinSDK
-  - ExelBid_iOS_Swift
   - FBAudienceNetwork
   - Fyber_Marketplace_SDK
-  - Google-Mobile-Ads-SDK
 
 SPEC REPOS:
   trunk:
     - Ads-Global
     - AppLovinSDK
-    - ExelBid_iOS_Swift
     - FBAudienceNetwork
     - Fyber_Marketplace_SDK
-    - Google-Mobile-Ads-SDK
-    - GoogleUserMessagingPlatform
 
 SPEC CHECKSUMS:
-  Ads-Global: 1f1c01c4b217b317bfe012e93fab145a5c25e03c
-  AppLovinSDK: fdae6a4361c9c9b09f8d7d18ede792368221d987
-  ExelBid_iOS_Swift: adb961ccf9fbbcc88e02488d55c68c2c93528053
-  FBAudienceNetwork: d1670939884e3a2e0ad98dca98d7e0c841417228
-  Fyber_Marketplace_SDK: 215c2020efd507c0e97f40871e96a26918f8986e
-  Google-Mobile-Ads-SDK: 3a76704456669fbed2057efc8bdb99050ad0e3fb
-  GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
+  Ads-Global: a5f72fa6a7de699d8190c22fbcb3cd39a42440f0
+  AppLovinSDK: 539a0178d8bef4d68b2551a93526e0c1bba06cb2
+  FBAudienceNetwork: 0f84c13e480f480a1290ca998f82533a3f476c14
+  Fyber_Marketplace_SDK: 8b042ecd850accf338a052ca23a4e105f71154ec
 
-PODFILE CHECKSUM: dbff861638b3210d87503b2ae77548dcf444da4a
+PODFILE CHECKSUM: 062d93d27f59f2e2ae4a388bf6238886ab34201f
 
 COCOAPODS: 1.16.2

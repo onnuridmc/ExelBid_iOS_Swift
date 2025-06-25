@@ -47,7 +47,7 @@ class EBMediationBannerViewController : UIViewController {
     var mpAdView: EBAdView?
     
     // AdMob
-    var gaBannerView: GADBannerView?
+    var gaBannerView: BannerView?
     
     // Facebook
     var fanAdview: FBAdView?
@@ -200,9 +200,9 @@ extension EBMediationBannerViewController {
         self.clearAd()
         
         let viewWidth = self.adViewContainer.frame.inset(by: self.adViewContainer.safeAreaInsets).width
-        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        let adaptiveSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
         
-        self.gaBannerView = GADBannerView(adSize: adaptiveSize)
+        self.gaBannerView = BannerView(adSize: adaptiveSize)
         
         if let bannerView = self.gaBannerView {
             bannerView.delegate = self
@@ -210,7 +210,7 @@ extension EBMediationBannerViewController {
             bannerView.adUnitID = mediation.unit_id
             bannerView.rootViewController = self
             
-            bannerView.load(GADRequest.init())
+            bannerView.load(Request())
         }
     }
     
@@ -416,7 +416,7 @@ extension EBMediationBannerViewController {
 }
 
 // MARK: - 광고 뷰 Delegate
-extension EBMediationBannerViewController : EBAdViewDelegate, GADBannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener, MAAdViewAdDelegate {
+extension EBMediationBannerViewController : EBAdViewDelegate, BannerViewDelegate, FBAdViewDelegate, AdFitBannerAdViewDelegate, IAUnitDelegate, PAGBannerAdDelegate, TnkAdListener, MAAdViewAdDelegate {
     
     // MARK: EBAdViewDelegate
     
@@ -431,7 +431,7 @@ extension EBMediationBannerViewController : EBAdViewDelegate, GADBannerViewDeleg
     
     // MARK: - GADBannerViewDelegate
     
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+    func bannerViewDidReceiveAd(_ bannerView: BannerView) {
         self.adViewContainer.addSubview(bannerView)
         self.adViewContainer.addConstraints([
             NSLayoutConstraint(
@@ -455,7 +455,7 @@ extension EBMediationBannerViewController : EBAdViewDelegate, GADBannerViewDeleg
         ])
     }
     
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: any Error) {
+    func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: any Error) {
         self.loadMediation()
     }
     

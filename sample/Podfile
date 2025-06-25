@@ -7,16 +7,8 @@ target 'ExelbidSample' do
 
   # Pods for ExelbidSample
   
-  pod 'ExelBid_iOS_Swift'
-  
-  # AdMob
-  pod 'Google-Mobile-Ads-SDK'
-  
   # Facebook
   pod 'FBAudienceNetwork'
-
-  # Adfit
-#  pod 'AdFitSDK', '~> 3.12.18'
   
   # Digital Turbine
   pod 'Fyber_Marketplace_SDK'

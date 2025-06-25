@@ -29,7 +29,7 @@ import TnkPubSdk
 // Applovin
 import AppLovinSDK
 
-class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate, FBNativeAdDelegate, AdFitNativeAdLoaderDelegate, AdFitNativeAdDelegate, PAGLNativeAdDelegate, TnkAdListener, MANativeAdDelegate {
+class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, NativeAdLoaderDelegate, NativeAdDelegate, FBNativeAdDelegate, AdFitNativeAdLoaderDelegate, AdFitNativeAdDelegate, PAGLNativeAdDelegate, TnkAdListener, MANativeAdDelegate {
 
     @IBOutlet var adViewContainer: UIView!
     @IBOutlet var keywordsTextField: UITextField!
@@ -42,8 +42,8 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     var mpNativeAd: EBNativeAd?
     
     // AdMob
-    var gaAdLoad: GADAdLoader?
-    var gaNativeAdView: GADNativeAdView?
+    var gaAdLoad: AdLoader?
+    var gaNativeAdView: NativeAdView?
     
     // Facebook
     var fanNativeAd: FBNativeAd?
@@ -200,9 +200,9 @@ extension EBMediationNativeAdViewController {
     func loadAdMob(mediation: EBMediationWrapper) {
         self.clearAd()
         
-        self.gaAdLoad = GADAdLoader.init(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: nil)
+        self.gaAdLoad = AdLoader(adUnitID: mediation.unit_id, rootViewController: self, adTypes: [.native], options: nil)
         self.gaAdLoad?.delegate = self
-        self.gaAdLoad?.load(GADRequest.init())
+        self.gaAdLoad?.load(Request())
     }
     
     func loadFan(mediation: EBMediationWrapper) {
@@ -330,11 +330,11 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: - GADNativeAdLoaderDelegate
+    // MARK: - NativeAdLoaderDelegate
     
-    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
+    func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
         let nibView = Bundle.main.loadNibNamed("EBAdMobNativeAdView", owner: nil, options: nil)?.first
-        guard let nativeAdView = nibView as? GADNativeAdView else {
+        guard let nativeAdView = nibView as? NativeAdView else {
             print(">>>>> Not Found loadNibNamed(EBAdMobNativeAdView)")
             
             return
@@ -401,7 +401,7 @@ extension EBMediationNativeAdViewController {
         nativeAdView.nativeAd = nativeAd
     }
     
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: any Error) {
+    func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: any Error) {
         self.loadMediation()
     }
     
