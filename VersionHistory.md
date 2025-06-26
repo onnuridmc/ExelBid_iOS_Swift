@@ -1,5 +1,8 @@
 # Version History
 
+## Version 2.2.4
+- 배포 버전 충돌 수정
+
 ## Version 2.2.3
 - 버전 충돌 관리
 
