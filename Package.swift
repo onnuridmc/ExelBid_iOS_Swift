@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "ExelbidSDK",
+    name: "ExelBidSDK",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "ExelbidSDK",
-            targets: ["ExelbidSDK"]),
+            name: "ExelBidSDK",
+            targets: ["ExelBidSDK"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .binaryTarget(
-            name: "ExelbidSDK",
+            name: "ExelBidSDK",
             path: "xcframework/ExelBidSDK.xcframework"
         ),
     ]
