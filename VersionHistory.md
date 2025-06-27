@@ -1,5 +1,8 @@
 # Version History
 
+## Version 2.2.6
+- xcode build 버전 수정
+
 ## Version 2.2.5
 - iOS 최소 버전을 위한 재배포
 

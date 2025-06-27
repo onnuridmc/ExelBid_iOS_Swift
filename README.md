@@ -24,8 +24,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.2.5
-- iOS 최소 버전을 위한 재배포
+## Version 2.2.6
+- xcode build 버전 수정
 
 [Old Version History](./VersionHistory.md)
 
