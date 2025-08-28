@@ -1,13 +1,13 @@
 {
-  "originHash" : "42c1fe97370d9071634f0145f5563422cf684eec40f653026e538dc5519fb9d0",
+  "originHash" : "b55045022f98fa8099a3c46de8fc2b1464d9e0bb769aa07c8d686fe0b93258e3",
   "pins" : [
     {
       "identity" : "adfit-spm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adfit/adfit-spm.git",
       "state" : {
-        "revision" : "818075f4dc72b1fc1c585bcaf5ef37682cb927a5",
-        "version" : "3.19.7"
+        "revision" : "64a60ed38c5be88e15f32bc4c7975cc2df894107",
+        "version" : "3.19.9"
       }
     },
     {
@@ -20,12 +20,21 @@
       }
     },
     {
+      "identity" : "exelbid_ios_swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onnuridmc/ExelBid_iOS_Swift",
+      "state" : {
+        "revision" : "22585a8ad157bb7a11f7a5114bc2736cedbc6e65",
+        "version" : "2.2.7"
+      }
+    },
+    {
       "identity" : "swift-package-manager-google-mobile-ads",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads",
       "state" : {
-        "revision" : "ab4c505ecdd6f78ffba926ba7f9a596e2a43bec2",
-        "version" : "12.5.0"
+        "revision" : "946770157e526c0fa8807ed516c3d9f81106e30a",
+        "version" : "12.6.0"
       }
     },
     {

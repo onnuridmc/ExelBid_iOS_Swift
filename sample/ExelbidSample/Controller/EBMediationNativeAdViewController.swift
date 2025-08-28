@@ -306,12 +306,13 @@ extension EBMediationNativeAdViewController {
             builder.advertiserLabelTag = 1002
             builder.optionsContentViewTag = 1005
         })
+
         nativeAdView?.bindViews(with: adViewBinder)
         self.alNativeAdView = nativeAdView
     }
     
     
-    // MARK: EBNativeAdDelegate
+    // MARK: - EBNativeAdDelegate
     
     func willLoadForNativeAd(_ nativeAd: EBNativeAd?) {
         
@@ -330,7 +331,7 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: - NativeAdLoaderDelegate
+    // MARK: - AdMob NativeAdLoaderDelegate
     
     func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
         let nibView = Bundle.main.loadNibNamed("EBAdMobNativeAdView", owner: nil, options: nil)?.first
@@ -424,7 +425,7 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: FBNativeAdDelegate
+    // MARK: - FBNativeAdDelegate
     
     func nativeAdDidLoad(_ nativeAd: FBNativeAd) {
         if nativeAd.isAdValid {
@@ -467,14 +468,14 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: AdFitNativeAdDelegate
+    // MARK: - AdFitNativeAdDelegate
     
     func nativeAdDidClickAd(_ nativeAd: AdFitNativeAd) {
         print("Adfit - nativeAdDidClickAd")
     }
     
     
-    // MARK: PAGLNativeAdDelegate
+    // MARK: - PAGLNativeAdDelegate
     
     func adDidShow(_ ad: any PAGAdProtocol) {
         
@@ -489,7 +490,7 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: TnkAdListener
+    // MARK: - TnkAdListener
     func onLoad(_ adItem: any TnkAdItem) {
         if let nativeAdItem = adItem as? TnkNativeAdItem {
             
@@ -510,7 +511,7 @@ extension EBMediationNativeAdViewController {
     }
     
     
-    // MARK: MANativeAdDelegate
+    // MARK: - MANativeAdDelegate
     
     func didLoadNativeAd(_ nativeAdView: MANativeAdView?, for ad: MAAd) {
         // 기존 네이티브 광고 제거

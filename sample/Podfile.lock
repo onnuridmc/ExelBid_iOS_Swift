@@ -1,10 +1,10 @@
 PODS:
-  - Ads-Global (6.5.0.8):
-    - Ads-Global/BUAdSDK (= 6.5.0.8)
-  - Ads-Global/BUAdSDK (6.5.0.8)
-  - AppLovinSDK (13.1.0)
-  - FBAudienceNetwork (6.17.0)
-  - Fyber_Marketplace_SDK (8.3.5)
+  - Ads-Global (7.2.0.5):
+    - Ads-Global/BUAdSDK (= 7.2.0.5)
+  - Ads-Global/BUAdSDK (7.2.0.5)
+  - AppLovinSDK (13.3.1)
+  - FBAudienceNetwork (6.20.0)
+  - Fyber_Marketplace_SDK (8.3.7)
 
 DEPENDENCIES:
   - Ads-Global
@@ -20,11 +20,11 @@ SPEC REPOS:
     - Fyber_Marketplace_SDK
 
 SPEC CHECKSUMS:
-  Ads-Global: a5f72fa6a7de699d8190c22fbcb3cd39a42440f0
-  AppLovinSDK: 539a0178d8bef4d68b2551a93526e0c1bba06cb2
-  FBAudienceNetwork: 0f84c13e480f480a1290ca998f82533a3f476c14
-  Fyber_Marketplace_SDK: 8b042ecd850accf338a052ca23a4e105f71154ec
+  Ads-Global: b76f43304561c8d77e5e3cee39e1a501e9717104
+  AppLovinSDK: 5075837afdee4fb429121799b8cbcc5918ef3a23
+  FBAudienceNetwork: 51d3681e66c00ee36811c0d96e9fa39d5673eba8
+  Fyber_Marketplace_SDK: 99ff1d44bf0c9b4e0aa3e2f2bd8c7956fc5c5675
 
-PODFILE CHECKSUM: 062d93d27f59f2e2ae4a388bf6238886ab34201f
+PODFILE CHECKSUM: 515dc51eb40eddd4849962aad29701901257b5ec
 
 COCOAPODS: 1.16.2
