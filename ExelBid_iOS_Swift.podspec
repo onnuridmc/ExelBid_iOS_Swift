@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name        = 'ExelBid_iOS_Swift'
-    s.version     = '2.2.6'
+    s.version     = '2.2.7'
     s.summary     = 'ExelBidSDK'
     s.description = 'ExelBidSDK for Publisher'
     s.homepage    = 'https://github.com/onnuridmc/ExelBid_iOS_Swift'

@@ -44,7 +44,7 @@ XCFramework 형태로 제공됩니다.
 
 # 시작하기
 
-## ~~SDK 추가하기 for CocoaPods~~ (Cocoapod 재정비로 인해 업데이트 중지)
+## SDK 추가하기 for CocoaPods
 
 **[Cocoapods 설치 가이드](https://guides.cocoapods.org/using/getting-started.html)**
 
