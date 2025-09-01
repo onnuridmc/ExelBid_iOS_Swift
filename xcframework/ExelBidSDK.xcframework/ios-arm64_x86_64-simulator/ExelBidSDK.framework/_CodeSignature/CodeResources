@@ -30,11 +30,11 @@
 		</data>
 		<key>Headers/ExelBidSDK-Swift.h</key>
 		<data>
-		vw9jBJdZRwc2gvvA2Gqe61R3cqM=
+		xg6WLXXdOBISJU5i7wwU5AO01MM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		B9xtig7pODeMOiLjTJv2+7h1uSo=
+		2gLefTwu28Yoor1zDtrBDaS72Oo=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -42,19 +42,19 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Ntpfm/YjG09hs/udbk6qmtQlucU=
+		RwxMdbs0gg1fb1209UyglhvS/po=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Ry2UeAmsGzgiYUSz6k9yxk2NAcM=
+		qboXm3XjPaC2YrTdEXmsKCA2PmA=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Ntpfm/YjG09hs/udbk6qmtQlucU=
+		RwxMdbs0gg1fb1209UyglhvS/po=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		EKM15vI/CrrDF9fbdf8tgUcTkWM=
+		2Hka15miIOlmfvmPujzVCHLIBJM=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -62,19 +62,19 @@
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		e87j7D0QLsx0zGoh4wzDGY87w0A=
+		Bc/dognt8GTvu64fvMz2MRJSKSg=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		YtNmFy56s++14oqSi+tJ0WLHW08=
+		AErid2QZffZp9ku5+20TBUbUzYs=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		e87j7D0QLsx0zGoh4wzDGY87w0A=
+		Bc/dognt8GTvu64fvMz2MRJSKSg=
 		</data>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		kjJc22bWLHeLbphEajshk9m0th8=
+		QQS+fSZyE6Jl8ZO+mG/IB23IIvM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -133,7 +133,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VHK/U+5MrljhyP+kSbjyZ8lRnWQDQcdCvmjjtB+L6Ds=
+			jJHagetowp5+ivNMfoMZUT8u61yQpglbqENv88IzwdU=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -147,28 +147,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bE3HE8q6jTig5DzxV+eu4hdzAz+dFrnjkAXbl8SCpxA=
+			M5YAUfv/DUycMUP+/tLFPRm82NEAGCa4tA7fS7btWnw=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/MBhLVmnzLKHbllbdmDr9CmHkX9Qo67SX4/usszJMM8=
+			UPKtMoMxSYx3yM52I44zqRHfRiu54yCWw77CD+9auUc=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bE3HE8q6jTig5DzxV+eu4hdzAz+dFrnjkAXbl8SCpxA=
+			M5YAUfv/DUycMUP+/tLFPRm82NEAGCa4tA7fS7btWnw=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lNMosvhu7JikNq/V4Z0XQESBcZp6kN7/JYO79RqF1AQ=
+			Ls2K0d9K4u7PMTQ9JmMs5CmHjqLTm14ALsQw15FGRO8=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -182,28 +182,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n6rIT2xkWkmQZeulcIbyv0vKwFVH+GdeK5BzF5rc7vM=
+			T1d5UcARI5t8LMNjjMxs94b8oKtxBlJ83jhfbAK2xO8=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cQrLayTCgctMHxNp6umnC2avuNMb7T1fL6CkMPNksss=
+			jMnZKXahAU936CocVFeDKoztZgO20Z2MhsLTzqhT71k=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			n6rIT2xkWkmQZeulcIbyv0vKwFVH+GdeK5BzF5rc7vM=
+			T1d5UcARI5t8LMNjjMxs94b8oKtxBlJ83jhfbAK2xO8=
 			</data>
 		</dict>
 		<key>Modules/ExelBidSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zp7buYJlA4e4wq4mOO3NKCL2VpH0uueKrdSpRXX5qGM=
+			/iumkulUhfc+mq/f1nVfifVZHgJbWe7a4gxKHdWyG4M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

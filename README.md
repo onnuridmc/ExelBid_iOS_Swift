@@ -24,8 +24,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.2.6
-- xcode build 버전 수정
+## Version 2.2.8
+- Build Setting 수정
 
 [Old Version History](./VersionHistory.md)
 
@@ -36,8 +36,8 @@ ObjectiveC 가이드는 [README_OBJC](./README_OBJC.md)를 참고해주세요.
 
 # SDK 정보
 
-ExelbidSDK는 Xcode 15.4, iOS 12.0 버전으로 빌드되었습니다.  
-XCFramework 형태로 제공됩니다.
+ExelbidSDK는 Xcode 16.4, iOS 13.0 버전으로 빌드되었습니다.  
+XCFramework 형태로 CocoaPod, SPM(Swift Package Manager)을 통해 제공됩니다.
 
 - 참조 1: [App Store 제출을 위한 SDK 최소 요구 사항 보기](https://developer.apple.com/kr/news/upcoming-requirements)
 - 참조 2: [최소 요구 사항 및 지원되는 SDK](https://developer.apple.com/kr/support/xcode)

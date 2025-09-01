@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name        = 'ExelBid_iOS_Swift'
-    s.version     = '2.2.7'
+    s.version     = '2.2.8'
     s.summary     = 'ExelBidSDK'
     s.description = 'ExelBidSDK for Publisher'
     s.homepage    = 'https://github.com/onnuridmc/ExelBid_iOS_Swift'
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     }
 
     s.platforms = {
-        'ios' => '12.0'
+        'ios' => '13.0'
     }
 
     s.pod_target_xcconfig = {
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
         'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64 arm64'
     }
 
-    s.ios.deployment_target = '12.0'
+    s.ios.deployment_target = '13.0'
     s.ios.vendored_frameworks = 'xcframework/ExelBidSDK.xcframework'
 
     s.frameworks = 'Foundation', 'UIKit', 'SystemConfiguration', 'AdSupport', 'AppTrackingTransparency', 'StoreKit', 'CoreGraphics', 'CoreLocation', 'CoreTelephony'

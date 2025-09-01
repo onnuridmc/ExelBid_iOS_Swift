@@ -1,5 +1,11 @@
 # Version History
 
+## Version 2.2.8
+- Build Setting 수정
+
+## Version 2.2.7
+- swift-tools-version
+
 ## Version 2.2.6
 - xcode build 버전 수정
 
