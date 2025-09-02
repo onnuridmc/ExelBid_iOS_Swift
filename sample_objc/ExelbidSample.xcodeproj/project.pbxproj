@@ -28,7 +28,10 @@
 		1DB77F9D2C5CADCC00D27902 /* EBMPartnersBannerAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77F9C2C5CADCC00D27902 /* EBMPartnersBannerAdViewController.m */; };
 		1DB77FA32C5CB3C600D27902 /* EBMPartnersNativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77FA22C5CB3C500D27902 /* EBMPartnersNativeAdViewController.m */; };
 		1DBADE66299B29120054FD2A /* EBMediationNativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBADE65299B29120054FD2A /* EBMediationNativeAdViewController.m */; };
-		1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D93FC32299A004800E4F103 /* AppTrackingTransparency.framework */; };
+		1DD20DDC2E653A2E00783F94 /* AdFitSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD20DDB2E653A2E00783F94 /* AdFitSDK */; };
+		1DD20DDF2E653A3700783F94 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD20DDE2E653A3700783F94 /* GoogleMobileAds */; };
+		1DD20DE22E653A3E00783F94 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD20DE12E653A3E00783F94 /* DeviceKit */; };
+		1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D93FC32299A004800E4F103 /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1DD7B5592BA2966300F50FB0 /* EBPangleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7B5582BA2966300F50FB0 /* EBPangleNativeAdView.m */; };
 		1DE94B5F2C4F781D00548492 /* LibADPlus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */; };
 		1DE94B602C4F781D00548492 /* LibADPlus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE94B5B2C4F781100548492 /* LibADPlus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -173,10 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD2B9E52B9FDC4700723FF2 /* AppTrackingTransparency.framework in Frameworks */,
+				1DD20DE22E653A3E00783F94 /* DeviceKit in Frameworks */,
 				BBB55C1629E5B7F8CC01AE31 /* Pods_ExelbidSample.framework in Frameworks */,
 				1DE94B5F2C4F781D00548492 /* LibADPlus.xcframework in Frameworks */,
 				1D0F64AA2BD0EE7600984E9F /* TnkPubSdk.xcframework in Frameworks */,
+				1DD20DDC2E653A2E00783F94 /* AdFitSDK in Frameworks */,
 				1DE94B612C4F781F00548492 /* OMSDK_Cjnet.xcframework in Frameworks */,
+				1DD20DDF2E653A3700783F94 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +413,11 @@
 				Base,
 			);
 			mainGroup = 6412692C1DBDA31500A7F514;
+			packageReferences = (
+				1DD20DDA2E653A2E00783F94 /* XCRemoteSwiftPackageReference "adfit-spm" */,
+				1DD20DDD2E653A3700783F94 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				1DD20DE02E653A3E00783F94 /* XCRemoteSwiftPackageReference "DeviceKit" */,
+			);
 			productRefGroup = 641269361DBDA31500A7F514 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,8 +456,6 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExelBid_iOS_Swift/ExelBid_iOS_Swift.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FBAudienceNetwork/FBAudienceNetwork.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Fyber_Marketplace_SDK/Fyber_Marketplace_SDK.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Google-Mobile-Ads-SDK/GoogleMobileAdsResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUserMessagingPlatform/UserMessagingPlatformResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -455,8 +464,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExelBid_iOS_Swift.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBAudienceNetwork.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fyber_Marketplace_SDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMobileAdsResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UserMessagingPlatformResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -470,13 +477,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExelbidSample/Pods-ExelbidSample-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AdFitSDK/AdFitSDK.framework/AdFitSDK",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AppLovinSDK/AppLovinSDK.framework/AppLovinSDK",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExelBid_iOS_Swift/ExelBidSDK.framework/ExelBidSDK",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdFitSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppLovinSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExelBidSDK.framework",
 			);
@@ -581,7 +586,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -599,7 +604,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -613,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -626,7 +631,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -644,7 +649,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -652,7 +657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -672,7 +677,7 @@
 				EXCLUDED_ARCHS = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ExelbidSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,7 +705,7 @@
 				EXCLUDED_ARCHS = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ExelbidSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -738,6 +743,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1DD20DDA2E653A2E00783F94 /* XCRemoteSwiftPackageReference "adfit-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adfit/adfit-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.19.9;
+			};
+		};
+		1DD20DDD2E653A3700783F94 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+		1DD20DE02E653A3E00783F94 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devicekit/DeviceKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1DD20DDB2E653A2E00783F94 /* AdFitSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD20DDA2E653A2E00783F94 /* XCRemoteSwiftPackageReference "adfit-spm" */;
+			productName = AdFitSDK;
+		};
+		1DD20DDE2E653A3700783F94 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD20DDD2E653A3700783F94 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		1DD20DE12E653A3E00783F94 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD20DE02E653A3E00783F94 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6412692D1DBDA31500A7F514 /* Project object */;
 }

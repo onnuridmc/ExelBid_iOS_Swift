@@ -25,8 +25,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    ExelBid.sharedInstance.testing = true;
-    
     // AdMob
     [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
     

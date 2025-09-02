@@ -6,7 +6,7 @@ target 'ExelbidSample' do
   use_frameworks!
 
   # Pods for ExelbidSample
-#  pod 'ExelBid_iOS_Swift'
+  pod 'ExelBid_iOS_Swift'
   
   # Facebook
   pod 'FBAudienceNetwork'

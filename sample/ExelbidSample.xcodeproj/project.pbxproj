@@ -26,7 +26,6 @@
 		1D4A002C2BA9693A0046443B /* EBPangleNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A002B2BA9693A0046443B /* EBPangleNativeAdView.swift */; };
 		1D4CC6812CC792EC0035652C /* EBMPartnersOfferwallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CC6802CC792EC0035652C /* EBMPartnersOfferwallViewController.swift */; };
 		1D4CCEBB2CD0C58700586E5C /* EBInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CCEBA2CD0C58700586E5C /* EBInformationViewController.swift */; };
-		1D5C6DAB2E6052CC0029A9F1 /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5C6DAA2E6052CC0029A9F1 /* ExelBidSDK */; };
 		1D5FDCF22AA7084A002A5C0E /* EBMediationBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FDCF12AA7084A002A5C0E /* EBMediationBannerViewController.swift */; };
 		1D63ED792C412230005C75A8 /* LibADPlus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D63ED742C412206005C75A8 /* LibADPlus.xcframework */; };
 		1D63ED7A2C412230005C75A8 /* LibADPlus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D63ED742C412206005C75A8 /* LibADPlus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -164,7 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D5C6DAB2E6052CC0029A9F1 /* ExelBidSDK in Frameworks */,
 				1D0F64AE2BD0EEC000984E9F /* AppTrackingTransparency.framework in Frameworks */,
 				1D63ED7B2C412231005C75A8 /* OMSDK_Cjnet.xcframework in Frameworks */,
 				1D63ED792C412230005C75A8 /* LibADPlus.xcframework in Frameworks */,
@@ -345,7 +343,6 @@
 				1D00CBD92E1B617700AF6343 /* AdFitSDK */,
 				1D00CBDF2E1B63D200AF6343 /* DeviceKit */,
 				1D00CBE22E1B63EF00AF6343 /* GoogleMobileAds */,
-				1D5C6DAA2E6052CC0029A9F1 /* ExelBidSDK */,
 			);
 			productName = "com.zionbi.ExelbidSample-Swift";
 			productReference = 645B144A25AD271D00AE0569 /* ExelbidSample.app */;
@@ -378,7 +375,6 @@
 				1D00CBD82E1B617700AF6343 /* XCRemoteSwiftPackageReference "adfit-spm" */,
 				1D00CBDE2E1B63D200AF6343 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 				1D00CBE12E1B63EF00AF6343 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
-				1D5C6DA92E6052CC0029A9F1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
 			);
 			productRefGroup = 645B144B25AD271D00AE0569 /* Products */;
 			projectDirPath = "";
@@ -762,14 +758,6 @@
 				minimumVersion = 12.6.0;
 			};
 		};
-		1D5C6DA92E6052CC0029A9F1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.7;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -787,11 +775,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1D00CBE12E1B63EF00AF6343 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
-		};
-		1D5C6DAA2E6052CC0029A9F1 /* ExelBidSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1D5C6DA92E6052CC0029A9F1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
-			productName = ExelBidSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
