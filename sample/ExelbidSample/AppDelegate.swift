@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Pangle
         let pagConfig = PAGConfig.share()
         pagConfig.appID = "8352814"
-        pagConfig.appLogoImage = UIImage(named: "AppIcon")
         
         #if DEBUG
         pagConfig.debugLog = true

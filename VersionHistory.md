@@ -1,5 +1,8 @@
 # Version History
 
+## Version 2.2.9
+- 기타 버그 수정
+
 ## Version 2.2.8
 - Build Setting 수정
 

@@ -25,8 +25,8 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.2.8
-- Build Setting 수정
+## Version 2.2.9
+- 기타 버그 수정
 
 [Old Version History](./VersionHistory.md)
 
