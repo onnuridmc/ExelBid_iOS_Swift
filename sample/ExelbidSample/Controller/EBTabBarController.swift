@@ -10,10 +10,10 @@ class EBTabBarController : UITabBarController {
         super.viewDidLoad()
         
         if navigationController != nil {
-            let image = UIImage(named: "logo")
-            let imageView = UIImageView(image: image)
-            imageView.contentMode = .scaleAspectFit
-            navigationItem.titleView = imageView
+//            let image = UIImage(named: "logo")
+//            let imageView = UIImageView(image: image)
+//            imageView.contentMode = .scaleAspectFit
+//            navigationItem.titleView = imageView
         }
     }
 }

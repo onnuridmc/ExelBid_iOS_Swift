@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 import UIKit
 import AppTrackingTransparency
 import ExelBidSDK
@@ -62,7 +61,6 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nextButton.isHidden = true
         self.keywordsTextField.text = self.info?.ID
     }
     
@@ -96,12 +94,14 @@ class EBMediationNativeAdViewController : UIViewController, EBNativeAdDelegate, 
         if let mediationManager = mediationManager {
             
             mediationManager.requestMediation() { (manager, error) in
-                if error != nil {
-                    // 미디에이션 에러 처리
-                    self.nextButton.isEnabled = false
-                } else {
-                    // 성공 처리
-                    self.nextButton.isEnabled = true
+                DispatchQueue.main.async {
+                    if error != nil {
+                        // 미디에이션 에러 처리
+                        self.nextButton.isEnabled = false
+                    } else {
+                        // 성공 처리
+                        self.nextButton.isEnabled = true
+                    }
                 }
             }
         }

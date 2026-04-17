@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ExelBidSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ExelBidSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
 import AVFoundation
 import AdSupport
 import AppTrackingTransparency
@@ -19,7 +19,7 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @objc @objcMembers final public class MPartnersNativeManager : ObjectiveC.NSObject {
   @objc final public func keywords(_ keywords: Swift.String)
-  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func location(_ location: _LocationEssentials.CLLocation)
   @objc final public func yob(_ yob: Swift.String)
   @objc final public func gender(_ gender: Swift.String)
   @objc final public func testing(_ testing: Swift.Bool)
@@ -70,7 +70,7 @@ import _SwiftConcurrencyShims
 @objc @_inheritsConvenienceInitializers @objcMembers public class EBNativeAdRequestTargeting : ObjectiveC.NSObject {
   @objc public static var targeting: ExelBidSDK.EBNativeAdRequestTargeting
   @objc public var keywords: Swift.String?
-  @objc public var location: CoreLocation.CLLocation?
+  @objc public var location: _LocationEssentials.CLLocation?
   @objc public var desiredAssets: Foundation.NSSet? {
     @objc get
     @objc set
@@ -134,7 +134,7 @@ public enum EBNativeAdOrientation {
   @objc @_Concurrency.MainActor @preconcurrency public var yob: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var gender: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var keywords: Swift.String?
-  @objc @_Concurrency.MainActor @preconcurrency public var location: CoreLocation.CLLocation?
+  @objc @_Concurrency.MainActor @preconcurrency public var location: _LocationEssentials.CLLocation?
   @objc @_Concurrency.MainActor @preconcurrency public var testing: Swift.Bool
   @objc @_Concurrency.MainActor @preconcurrency public var coppa: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var fullWebView: Swift.Bool
@@ -282,7 +282,7 @@ public typealias EBStaticNativeAdImpressionTimerHandler = (_ seconds: Foundation
 public typealias EBNativeAdRequestHandler = (_ request: ExelBidSDK.EBNativeAdRequest?, _ response: ExelBidSDK.EBNativeAd?, _ error: (any Swift.Error)?) -> Swift.Void
 @objc @objcMembers final public class ExelBidNativeManager : ObjectiveC.NSObject {
   @objc final public func keywords(_ keywords: Swift.String)
-  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func location(_ location: _LocationEssentials.CLLocation)
   @objc final public func yob(_ yob: Swift.String)
   @objc final public func gender(_ gender: Swift.String)
   @objc final public func testing(_ testing: Swift.Bool)
@@ -426,7 +426,7 @@ extension ExelBidSDK.EBTableViewAdPlacer : UIKit.UITableViewDelegate {
   @objc @_Concurrency.MainActor @preconcurrency public var yob: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var gender: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var keywords: Swift.String?
-  @objc @_Concurrency.MainActor @preconcurrency public var location: CoreLocation.CLLocation?
+  @objc @_Concurrency.MainActor @preconcurrency public var location: _LocationEssentials.CLLocation?
   @objc @_Concurrency.MainActor @preconcurrency public var testing: Swift.Bool
   @objc @_Concurrency.MainActor @preconcurrency public var coppa: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public func loadAd()
@@ -519,7 +519,7 @@ extension ExelBidSDK.EBVastModel : Swift.Equatable {
 public typealias EBVideoManagerHandler = (_ request: ExelBidSDK.EBVideoAdRequest?, _ error: (any Swift.Error)?) -> Swift.Void
 @objc @objcMembers final public class EBVideoManager : ObjectiveC.NSObject {
   @objc final public func keywords(_ keywords: Swift.String)
-  @objc final public func location(_ location: CoreLocation.CLLocation)
+  @objc final public func location(_ location: _LocationEssentials.CLLocation)
   @objc final public func yob(_ yob: Swift.String)
   @objc final public func gender(_ gender: Swift.String)
   @objc final public func testing(_ testing: Swift.Bool)

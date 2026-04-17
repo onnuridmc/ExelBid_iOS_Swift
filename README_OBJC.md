@@ -25,10 +25,11 @@ Swift 가이드는 [README](./README.md)를 참고해주세요.
 
 # Version History
 
-## Version 2.2.9
+## Version 2.2.10
+- 비디오 참조 관련 수정
 - 기타 버그 수정
 
-[Old Version History](./VersionHistory.md)
+[Old Version History](./CHANGELOG.md)
 
 
 # 시작하기 전에

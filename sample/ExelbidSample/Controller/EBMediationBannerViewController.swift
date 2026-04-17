@@ -99,12 +99,14 @@ class EBMediationBannerViewController : UIViewController {
         if let mediationManager = mediationManager {
             
             mediationManager.requestMediation { (manager, error) in
-                if error != nil {
-                    // 미디에이션 에러 처리
-                    self.nextButton.isEnabled = false
-                } else {
-                    // 성공 처리
-                    self.nextButton.isEnabled = true
+                DispatchQueue.main.async {
+                    if error != nil {
+                        // 미디에이션 에러 처리
+                        self.nextButton.isEnabled = false
+                    } else {
+                        // 성공 처리
+                        self.nextButton.isEnabled = true
+                    }
                 }
             }
         }
