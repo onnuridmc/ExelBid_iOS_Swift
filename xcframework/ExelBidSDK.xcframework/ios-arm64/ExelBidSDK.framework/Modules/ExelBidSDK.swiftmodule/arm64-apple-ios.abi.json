@@ -22979,22 +22979,36 @@
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/EBVastTracker.swift",
+      "kind": "Array",
+      "offset": 1402,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/EBVastTracker.swift",
+      "kind": "Array",
+      "offset": 1450,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/EBVastTracker.swift",
       "kind": "FloatLiteral",
-      "offset": 1433,
+      "offset": 1527,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/EBVastTracker.swift",
       "kind": "BooleanLiteral",
-      "offset": 1479,
+      "offset": 1573,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jaeukjeong\/work_ex\/exelbid-ios-sdk-v2\/ExelBidSDK\/Video\/Vast\/EBVastTracker.swift",
       "kind": "BooleanLiteral",
-      "offset": 1592,
+      "offset": 1686,
       "length": 4,
       "value": "true"
     },
