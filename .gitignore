@@ -142,4 +142,10 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode,cocoapods
 
+### ExelBid SDK distribution artifacts ###
+# XCFramework and zipped archive are not tracked in git.
+# Distributed via GitHub Release assets — see Package.swift / podspec.
+*.xcframework
+*.xcframework.zip
+
 

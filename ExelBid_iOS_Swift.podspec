@@ -1,43 +1,34 @@
 Pod::Spec.new do |s|
-    s.name        = 'ExelBid_iOS_Swift'
-    s.version     = '2.2.11'
-    s.summary     = 'ExelBidSDK'
-    s.description = 'ExelBidSDK for Publisher'
-    s.homepage    = 'https://github.com/onnuridmc/ExelBid_iOS_Swift'
-    s.license     = {
-        :type => 'commercial',
-        :text => 'Copyright 2014. Motivintelligence, Inc. All rights reserved.'
-    }
-    s.author = {
-        'Motiv Intelligence' => 'dev@motiv-i.com'
-    }
+  s.name             = "ExelBid_iOS_Swift"
+  s.version          = "3.0.0-beta.1"
+  s.summary          = "ExelBid iOS SDK — banner, native, and video ad formats."
+  s.description      = <<-DESC
+    ExelBid iOS SDK provides banner, native, and video
+    ad formats with a Swift-first API and Objective-C compatibility.
+    Distributed as a prebuilt XCFramework — no source compilation needed.
+  DESC
 
-    s.resource_bundles = {
-        'ExelBid_iOS_Swift' => ['xcframework/ExelBidSDK.xcframework/ios-arm64/ExelBidSDK.framework/PrivacyInfo.xcprivacy']
-    }
+  s.homepage         = "https://github.com/onnuridmc/ExelBid_iOS_Swift"
+  s.license          = { :type => "MIT", :file => "LICENSE" }
+  s.author           = { "ExelBid" => "dev@motiv-i.com" }
 
-    s.source = {
-        :git => 'https://github.com/onnuridmc/ExelBid_iOS_Swift.git',
-        :tag => "#{s.version}"
-    }
+  s.platform         = :ios, "13.0"
+  s.swift_versions   = ["5.9"]
 
-    s.platforms = {
-        'ios' => '13.0'
-    }
+  # Distribution: the prebuilt XCFramework is hosted as a GitHub Release
+  # asset (zipped). CocoaPods downloads the zip directly, so the git
+  # repository itself carries no binary artifacts.
+  s.source = {
+    :http => "https://github.com/onnuridmc/ExelBid_iOS_Swift/releases/download/#{s.version}/ExelBidSDK.xcframework.zip",
+    :sha256 => "b79062763f98a27f52adb3d6b194ff5ce3ae31413194ec0c9878a9f0b514bfbe"
+  }
 
-    s.pod_target_xcconfig = {
-        'VALID_ARCHS[sdk=iphoneos*]' => 'arm64',
-        'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64 arm64'
-    }
-    s.user_target_xcconfig = {
-        'VALID_ARCHS[sdk=iphoneos*]' => 'arm64',
-        'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64 arm64'
-    }
+  s.vendored_frameworks = "ExelBidSDK.xcframework"
 
-    s.ios.deployment_target = '13.0'
-    s.ios.vendored_frameworks = 'xcframework/ExelBidSDK.xcframework'
-
-    s.frameworks = 'Foundation', 'UIKit', 'SystemConfiguration', 'AdSupport', 'AppTrackingTransparency', 'StoreKit', 'CoreGraphics', 'CoreLocation', 'CoreTelephony'
-
-    s.requires_arc = true
+  s.frameworks = [
+    "Foundation", "UIKit", "WebKit", "AVFoundation",
+    "CoreGraphics", "CoreLocation", "CoreTelephony",
+    "SystemConfiguration", "StoreKit", "AdSupport",
+    "AppTrackingTransparency"
+  ]
 end
