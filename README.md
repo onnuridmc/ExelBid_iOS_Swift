@@ -508,6 +508,7 @@ interstitial.present(from: self)
 let loader = EBMediatedNativeAdLoader(adUnitId: "YOUR_UNIT_ID")
 loader.desiredAssets = [.title, .main, .icon, .ctatext]
 loader.rootViewControllerProvider = { [weak self] in self }
+loader.onWaterfallEvent = { event in /* 워터폴 텔레메트리 (선택) */ }  // load() 전에 설정
 
 Task {
     do {

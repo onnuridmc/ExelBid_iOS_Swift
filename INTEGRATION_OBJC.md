@@ -549,7 +549,9 @@ banner.onClick = ^{ NSLog(@"배너 클릭"); };
 - 서버가 제공하는 `autoRefresh`는 지원하지 않습니다.
 
 > 워터폴 단계별 이벤트(`onWaterfallEvent` / `EBWaterfallEvent`)는
-> Swift `enum`이라 Objective-C에서는 사용할 수 없습니다. 필요하다면
+> Swift `enum`이라 Objective-C에서는 사용할 수 없습니다. 이는 배너뿐
+> 아니라 전면 / 네이티브 / 비디오 미디에이션 전 포맷에 공통입니다
+> (Swift에서는 네 포맷 모두 `onWaterfallEvent`를 제공합니다). 필요하다면
 > 위 모듈 등록과 동일하게 Swift 래퍼를 추가하세요.
 
 ### 전면
