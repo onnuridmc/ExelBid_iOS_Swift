@@ -1,7 +1,7 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let version  = "3.0.0-beta.5"
+let version  = "3.0.0"
 
 let package = Package(
     name: "ExelBid_iOS_Swift",

@@ -1,0 +1,42 @@
+{
+  "originHash" : "3c7531d1c88c30ca92e147c9b93940d9e4b2c45df8800f654fb1d8f92092eee0",
+  "pins" : [
+    {
+      "identity" : "exelbid_ios_mediation_adapter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter",
+      "state" : {
+        "revision" : "96d2a95e599b9da873755fe6f8a0f4cac081bdcb",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "exelbid_ios_swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onnuridmc/ExelBid_iOS_Swift",
+      "state" : {
+        "branch" : "release/3.x-beta",
+        "revision" : "d97992c1b38163072b24e964db22be2d44ae0999"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-mobile-ads",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+      "state" : {
+        "revision" : "1239c23464503053c17d37ee5daa70de3455e9c8",
+        "version" : "12.14.0"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-user-messaging-platform",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+      "state" : {
+        "revision" : "13b248eaa73b7826f0efb1bcf455e251d65ecb1b",
+        "version" : "3.1.0"
+      }
+    }
+  ],
+  "version" : 3
+}

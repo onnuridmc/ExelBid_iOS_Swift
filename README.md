@@ -528,6 +528,29 @@ Task {
 재사용할 수 있습니다. 어댑터가 각 네트워크의 자산을 `EBNativeAdModel`
 스키마로 정규화해 전달합니다.
 
+> **AdMob / FAN 미디어 슬롯 (선택, 그러나 동영상엔 필수)**
+>
+> AdMob·FAN은 메인 이미지/동영상을 **자체 미디어 뷰**(`GADMediaView` /
+> `FBMediaView`)로 그립니다 — URL로 표현되지 않으므로 호스트의
+> `nativeMainImageView()`(UIImageView)로는 표시할 수 없습니다. 미디에이션
+> 네이티브에서 두 네트워크의 미디어(특히 동영상)를 제대로 보이려면,
+> 렌더링 뷰에 **빈 컨테이너 슬롯**을 추가하세요:
+>
+> ```swift
+> // 미디어가 들어갈 빈 컨테이너(UIView). 어댑터가 여기에 네트워크
+> // 미디어 뷰를 꽂습니다. 이 슬롯이 있으면 SDK는 nativeMainImageView를
+> // 채우지 않습니다(중복 렌더 방지).
+> func nativeMediaView() -> UIView? { mediaContainer }
+>
+> // FAN 등 일부 네트워크가 요구하는 AdChoices/광고옵션 오버레이 위치.
+> func nativeAdChoicesView() -> UIView? { adChoicesContainer }
+> ```
+>
+> 슬롯을 제공하지 않아도 정적 이미지 네이티브는 동작합니다(AdMob은
+> `nativeMainImageView()` 자리에 미디어 뷰를 자동 오버레이). 두 슬롯
+> 모두 `@objc optional`이라 일반(비미디에이션) 네이티브에는 영향이
+> 없습니다.
+
 ### 비디오
 
 ```swift
@@ -547,6 +570,11 @@ videoAd.load()
 ```
 
 `EBVideoAd`와 시그니처가 동일하며, 단발성 사용입니다.
+
+> ExelBid 외 네트워크(AdMob / FAN)에서 video 포맷은 **전면(인터스티셜)
+> 비디오**로 노출됩니다(보상형 아님). 비디오용 광고 유닛이 영상
+> 크리에이티브를 전면으로 자동 재생하며, `onProgress`는 시작(`0`)·
+> 종료(`100`) 두 시점만 근사 보고됩니다.
 
 ### 워터폴 이벤트 (선택)
 
@@ -573,6 +601,11 @@ banner.onWaterfallEvent = { event in
 
 `EBWaterfallFailReason`의 케이스: `adapterNotRegistered` /
 `loadFailed(Error)` / `timeout(TimeInterval)` / `cancelled`.
+
+> **스레드**: 미디에이션 콜백(`onLoad` / `onFail` / `onClick` /
+> `onWaterfallEvent` 등)은 모두 **메인 스레드**로 전달됩니다. 콜백
+> 안에서 UI를 바로 갱신해도 안전합니다. (배너 / 전면 / 네이티브 /
+> 비디오 4개 포맷 공통)
 
 ---
 

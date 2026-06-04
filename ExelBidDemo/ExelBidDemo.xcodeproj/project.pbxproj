@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D65A6922FCEC60700B8BA4E /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6912FCEC60700B8BA4E /* ExelBidSDK */; };
+		1D65A6952FCEC89900B8BA4E /* ExelBidMediationAdFit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6942FCEC89900B8BA4E /* ExelBidMediationAdFit */; };
+		1D65A6972FCEC89900B8BA4E /* ExelBidMediationAdMob in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6962FCEC89900B8BA4E /* ExelBidMediationAdMob */; };
+		1D65A6992FCEC89900B8BA4E /* ExelBidMediationFAN in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6982FCEC89900B8BA4E /* ExelBidMediationFAN */; };
+		1D89FDFF2FD10A0B00DC2BD1 /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D89FDFE2FD10A0B00DC2BD1 /* ExelBidSDK */; };
+		AA00000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000001 /* AppDelegate.swift */; };
+		AA00000000000000000002 /* BannerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000002 /* BannerExampleViewController.swift */; };
+		AA00000000000000000003 /* NativeExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000003 /* NativeExampleViewController.swift */; };
+		AA00000000000000000004 /* VideoExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000004 /* VideoExampleViewController.swift */; };
+		AA00000000000000000005 /* CustomNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000005 /* CustomNativeAdView.swift */; };
+		AA00000000000000000006 /* AdUnitIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000007 /* AdUnitIds.swift */; };
+		AA00000000000000000007 /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000008 /* StatusBadge.swift */; };
+		AA00000000000000000008 /* InterstitialExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000009 /* InterstitialExampleViewController.swift */; };
+		AA00000000000000000009 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000A /* HomeViewController.swift */; };
+		AA0000000000000000000A /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000B /* DesignSystem.swift */; };
+		AA0000000000000000000B /* TestOptionsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000C /* TestOptionsPanel.swift */; };
+		AA0000000000000000000C /* MPartnersExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000D /* MPartnersExampleViewController.swift */; };
+		AA0000000000000000000D /* MPartnersBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000E /* MPartnersBannerController.swift */; };
+		AA0000000000000000000E /* MPartnersInterstitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000F /* MPartnersInterstitialController.swift */; };
+		AA0000000000000000000F /* MPartnersNativeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000021 /* MPartnersNativeController.swift */; };
+		AA00000000000000000012 /* AdsExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000022 /* AdsExampleListViewController.swift */; };
+		AA00000000000000000013 /* MediationExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000023 /* MediationExampleListViewController.swift */; };
+		AA00000000000000000014 /* MediatedBannerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000024 /* MediatedBannerExampleViewController.swift */; };
+		AA00000000000000000015 /* MediatedInterstitialExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000025 /* MediatedInterstitialExampleViewController.swift */; };
+		AA00000000000000000016 /* MediatedNativeExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000026 /* MediatedNativeExampleViewController.swift */; };
+		AA00000000000000000017 /* MediatedVideoExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000027 /* MediatedVideoExampleViewController.swift */; };
+		AA00000000000000000018 /* WaterfallFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000028 /* WaterfallFormatter.swift */; };
+		AA00000000000000000019 /* MediatedNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000029 /* MediatedNativeAdView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB00000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB00000000000000000002 /* BannerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000003 /* NativeExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000004 /* VideoExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000005 /* CustomNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNativeAdView.swift; sourceTree = "<group>"; };
+		BB00000000000000000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB00000000000000000007 /* AdUnitIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdUnitIds.swift; sourceTree = "<group>"; };
+		BB00000000000000000008 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		BB00000000000000000009 /* InterstitialExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialExampleViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000B /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		BB0000000000000000000C /* TestOptionsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOptionsPanel.swift; sourceTree = "<group>"; };
+		BB0000000000000000000D /* MPartnersExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPartnersExampleViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000E /* MPartnersBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPartnersBannerController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000F /* MPartnersInterstitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPartnersInterstitialController.swift; sourceTree = "<group>"; };
+		BB00000000000000000020 /* ExelBidDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExelBidDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB00000000000000000021 /* MPartnersNativeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPartnersNativeController.swift; sourceTree = "<group>"; };
+		BB00000000000000000022 /* AdsExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsExampleListViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000023 /* MediationExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediationExampleListViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000024 /* MediatedBannerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatedBannerExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000025 /* MediatedInterstitialExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatedInterstitialExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000026 /* MediatedNativeExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatedNativeExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000027 /* MediatedVideoExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatedVideoExampleViewController.swift; sourceTree = "<group>"; };
+		BB00000000000000000028 /* WaterfallFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallFormatter.swift; sourceTree = "<group>"; };
+		BB00000000000000000029 /* MediatedNativeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediatedNativeAdView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC00000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D65A6952FCEC89900B8BA4E /* ExelBidMediationAdFit in Frameworks */,
+				1D89FDFF2FD10A0B00DC2BD1 /* ExelBidSDK in Frameworks */,
+				1D65A6972FCEC89900B8BA4E /* ExelBidMediationAdMob in Frameworks */,
+				1D65A6922FCEC60700B8BA4E /* ExelBidSDK in Frameworks */,
+				1D65A6992FCEC89900B8BA4E /* ExelBidMediationFAN in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD00000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				DD00000000000000000002 /* ExelBidDemo */,
+				DD00000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD00000000000000000002 /* ExelBidDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BB00000000000000000001 /* AppDelegate.swift */,
+				BB00000000000000000007 /* AdUnitIds.swift */,
+				BB0000000000000000000A /* HomeViewController.swift */,
+				BB00000000000000000022 /* AdsExampleListViewController.swift */,
+				BB00000000000000000002 /* BannerExampleViewController.swift */,
+				BB00000000000000000003 /* NativeExampleViewController.swift */,
+				BB00000000000000000004 /* VideoExampleViewController.swift */,
+				BB00000000000000000009 /* InterstitialExampleViewController.swift */,
+				BB00000000000000000023 /* MediationExampleListViewController.swift */,
+				DD00000000000000000006 /* Mediation */,
+				DD00000000000000000005 /* MPartners */,
+				BB00000000000000000005 /* CustomNativeAdView.swift */,
+				BB0000000000000000000B /* DesignSystem.swift */,
+				BB0000000000000000000C /* TestOptionsPanel.swift */,
+				BB00000000000000000008 /* StatusBadge.swift */,
+				BB00000000000000000006 /* Info.plist */,
+			);
+			path = ExelBidDemo;
+			sourceTree = "<group>";
+		};
+		DD00000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB00000000000000000020 /* ExelBidDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD00000000000000000005 /* MPartners */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000D /* MPartnersExampleViewController.swift */,
+				BB0000000000000000000E /* MPartnersBannerController.swift */,
+				BB0000000000000000000F /* MPartnersInterstitialController.swift */,
+				BB00000000000000000021 /* MPartnersNativeController.swift */,
+			);
+			path = MPartners;
+			sourceTree = "<group>";
+		};
+		DD00000000000000000006 /* Mediation */ = {
+			isa = PBXGroup;
+			children = (
+				BB00000000000000000024 /* MediatedBannerExampleViewController.swift */,
+				BB00000000000000000025 /* MediatedInterstitialExampleViewController.swift */,
+				BB00000000000000000026 /* MediatedNativeExampleViewController.swift */,
+				BB00000000000000000027 /* MediatedVideoExampleViewController.swift */,
+				BB00000000000000000028 /* WaterfallFormatter.swift */,
+				BB00000000000000000029 /* MediatedNativeAdView.swift */,
+			);
+			path = Mediation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE00000000000000000001 /* ExelBidDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = GG00000000000000000002 /* Build configuration list for PBXNativeTarget "ExelBidDemo" */;
+			buildPhases = (
+				CC00000000000000000001 /* Sources */,
+				CC00000000000000000002 /* Frameworks */,
+				CC00000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExelBidDemo;
+			productName = ExelBidDemo;
+			productReference = BB00000000000000000020 /* ExelBidDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1100000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EE00000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = GG00000000000000000001 /* Build configuration list for PBXProject "ExelBidDemo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD00000000000000000001;
+			packageReferences = (
+				1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */,
+				1D89FDFD2FD10A0B00DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
+			);
+			productRefGroup = DD00000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE00000000000000000001 /* ExelBidDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC00000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC00000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA00000000000000000001 /* AppDelegate.swift in Sources */,
+				AA00000000000000000006 /* AdUnitIds.swift in Sources */,
+				AA00000000000000000009 /* HomeViewController.swift in Sources */,
+				AA00000000000000000012 /* AdsExampleListViewController.swift in Sources */,
+				AA00000000000000000002 /* BannerExampleViewController.swift in Sources */,
+				AA00000000000000000003 /* NativeExampleViewController.swift in Sources */,
+				AA00000000000000000004 /* VideoExampleViewController.swift in Sources */,
+				AA00000000000000000008 /* InterstitialExampleViewController.swift in Sources */,
+				AA00000000000000000013 /* MediationExampleListViewController.swift in Sources */,
+				AA00000000000000000014 /* MediatedBannerExampleViewController.swift in Sources */,
+				AA00000000000000000015 /* MediatedInterstitialExampleViewController.swift in Sources */,
+				AA00000000000000000016 /* MediatedNativeExampleViewController.swift in Sources */,
+				AA00000000000000000017 /* MediatedVideoExampleViewController.swift in Sources */,
+				AA00000000000000000018 /* WaterfallFormatter.swift in Sources */,
+				AA00000000000000000019 /* MediatedNativeAdView.swift in Sources */,
+				AA0000000000000000000C /* MPartnersExampleViewController.swift in Sources */,
+				AA0000000000000000000D /* MPartnersBannerController.swift in Sources */,
+				AA0000000000000000000E /* MPartnersInterstitialController.swift in Sources */,
+				AA0000000000000000000F /* MPartnersNativeController.swift in Sources */,
+				AA00000000000000000005 /* CustomNativeAdView.swift in Sources */,
+				AA0000000000000000000A /* DesignSystem.swift in Sources */,
+				AA0000000000000000000B /* TestOptionsPanel.swift in Sources */,
+				AA00000000000000000007 /* StatusBadge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF00000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF00000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF00000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8654MDDQ5;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/..",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ExelBidDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF00000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8654MDDQ5;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/..",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ExelBidDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		GG00000000000000000001 /* Build configuration list for PBXProject "ExelBidDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF00000000000000000001 /* Debug */,
+				FF00000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		GG00000000000000000002 /* Build configuration list for PBXNativeTarget "ExelBidDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF00000000000000000003 /* Debug */,
+				FF00000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D65A6902FCEC60700B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
+			requirement = {
+				branch = "release/3.x-beta";
+				kind = branch;
+			};
+		};
+		1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+		1D89FDFD2FD10A0B00DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
+			requirement = {
+				branch = "release/3.x-beta";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D65A6912FCEC60700B8BA4E /* ExelBidSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D65A6902FCEC60700B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
+			productName = ExelBidSDK;
+		};
+		1D65A6942FCEC89900B8BA4E /* ExelBidMediationAdFit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationAdFit;
+		};
+		1D65A6962FCEC89900B8BA4E /* ExelBidMediationAdMob */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationAdMob;
+		};
+		1D65A6982FCEC89900B8BA4E /* ExelBidMediationFAN */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationFAN;
+		};
+		1D89FDFE2FD10A0B00DC2BD1 /* ExelBidSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D89FDFD2FD10A0B00DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
+			productName = ExelBidSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1100000000000000000001 /* Project object */;
+}

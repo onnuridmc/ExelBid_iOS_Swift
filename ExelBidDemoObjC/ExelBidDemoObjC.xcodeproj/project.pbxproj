@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A100000000000000000001 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000001 /* main.m */; };
+		A100000000000000000002 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000003 /* AppDelegate.m */; };
+		A100000000000000000003 /* BannerExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000005 /* BannerExampleViewController.m */; };
+		A100000000000000000004 /* NativeExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000007 /* NativeExampleViewController.m */; };
+		A100000000000000000005 /* VideoExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000009 /* VideoExampleViewController.m */; };
+		A100000000000000000006 /* CustomNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000011 /* CustomNativeAdView.m */; };
+		A100000000000000000020 /* DesignSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000050 /* DesignSystem.m */; };
+		A100000000000000000021 /* StatusBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000052 /* StatusBadge.m */; };
+		A100000000000000000022 /* AdUnitIds.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000054 /* AdUnitIds.m */; };
+		A100000000000000000023 /* ExelBidMediationBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000056 /* ExelBidMediationBootstrap.swift */; };
+		A100000000000000000024 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000058 /* HomeViewController.m */; };
+		A100000000000000000025 /* AdsExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000060 /* AdsExampleListViewController.m */; };
+		A100000000000000000026 /* MediationExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000062 /* MediationExampleListViewController.m */; };
+		A100000000000000000027 /* MPartnersExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000064 /* MPartnersExampleViewController.m */; };
+		A100000000000000000028 /* InterstitialExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000066 /* InterstitialExampleViewController.m */; };
+		A100000000000000000030 /* MediatedNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000080 /* MediatedNativeAdView.m */; };
+		A100000000000000000031 /* MediatedBannerExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000082 /* MediatedBannerExampleViewController.m */; };
+		A100000000000000000032 /* MediatedInterstitialExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000084 /* MediatedInterstitialExampleViewController.m */; };
+		A100000000000000000033 /* MediatedNativeExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000086 /* MediatedNativeExampleViewController.m */; };
+		A100000000000000000034 /* MediatedVideoExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000088 /* MediatedVideoExampleViewController.m */; };
+		A100000000000000000040 /* MPartnersBannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000100 /* MPartnersBannerController.m */; };
+		A100000000000000000041 /* MPartnersInterstitialController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000102 /* MPartnersInterstitialController.m */; };
+		A100000000000000000042 /* MPartnersNativeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000104 /* MPartnersNativeController.m */; };
+		A100000000000000000050 /* ExelBidMediationAdMob in Frameworks */ = {isa = PBXBuildFile; productRef = P100000000000000000001 /* ExelBidMediationAdMob */; };
+		A100000000000000000051 /* ExelBidMediationFAN in Frameworks */ = {isa = PBXBuildFile; productRef = P100000000000000000002 /* ExelBidMediationFAN */; };
+		A100000000000000000052 /* ExelBidMediationAdFit in Frameworks */ = {isa = PBXBuildFile; productRef = P100000000000000000003 /* ExelBidMediationAdFit */; };
+		A100000000000000000053 /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = P100000000000000000004 /* ExelBidSDK */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C100000000000000000004 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B100000000000000000001 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B100000000000000000002 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B100000000000000000003 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B100000000000000000004 /* BannerExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000005 /* BannerExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000006 /* NativeExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000007 /* NativeExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000008 /* VideoExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000009 /* VideoExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000010 /* CustomNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNativeAdView.h; sourceTree = "<group>"; };
+		B100000000000000000011 /* CustomNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNativeAdView.m; sourceTree = "<group>"; };
+		B100000000000000000012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B100000000000000000030 /* ExelBidDemoObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExelBidDemoObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B100000000000000000049 /* DesignSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignSystem.h; sourceTree = "<group>"; };
+		B100000000000000000050 /* DesignSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignSystem.m; sourceTree = "<group>"; };
+		B100000000000000000051 /* StatusBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusBadge.h; sourceTree = "<group>"; };
+		B100000000000000000052 /* StatusBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBadge.m; sourceTree = "<group>"; };
+		B100000000000000000053 /* AdUnitIds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdUnitIds.h; sourceTree = "<group>"; };
+		B100000000000000000054 /* AdUnitIds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdUnitIds.m; sourceTree = "<group>"; };
+		B100000000000000000056 /* ExelBidMediationBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExelBidMediationBootstrap.swift; sourceTree = "<group>"; };
+		B100000000000000000057 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B100000000000000000058 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B100000000000000000059 /* AdsExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdsExampleListViewController.h; sourceTree = "<group>"; };
+		B100000000000000000060 /* AdsExampleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdsExampleListViewController.m; sourceTree = "<group>"; };
+		B100000000000000000061 /* MediationExampleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediationExampleListViewController.h; sourceTree = "<group>"; };
+		B100000000000000000062 /* MediationExampleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediationExampleListViewController.m; sourceTree = "<group>"; };
+		B100000000000000000063 /* MPartnersExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPartnersExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000064 /* MPartnersExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPartnersExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000065 /* InterstitialExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterstitialExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000066 /* InterstitialExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterstitialExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000079 /* MediatedNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediatedNativeAdView.h; sourceTree = "<group>"; };
+		B100000000000000000080 /* MediatedNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatedNativeAdView.m; sourceTree = "<group>"; };
+		B100000000000000000081 /* MediatedBannerExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediatedBannerExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000082 /* MediatedBannerExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatedBannerExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000083 /* MediatedInterstitialExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediatedInterstitialExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000084 /* MediatedInterstitialExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatedInterstitialExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000085 /* MediatedNativeExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediatedNativeExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000086 /* MediatedNativeExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatedNativeExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000087 /* MediatedVideoExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediatedVideoExampleViewController.h; sourceTree = "<group>"; };
+		B100000000000000000088 /* MediatedVideoExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediatedVideoExampleViewController.m; sourceTree = "<group>"; };
+		B100000000000000000099 /* MPartnersBannerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPartnersBannerController.h; sourceTree = "<group>"; };
+		B100000000000000000100 /* MPartnersBannerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPartnersBannerController.m; sourceTree = "<group>"; };
+		B100000000000000000101 /* MPartnersInterstitialController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPartnersInterstitialController.h; sourceTree = "<group>"; };
+		B100000000000000000102 /* MPartnersInterstitialController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPartnersInterstitialController.m; sourceTree = "<group>"; };
+		B100000000000000000103 /* MPartnersNativeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPartnersNativeController.h; sourceTree = "<group>"; };
+		B100000000000000000104 /* MPartnersNativeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPartnersNativeController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C100000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A100000000000000000053 /* ExelBidSDK in Frameworks */,
+				A100000000000000000050 /* ExelBidMediationAdMob in Frameworks */,
+				A100000000000000000051 /* ExelBidMediationFAN in Frameworks */,
+				A100000000000000000052 /* ExelBidMediationAdFit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D100000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				D100000000000000000002 /* ExelBidDemoObjC */,
+				D100000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D100000000000000000002 /* ExelBidDemoObjC */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000001 /* main.m */,
+				B100000000000000000002 /* AppDelegate.h */,
+				B100000000000000000003 /* AppDelegate.m */,
+				B100000000000000000056 /* ExelBidMediationBootstrap.swift */,
+				B100000000000000000049 /* DesignSystem.h */,
+				B100000000000000000050 /* DesignSystem.m */,
+				B100000000000000000051 /* StatusBadge.h */,
+				B100000000000000000052 /* StatusBadge.m */,
+				B100000000000000000053 /* AdUnitIds.h */,
+				B100000000000000000054 /* AdUnitIds.m */,
+				B100000000000000000057 /* HomeViewController.h */,
+				B100000000000000000058 /* HomeViewController.m */,
+				B100000000000000000059 /* AdsExampleListViewController.h */,
+				B100000000000000000060 /* AdsExampleListViewController.m */,
+				B100000000000000000061 /* MediationExampleListViewController.h */,
+				B100000000000000000062 /* MediationExampleListViewController.m */,
+				B100000000000000000063 /* MPartnersExampleViewController.h */,
+				B100000000000000000064 /* MPartnersExampleViewController.m */,
+				B100000000000000000004 /* BannerExampleViewController.h */,
+				B100000000000000000005 /* BannerExampleViewController.m */,
+				B100000000000000000065 /* InterstitialExampleViewController.h */,
+				B100000000000000000066 /* InterstitialExampleViewController.m */,
+				B100000000000000000006 /* NativeExampleViewController.h */,
+				B100000000000000000007 /* NativeExampleViewController.m */,
+				B100000000000000000008 /* VideoExampleViewController.h */,
+				B100000000000000000009 /* VideoExampleViewController.m */,
+				B100000000000000000010 /* CustomNativeAdView.h */,
+				B100000000000000000011 /* CustomNativeAdView.m */,
+				D100000000000000000005 /* Mediation */,
+				D100000000000000000006 /* MPartners */,
+				B100000000000000000012 /* Info.plist */,
+			);
+			path = ExelBidDemoObjC;
+			sourceTree = "<group>";
+		};
+		D100000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000030 /* ExelBidDemoObjC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D100000000000000000005 /* Mediation */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000079 /* MediatedNativeAdView.h */,
+				B100000000000000000080 /* MediatedNativeAdView.m */,
+				B100000000000000000081 /* MediatedBannerExampleViewController.h */,
+				B100000000000000000082 /* MediatedBannerExampleViewController.m */,
+				B100000000000000000083 /* MediatedInterstitialExampleViewController.h */,
+				B100000000000000000084 /* MediatedInterstitialExampleViewController.m */,
+				B100000000000000000085 /* MediatedNativeExampleViewController.h */,
+				B100000000000000000086 /* MediatedNativeExampleViewController.m */,
+				B100000000000000000087 /* MediatedVideoExampleViewController.h */,
+				B100000000000000000088 /* MediatedVideoExampleViewController.m */,
+			);
+			path = Mediation;
+			sourceTree = "<group>";
+		};
+		D100000000000000000006 /* MPartners */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000099 /* MPartnersBannerController.h */,
+				B100000000000000000100 /* MPartnersBannerController.m */,
+				B100000000000000000101 /* MPartnersInterstitialController.h */,
+				B100000000000000000102 /* MPartnersInterstitialController.m */,
+				B100000000000000000103 /* MPartnersNativeController.h */,
+				B100000000000000000104 /* MPartnersNativeController.m */,
+			);
+			path = MPartners;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E100000000000000000001 /* ExelBidDemoObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G100000000000000000002 /* Build configuration list for PBXNativeTarget "ExelBidDemoObjC" */;
+			buildPhases = (
+				C100000000000000000001 /* Sources */,
+				C100000000000000000002 /* Frameworks */,
+				C100000000000000000003 /* Resources */,
+				C100000000000000000004 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExelBidDemoObjC;
+			packageProductDependencies = (
+				P100000000000000000004 /* ExelBidSDK */,
+				P100000000000000000001 /* ExelBidMediationAdMob */,
+				P100000000000000000002 /* ExelBidMediationFAN */,
+				P100000000000000000003 /* ExelBidMediationAdFit */,
+			);
+			productName = ExelBidDemoObjC;
+			productReference = B100000000000000000030 /* ExelBidDemoObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1100000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E100000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = G100000000000000000001 /* Build configuration list for PBXProject "ExelBidDemoObjC" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D100000000000000000001;
+			packageReferences = (
+				K100000000000000000001 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */,
+				K100000000000000000002 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
+			);
+			productRefGroup = D100000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E100000000000000000001 /* ExelBidDemoObjC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C100000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C100000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A100000000000000000001 /* main.m in Sources */,
+				A100000000000000000002 /* AppDelegate.m in Sources */,
+				A100000000000000000023 /* ExelBidMediationBootstrap.swift in Sources */,
+				A100000000000000000020 /* DesignSystem.m in Sources */,
+				A100000000000000000021 /* StatusBadge.m in Sources */,
+				A100000000000000000022 /* AdUnitIds.m in Sources */,
+				A100000000000000000024 /* HomeViewController.m in Sources */,
+				A100000000000000000025 /* AdsExampleListViewController.m in Sources */,
+				A100000000000000000026 /* MediationExampleListViewController.m in Sources */,
+				A100000000000000000027 /* MPartnersExampleViewController.m in Sources */,
+				A100000000000000000003 /* BannerExampleViewController.m in Sources */,
+				A100000000000000000028 /* InterstitialExampleViewController.m in Sources */,
+				A100000000000000000004 /* NativeExampleViewController.m in Sources */,
+				A100000000000000000005 /* VideoExampleViewController.m in Sources */,
+				A100000000000000000006 /* CustomNativeAdView.m in Sources */,
+				A100000000000000000030 /* MediatedNativeAdView.m in Sources */,
+				A100000000000000000031 /* MediatedBannerExampleViewController.m in Sources */,
+				A100000000000000000032 /* MediatedInterstitialExampleViewController.m in Sources */,
+				A100000000000000000033 /* MediatedNativeExampleViewController.m in Sources */,
+				A100000000000000000034 /* MediatedVideoExampleViewController.m in Sources */,
+				A100000000000000000040 /* MPartnersBannerController.m in Sources */,
+				A100000000000000000041 /* MPartnersInterstitialController.m in Sources */,
+				A100000000000000000042 /* MPartnersNativeController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F100000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		F100000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.9;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F100000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N8654MDDQ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/..",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ExelBidDemoObjC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F100000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N8654MDDQ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/..",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ExelBidDemoObjC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motivi.exelbid.v2.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G100000000000000000001 /* Build configuration list for PBXProject "ExelBidDemoObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F100000000000000000001 /* Debug */,
+				F100000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G100000000000000000002 /* Build configuration list for PBXNativeTarget "ExelBidDemoObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F100000000000000000003 /* Debug */,
+				F100000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		K100000000000000000001 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+		K100000000000000000002 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
+			requirement = {
+				branch = "release/3.x-beta";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		P100000000000000000001 /* ExelBidMediationAdMob */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = K100000000000000000001 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationAdMob;
+		};
+		P100000000000000000002 /* ExelBidMediationFAN */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = K100000000000000000001 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationFAN;
+		};
+		P100000000000000000003 /* ExelBidMediationAdFit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = K100000000000000000001 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */;
+			productName = ExelBidMediationAdFit;
+		};
+		P100000000000000000004 /* ExelBidSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = K100000000000000000002 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
+			productName = ExelBidSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1100000000000000000001 /* Project object */;
+}

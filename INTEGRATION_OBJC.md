@@ -608,6 +608,21 @@ loader.rootViewControllerProvider = ^UIViewController * _Nullable {
 `EBNativeAdRendering` 프로토콜을 사용**하므로 일반 광고와 같은 뷰를
 재사용할 수 있습니다.
 
+> **AdMob / FAN 미디어 슬롯 (선택, 동영상엔 필수)**: 두 네트워크는
+> 메인 이미지/동영상을 자체 미디어 뷰로 그리므로 `nativeMainImageView`
+> (UIImageView)로는 표시할 수 없습니다. 미디에이션 네이티브에서
+> 미디어(특히 동영상)를 보이려면 렌더링 뷰에 빈 컨테이너 슬롯을
+> 추가하세요:
+>
+> ```objc
+> - (UIView *)nativeMediaView      { return self.mediaContainer; }
+> - (UIView *)nativeAdChoicesView  { return self.adChoicesContainer; } // FAN AdChoices
+> ```
+>
+> 두 메서드 모두 `@optional`이라 일반(비미디에이션) 네이티브에는
+> 영향이 없습니다. `nativeMediaView`를 제공하면 SDK는
+> `nativeMainImageView`를 채우지 않습니다(중복 렌더 방지).
+
 > Swift의 `desiredAssets`는 ObjC에서 사용할 수 없습니다. 자산 목록을
 > 지정하지 않으면 광고 유닛에 설정된 자산이 그대로 내려옵니다.
 > 명시적으로 지정해야 한다면 Swift 헬퍼 클래스를 통해 설정하세요.
@@ -636,6 +651,10 @@ videoAd.onDidDisappear = ^{ NSLog(@"종료"); };
 ```
 
 `EBVideoAd`와 시그니처가 동일하며, 단발성 사용입니다.
+
+> ExelBid 외 네트워크(AdMob / FAN)에서 video 포맷은 **전면(인터스티셜)
+> 비디오**로 노출됩니다(보상형 아님). `onProgress`는 시작(`0`)·종료(`100`)
+> 두 시점만 근사 보고됩니다.
 
 ---
 

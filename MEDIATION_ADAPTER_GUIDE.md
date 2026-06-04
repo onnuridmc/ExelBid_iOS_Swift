@@ -324,6 +324,20 @@ extension MyNetworkInterstitialAdapter: MNInterstitialDelegate {
 추가됩니다. (AdFit처럼 제공 어댑터가 비디오를 지원하지 않는 광고망이라면,
 이 커스텀 비디오 어댑터가 바로 "직접 만들어 쓰는" 대표 사례입니다.)
 
+> ExelBid 외 네트워크에서 video 포맷은 **전면(인터스티셜) 비디오**를
+> 의미합니다(보상형 아님). 제공 AdMob/FAN 비디오 어댑터는 각각
+> `InterstitialAd` / `FBInterstitialAd` 를 래핑합니다 — 즉 전면 어댑터와
+> 동일한 풀스크린 API에 `onProgress` 만 더한 형태입니다. 보상형(rewarded)
+> 포맷이 필요하면 별도 커스텀 어댑터로 구현하세요.
+>
+> AdMob 전면 슬롯은 **디스플레이(배너/이미지)·비디오 크리에이티브를 같은
+> `InterstitialAd` 객체로** 재생합니다(SDK 레벨에서 "비디오만" 요청 불가 —
+> 광고 유닛 설정이 결정). 그래서 제공 AdMob 어댑터는 전면/비디오 두 포맷이
+> 공유 드라이버 `AdMobFullScreenAd`(load/present + `FullScreenContentDelegate`
+> 브리징)를 함께 쓰고, 각 어댑터는 포맷별 콜백(`onClickFinish` /
+> `onProgress`)만 얇게 연결합니다. 같은 풀스크린 SDK를 두 포맷에 쓰는
+> 네트워크라면 이 패턴을 참고하세요.
+
 ```swift
 public final class MyNetworkVideoAdapter: NSObject, EBVideoMediationAdapter {
 
@@ -362,7 +376,59 @@ public final class MyNetworkVideoAdapter: NSObject, EBVideoMediationAdapter {
   `EBNativeAdRendering` 화면으로 렌더링할 수 있습니다.
 - `bind(view:viewController:)` — 호스트가 모델을 뷰로 렌더링한 뒤
   호출됩니다. 렌더된 뷰를 서드파티 SDK에 등록해 클릭·노출 계측을 연결.
+  - `view` 는 호출 시점에 **이미 뷰 계층에 있고**(superview 존재),
+    텍스트/이미지 슬롯은 `StaticNativeRenderer` 가 이미 채운 상태입니다.
+  - 미디에이션 네이티브는 SDK가 **자체 클릭 제스처를 설치하지 않습니다.**
+    클릭은 전적으로 어댑터/네트워크가 소유합니다.
 - `unbind()` — 호스트가 `detach()` 하거나 광고가 해제될 때 등록 해제.
+
+광고망마다 뷰를 다루는 방식이 다릅니다. 세 가지 바인딩 모드로 정리됩니다:
+
+| 모드 | 누가 채우나 | 적용 예 | 필요한 슬롯 |
+|---|---|---|---|
+| **직접 등록** | SDK가 채움 → 어댑터는 뷰 통째 register | FAN(텍스트), AdFit, 자사 | 기존 슬롯 |
+| **아웃렛 매핑** | SDK가 채움 + 어댑터가 슬롯↔네트워크 아웃렛 연결 | AdMob | 기존 슬롯 + CTA |
+| **네트워크-렌더 미디어** | 네트워크가 미디어 뷰를 직접 그림, 호스트는 빈 컨테이너만 제공 | AdMob `GADMediaView`, FAN `FBMediaView` | `nativeMediaView()` |
+
+호스트 렌더링 뷰는 **완성된 결과가 아니라 슬롯 레이아웃**입니다.
+`EBNativeAdRendering` 의 슬롯(텍스트/이미지 + 신규
+`nativeMediaView()` / `nativeAdChoicesView()`)을 어댑터가 자기 네트워크
+방식대로 바인딩합니다.
+
+### 상속 문제는 합성으로 — `EBNativeAdContainerReparenter`
+
+AdMob은 에셋이 반드시 `NativeAdView` 서브트리에 있어야 하는데, 호스트
+뷰가 `NativeAdView` 를 상속할 수는 없습니다(FAN `FBNativeAdView` 와
+동시 상속 불가). 그래서 **상속이 아니라 합성**으로 풉니다 — `bind()`
+에서 호스트 뷰를 네트워크 컨테이너로 **그 자리에 재부모(reparent)**
+합니다. SDK가 공유 헬퍼를 제공합니다:
+
+```swift
+let wrapper = NativeAdView(frame: view.frame)
+guard EBNativeAdContainerReparenter.wrap(view, in: wrapper) else { return }
+// view 의 원래 위치/제약/프레임을 wrapper 가 그대로 인계받고,
+// view 는 wrapper 를 채우도록 핀 처리됩니다. superview 가 없으면 false.
+```
+
+FAN / AdFit 은 wrapping 없이 `registerView(...)` / `register(view:)`
+로 제자리 등록만 하므로 이 헬퍼가 필요 없습니다.
+
+### 미디어 소유권 규칙
+
+호스트가 `nativeMediaView()` 슬롯을 제공하면 SDK는 `model.main` 을
+`nativeMainImageView()` 에 **로드하지 않습니다.** 대신 어댑터가 그 슬롯에
+네트워크 미디어 뷰(AdMob `MediaView`, FAN `FBMediaView`)를 꽂습니다
+(동영상 지원). 슬롯이 없으면 SDK가 `model.main` URL을
+`nativeMainImageView()` 에 렌더(현행) — URL이 없는 미디어(FAN 동영상)는
+이 경우 표시되지 않습니다.
+
+> **AdMob 주의**: 메인 이미지/동영상은 반드시 `MediaView` 로
+> 표시해야 합니다. `imageView` 아웃렛을 쓰면
+> *"MediaView not used for main image or video asset"* 경고가 뜨고
+> 동영상도 못 그립니다. 또 등록한 에셋 뷰는 모두 `NativeAdView` 경계
+> 안에 있어야 하며(*"Advertiser assets outside native ad view"*),
+> `nativeAd` 할당 직전에 `layoutIfNeeded()` 로 레이아웃을 확정해야
+> 합니다. 제공 `AdMobNativeAdapter.bind` 참고.
 
 ### `EBNativeAdModel` 만들기 — JSON 정규화 패턴
 
@@ -439,10 +505,10 @@ public final class MyNetworkNativeAdapter: NSObject, EBNativeMediationAdapter {
 }
 ```
 
-> 일부 광고망(AdMob 등)은 자체 컨테이너 뷰(`NativeAdView`)로 클릭/노출을
-> 추적해야 합니다. 그런 경우 `bind(view:)` 에서 호스트의 렌더 뷰를
-> 광고망 컨테이너로 감싸 등록합니다 — 실제 구현은 제공 AdMob 네이티브
-> 어댑터(`AdMobNativeAdapter.bind`)를 참고하세요.
+> 위 `bind(view:)` 는 골격입니다. 네트워크별 실제 구현(reparenter,
+> 미디어 슬롯, 아웃렛, `registerView`)은 위 **"상속 문제는 합성으로"**·
+> **"미디어 소유권 규칙"** 절과 제공 `AdMobNativeAdapter.bind` /
+> `FANNativeAdapter.bind` 를 참고하세요.
 
 ---
 
