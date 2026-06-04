@@ -1,7 +1,7 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-let version  = "3.0.0-beta.4"
+let version  = "3.0.0-beta.5"
 
 let package = Package(
     name: "ExelBid_iOS_Swift",
@@ -18,7 +18,7 @@ let package = Package(
         .binaryTarget(
             name: "ExelBidSDK",
             url: "https://github.com/onnuridmc/ExelBid_iOS_Swift/releases/download/\(version)/ExelBidSDK.xcframework.zip",
-            checksum: "9280f4274a23c63eb88f85ef97fe21124564abcad123cdca551b959c78b19e8c"
+            checksum: "fb753702638def61d23bcac047bab90fb91f594858a7f30e21a6ed8dffa3e228"
         )
     ]
 )
