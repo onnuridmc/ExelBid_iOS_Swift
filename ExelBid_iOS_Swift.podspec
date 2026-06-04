@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   DESC
 
   s.homepage         = "https://github.com/onnuridmc/ExelBid_iOS_Swift"
-  s.license          = { :type => "MIT", :file => "LICENSE" }
+  s.license          = { :type => "MIT" }
   s.author           = { "ExelBid" => "dev@motiv-i.com" }
 
   s.platform         = :ios, "13.0"
