@@ -308,6 +308,7 @@ ad.onDidAppear     = ^{ /* interstitialDidAppear */ };
 ad.onWillDisappear = ^{ /* interstitialWillDisappear */ };
 ad.onDidDisappear  = ^{ /* interstitialDidDisappear */ };
 ad.onClick         = ^{ /* interstitialDidReceiveTapEvent */ };
+ad.onClickFinish   = ^{ /* 클릭 처리 완료 (인앱 스토어/사파리 닫힘) */ };
 
 self.interstitial = ad;
 [ad load];
@@ -362,11 +363,16 @@ v2의 `EBMediationManager` + 네트워크별 어댑터는 v3에서 `ExelBidSDK`
 | 네이티브 | `EBMediatedNativeAdLoader` |
 | 비디오 | `EBMediatedVideoAd` |
 
-- 호스트 모듈 등록은 `ExelBidMediationKit` /
-  `ExelBidBuiltInMediationModule` 로 합니다.
 - AdMob / FAN / AdFit 등 서드파티 어댑터는 별도 저장소
-  (`ExelBid_iOS_Mediation_Adapter`)에서 제공됩니다. 제공 어댑터가 맞지
-  않으면 직접 만들 수도 있습니다 —
+  (`ExelBid_iOS_Mediation_Adapter`)에서 제공됩니다. 사용하는 네트워크
+  어댑터만 앱 타겟에 링크하고, 해당 네트워크 SDK(AdMob / FAN 등)는
+  호스트 앱이 별도로 통합합니다.
+- `ExelBidMediationKit.register(modules:)` 가 Swift 프로토콜 메타타입
+  배열을 받기 때문에 **ObjC에서 직접 호출할 수 없습니다**. 작은 Swift
+  부트스트랩 파일을 추가해 등록 로직만 Swift로 작성하고 ObjC
+  `AppDelegate` 에서 호출하세요. 전체 패턴은
+  [`INTEGRATION_OBJC.md`](./INTEGRATION_OBJC.md) §미디에이션 참고.
+- 제공 어댑터가 맞지 않으면 직접 만들 수도 있습니다 —
   [`MEDIATION_ADAPTER_GUIDE.md`](./MEDIATION_ADAPTER_GUIDE.md) 참고.
 
 ---
