@@ -1,5 +1,11 @@
 # Version History
 
+## Version 3.0.0-beta.4
+- SDK 개선 베타 4
+
+## Version 3.0.0-beta.3
+- SDK 개선 베타 3
+
 ## Version 3.0.0-beta.2
 - SDK 개선 베타 2
 
