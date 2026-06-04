@@ -512,8 +512,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
 			requirement = {
-				branch = "release/3.x-beta";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -12,6 +12,7 @@
 		1D65A6972FCEC89900B8BA4E /* ExelBidMediationAdMob in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6962FCEC89900B8BA4E /* ExelBidMediationAdMob */; };
 		1D65A6992FCEC89900B8BA4E /* ExelBidMediationFAN in Frameworks */ = {isa = PBXBuildFile; productRef = 1D65A6982FCEC89900B8BA4E /* ExelBidMediationFAN */; };
 		1D89FDFF2FD10A0B00DC2BD1 /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D89FDFE2FD10A0B00DC2BD1 /* ExelBidSDK */; };
+		1D89FE022FD15EC000DC2BD1 /* ExelBidSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1D89FE012FD15EC000DC2BD1 /* ExelBidSDK */; };
 		AA00000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000001 /* AppDelegate.swift */; };
 		AA00000000000000000002 /* BannerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000002 /* BannerExampleViewController.swift */; };
 		AA00000000000000000003 /* NativeExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000003 /* NativeExampleViewController.swift */; };
@@ -73,6 +74,7 @@
 				1D65A6952FCEC89900B8BA4E /* ExelBidMediationAdFit in Frameworks */,
 				1D89FDFF2FD10A0B00DC2BD1 /* ExelBidSDK in Frameworks */,
 				1D65A6972FCEC89900B8BA4E /* ExelBidMediationAdMob in Frameworks */,
+				1D89FE022FD15EC000DC2BD1 /* ExelBidSDK in Frameworks */,
 				1D65A6922FCEC60700B8BA4E /* ExelBidSDK in Frameworks */,
 				1D65A6992FCEC89900B8BA4E /* ExelBidMediationFAN in Frameworks */,
 			);
@@ -190,7 +192,7 @@
 			mainGroup = DD00000000000000000001;
 			packageReferences = (
 				1D65A6932FCEC89900B8BA4E /* XCRemoteSwiftPackageReference "ExelBid_iOS_Mediation_Adapter" */,
-				1D89FDFD2FD10A0B00DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
+				1D89FE002FD15EC000DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */,
 			);
 			productRefGroup = DD00000000000000000003 /* Products */;
 			projectDirPath = "";
@@ -462,8 +464,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
 			requirement = {
-				branch = "release/3.x-beta";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		1D89FE002FD15EC000DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onnuridmc/ExelBid_iOS_Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -492,6 +502,11 @@
 		1D89FDFE2FD10A0B00DC2BD1 /* ExelBidSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1D89FDFD2FD10A0B00DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
+			productName = ExelBidSDK;
+		};
+		1D89FE012FD15EC000DC2BD1 /* ExelBidSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D89FE002FD15EC000DC2BD1 /* XCRemoteSwiftPackageReference "ExelBid_iOS_Swift" */;
 			productName = ExelBidSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
