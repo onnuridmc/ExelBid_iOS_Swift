@@ -18,7 +18,7 @@ let package = Package(
         .binaryTarget(
             name: "ExelBidSDK",
             url: "https://github.com/onnuridmc/ExelBid_iOS_Swift/releases/download/\(version)/ExelBidSDK.xcframework.zip",
-            checksum: "fb753702638def61d23bcac047bab90fb91f594858a7f30e21a6ed8dffa3e228"
+            checksum: "9b42c31dcb07b6510df1373be24bad4c8db939a65d64607de996f3f9a4607cee"
         )
     ]
 )
