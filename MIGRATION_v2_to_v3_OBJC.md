@@ -363,17 +363,95 @@ v2의 `EBMediationManager` + 네트워크별 어댑터는 v3에서 `ExelBidSDK`
 | 네이티브 | `EBMediatedNativeAdLoader` |
 | 비디오 | `EBMediatedVideoAd` |
 
-- AdMob / FAN / AdFit 등 서드파티 어댑터는 별도 저장소
-  (`ExelBid_iOS_Mediation_Adapter`)에서 제공됩니다. 사용하는 네트워크
-  어댑터만 앱 타겟에 링크하고, 해당 네트워크 SDK(AdMob / FAN 등)는
-  호스트 앱이 별도로 통합합니다.
-- `ExelBidMediationKit.register(modules:)` 가 Swift 프로토콜 메타타입
-  배열을 받기 때문에 **ObjC에서 직접 호출할 수 없습니다**. 작은 Swift
-  부트스트랩 파일을 추가해 등록 로직만 Swift로 작성하고 ObjC
-  `AppDelegate` 에서 호출하세요. 전체 패턴은
-  [`INTEGRATION_OBJC.md`](./INTEGRATION_OBJC.md) §미디에이션 참고.
-- 제공 어댑터가 맞지 않으면 직접 만들 수도 있습니다 —
-  [`MEDIATION_ADAPTER_GUIDE.md`](./MEDIATION_ADAPTER_GUIDE.md) 참고.
+**제공 어댑터** — 서드파티 어댑터는 별도 저장소
+(`ExelBid_iOS_Mediation_Adapter`)에서 제공됩니다. 사용하는 어댑터만
+앱 타겟에 링크하고, 해당 네트워크 SDK는 호스트 앱이 별도로 통합합니다.
+
+| 모듈 | 네트워크 | 포맷 | 최소 iOS | 배포 |
+|---|---|---|---|---|
+| `ExelBidMediationAdMob` | Google AdMob | 배너 / 전면 / 네이티브 / 전면 비디오 | 14 | SwiftPM · CocoaPods |
+| `ExelBidMediationFAN` | Facebook Audience Network | 배너 / 전면 / 네이티브 / 전면 비디오 | 14 | CocoaPods (호스트가 `FBAudienceNetwork` 링크) |
+| `ExelBidMediationAdFit` | Kakao AdFit | 배너 / 네이티브 | 13 | SwiftPM 전용 |
+
+> Pangle / AppLovin / DT / TNK / TargetPick은 **예정**이며 현재는 미배포
+> 어댑터로 처리되어(`EBWaterfallEvent.lost(.adapterNotRegistered)`)
+> 다음 네트워크로 넘어갑니다.
+
+**어댑터 설치 — CocoaPods**
+
+```ruby
+# Podfile
+pod 'ExelBid_iOS_Swift',           '~> 3.0'
+pod 'ExelBid_Mediation_Adapter/AdMob'
+pod 'ExelBid_Mediation_Adapter/FAN'
+```
+
+> CocoaPods 어댑터는 어떤 subspec을 설치하든 모두
+> `ExelBidMediationAdapter` 라는 **하나의 Swift 모듈로** 합쳐집니다(pod
+> 배포명은 `ExelBid_Mediation_Adapter`, Swift 모듈명은
+> `ExelBidMediationAdapter`).
+> **AdFit은 SwiftPM 전용**입니다(Kakao가 AdFit SDK의 CocoaPods 배포를
+> 중단). CocoaPods 환경에서 AdFit이 필요하면 어댑터 README의 수동 통합
+> 절차를 참고하세요.
+
+**앱 시작 시 모듈 등록 (Swift 부트스트랩 필요)**
+
+`ExelBidMediationKit.register(modules:)` 가 Swift 프로토콜 메타타입
+배열을 받기 때문에 **ObjC에서 직접 호출할 수 없습니다**. 작은 Swift
+부트스트랩 파일을 추가해 등록 로직만 Swift로 작성하고 ObjC
+`AppDelegate` 에서 호출하세요:
+
+```swift
+// ExelBidMediationBootstrap.swift  (ObjC 타깃에 추가)
+import ExelBidSDK
+import ExelBidMediationAdapter  // CocoaPods — 단일 모듈
+
+@objc public final class ExelBidMediationBootstrap: NSObject {
+    @objc public static func registerModules() {
+        ExelBidMediationKit.shared.register(modules: [
+            ExelBidBuiltInMediationModule.self,   // 필수
+            AdMobMediationModule.self,
+            FANMediationModule.self,
+        ])
+    }
+}
+```
+
+```objc
+// AppDelegate.m
+#import "<ProductModuleName>-Swift.h"
+[ExelBidMediationBootstrap registerModules];
+```
+
+> `ExelBidBuiltInMediationModule` 을 빠뜨리면 서버 워터폴 응답의
+> "exelbid" 항목이 건너뛰어집니다. 전체 패턴은
+> [`INTEGRATION_OBJC.md`](./INTEGRATION_OBJC.md) §미디에이션 참고.
+
+**포맷 주의사항**
+
+- **비디오 = 전면 비디오**: ExelBid 외 네트워크의 미디에이션 video는
+  보상형이 아니라 **전면(인터스티셜) 비디오**를 의미합니다. AdMob/FAN
+  비디오 어댑터는 각각 `InterstitialAd` / `FBInterstitialAd` 를 래핑하며
+  분위(quartile) 진행률은 근사 처리합니다(`onProgress(0)` 시작,
+  `onProgress(100)` 종료). 보상형이 필요하면 자체 어댑터를 작성해야
+  합니다.
+- **네이티브 미디어 슬롯**: AdMob / FAN / AdFit 네이티브는 메인 이미지·
+  동영상을 각 네트워크의 미디어 뷰로 직접 렌더링합니다(URL로 표현되지
+  않음). 호스트의 `EBNativeAdRendering` 뷰에 빈 컨테이너 슬롯을
+  노출하세요:
+
+  ```objc
+  - (UIView * _Nullable)nativeMediaView { return self.mediaContainer; }
+  - (UIView * _Nullable)nativeAdChoicesView { return self.adChoicesContainer; }  // FAN AdChoices (선택)
+  ```
+
+  슬롯이 없어도 텍스트 자산은 정상 동작하지만 미디어는 표시되지
+  않습니다.
+- **AdFit**: 인터스티셜·비디오 API가 없으므로 워터폴의 인터스티셜·비디오
+  `"adfit"` 항목은 자동 스킵됩니다.
+
+제공 어댑터가 맞지 않으면 직접 만들 수도 있습니다 —
+[`MEDIATION_ADAPTER_GUIDE.md`](./MEDIATION_ADAPTER_GUIDE.md) 참고.
 
 ---
 
