@@ -457,9 +457,10 @@ public final class MyNetworkVideoAdapter: NSObject, EBVideoMediationAdapter {
 | **네트워크-렌더 미디어** | 네트워크가 미디어 뷰를 직접 그림, 호스트는 빈 컨테이너만 제공 | AdMob `GADMediaView`, FAN `FBMediaView` | `nativeMediaView()` |
 
 호스트 렌더링 뷰는 **완성된 결과가 아니라 슬롯 레이아웃**입니다.
-`EBNativeAdRendering` 의 슬롯(텍스트/이미지 + 신규
-`nativeMediaView()` / `nativeAdChoicesView()`)을 어댑터가 자기 네트워크
-방식대로 바인딩합니다.
+`EBNativeAdRendering` 의 슬롯(텍스트 / 아이콘 / 로고 + 메인 크리에이티브
+단일 슬롯 `nativeMediaView()` + `nativeAdChoicesView()`)을 어댑터가 자기
+네트워크 방식대로 바인딩합니다. 메인 이미지/동영상은 모두
+`nativeMediaView()` 하나로 그려집니다(별도 메인 이미지 슬롯 없음).
 
 ### 상속 문제는 합성으로 — `EBNativeAdContainerReparenter`
 
@@ -481,12 +482,14 @@ FAN / AdFit 은 wrapping 없이 `registerView(...)` / `register(view:)`
 
 ### 미디어 소유권 규칙
 
-호스트가 `nativeMediaView()` 슬롯을 제공하면 SDK는 `model.main` 을
-`nativeMainImageView()` 에 **로드하지 않습니다.** 대신 어댑터가 그 슬롯에
-네트워크 미디어 뷰(AdMob `MediaView`, FAN `FBMediaView`)를 꽂습니다
-(동영상 지원). 슬롯이 없으면 SDK가 `model.main` URL을
-`nativeMainImageView()` 에 렌더(현행) — URL이 없는 미디어(FAN 동영상)는
-이 경우 표시되지 않습니다.
+`nativeMediaView()` 는 메인 크리에이티브의 **유일한 슬롯**입니다(별도
+`nativeMainImageView()` 슬롯은 제거됨). 어댑터는 이 슬롯에 자기 네트워크
+미디어 뷰(AdMob `MediaView`, FAN `FBMediaView`)를 꽂으며, URL 전용
+네트워크(AdFit)는 자체 `UIImageView` 를 만들어 이 슬롯에 넣습니다. 호스트가
+슬롯을 제공하지 않으면 메인 미디어는 표시되지 않습니다(텍스트/아이콘만).
+자사(`exelbid`) 광고도 동일하게 이 슬롯을 사용하며, 응답에 동영상(VAST)이
+있으면 SDK가 이 슬롯에서 인라인 재생합니다(`StaticNativeRenderer` 는 메인
+크리에이티브를 다루지 않고 텍스트/아이콘/로고/privacy 만 처리).
 
 > **AdMob 주의**: 메인 이미지/동영상은 반드시 `MediaView` 로
 > 표시해야 합니다. `imageView` 아웃렛을 쓰면

@@ -8,6 +8,7 @@
 @interface NativeExampleViewController ()
 @property (nonatomic, strong) EBStatusBadge *badge;
 @property (nonatomic, strong) EBLogView *logView;
+@property (nonatomic, strong) UISwitch *videoSwitch;
 @property (nonatomic, strong) UIView *adContainer;
 @property (nonatomic, strong, nullable) EBNativeAd *loadedAd;
 @property (nonatomic, strong, nullable) EBNativeAdLoader *loader;
@@ -42,6 +43,14 @@
     [status addArranged:self.badge];
     [stack addArrangedSubview:status];
 
+    EBCardView *nativeOptions = [[EBCardView alloc] init];
+    [nativeOptions addArranged:[EBSectionLabel make:@"Native options"]];
+    [nativeOptions addArranged:[self buildVideoToggleRow]];
+    UILabel *videoHelp = [EBTypography body:@"ON 시 EBNativeAssetVideo를 요청 자산에 포함하고 별도의 native video 광고 유닛(AdUnitIds.nativeVideo)으로 요청합니다. 응답에 동영상이 있으면 SDK가 nativeMediaView 슬롯 안에서 음소거 인라인 재생합니다 — 호스트 추가 작업 없음."];
+    videoHelp.textColor = UIColor.secondaryLabelColor;
+    [nativeOptions addArranged:videoHelp];
+    [stack addArrangedSubview:nativeOptions];
+
     EBCardView *actions = [[EBCardView alloc] init];
     [actions addArranged:[EBSectionLabel make:@"Action"]];
     [actions addArranged:[EBPrimaryButton filled:@"Load native ad" target:self action:@selector(handleLoad)]];
@@ -74,16 +83,38 @@
     [self.badge setState:EBStatusBadgeStateIdle text:@"Tap to load"];
 }
 
+- (UIView *)buildVideoToggleRow {
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"Request video asset";
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    label.adjustsFontForContentSizeCategory = YES;
+    self.videoSwitch = [[UISwitch alloc] init];
+    UIStackView *row = [[UIStackView alloc] initWithArrangedSubviews:@[
+        label, [[UIView alloc] init], self.videoSwitch
+    ]];
+    row.axis = UILayoutConstraintAxisHorizontal;
+    row.alignment = UIStackViewAlignmentCenter;
+    return row;
+}
+
 - (void)handleLoad {
     [self.badge setState:EBStatusBadgeStateLoading text:@"loading…"];
     [self.logView append:@"load requested"];
 
-    EBNativeAdLoader *loader = [[EBNativeAdLoader alloc] initWithAdUnitId:AdUnitIds.native];
-    loader.desiredAssetsArray = @[
+    BOOL wantsVideo = self.videoSwitch.isOn;
+    NSString *adUnitId = wantsVideo ? AdUnitIds.nativeVideo : AdUnitIds.native;
+    EBNativeAdLoader *loader = [[EBNativeAdLoader alloc] initWithAdUnitId:adUnitId];
+
+    NSMutableArray<NSNumber *> *assets = [@[
         @(EBNativeAssetTitle), @(EBNativeAssetMain), @(EBNativeAssetIcon),
         @(EBNativeAssetCtatext), @(EBNativeAssetDesc)
-    ];
+    ] mutableCopy];
+    if (wantsVideo) { [assets addObject:@(EBNativeAssetVideo)]; }
+    loader.desiredAssetsArray = assets;
     self.loader = loader;
+
+    [self.logView append:[NSString stringWithFormat:@"unit: %@", adUnitId]];
+    [self.logView append:[NSString stringWithFormat:@"assets: %@", [assets componentsJoinedByString:@", "]]];
 
     __weak typeof(self) weakSelf = self;
     [loader loadWithCompletion:^(EBNativeAd * _Nullable ad, NSError * _Nullable error) {

@@ -4,21 +4,18 @@ import ExelBidSDK
 /// Native rendering view for the mediation demo. Adds the two optional
 /// `EBNativeAdRendering` slots that AdMob / FAN adapters need:
 ///
-/// - `nativeMediaView()` — empty container the adapter fills with its own
-///   media view (`GADMediaView` / `FBMediaView`). Required for AdMob / FAN
-///   video native creatives.
+/// - `nativeMediaView()` — single slot for the main creative. The SDK or
+///   the winning adapter fills it: VAST inline player for ExelBid video
+///   natives, the network's own media view (`GADMediaView` / `FBMediaView`)
+///   for AdMob / FAN, or an internally-managed image view for static
+///   payloads.
 /// - `nativeAdChoicesView()` — overlay slot for AdChoices / privacy badges
 ///   that some networks require.
-///
-/// When this slot is present the SDK skips populating `nativeMainImageView()`
-/// to avoid double rendering. ExelBid-won static-image creatives fall back to
-/// the main image view via standard layout.
 final class MediatedNativeAdView: UIView, EBNativeAdRendering {
 
     let iconView = UIImageView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
-    let mainImageView = UIImageView()
     let mediaContainer = UIView()
     let adChoicesContainer = UIView()
     let ctaLabel = UILabel()
@@ -43,7 +40,6 @@ final class MediatedNativeAdView: UIView, EBNativeAdRendering {
     func nativeCallToActionTextLabel() -> UILabel? { ctaLabel }
     func nativeSponsoredTextLabel() -> UILabel? { sponsoredLabel }
     func nativeIconImageView() -> UIImageView? { iconView }
-    func nativeMainImageView() -> UIImageView? { mainImageView }
     func nativePrivacyInformationIconImageView() -> UIImageView? { privacyIconView }
 
     // AdMob / FAN media + AdChoices slots.
@@ -71,9 +67,6 @@ final class MediatedNativeAdView: UIView, EBNativeAdRendering {
         iconView.clipsToBounds = true
         iconView.layer.cornerRadius = 4
 
-        mainImageView.contentMode = .scaleAspectFill
-        mainImageView.clipsToBounds = true
-
         mediaContainer.backgroundColor = .clear
         mediaContainer.clipsToBounds = true
 
@@ -88,16 +81,9 @@ final class MediatedNativeAdView: UIView, EBNativeAdRendering {
         topRow.spacing = 8
         topRow.alignment = .center
 
-        // mediaSlot stacks the main image and the network media container in
-        // the same frame — only one is populated at a time.
-        let mediaSlot = UIView()
-        mediaSlot.translatesAutoresizingMaskIntoConstraints = false
-        mainImageView.translatesAutoresizingMaskIntoConstraints = false
         mediaContainer.translatesAutoresizingMaskIntoConstraints = false
-        mediaSlot.addSubview(mainImageView)
-        mediaSlot.addSubview(mediaContainer)
 
-        let stack = UIStackView(arrangedSubviews: [topRow, mediaSlot, bodyLabel, sponsoredLabel])
+        let stack = UIStackView(arrangedSubviews: [topRow, mediaContainer, bodyLabel, sponsoredLabel])
         stack.axis = .vertical
         stack.spacing = 8
         stack.isLayoutMarginsRelativeArrangement = true
@@ -119,23 +105,15 @@ final class MediatedNativeAdView: UIView, EBNativeAdRendering {
             iconView.widthAnchor.constraint(equalToConstant: 40),
             iconView.heightAnchor.constraint(equalToConstant: 40),
 
-            mediaSlot.heightAnchor.constraint(equalToConstant: 180),
-            mainImageView.topAnchor.constraint(equalTo: mediaSlot.topAnchor),
-            mainImageView.bottomAnchor.constraint(equalTo: mediaSlot.bottomAnchor),
-            mainImageView.leadingAnchor.constraint(equalTo: mediaSlot.leadingAnchor),
-            mainImageView.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor),
-            mediaContainer.topAnchor.constraint(equalTo: mediaSlot.topAnchor),
-            mediaContainer.bottomAnchor.constraint(equalTo: mediaSlot.bottomAnchor),
-            mediaContainer.leadingAnchor.constraint(equalTo: mediaSlot.leadingAnchor),
-            mediaContainer.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor),
+            mediaContainer.heightAnchor.constraint(equalToConstant: 180),
 
-            privacyIconView.topAnchor.constraint(equalTo: mediaSlot.topAnchor, constant: 6),
-            privacyIconView.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor, constant: -6),
+            privacyIconView.topAnchor.constraint(equalTo: mediaContainer.topAnchor, constant: 6),
+            privacyIconView.trailingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: -6),
             privacyIconView.widthAnchor.constraint(equalToConstant: 20),
             privacyIconView.heightAnchor.constraint(equalToConstant: 20),
 
-            adChoicesContainer.topAnchor.constraint(equalTo: mediaSlot.topAnchor, constant: 6),
-            adChoicesContainer.leadingAnchor.constraint(equalTo: mediaSlot.leadingAnchor, constant: 6),
+            adChoicesContainer.topAnchor.constraint(equalTo: mediaContainer.topAnchor, constant: 6),
+            adChoicesContainer.leadingAnchor.constraint(equalTo: mediaContainer.leadingAnchor, constant: 6),
             adChoicesContainer.widthAnchor.constraint(equalToConstant: 20),
             adChoicesContainer.heightAnchor.constraint(equalToConstant: 20)
         ])

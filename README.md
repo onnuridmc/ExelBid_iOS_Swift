@@ -245,7 +245,7 @@ final class MyNativeAdView: UIView, EBNativeAdRendering {
     private let bodyLabel = UILabel()
     private let ctaButton = UIButton(type: .system)
     private let iconImageView = UIImageView()
-    private let mainImageView = UIImageView()
+    private let mediaContainer = UIView()   // 메인 크리에이티브(이미지/동영상)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -258,12 +258,25 @@ final class MyNativeAdView: UIView, EBNativeAdRendering {
     func nativeMainTextLabel() -> UILabel? { bodyLabel }
     func nativeCallToActionTextLabel() -> UILabel? { ctaButton.titleLabel }
     func nativeIconImageView() -> UIImageView? { iconImageView }
-    func nativeMainImageView() -> UIImageView? { mainImageView }
+
+    // 메인 크리에이티브 슬롯(빈 UIView 하나). SDK가 이 안을 채웁니다 —
+    // 응답에 동영상(VAST)이 있으면 음소거 인라인 플레이어, 없으면
+    // 메인 이미지. 별도의 메인 이미지 슬롯은 없습니다.
+    func nativeMediaView() -> UIView? { mediaContainer }
 }
 ```
 
 사용 가능한 메서드는 모두 `@objc optional`이므로 채우고 싶은
 에셋에 해당하는 메서드만 구현하면 됩니다. 다른 메서드는 생략 가능.
+단, **메인 이미지/동영상을 표시하려면 `nativeMediaView()`(빈 컨테이너)를
+반드시 제공**하세요 — 메인 크리에이티브는 이 단일 슬롯을 통해 그려집니다.
+
+> **동영상 네이티브**: 서버 응답에 동영상(VAST)이 포함되면 SDK가
+> `nativeMediaView()` 슬롯 안에서 자동으로 인라인 재생합니다 — 음소거
+> 자동재생, 화면에 50% 이상 보일 때 재생/벗어나면 일시정지, 우측 하단
+> 음소거 해제 토글 제공. 동영상이 없으면 같은 슬롯에 메인 이미지를
+> 표시합니다. 호스트가 따로 처리할 것은 없습니다. `hasVideoAsset`으로
+> 동영상 여부를 확인할 수 있습니다.
 
 ### 2. 로드 및 연결
 
@@ -603,28 +616,24 @@ Task {
 재사용할 수 있습니다. 어댑터가 각 네트워크의 자산을 `EBNativeAdModel`
 스키마로 정규화해 전달합니다.
 
-> **AdMob / FAN 미디어 슬롯 (선택, 그러나 동영상엔 필수)**
+> **미디어 슬롯 (`nativeMediaView()`) 과 AdChoices**
 >
-> AdMob·FAN은 메인 이미지/동영상을 **자체 미디어 뷰**(`GADMediaView` /
-> `FBMediaView`)로 그립니다 — URL로 표현되지 않으므로 호스트의
-> `nativeMainImageView()`(UIImageView)로는 표시할 수 없습니다. 미디에이션
-> 네이티브에서 두 네트워크의 미디어(특히 동영상)를 제대로 보이려면,
-> 렌더링 뷰에 **빈 컨테이너 슬롯**을 추가하세요:
+> 메인 크리에이티브는 일반 네이티브와 동일하게 **`nativeMediaView()`
+> 단일 슬롯**으로 그려집니다. 미디에이션에서는 어댑터가 이 슬롯에
+> 네트워크 자체 미디어 뷰(AdMob `GADMediaView` / FAN `FBMediaView` —
+> 동영상엔 필수)나, URL 전용 네트워크(AdFit)의 이미지 뷰를 꽂습니다.
+> 따라서 **미디어/동영상을 표시하려면 이 슬롯을 반드시 제공**하세요:
 >
 > ```swift
-> // 미디어가 들어갈 빈 컨테이너(UIView). 어댑터가 여기에 네트워크
-> // 미디어 뷰를 꽂습니다. 이 슬롯이 있으면 SDK는 nativeMainImageView를
-> // 채우지 않습니다(중복 렌더 방지).
+> // 메인 크리에이티브가 들어갈 빈 컨테이너(UIView).
 > func nativeMediaView() -> UIView? { mediaContainer }
 >
 > // FAN 등 일부 네트워크가 요구하는 AdChoices/광고옵션 오버레이 위치.
 > func nativeAdChoicesView() -> UIView? { adChoicesContainer }
 > ```
 >
-> 슬롯을 제공하지 않아도 정적 이미지 네이티브는 동작합니다(AdMob은
-> `nativeMainImageView()` 자리에 미디어 뷰를 자동 오버레이). 두 슬롯
-> 모두 `@objc optional`이라 일반(비미디에이션) 네이티브에는 영향이
-> 없습니다.
+> 두 슬롯 모두 `@objc optional`이라 텍스트/아이콘만 쓰는 레이아웃에는
+> 영향이 없습니다. 다만 슬롯이 없으면 메인 미디어는 표시되지 않습니다.
 
 ### 비디오
 

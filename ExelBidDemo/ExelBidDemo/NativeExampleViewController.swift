@@ -39,7 +39,7 @@ final class NativeExampleViewController: UIViewController {
         let nativeOptions = CardView()
         nativeOptions.addArranged(SectionLabel.make("Native options"))
         nativeOptions.addArranged(buildVideoToggleRow())
-        let videoHelp = Typography.body("ON 시 EBNativeAsset.video를 요청 자산에 포함하고 별도의 native video 광고 유닛(AdUnitIds.nativeVideo)으로 요청합니다.")
+        let videoHelp = Typography.body("ON 시 EBNativeAsset.video를 요청 자산에 포함하고 별도의 native video 광고 유닛(AdUnitIds.nativeVideo)으로 요청합니다. 응답에 동영상이 있으면 SDK가 nativeMediaView() 슬롯 안에서 음소거 인라인 재생합니다 — 호스트 추가 작업 없음.")
         videoHelp.textColor = .secondaryLabel
         nativeOptions.addArranged(videoHelp)
         stack.addArrangedSubview(nativeOptions)

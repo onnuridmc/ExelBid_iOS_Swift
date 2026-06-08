@@ -20,7 +20,7 @@
 - (UILabel *)nativeCallToActionTextLabel { return self.ctaLabel; }
 - (UILabel *)nativeSponsoredTextLabel    { return self.sponsoredLabel; }
 - (UIImageView *)nativeIconImageView     { return self.iconView; }
-- (UIImageView *)nativeMainImageView     { return self.mainImageView; }
+- (UIView *)nativeMediaView              { return self.mediaContainer; }
 - (UIImageView *)nativePrivacyInformationIconImageView { return self.privacyIconView; }
 
 #pragma mark - Layout
@@ -49,9 +49,10 @@
     self.iconView.clipsToBounds = YES;
     self.iconView.layer.cornerRadius = 4;
 
-    self.mainImageView = [[UIImageView alloc] init];
-    self.mainImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.mainImageView.clipsToBounds = YES;
+    self.mediaContainer = [[UIView alloc] init];
+    self.mediaContainer.backgroundColor = UIColor.clearColor;
+    self.mediaContainer.clipsToBounds = YES;
+    self.mediaContainer.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.privacyIconView = [[UIImageView alloc] init];
     self.privacyIconView.contentMode = UIViewContentModeScaleAspectFit;
@@ -65,7 +66,7 @@
     topRow.alignment = UIStackViewAlignmentCenter;
 
     UIStackView *stack = [[UIStackView alloc] initWithArrangedSubviews:@[
-        topRow, self.mainImageView, self.bodyLabel, self.sponsoredLabel
+        topRow, self.mediaContainer, self.bodyLabel, self.sponsoredLabel
     ]];
     stack.axis = UILayoutConstraintAxisVertical;
     stack.spacing = 8;
@@ -84,10 +85,10 @@
         [stack.bottomAnchor   constraintEqualToAnchor:self.bottomAnchor],
         [self.iconView.widthAnchor  constraintEqualToConstant:40],
         [self.iconView.heightAnchor constraintEqualToConstant:40],
-        [self.mainImageView.heightAnchor constraintEqualToConstant:180],
+        [self.mediaContainer.heightAnchor constraintEqualToConstant:180],
 
-        [self.privacyIconView.topAnchor      constraintEqualToAnchor:self.mainImageView.topAnchor constant:6],
-        [self.privacyIconView.trailingAnchor constraintEqualToAnchor:self.mainImageView.trailingAnchor constant:-6],
+        [self.privacyIconView.topAnchor      constraintEqualToAnchor:self.mediaContainer.topAnchor constant:6],
+        [self.privacyIconView.trailingAnchor constraintEqualToAnchor:self.mediaContainer.trailingAnchor constant:-6],
         [self.privacyIconView.widthAnchor    constraintEqualToConstant:20],
         [self.privacyIconView.heightAnchor   constraintEqualToConstant:20]
     ]];
