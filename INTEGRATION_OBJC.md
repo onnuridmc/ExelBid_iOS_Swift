@@ -3,11 +3,23 @@
 호스트 앱에 ExelBid 광고를 추가하는 방법을 단계별로 설명합니다.
 Swift 사용자는 [`README.md`](./README.md)를 참고하세요.
 
-> **v2에서 업그레이드하시나요?** 클래스 이름·델리게이트·생명주기가
-> v3에서 새로 바뀌었습니다. v2 ↔ v3 대응 코드와 변경점은
-> [`MIGRATION_v2_to_v3_OBJC.md`](./MIGRATION_v2_to_v3_OBJC.md)에서
-> 영역별로 안내합니다. (광고 단위 ID와 서버 통신 규약은 그대로라 기존
-> ID를 계속 사용할 수 있습니다.)
+> **v2 호스트인가요?** 두 가지 선택지가 있습니다.
+>
+> - **2.x 그대로 유지** — 2.x 라인은 별도 브랜치
+>   ([`release/2.x`](https://github.com/onnuridmc/ExelBid_iOS_Swift/tree/release/2.x))
+>   에서 계속 유지되며 가이드도 그쪽에 있습니다
+>   ([Objective-C](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/release/2.x/README_OBJC.md)
+>   · [Swift](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/release/2.x/README.md)
+>   · [MPartners (ObjC)](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/release/2.x/README_MPartners_Objc.md)
+>   · [MPartners (Swift)](https://github.com/onnuridmc/ExelBid_iOS_Swift/blob/release/2.x/README_MPartners.md)).
+>   CocoaPods 는 `pod 'ExelBid_iOS_Swift', '~> 2.2'` 로 핀하면 3.x 로
+>   자동 올라가지 않으며, SwiftPM 은 "Up to Next Major" 를 `2.2.0`
+>   (또는 최신 2.x 태그) 으로 잡으면 됩니다.
+> - **v3 로 업그레이드** — 클래스 이름·델리게이트·생명주기가 v3 에서
+>   새로 바뀌었습니다. v2 ↔ v3 대응 코드와 변경점은
+>   [`MIGRATION_v2_to_v3_OBJC.md`](./MIGRATION_v2_to_v3_OBJC.md) 에서
+>   영역별로 안내합니다. 광고 단위 ID 와 서버 통신 규약은 그대로라 기존
+>   ID 를 계속 사용할 수 있습니다.
 
 ## 목차
 
@@ -473,10 +485,47 @@ AdMob / Facebook(FAN) / AdFit 등)을 순차 호출(waterfall)해 가장 먼저
 ### 어댑터 모듈 설치
 
 외부 네트워크 어댑터는 별도 저장소
-[`ExelBid_iOS_Mediation_Adapter`](https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter)에서
-제공합니다. SwiftPM 또는 CocoaPods로 추가한 뒤, 사용하려는 네트워크의
-어댑터 라이브러리만 앱 타겟에 링크하세요. (해당 네트워크의 SDK 자체는
-호스트 앱이 별도로 통합해야 합니다 — AdMob SDK / FAN SDK 등.)
+[`ExelBid_iOS_Mediation_Adapter`](https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter)
+에서 제공합니다. 현재 **3개 광고망** 의 어댑터를 기본 지원합니다:
+
+| 광고망 | Swift 모듈 | 포맷 | 배포 |
+|---|---|---|---|
+| Google AdMob | `ExelBidMediationAdMob` | 배너 / 전면 / 네이티브 / 전면 비디오 | SwiftPM · CocoaPods |
+| Facebook Audience Network (FAN) | `ExelBidMediationFAN` | 배너 / 전면 / 네이티브 / 전면 비디오 | CocoaPods (호스트가 `FBAudienceNetwork` 링크) |
+| Kakao AdFit | `ExelBidMediationAdFit` | 배너 / 네이티브 | SwiftPM 전용 |
+
+> 그 외 네트워크 (Pangle / AppLovin / Digital Turbine / TNK /
+> TargetPick) 는 **추후 지원 예정**이며 필요 시 운영팀에 요청해 우선순위
+> 조정이 가능합니다. 배포 전까지는 워터폴에 포함돼 있어도 미등록
+> 어댑터로 처리되어 (`EBWaterfallEvent.lost(.adapterNotRegistered)`)
+> 다음 순번으로 건너뛰어집니다.
+
+해당 네트워크의 SDK 자체(AdMob SDK / FAN SDK 등)는 호스트 앱이 별도로
+통합해야 합니다. ObjC 호스트는 대부분 CocoaPods 환경이므로 다음
+Podfile 패턴을 사용합니다:
+
+```ruby
+# Podfile
+pod 'ExelBid_iOS_Swift',           '~> 3.0'
+pod 'ExelBid_Mediation_Adapter/AdMob'
+pod 'ExelBid_Mediation_Adapter/FAN'
+```
+
+CocoaPods 어댑터는 어떤 subspec 을 설치하든 모두
+`ExelBidMediationAdapter` 라는 **단일 Swift 모듈**로 합쳐집니다 — 아래
+Swift 부트스트랩에서 이 모듈 하나만 import 합니다.
+
+> **AdFit 은 SwiftPM 전용**입니다 (Kakao 가 AdFit SDK 의 CocoaPods 배포를
+> 중단). CocoaPods 환경에서 AdFit 이 필요하면 어댑터 저장소 README 의
+> 수동 통합 절차를 참고하세요.
+
+> **직접 만들기 — 가장 빠른 경로일 때가 많습니다.** 추후 지원 예정
+> 네트워크 (Pangle / AppLovin 등) 를 지금 당장 붙여야 하거나, 사내 광고
+> 서버 / 비공개 네트워크 / 미지원 포맷(AdFit 비디오 등)이 필요하면 제공
+> 어댑터를 템플릿 삼아 직접 작성할 수 있습니다. 공개 프로토콜 4개
+> (`EBBannerMediationAdapter` 등) 중 필요한 것만 구현하면 되며 단계별
+> 작성 방법은 [`MEDIATION_ADAPTER_GUIDE.md`](./MEDIATION_ADAPTER_GUIDE.md)
+> 에서 설명합니다.
 
 ### 모듈 등록 (Swift 파일 1개 필요)
 
@@ -490,8 +539,10 @@ Swift로 작성하세요.
 ```swift
 import Foundation
 import ExelBidSDK
-import ExelBidAdMobAdapter   // 외부 어댑터 — 사용하는 네트워크만
-import ExelBidFANAdapter
+import ExelBidMediationAdapter   // CocoaPods: subspec 무관 단일 모듈
+// SwiftPM 으로 설치한 경우엔 어댑터별로 import:
+//   import ExelBidMediationAdMob
+//   import ExelBidMediationFAN
 
 @objc public final class ExelBidMediationBootstrap: NSObject {
     @objc public static func registerModules() {
@@ -518,8 +569,9 @@ ObjC `AppDelegate`에서 호출:
 
 > `ExelBidBuiltInMediationModule`을 포함하지 않으면 서버 워터폴
 > 응답의 "exelbid" 항목이 건너뛰어집니다. 일반적으로 항상 함께
-> 등록하세요. 모듈명/import 경로는 외부 어댑터 저장소의 README를
-> 확인하세요.
+> 등록하세요. 직접 만든 어댑터도 동일한 부트스트랩에 추가하면 되며,
+> 같은 `networkID` 로 재등록하면 제공 어댑터를 자신의 구현으로 교체할
+> 수 있습니다.
 
 ### 배너
 

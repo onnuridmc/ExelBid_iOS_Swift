@@ -3,12 +3,18 @@ import ExelBidSDK
 
 /// Reference host view implementing `EBNativeAdRendering`. Coded in plain
 /// UIKit (no nib) to keep the demo self-contained.
+///
+/// `mainImageView` and `mediaContainer` are stacked in the same media slot
+/// — the SDK populates whichever fits the served creative (URL image → main
+/// image; video / SDK-rendered media → media container). When the demo
+/// requests `EBNativeAsset.video`, the SDK uses `nativeMediaView()`.
 final class CustomNativeAdView: UIView, EBNativeAdRendering {
 
     let iconView = UIImageView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
     let mainImageView = UIImageView()
+    let mediaContainer = UIView()
     let ctaLabel = UILabel()
     let sponsoredLabel = UILabel()
     let privacyIconView = UIImageView()
@@ -32,6 +38,7 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
     func nativeSponsoredTextLabel() -> UILabel? { sponsoredLabel }
     func nativeIconImageView() -> UIImageView? { iconView }
     func nativeMainImageView() -> UIImageView? { mainImageView }
+    func nativeMediaView() -> UIView? { mediaContainer }
     func nativePrivacyInformationIconImageView() -> UIImageView? { privacyIconView }
 
     // MARK: - Layout
@@ -58,6 +65,9 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         mainImageView.contentMode = .scaleAspectFill
         mainImageView.clipsToBounds = true
 
+        mediaContainer.backgroundColor = .clear
+        mediaContainer.clipsToBounds = true
+
         privacyIconView.contentMode = .scaleAspectFit
         privacyIconView.clipsToBounds = true
         privacyIconView.isUserInteractionEnabled = true
@@ -66,7 +76,17 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         topRow.spacing = 8
         topRow.alignment = .center
 
-        let stack = UIStackView(arrangedSubviews: [topRow, mainImageView, bodyLabel, sponsoredLabel])
+        // mediaSlot stacks the main image and the media container in the
+        // same frame — only one is populated at a time depending on the
+        // served creative (image asset vs video / SDK-rendered media).
+        let mediaSlot = UIView()
+        mediaSlot.translatesAutoresizingMaskIntoConstraints = false
+        mainImageView.translatesAutoresizingMaskIntoConstraints = false
+        mediaContainer.translatesAutoresizingMaskIntoConstraints = false
+        mediaSlot.addSubview(mainImageView)
+        mediaSlot.addSubview(mediaContainer)
+
+        let stack = UIStackView(arrangedSubviews: [topRow, mediaSlot, bodyLabel, sponsoredLabel])
         stack.axis = .vertical
         stack.spacing = 8
         stack.isLayoutMarginsRelativeArrangement = true
@@ -84,10 +104,19 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
             stack.bottomAnchor.constraint(equalTo: bottomAnchor),
             iconView.widthAnchor.constraint(equalToConstant: 40),
             iconView.heightAnchor.constraint(equalToConstant: 40),
-            mainImageView.heightAnchor.constraint(equalToConstant: 180),
 
-            privacyIconView.topAnchor.constraint(equalTo: mainImageView.topAnchor, constant: 6),
-            privacyIconView.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: -6),
+            mediaSlot.heightAnchor.constraint(equalToConstant: 180),
+            mainImageView.topAnchor.constraint(equalTo: mediaSlot.topAnchor),
+            mainImageView.bottomAnchor.constraint(equalTo: mediaSlot.bottomAnchor),
+            mainImageView.leadingAnchor.constraint(equalTo: mediaSlot.leadingAnchor),
+            mainImageView.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor),
+            mediaContainer.topAnchor.constraint(equalTo: mediaSlot.topAnchor),
+            mediaContainer.bottomAnchor.constraint(equalTo: mediaSlot.bottomAnchor),
+            mediaContainer.leadingAnchor.constraint(equalTo: mediaSlot.leadingAnchor),
+            mediaContainer.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor),
+
+            privacyIconView.topAnchor.constraint(equalTo: mediaSlot.topAnchor, constant: 6),
+            privacyIconView.trailingAnchor.constraint(equalTo: mediaSlot.trailingAnchor, constant: -6),
             privacyIconView.widthAnchor.constraint(equalToConstant: 20),
             privacyIconView.heightAnchor.constraint(equalToConstant: 20)
         ])

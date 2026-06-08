@@ -10,8 +10,18 @@ enum AdUnitIds {
     /// Banner ad (320x50). Used by `BannerExampleViewController`.
     static let banner = "08377f76c8b3e46c4ed36c82e434da2b394a4dfa"
 
-    /// Native ad. Used by `NativeExampleViewController`.
+    /// Native ad (image/text creatives). Used by
+    /// `NativeExampleViewController` when the "video" option is OFF.
     static let native = "5792d262715cbd399d6910200437b40a95dcc0f6"
+
+    /// Native ad with video creatives. Used by
+    /// `NativeExampleViewController` when the "video" option is ON —
+    /// the SDK requests with `EBNativeAsset.video` and the server
+    /// serves video-bearing native creatives. This is typically a
+    /// **separate** ad unit from `native`.
+    /// TODO: replace with the native video ad unit ID issued from the
+    /// ExelBid console.
+    static let nativeVideo = "ac6c351af0850502d7174a4e80aea169cf9c1823"
 
     /// interstitial video. Used by `VideoExampleViewController`.
     static let video = "3f548c41c3c6539ee7051aeb58ada2d4c039bc07"
