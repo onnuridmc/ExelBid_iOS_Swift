@@ -9,6 +9,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) NSString *banner;
 @property (class, nonatomic, readonly) NSString *interstitial;
 @property (class, nonatomic, readonly) NSString *native;
+/// Native ad with video creatives — used when the "video" option is ON.
+/// The SDK requests with `EBNativeAssetVideo` against a separate ad unit.
+@property (class, nonatomic, readonly) NSString *nativeVideo;
 @property (class, nonatomic, readonly) NSString *video;
 @end
 

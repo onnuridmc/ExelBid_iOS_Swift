@@ -3,12 +3,17 @@ import ExelBidSDK
 
 /// Reference host view implementing `EBNativeAdRendering`. Coded in plain
 /// UIKit (no nib) to keep the demo self-contained.
+///
+/// `mediaContainer` is the single slot for the main creative. The SDK fills
+/// it — VAST inline player when the payload carries a `video` asset, an
+/// internally-managed `UIImageView` loading `model.main` otherwise. The
+/// host does not own a separate main-image view.
 final class CustomNativeAdView: UIView, EBNativeAdRendering {
 
     let iconView = UIImageView()
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
-    let mainImageView = UIImageView()
+    let mediaContainer = UIView()
     let ctaLabel = UILabel()
     let sponsoredLabel = UILabel()
     let privacyIconView = UIImageView()
@@ -31,7 +36,7 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
     func nativeCallToActionTextLabel() -> UILabel? { ctaLabel }
     func nativeSponsoredTextLabel() -> UILabel? { sponsoredLabel }
     func nativeIconImageView() -> UIImageView? { iconView }
-    func nativeMainImageView() -> UIImageView? { mainImageView }
+    func nativeMediaView() -> UIView? { mediaContainer }
     func nativePrivacyInformationIconImageView() -> UIImageView? { privacyIconView }
 
     // MARK: - Layout
@@ -55,8 +60,8 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         iconView.clipsToBounds = true
         iconView.layer.cornerRadius = 4
 
-        mainImageView.contentMode = .scaleAspectFill
-        mainImageView.clipsToBounds = true
+        mediaContainer.backgroundColor = .clear
+        mediaContainer.clipsToBounds = true
 
         privacyIconView.contentMode = .scaleAspectFit
         privacyIconView.clipsToBounds = true
@@ -66,7 +71,9 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         topRow.spacing = 8
         topRow.alignment = .center
 
-        let stack = UIStackView(arrangedSubviews: [topRow, mainImageView, bodyLabel, sponsoredLabel])
+        mediaContainer.translatesAutoresizingMaskIntoConstraints = false
+
+        let stack = UIStackView(arrangedSubviews: [topRow, mediaContainer, bodyLabel, sponsoredLabel])
         stack.axis = .vertical
         stack.spacing = 8
         stack.isLayoutMarginsRelativeArrangement = true
@@ -84,10 +91,11 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
             stack.bottomAnchor.constraint(equalTo: bottomAnchor),
             iconView.widthAnchor.constraint(equalToConstant: 40),
             iconView.heightAnchor.constraint(equalToConstant: 40),
-            mainImageView.heightAnchor.constraint(equalToConstant: 180),
 
-            privacyIconView.topAnchor.constraint(equalTo: mainImageView.topAnchor, constant: 6),
-            privacyIconView.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: -6),
+            mediaContainer.heightAnchor.constraint(equalToConstant: 180),
+
+            privacyIconView.topAnchor.constraint(equalTo: mediaContainer.topAnchor, constant: 6),
+            privacyIconView.trailingAnchor.constraint(equalTo: mediaContainer.trailingAnchor, constant: -6),
             privacyIconView.widthAnchor.constraint(equalToConstant: 20),
             privacyIconView.heightAnchor.constraint(equalToConstant: 20)
         ])

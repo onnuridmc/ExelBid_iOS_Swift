@@ -1,5 +1,8 @@
 # Version History
 
+## Version 3.0.1
+- NativeView 수정
+
 ## Version 3.0.0
 - SDK 개선
 

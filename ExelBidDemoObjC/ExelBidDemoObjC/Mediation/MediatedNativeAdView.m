@@ -20,7 +20,6 @@
 - (UILabel *)nativeCallToActionTextLabel { return self.ctaLabel; }
 - (UILabel *)nativeSponsoredTextLabel    { return self.sponsoredLabel; }
 - (UIImageView *)nativeIconImageView     { return self.iconView; }
-- (UIImageView *)nativeMainImageView     { return self.mainImageView; }
 - (UIImageView *)nativePrivacyInformationIconImageView { return self.privacyIconView; }
 - (UIView *)nativeMediaView              { return self.mediaContainer; }
 - (UIView *)nativeAdChoicesView          { return self.adChoicesContainer; }
@@ -51,13 +50,10 @@
     self.iconView.clipsToBounds = YES;
     self.iconView.layer.cornerRadius = 4;
 
-    self.mainImageView = [[UIImageView alloc] init];
-    self.mainImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.mainImageView.clipsToBounds = YES;
-
     self.mediaContainer = [[UIView alloc] init];
     self.mediaContainer.backgroundColor = UIColor.clearColor;
     self.mediaContainer.clipsToBounds = YES;
+    self.mediaContainer.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.adChoicesContainer = [[UIView alloc] init];
     self.adChoicesContainer.backgroundColor = UIColor.clearColor;
@@ -74,17 +70,8 @@
     topRow.spacing = 8;
     topRow.alignment = UIStackViewAlignmentCenter;
 
-    // mediaSlot stacks the main image and the network media container in
-    // the same frame — only one is populated at a time.
-    UIView *mediaSlot = [[UIView alloc] init];
-    mediaSlot.translatesAutoresizingMaskIntoConstraints = NO;
-    self.mainImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.mediaContainer.translatesAutoresizingMaskIntoConstraints = NO;
-    [mediaSlot addSubview:self.mainImageView];
-    [mediaSlot addSubview:self.mediaContainer];
-
     UIStackView *stack = [[UIStackView alloc] initWithArrangedSubviews:@[
-        topRow, mediaSlot, self.bodyLabel, self.sponsoredLabel
+        topRow, self.mediaContainer, self.bodyLabel, self.sponsoredLabel
     ]];
     stack.axis = UILayoutConstraintAxisVertical;
     stack.spacing = 8;
@@ -107,23 +94,15 @@
         [self.iconView.widthAnchor  constraintEqualToConstant:40],
         [self.iconView.heightAnchor constraintEqualToConstant:40],
 
-        [mediaSlot.heightAnchor constraintEqualToConstant:180],
-        [self.mainImageView.topAnchor      constraintEqualToAnchor:mediaSlot.topAnchor],
-        [self.mainImageView.bottomAnchor   constraintEqualToAnchor:mediaSlot.bottomAnchor],
-        [self.mainImageView.leadingAnchor  constraintEqualToAnchor:mediaSlot.leadingAnchor],
-        [self.mainImageView.trailingAnchor constraintEqualToAnchor:mediaSlot.trailingAnchor],
-        [self.mediaContainer.topAnchor      constraintEqualToAnchor:mediaSlot.topAnchor],
-        [self.mediaContainer.bottomAnchor   constraintEqualToAnchor:mediaSlot.bottomAnchor],
-        [self.mediaContainer.leadingAnchor  constraintEqualToAnchor:mediaSlot.leadingAnchor],
-        [self.mediaContainer.trailingAnchor constraintEqualToAnchor:mediaSlot.trailingAnchor],
+        [self.mediaContainer.heightAnchor constraintEqualToConstant:180],
 
-        [self.privacyIconView.topAnchor      constraintEqualToAnchor:mediaSlot.topAnchor constant:6],
-        [self.privacyIconView.trailingAnchor constraintEqualToAnchor:mediaSlot.trailingAnchor constant:-6],
+        [self.privacyIconView.topAnchor      constraintEqualToAnchor:self.mediaContainer.topAnchor constant:6],
+        [self.privacyIconView.trailingAnchor constraintEqualToAnchor:self.mediaContainer.trailingAnchor constant:-6],
         [self.privacyIconView.widthAnchor    constraintEqualToConstant:20],
         [self.privacyIconView.heightAnchor   constraintEqualToConstant:20],
 
-        [self.adChoicesContainer.topAnchor     constraintEqualToAnchor:mediaSlot.topAnchor constant:6],
-        [self.adChoicesContainer.leadingAnchor constraintEqualToAnchor:mediaSlot.leadingAnchor constant:6],
+        [self.adChoicesContainer.topAnchor     constraintEqualToAnchor:self.mediaContainer.topAnchor constant:6],
+        [self.adChoicesContainer.leadingAnchor constraintEqualToAnchor:self.mediaContainer.leadingAnchor constant:6],
         [self.adChoicesContainer.widthAnchor   constraintEqualToConstant:20],
         [self.adChoicesContainer.heightAnchor  constraintEqualToConstant:20]
     ]];

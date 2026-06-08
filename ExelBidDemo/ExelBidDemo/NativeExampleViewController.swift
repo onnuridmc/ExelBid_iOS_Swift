@@ -6,6 +6,7 @@ final class NativeExampleViewController: UIViewController {
     private let badge = StatusBadge()
     private let logView = LogView()
     private let options = TestOptionsPanel()
+    private let videoSwitch = UISwitch()
     private let adContainer = UIView()
     private var loadedAd: EBNativeAd?
 
@@ -34,6 +35,14 @@ final class NativeExampleViewController: UIViewController {
         status.addArranged(SectionLabel.make("Status"))
         status.addArranged(badge)
         stack.addArrangedSubview(status)
+
+        let nativeOptions = CardView()
+        nativeOptions.addArranged(SectionLabel.make("Native options"))
+        nativeOptions.addArranged(buildVideoToggleRow())
+        let videoHelp = Typography.body("ON 시 EBNativeAsset.video를 요청 자산에 포함하고 별도의 native video 광고 유닛(AdUnitIds.nativeVideo)으로 요청합니다. 응답에 동영상이 있으면 SDK가 nativeMediaView() 슬롯 안에서 음소거 인라인 재생합니다 — 호스트 추가 작업 없음.")
+        videoHelp.textColor = .secondaryLabel
+        nativeOptions.addArranged(videoHelp)
+        stack.addArrangedSubview(nativeOptions)
 
         stack.addArrangedSubview(options)
 
@@ -68,6 +77,17 @@ final class NativeExampleViewController: UIViewController {
         badge.set(.idle, text: "Tap to load")
     }
 
+    private func buildVideoToggleRow() -> UIView {
+        let label = UILabel()
+        label.text = "Request video asset"
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
+        let row = UIStackView(arrangedSubviews: [label, UIView(), videoSwitch])
+        row.axis = .horizontal
+        row.alignment = .center
+        return row
+    }
+
     @objc private func handleLoad() {
         badge.set(.loading, text: "loading…")
         logView.append("load requested")
@@ -76,9 +96,18 @@ final class NativeExampleViewController: UIViewController {
 
     @MainActor
     private func loadAd() async {
-        let loader = EBNativeAdLoader(adUnitId: AdUnitIds.native)
+        let wantsVideo = videoSwitch.isOn
+        let adUnitId = wantsVideo ? AdUnitIds.nativeVideo : AdUnitIds.native
+        let loader = EBNativeAdLoader(adUnitId: adUnitId)
         options.apply(to: loader.options)
-        loader.desiredAssets = [.title, .main, .icon, .ctatext, .desc]
+
+        var assets: Set<EBNativeAsset> = [.title, .main, .icon, .ctatext, .desc]
+        if wantsVideo { assets.insert(.video) }
+        loader.desiredAssets = assets
+
+        let assetNames = assets.map { String(describing: $0) }.sorted().joined(separator: ", ")
+        logView.append("unit: \(adUnitId)")
+        logView.append("assets: \(assetNames)")
 
         do {
             let ad = try await loader.load()

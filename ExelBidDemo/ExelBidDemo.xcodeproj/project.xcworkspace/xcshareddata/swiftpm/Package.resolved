@@ -1,13 +1,22 @@
 {
-  "originHash" : "7e01a68a310bf9bd5b391f3c390809d8bc012e988e5fe6393ba3caca7b1446b1",
+  "originHash" : "3c7531d1c88c30ca92e147c9b93940d9e4b2c45df8800f654fb1d8f92092eee0",
   "pins" : [
+    {
+      "identity" : "adfit-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adfit/adfit-spm",
+      "state" : {
+        "revision" : "f29d3d1abb7be92e424f98806da495e3d6aa9707",
+        "version" : "3.21.24"
+      }
+    },
     {
       "identity" : "exelbid_ios_mediation_adapter",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onnuridmc/ExelBid_iOS_Mediation_Adapter",
       "state" : {
-        "revision" : "3e49ad84d2f7832654fa40762262599d29a20b09",
-        "version" : "1.1.0"
+        "revision" : "a408dae8e369134be221beaed808f87989fd5213",
+        "version" : "1.1.3"
       }
     },
     {
