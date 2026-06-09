@@ -1,5 +1,8 @@
 # Version History
 
+## Version 3.0.3
+- ad options 수정
+
 ## Version 3.0.2
 - 기타 수정
 

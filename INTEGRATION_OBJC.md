@@ -422,13 +422,25 @@ EBNativeAssetVideo        // 네이티브 비디오 (VAST)
 
 ### 스킵 동작
 
-기본값으로 광고 길이가 15초를 초과하면 5초 후 스킵 버튼이
-노출됩니다. 옵션으로 조정 가능합니다.
+두 옵션이 함께 동작합니다.
+
+- **`videoSkipMin`** — *스킵 가능한 광고인지* 판별하는 **길이 기준**.
+  광고 길이가 이 값보다 길어야 스킵이 허용되고, 짧으면 끝까지 재생해야
+  합니다.
+- **`videoSkipAfter`** — 스킵 가능한 광고에서 *✕ 버튼이 뜨기까지의
+  의무 시청 시간*.
+
+기본값(15 / 5)에서는 **15초를 초과하는 광고는 5초 후 ✕가 노출**되고,
+15초 이하 광고는 끝까지 재생됩니다.
 
 ```objc
-self.videoAd.options.videoSkipMin   = 15;  // 이 길이를 초과해야 스킵 허용 (초)
-self.videoAd.options.videoSkipAfter = 5;   // 시작 후 몇 초 뒤 스킵 노출
+self.videoAd.options.videoSkipMin   = 15;  // 이 길이를 "초과"하는 광고만 스킵 허용 (초)
+self.videoAd.options.videoSkipAfter = 5;   // 재생 시작 후 ✕ 노출까지 대기 시간 (초)
 ```
+
+> 값이 누락(`videoSkipMin <= 0`)되었거나 `videoSkipAfter`가
+> `videoSkipMin`보다 큰 모순된 조합이면, 의무 시청 시간이 스킵 기준을
+> 넘지 않도록 `videoSkipMin`을 `videoSkipAfter`와 같게 자동 보정합니다.
 
 ### 주요 API
 
@@ -578,6 +590,13 @@ ObjC `AppDelegate`에서 호출:
 > 같은 `networkID` 로 재등록하면 제공 어댑터를 자신의 구현으로 교체할
 > 수 있습니다.
 
+> **옵션 적용:** 네 가지 미디에이션 광고 객체(`EBMediatedBannerAd` /
+> `EBMediatedInterstitialAd` / `EBMediatedNativeAdLoader` /
+> `EBMediatedVideoAd`)도 일반 광고처럼 `.options`(키워드 / 위치 /
+> COPPA / 비디오 스킵 정책 등)를 설정할 수 있습니다. 이 옵션은
+> ExelBid 자체 광고가 낙찰됐을 때 적용되며, 다른 네트워크는 각자의
+> 요청 설정을 사용합니다.
+
 ### 배너
 
 ```objc
@@ -708,6 +727,17 @@ videoAd.onDidDisappear = ^{ NSLog(@"종료"); };
 ```
 
 `EBVideoAd`와 시그니처가 동일하며, 단발성 사용입니다.
+
+`EBVideoAd`처럼 `videoAd.options`로 스킵 정책 등을 설정할 수 있습니다.
+
+```objc
+videoAd.options.videoSkipMin   = 15;
+videoAd.options.videoSkipAfter = 5;
+```
+
+스킵 정책(`videoSkipMin` / `videoSkipAfter`)은 ExelBid 자체 비디오가
+낙찰됐을 때 적용됩니다. 다른 네트워크(AdMob / FAN)는 자체 재생 UI를
+사용하므로 스킵 정책이 적용되지 않습니다.
 
 > ExelBid 외 네트워크(AdMob / FAN)에서 video 포맷은 **전면(인터스티셜)
 > 비디오**로 노출됩니다(보상형 아님). `onProgress`는 시작(`0`)·종료(`100`)

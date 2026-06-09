@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ExelBid_iOS_Swift"
-  s.version          = "3.0.2"
+  s.version          = "3.0.3"
   s.summary          = "ExelBid iOS SDK — banner, native, and video ad formats."
   s.description      = <<-DESC
     ExelBid iOS SDK provides banner, native, and video
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   # repository itself carries no binary artifacts.
   s.source = {
     :http => "https://github.com/onnuridmc/ExelBid_iOS_Swift/releases/download/#{s.version}/ExelBidSDK.xcframework.zip",
-    :sha256 => "a0abf546ae8653e9a37c250a3d67ad9b64a807272f26a302f07c5046ff4fe390"
+    :sha256 => "e2c1923a44eb656d66630be633cd91654dc266b08a1d35dd264e5733fa4b5665"
   }
 
   s.vendored_frameworks = "ExelBidSDK.xcframework"

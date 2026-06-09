@@ -198,6 +198,10 @@ import UIKit
   오케스트레이터가 처리합니다.
 - **`timeout` 을 존중한다.** 오케스트레이터도 타임아웃을 강제하지만,
   서드파티 SDK에 자체 타임아웃이 있으면 전달값으로 맞춰 자원을 정리하세요.
+- **`load` 은 호스트 `EBAdOptions` 를 받는다.** 모든 포맷의 `load(...)` 에
+  `options: EBAdOptions`(키워드 / 위치 / COPPA / 비디오 스킵 정책 등)가
+  전달됩니다. 네트워크 SDK가 지원하는 값만 반영하고, 적용되지 않는
+  필드는 무시하면 됩니다.
 - **`cancel()` 에서 깔끔히 해제한다.** 진행 중 요청 취소 + 델리게이트/
   continuation 해제.
 - **continuation 은 단 한 번만 resume.** `async throws` 를
@@ -239,6 +243,7 @@ public final class MyNetworkBannerAdapter: NSObject, EBBannerMediationAdapter {
     public func load(
         unitId: String,
         size: CGSize,
+        options: EBAdOptions,        // 호스트 옵션(필요 필드만 사용)
         rootViewController: UIViewController?,
         timeout: TimeInterval
     ) async throws -> UIView {
@@ -291,7 +296,7 @@ public final class MyNetworkBannerAdapter: NSObject, EBBannerMediationAdapter {
     public var onLeaveApp: (() -> Void)?
     public var onClickFinish: (() -> Void)?
     public override init() { super.init() }
-    public func load(unitId: String, size: CGSize,
+    public func load(unitId: String, size: CGSize, options: EBAdOptions,
                      rootViewController: UIViewController?,
                      timeout: TimeInterval) async throws -> UIView {
         throw NSError(domain: "MyNetworkAdapter", code: -1)   // sdkNotLinked
@@ -339,6 +344,7 @@ public final class MyNetworkInterstitialAdapter: NSObject, EBInterstitialMediati
 
     public func load(
         unitId: String,
+        options: EBAdOptions,        // 호스트 옵션(필요 필드만 사용)
         rootViewController: UIViewController?,
         timeout: TimeInterval
     ) async throws {
@@ -418,8 +424,20 @@ public final class MyNetworkVideoAdapter: NSObject, EBVideoMediationAdapter {
     public var onLeaveApp: (() -> Void)?
     public var onProgress: ((Int) -> Void)?     // 0 / 25 / 50 / 75 / 100
 
-    // load / present / cancel 은 전면 어댑터와 동일한 2단계 패턴.
+    // present / cancel 은 전면 어댑터와 동일한 2단계 패턴.
     // 재생 진행에 맞춰 onProgress 를 발사합니다.
+    //
+    // load 의 options 에는 비디오 스킵 정책(videoSkipMin /
+    // videoSkipAfter) 등이 담깁니다. 자체 재생 UI를 쓰는 네트워크라면
+    // 적용되지 않는 필드는 무시하면 됩니다.
+    public func load(
+        unitId: String,
+        options: EBAdOptions,
+        rootViewController: UIViewController?,
+        timeout: TimeInterval
+    ) async throws {
+        // 네트워크 SDK 로드 → 준비되면 정상 반환, 실패 시 throw
+    }
 }
 ```
 
@@ -532,6 +550,7 @@ public final class MyNetworkNativeAdapter: NSObject, EBNativeMediationAdapter {
     public func load(
         unitId: String,
         desiredAssets: Set<EBNativeAsset>,
+        options: EBAdOptions,        // 호스트 옵션(필요 필드만 사용)
         rootViewController: UIViewController?,
         timeout: TimeInterval
     ) async throws -> EBNativeAdModel {
