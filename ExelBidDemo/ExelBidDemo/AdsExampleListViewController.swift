@@ -12,16 +12,16 @@ final class AdsExampleListViewController: UIViewController {
     }
 
     private let items: [Item] = [
-        .init(title: "Banner",       subtitle: "320×50, autoRefresh",
+        .init(title: "Banner",       subtitle: "320×50 배너, 자동 갱신",
               symbol: "rectangle",
               make: { BannerExampleViewController() }),
-        .init(title: "Interstitial", subtitle: "전체화면 HTML, 1회 노출",
+        .init(title: "Interstitial", subtitle: "전체화면 광고",
               symbol: "rectangle.fill.on.rectangle.fill",
               make: { InterstitialExampleViewController() }),
-        .init(title: "Native",       subtitle: "EBNativeAdRendering + attach",
+        .init(title: "Native",       subtitle: "커스텀 레이아웃 네이티브 광고",
               symbol: "doc.text.image",
               make: { NativeExampleViewController() }),
-        .init(title: "Video (VAST)", subtitle: "1회 재생, onProgress 콜백",
+        .init(title: "Video",        subtitle: "전체화면 비디오 광고",
               symbol: "play.rectangle",
               make: { VideoExampleViewController() })
     ]
@@ -45,7 +45,7 @@ final class AdsExampleListViewController: UIViewController {
 
         let intro = CardView()
         intro.addArranged(SectionLabel.make("Ads"))
-        intro.addArranged(Typography.body("ExelBid 베이스 광고 surface 4종입니다. 항목을 선택하면 해당 화면으로 이동합니다."))
+        intro.addArranged(Typography.body("ExelBid가 제공하는 4가지 광고 유형 예제입니다. 항목을 선택하면 상세 화면으로 이동합니다."))
         stack.addArrangedSubview(intro)
         stack.setCustomSpacing(Spacing.l, after: intro)
 

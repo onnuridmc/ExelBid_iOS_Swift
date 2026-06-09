@@ -14,13 +14,13 @@ final class MPartnersExampleViewController: UIViewController {
     }
 
     private let items: [Item] = [
-        .init(title: "Banner",       subtitle: "EBMPartnersBannerAd",
+        .init(title: "Banner",       subtitle: "MPartners 배너 광고",
               symbol: "rectangle",
               make: { MPartnersBannerController() }),
-        .init(title: "Interstitial", subtitle: "EBMPartnersInterstitialAd",
+        .init(title: "Interstitial", subtitle: "MPartners 전면 광고",
               symbol: "rectangle.fill.on.rectangle.fill",
               make: { MPartnersInterstitialController() }),
-        .init(title: "Native",       subtitle: "EBMPartnersNativeAdLoader",
+        .init(title: "Native",       subtitle: "MPartners 네이티브 광고",
               symbol: "doc.text.image",
               make: { MPartnersNativeController() })
     ]
@@ -45,8 +45,8 @@ final class MPartnersExampleViewController: UIViewController {
         let intro = CardView()
         intro.addArranged(SectionLabel.make("MPartners"))
         intro.addArranged(Typography.body(
-            "MPartners는 별도 광고 네트워크입니다. 공개 API는 일반 광고와 1:1로 대응되며, " +
-            "autoRefresh / SKAdNetwork / MRC 50·100% 타이머는 미지원입니다."
+            "MPartners 네트워크의 광고 예제입니다. 표준 광고와 동일한 방식으로 사용할 수 있으며, " +
+            "자동 갱신 · SKAdNetwork · 50% / 100% 가시성 노출 측정은 지원되지 않습니다."
         ))
         stack.addArrangedSubview(intro)
         stack.setCustomSpacing(Spacing.l, after: intro)

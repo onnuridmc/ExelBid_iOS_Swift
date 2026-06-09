@@ -57,7 +57,7 @@
     EBCardView *card = [[EBCardView alloc] init];
     [card addArranged:[EBSectionLabel make:@"SDK"]];
     [card addArranged:[EBTypography title:@"ExelBid iOS"]];
-    [card addArranged:[EBTypography footnote:@"v3 통합 데모입니다. Ads / Mediation / MPartners 탭에서 각 광고 surface를 둘러볼 수 있습니다. 광고 ID는 AdUnitIds 한 곳에서 관리합니다."]];
+    [card addArranged:[EBTypography footnote:@"ExelBid SDK 통합 예제입니다. 탭 메뉴에서 각 광고 유형의 로딩·노출 흐름을 확인할 수 있습니다."]];
     [card addArranged:[[EBInfoRow alloc] initWithKey:@"SDK version" value:ExelBid.shared.sdkVersion]];
     [card addArranged:[[EBInfoRow alloc] initWithKey:@"Deployment" value:@"iOS 13.0+"]];
     return card;
@@ -88,7 +88,7 @@
     [self.logSegments addTarget:self action:@selector(handleLogChanged:) forControlEvents:UIControlEventValueChanged];
     [card addArranged:self.logSegments];
 
-    [card addArranged:[EBTypography footnote:@"SDK 내부 os_log 출력 레벨. 운영 빌드에서는 warn 권장."]];
+    [card addArranged:[EBTypography footnote:@"SDK 로그 출력 수준입니다. 운영 빌드에서는 warn 이상을 권장합니다."]];
     return card;
 }
 

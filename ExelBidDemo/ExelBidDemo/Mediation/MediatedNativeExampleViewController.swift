@@ -34,8 +34,8 @@ final class MediatedNativeExampleViewController: UIViewController {
         let intro = CardView()
         intro.addArranged(SectionLabel.make("Mediated Native"))
         intro.addArranged(Typography.body(
-            "EBMediatedNativeAdLoader → EBMediatedNativeAd. attach(to:) 호출 시 " +
-            "낙찰 네트워크의 자산이 EBNativeAdRendering 뷰에 바인딩됩니다."
+            "여러 네트워크의 네이티브 광고를 폴백 처리합니다. " +
+            "광고 자산은 낙찰된 네트워크에 맞춰 자동으로 뷰에 바인딩됩니다."
         ))
         stack.addArrangedSubview(intro)
 

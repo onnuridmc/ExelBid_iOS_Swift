@@ -31,7 +31,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Interstitial"]];
-    [intro addArranged:[EBTypography body:@"EBInterstitialAd는 HTML 크리에이티브를 전체화면으로 보여주는 1회 노출 surface입니다. load → isReady → presentFrom:."]];
+    [intro addArranged:[EBTypography body:@"전체화면 광고입니다. 광고를 미리 로드한 뒤 원하는 시점에 노출합니다. 한 번 노출하면 닫힌 뒤 다시 로드해야 다음 광고를 보여줄 수 있습니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];

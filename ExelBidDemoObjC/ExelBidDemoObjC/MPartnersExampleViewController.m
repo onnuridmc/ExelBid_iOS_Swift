@@ -25,19 +25,19 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"MPartners"]];
-    [intro addArranged:[EBTypography body:@"MPartners는 별도 광고 네트워크입니다. 공개 API는 일반 광고와 1:1로 대응되며, autoRefresh / SKAdNetwork / MRC 50·100% 타이머는 미지원입니다."]];
+    [intro addArranged:[EBTypography body:@"MPartners 네트워크의 광고 예제입니다. 표준 광고와 동일한 방식으로 사용할 수 있으며, 자동 갱신 · SKAdNetwork · 50% / 100% 가시성 노출 측정은 지원되지 않습니다."]];
     [stack addArrangedSubview:intro];
     [stack setCustomSpacing:EBSpacingL afterView:intro];
 
     __weak typeof(self) weakSelf = self;
     NSArray<EBSurfaceCardView *> *cards = @[
-        [[EBSurfaceCardView alloc] initWithTitle:@"Banner" subtitle:@"EBMPartnersBannerAd"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Banner" subtitle:@"MPartners 배너 광고"
                                           symbol:@"rectangle"
                                           action:^{ [weakSelf push:[[MPartnersBannerController alloc] init]]; }],
-        [[EBSurfaceCardView alloc] initWithTitle:@"Interstitial" subtitle:@"EBMPartnersInterstitialAd"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Interstitial" subtitle:@"MPartners 전면 광고"
                                           symbol:@"rectangle.fill.on.rectangle.fill"
                                           action:^{ [weakSelf push:[[MPartnersInterstitialController alloc] init]]; }],
-        [[EBSurfaceCardView alloc] initWithTitle:@"Native" subtitle:@"EBMPartnersNativeAdLoader"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Native" subtitle:@"MPartners 네이티브 광고"
                                           symbol:@"doc.text.image"
                                           action:^{ [weakSelf push:[[MPartnersNativeController alloc] init]]; }]
     ];

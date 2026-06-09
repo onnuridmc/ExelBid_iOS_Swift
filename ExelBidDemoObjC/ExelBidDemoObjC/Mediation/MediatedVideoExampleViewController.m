@@ -38,7 +38,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Mediated Video"]];
-    [intro addArranged:[EBTypography body:@"EBMediatedVideoAd — load → presentFrom:. 1회 재생 후 isReady가 NO로 돌아갑니다. 다음 재생은 다시 load부터.\n\nExelBid 외 네트워크(AdMob/FAN)는 video 포맷을 전면 비디오로 노출하며 onProgress는 시작(0)/종료(100) 두 시점만 근사 보고됩니다."]];
+    [intro addArranged:[EBTypography body:@"여러 네트워크의 비디오 광고를 폴백 처리합니다. 한 번 재생되면 닫힌 뒤 다시 로드해야 합니다.\n\nExelBid 외 일부 네트워크(AdMob · FAN)는 재생 진행률을 시작·종료 두 시점에만 보고합니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];

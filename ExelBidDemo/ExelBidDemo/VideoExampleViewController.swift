@@ -4,7 +4,7 @@ import ExelBidSDK
 final class VideoExampleViewController: UIViewController {
 
     private let badge = StatusBadge()
-    private let progressRow = InfoRow(key: "VAST progress", value: "-")
+    private let progressRow = InfoRow(key: "재생 진행률", value: "-")
     private let logView = LogView()
     private let options = TestOptionsPanel()
 
@@ -29,8 +29,8 @@ final class VideoExampleViewController: UIViewController {
         scroll.addSubview(stack)
 
         let intro = CardView()
-        intro.addArranged(SectionLabel.make("Video (VAST)"))
-        intro.addArranged(Typography.body("EBVideoAd는 1회 재생 전용입니다. onDidDisappear 이후 다음 광고를 보여주려면 load()를 다시 호출해야 합니다."))
+        intro.addArranged(SectionLabel.make("Video"))
+        intro.addArranged(Typography.body("전체화면 비디오 광고입니다. 한 번 재생되면 닫힌 뒤 다시 로드해야 다음 광고를 노출할 수 있습니다."))
         stack.addArrangedSubview(intro)
 
         let status = CardView()

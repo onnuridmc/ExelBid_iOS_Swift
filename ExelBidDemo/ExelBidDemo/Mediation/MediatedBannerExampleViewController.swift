@@ -34,8 +34,8 @@ final class MediatedBannerExampleViewController: UIViewController {
         let intro = CardView()
         intro.addArranged(SectionLabel.make("Mediated Banner"))
         intro.addArranged(Typography.body(
-            "EBMediatedBannerAd — 서버가 정한 순서대로 어댑터를 순차 시도하고 " +
-            "첫 성공 네트워크의 광고를 노출합니다. autoRefresh는 지원되지 않습니다."
+            "여러 광고 네트워크를 서버 지정 순서대로 시도해, 가장 먼저 응답한 배너 광고를 노출합니다. " +
+            "자동 갱신은 지원되지 않습니다."
         ))
         stack.addArrangedSubview(intro)
 

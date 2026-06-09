@@ -31,15 +31,15 @@
     [scroll addSubview:stack];
 
     EBCardView *intro = [[EBCardView alloc] init];
-    [intro addArranged:[EBSectionLabel make:@"Video (VAST)"]];
-    [intro addArranged:[EBTypography body:@"EBVideoAd는 1회 재생 전용입니다. onDidDisappear 이후 다음 광고를 보여주려면 load를 다시 호출해야 합니다."]];
+    [intro addArranged:[EBSectionLabel make:@"Video"]];
+    [intro addArranged:[EBTypography body:@"전체화면 비디오 광고입니다. 한 번 재생되면 닫힌 뒤 다시 로드해야 다음 광고를 노출할 수 있습니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];
     [status addArranged:[EBSectionLabel make:@"Status"]];
     self.badge = [[EBStatusBadge alloc] initWithFrame:CGRectZero];
     [status addArranged:self.badge];
-    self.progressRow = [[EBInfoRow alloc] initWithKey:@"VAST progress" value:@"-"];
+    self.progressRow = [[EBInfoRow alloc] initWithKey:@"재생 진행률" value:@"-"];
     [status addArranged:self.progressRow];
     [stack addArrangedSubview:status];
 

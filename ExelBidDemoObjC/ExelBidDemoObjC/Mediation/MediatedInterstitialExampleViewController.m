@@ -32,7 +32,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Mediated Interstitial"]];
-    [intro addArranged:[EBTypography body:@"EBMediatedInterstitialAd — load → isReady → presentFrom:. FAN 등 일부 네트워크는 로드 시점에 rootViewController가 필요해 rootViewControllerProvider 설정이 권장됩니다."]];
+    [intro addArranged:[EBTypography body:@"여러 네트워크의 전면 광고를 폴백 처리합니다. 광고를 미리 로드한 뒤 원하는 시점에 노출합니다. 일부 네트워크는 로드 시점부터 화면 컨트롤러가 필요하므로, 미리 설정해 두는 것이 좋습니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];

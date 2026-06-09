@@ -37,7 +37,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Mediated Native"]];
-    [intro addArranged:[EBTypography body:@"EBMediatedNativeAdLoader → EBMediatedNativeAd. attachTo: 호출 시 낙찰 네트워크의 자산이 EBNativeAdRendering 뷰에 바인딩됩니다. AdMob/FAN 미디어는 nativeMediaView 슬롯에 그려집니다."]];
+    [intro addArranged:[EBTypography body:@"여러 네트워크의 네이티브 광고를 폴백 처리합니다. 광고 자산은 낙찰된 네트워크에 맞춰 자동으로 뷰에 바인딩됩니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];

@@ -34,7 +34,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Native"]];
-    [intro addArranged:[EBTypography body:@"EBNativeAdLoader로 받은 응답을 호스트 앱이 그린 EBNativeAdRendering view에 attach합니다. 노출은 attach 시점에 + 50%/100% 가시성 기반으로 발사됩니다."]];
+    [intro addArranged:[EBTypography body:@"앱에서 직접 디자인한 레이아웃에 광고 자산을 표시하는 네이티브 광고입니다. 광고 뷰가 화면에 노출되는 시점, 그리고 50% · 100% 가시성 도달 시점에 노출 이벤트가 발생합니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];
@@ -46,7 +46,7 @@
     EBCardView *nativeOptions = [[EBCardView alloc] init];
     [nativeOptions addArranged:[EBSectionLabel make:@"Native options"]];
     [nativeOptions addArranged:[self buildVideoToggleRow]];
-    UILabel *videoHelp = [EBTypography body:@"ON 시 EBNativeAssetVideo를 요청 자산에 포함하고 별도의 native video 광고 유닛(AdUnitIds.nativeVideo)으로 요청합니다. 응답에 동영상이 있으면 SDK가 nativeMediaView 슬롯 안에서 음소거 인라인 재생합니다 — 호스트 추가 작업 없음."];
+    UILabel *videoHelp = [EBTypography body:@"ON으로 두면 동영상 자산을 함께 요청합니다. 동영상이 포함된 광고가 응답되면 미디어 영역에서 음소거 상태로 자동 재생됩니다."];
     videoHelp.textColor = UIColor.secondaryLabelColor;
     [nativeOptions addArranged:videoHelp];
     [stack addArrangedSubview:nativeOptions];
@@ -85,7 +85,7 @@
 
 - (UIView *)buildVideoToggleRow {
     UILabel *label = [[UILabel alloc] init];
-    label.text = @"Request video asset";
+    label.text = @"동영상 자산 요청";
     label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     label.adjustsFontForContentSizeCategory = YES;
     self.videoSwitch = [[UISwitch alloc] init];

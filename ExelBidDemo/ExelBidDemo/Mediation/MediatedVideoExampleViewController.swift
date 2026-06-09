@@ -36,10 +36,8 @@ final class MediatedVideoExampleViewController: UIViewController {
         let intro = CardView()
         intro.addArranged(SectionLabel.make("Mediated Video"))
         intro.addArranged(Typography.body(
-            "EBMediatedVideoAd — load() → present(from:). 1회 재생 후 isReady가 " +
-            "false로 돌아갑니다. 다음 재생은 다시 load()부터.\n\n" +
-            "ExelBid 외 네트워크(AdMob/FAN)는 video 포맷을 전면 비디오로 노출하며 " +
-            "onProgress는 시작(0)·종료(100) 두 시점만 근사 보고됩니다."
+            "여러 네트워크의 비디오 광고를 폴백 처리합니다. 한 번 재생되면 닫힌 뒤 다시 로드해야 합니다.\n\n" +
+            "ExelBid 외 일부 네트워크(AdMob · FAN)는 재생 진행률을 시작·종료 두 시점에만 보고합니다."
         ))
         stack.addArrangedSubview(intro)
 

@@ -53,8 +53,8 @@ final class MPartnersNativeController: UIViewController {
         let note = CardView()
         note.addArranged(SectionLabel.make("Note"))
         note.addArranged(Typography.footnote(
-            "MPartners 응답에는 imp50tracker / imp100tracker가 포함되지 않습니다. " +
-            "50% / 100% 노출 콜백은 발생하지 않으며 attach 시점의 단일 impression만 처리됩니다."
+            "MPartners 네이티브 광고는 50% / 100% 가시성 노출 측정을 지원하지 않습니다. " +
+            "광고 뷰가 화면에 표시되는 시점의 노출 이벤트만 호출됩니다."
         ))
         stack.addArrangedSubview(note)
 

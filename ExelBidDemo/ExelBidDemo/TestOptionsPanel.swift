@@ -66,7 +66,7 @@ final class TestOptionsPanel: UIView {
 
     private func setupHeader() {
         let titleLabel = UILabel()
-        titleLabel.text = "Test options"
+        titleLabel.text = "테스트 옵션"
         titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline).withWeight(.semibold)
         titleLabel.textColor = .label
         titleLabel.adjustsFontForContentSizeCategory = true
@@ -102,7 +102,7 @@ final class TestOptionsPanel: UIView {
 
     private func setupBody() {
         let testingRow = UIStackView(arrangedSubviews: [
-            label("testing"),
+            label("테스트 모드"),
             UIView(),
             testingSwitch
         ])
@@ -110,7 +110,7 @@ final class TestOptionsPanel: UIView {
         testingRow.alignment = .center
 
         let helper = UILabel()
-        helper.text = "ON 시 광고 요청에 test=1을 함께 전송합니다. (EBAdOptions.testing)"
+        helper.text = "ON으로 두면 광고 요청을 테스트 모드로 보냅니다. 실제 노출·매출에 반영되지 않습니다."
         helper.font = .preferredFont(forTextStyle: .footnote)
         helper.textColor = .secondaryLabel
         helper.numberOfLines = 0

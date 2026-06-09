@@ -31,7 +31,7 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Banner"]];
-    [intro addArranged:[EBTypography body:@"EBBannerAd 320x50. autoRefresh이 켜져 있으면 서버 응답의 갱신 주기에 맞춰 자동 재요청합니다."]];
+    [intro addArranged:[EBTypography body:@"320×50 사이즈 배너 광고입니다. 자동 갱신을 켜두면 서버에서 지정한 주기에 맞춰 다음 광고를 자동으로 요청합니다."]];
     [stack addArrangedSubview:intro];
 
     EBCardView *status = [[EBCardView alloc] init];

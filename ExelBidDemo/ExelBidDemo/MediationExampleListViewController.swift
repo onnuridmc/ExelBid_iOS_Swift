@@ -14,16 +14,16 @@ final class MediationExampleListViewController: UIViewController {
     }
 
     private let items: [Item] = [
-        .init(title: "Mediated Banner",       subtitle: "EBMediatedBannerAd + waterfall",
+        .init(title: "Mediated Banner",       subtitle: "여러 네트워크의 배너 광고를 순차 시도",
               symbol: "rectangle",
               make: { MediatedBannerExampleViewController() }),
-        .init(title: "Mediated Interstitial", subtitle: "EBMediatedInterstitialAd + waterfall",
+        .init(title: "Mediated Interstitial", subtitle: "여러 네트워크의 전면 광고를 순차 시도",
               symbol: "rectangle.fill.on.rectangle.fill",
               make: { MediatedInterstitialExampleViewController() }),
-        .init(title: "Mediated Native",       subtitle: "EBMediatedNativeAdLoader + waterfall",
+        .init(title: "Mediated Native",       subtitle: "여러 네트워크의 네이티브 광고를 순차 시도",
               symbol: "doc.text.image",
               make: { MediatedNativeExampleViewController() }),
-        .init(title: "Mediated Video",        subtitle: "EBMediatedVideoAd + waterfall",
+        .init(title: "Mediated Video",        subtitle: "여러 네트워크의 비디오 광고를 순차 시도",
               symbol: "play.rectangle",
               make: { MediatedVideoExampleViewController() })
     ]
@@ -48,10 +48,9 @@ final class MediationExampleListViewController: UIViewController {
         let intro = CardView()
         intro.addArranged(SectionLabel.make("Mediation"))
         intro.addArranged(Typography.body(
-            "서버 워터폴을 받아 어댑터를 자동 폴백 처리합니다. " +
-            "데모는 ExelBid / AdMob / FAN / AdFit 4개 어댑터를 등록하지만, " +
-            "FAN·AdFit 호스트 SDK는 링크하지 않아 isAvailable=false로 동작합니다 — " +
-            "이때 워터폴 로그에 adapterNotRegistered 항목이 보입니다."
+            "서버가 정한 순서대로 여러 광고 네트워크를 시도해, 가장 먼저 응답한 광고를 노출합니다. " +
+            "예제에서는 ExelBid · AdMob · FAN · AdFit 네 가지 네트워크가 등록되어 있으며, " +
+            "각 시도 결과는 워터폴 로그에서 확인할 수 있습니다."
         ))
         stack.addArrangedSubview(intro)
         stack.setCustomSpacing(Spacing.l, after: intro)

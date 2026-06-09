@@ -62,7 +62,7 @@ final class HomeViewController: UIViewController {
 
         let eyebrow = SectionLabel.make("SDK")
         let title   = Typography.title("ExelBid iOS")
-        let blurb   = Typography.footnote("v3 통합 데모입니다. Ads / Mediation / MPartners 탭에서 각 광고 surface를 둘러볼 수 있습니다. 광고 ID는 AdUnitIds.swift 한 곳에서 관리합니다.")
+        let blurb   = Typography.footnote("ExelBid SDK 통합 예제입니다. 탭 메뉴에서 각 광고 유형의 로딩·노출 흐름을 확인할 수 있습니다.")
 
         card.addArranged([eyebrow, title, blurb])
         card.addArranged(InfoRow(key: "SDK version",   value: ExelBid.shared.sdkVersion))
@@ -92,7 +92,7 @@ final class HomeViewController: UIViewController {
         logSegments.addTarget(self, action: #selector(handleLogChanged(_:)), for: .valueChanged)
         card.addArranged(logSegments)
 
-        let note = Typography.footnote("SDK 내부 os_log 출력 레벨. 운영 빌드에서는 .warning 권장.")
+        let note = Typography.footnote("SDK 로그 출력 수준입니다. 운영 빌드에서는 warning 이상을 권장합니다.")
         card.addArranged(note)
         return card
     }

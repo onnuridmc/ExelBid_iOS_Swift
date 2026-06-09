@@ -26,22 +26,22 @@
 
     EBCardView *intro = [[EBCardView alloc] init];
     [intro addArranged:[EBSectionLabel make:@"Ads"]];
-    [intro addArranged:[EBTypography body:@"ExelBid 베이스 광고 surface 4종입니다. 항목을 선택하면 해당 화면으로 이동합니다."]];
+    [intro addArranged:[EBTypography body:@"ExelBid가 제공하는 4가지 광고 유형 예제입니다. 항목을 선택하면 상세 화면으로 이동합니다."]];
     [stack addArrangedSubview:intro];
     [stack setCustomSpacing:EBSpacingL afterView:intro];
 
     __weak typeof(self) weakSelf = self;
     NSArray<EBSurfaceCardView *> *cards = @[
-        [[EBSurfaceCardView alloc] initWithTitle:@"Banner" subtitle:@"320x50, autoRefresh"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Banner" subtitle:@"320×50 배너, 자동 갱신"
                                           symbol:@"rectangle"
                                           action:^{ [weakSelf push:[[BannerExampleViewController alloc] init]]; }],
-        [[EBSurfaceCardView alloc] initWithTitle:@"Interstitial" subtitle:@"전체화면 HTML, 1회 노출"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Interstitial" subtitle:@"전체화면 광고"
                                           symbol:@"rectangle.fill.on.rectangle.fill"
                                           action:^{ [weakSelf push:[[InterstitialExampleViewController alloc] init]]; }],
-        [[EBSurfaceCardView alloc] initWithTitle:@"Native" subtitle:@"EBNativeAdRendering + attach"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Native" subtitle:@"커스텀 레이아웃 네이티브 광고"
                                           symbol:@"doc.text.image"
                                           action:^{ [weakSelf push:[[NativeExampleViewController alloc] init]]; }],
-        [[EBSurfaceCardView alloc] initWithTitle:@"Video (VAST)" subtitle:@"1회 재생, onProgress 콜백"
+        [[EBSurfaceCardView alloc] initWithTitle:@"Video" subtitle:@"전체화면 비디오 광고"
                                           symbol:@"play.rectangle"
                                           action:^{ [weakSelf push:[[VideoExampleViewController alloc] init]]; }]
     ];
