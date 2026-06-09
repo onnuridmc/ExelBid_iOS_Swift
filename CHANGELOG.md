@@ -1,5 +1,8 @@
 # Version History
 
+## Version 3.0.2
+- 기타 수정
+
 ## Version 3.0.1
 - NativeView 수정
 

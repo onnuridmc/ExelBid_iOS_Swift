@@ -148,4 +148,29 @@ iOSInjectionProject/
 *.xcframework
 *.xcframework.zip
 
+### Xcode / SPM build & test artifacts ###
+# Xcode-managed SPM workspace state (regenerated on resolve).
+.swiftpm/
+# Xcode test result bundles.
+*.xcresult
+# Code coverage data.
+*.profraw
+*.profdata
+# Generic log files.
+*.log
+
+### Editor / IDE ###
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+### Misc OS / merge artifacts ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.orig
+*.rej
+*.bak
 
