@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *bodyLabel;
 @property (nonatomic, strong) UIView *mediaContainer;
-@property (nonatomic, strong) UILabel *ctaLabel;
+@property (nonatomic, strong) UIButton *ctaButton;
 @property (nonatomic, strong) UILabel *sponsoredLabel;
 @property (nonatomic, strong) UIImageView *privacyIconView;
 

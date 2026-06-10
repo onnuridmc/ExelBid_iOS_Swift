@@ -256,7 +256,7 @@ final class MyNativeAdView: UIView, EBNativeAdRendering {
     // SDK가 자동 호출하는 메서드 — 채울 뷰만 반환
     func nativeTitleTextLabel() -> UILabel? { titleLabel }
     func nativeMainTextLabel() -> UILabel? { bodyLabel }
-    func nativeCallToActionTextLabel() -> UILabel? { ctaButton.titleLabel }
+    func nativeCallToActionButton() -> UIButton? { ctaButton }
     func nativeIconImageView() -> UIImageView? { iconImageView }
 
     // 메인 크리에이티브 슬롯(빈 UIView 하나). SDK가 이 안을 채웁니다 —

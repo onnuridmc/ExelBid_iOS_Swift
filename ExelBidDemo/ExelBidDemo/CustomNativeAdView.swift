@@ -14,7 +14,7 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
     let titleLabel = UILabel()
     let bodyLabel = UILabel()
     let mediaContainer = UIView()
-    let ctaLabel = UILabel()
+    let ctaButton = UIButton(type: .system)
     let sponsoredLabel = UILabel()
     let privacyIconView = UIImageView()
 
@@ -33,7 +33,7 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
 
     func nativeTitleTextLabel() -> UILabel? { titleLabel }
     func nativeMainTextLabel() -> UILabel? { bodyLabel }
-    func nativeCallToActionTextLabel() -> UILabel? { ctaLabel }
+    func nativeCallToActionButton() -> UIButton? { ctaButton }
     func nativeSponsoredTextLabel() -> UILabel? { sponsoredLabel }
     func nativeIconImageView() -> UIImageView? { iconView }
     func nativeMediaView() -> UIView? { mediaContainer }
@@ -52,9 +52,9 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         sponsoredLabel.font = .preferredFont(forTextStyle: .caption2)
         sponsoredLabel.textColor = .tertiaryLabel
 
-        ctaLabel.font = .preferredFont(forTextStyle: .subheadline)
-        ctaLabel.textColor = .systemBlue
-        ctaLabel.textAlignment = .right
+        ctaButton.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        ctaButton.setTitleColor(.systemBlue, for: .normal)
+        ctaButton.contentHorizontalAlignment = .right
 
         iconView.contentMode = .scaleAspectFill
         iconView.clipsToBounds = true
@@ -67,7 +67,7 @@ final class CustomNativeAdView: UIView, EBNativeAdRendering {
         privacyIconView.clipsToBounds = true
         privacyIconView.isUserInteractionEnabled = true
 
-        let topRow = UIStackView(arrangedSubviews: [iconView, titleLabel, ctaLabel])
+        let topRow = UIStackView(arrangedSubviews: [iconView, titleLabel, ctaButton])
         topRow.spacing = 8
         topRow.alignment = .center
 

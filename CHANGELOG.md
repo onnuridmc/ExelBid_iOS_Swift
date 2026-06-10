@@ -1,5 +1,8 @@
 # Version History
 
+## Version 3.0.4
+- native rendering 수정
+
 ## Version 3.0.3
 - ad options 수정
 

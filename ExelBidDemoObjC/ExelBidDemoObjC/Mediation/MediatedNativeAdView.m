@@ -17,7 +17,7 @@
 
 - (UILabel *)nativeTitleTextLabel        { return self.titleLabel; }
 - (UILabel *)nativeMainTextLabel         { return self.bodyLabel; }
-- (UILabel *)nativeCallToActionTextLabel { return self.ctaLabel; }
+- (UIButton *)nativeCallToActionButton   { return self.ctaButton; }
 - (UILabel *)nativeSponsoredTextLabel    { return self.sponsoredLabel; }
 - (UIImageView *)nativeIconImageView     { return self.iconView; }
 - (UIImageView *)nativePrivacyInformationIconImageView { return self.privacyIconView; }
@@ -40,10 +40,10 @@
     self.sponsoredLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
     self.sponsoredLabel.textColor = UIColor.tertiaryLabelColor;
 
-    self.ctaLabel = [[UILabel alloc] init];
-    self.ctaLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-    self.ctaLabel.textColor = UIColor.systemBlueColor;
-    self.ctaLabel.textAlignment = NSTextAlignmentRight;
+    self.ctaButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.ctaButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    [self.ctaButton setTitleColor:UIColor.systemBlueColor forState:UIControlStateNormal];
+    self.ctaButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 
     self.iconView = [[UIImageView alloc] init];
     self.iconView.contentMode = UIViewContentModeScaleAspectFill;
@@ -65,7 +65,7 @@
     self.privacyIconView.userInteractionEnabled = YES;
 
     UIStackView *topRow = [[UIStackView alloc] initWithArrangedSubviews:@[
-        self.iconView, self.titleLabel, self.ctaLabel
+        self.iconView, self.titleLabel, self.ctaButton
     ]];
     topRow.spacing = 8;
     topRow.alignment = UIStackViewAlignmentCenter;
